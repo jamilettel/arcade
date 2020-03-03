@@ -10,7 +10,7 @@
 
 #include <string>
 #include <dlfcn.h>
-#include <exception>
+#include "Error.hpp"
 
 template <typename T>
 class DLLoader {
@@ -18,7 +18,7 @@ public:
     DLLoader(const std::string &libpath):
         _handle(dlopen(libpath.c_str(), RTLD_LAZY | RTLD_LOCAL)) {
         if (!_handle)
-            throw 1;
+            throw DLLoaderError("Could not load dynamic library '" + libpath + "'");
     }
 
     ~DLLoader() {
@@ -26,7 +26,9 @@ public:
     }
 
     T *getInstance(const std::string &fct) const {
-        return (reinterpret_cast<T *>(dlsym(_handle, fct.c_str())));
+        T *(*ctor)() = reinterpret_cast<T *(*)()>(dlsym(_handle, fct.c_str()));
+
+        return (ctor());
     }
 
 private:

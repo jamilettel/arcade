@@ -16,9 +16,8 @@ Test(DLLoader, basic_test)
     OSRedirector redirector(std::cout);
 
     try {
-        DLLoader<Koala *()> koalalib("tests/libkoala.so");
-        Koala *(*koala_ctor)() = koalalib.getInstance("koala_ctor");
-        Koala *koala = koala_ctor();
+        DLLoader<Koala> koalalib("tests/libkoala.so");
+        Koala *koala = koalalib.getInstance("koala_ctor");
 
         koala->print();
         delete koala;
@@ -26,4 +25,15 @@ Test(DLLoader, basic_test)
         cr_assert(false);
     }
     cr_assert(redirector.getContent() == "GRAHU\n");
+}
+
+Test(DLLoader, invalid_lib)
+{
+    try {
+        DLLoader<Koala *()> koalalib("lib qui n'existe pas");
+
+        cr_assert(false);
+    } catch (ArcadeError &e) {
+        cr_assert(e.getComponent() == "DLLoader");
+    }
 }
