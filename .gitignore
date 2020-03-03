@@ -2,9 +2,6 @@
 # Edit at https://www.gitignore.io/?templates=c++,code,cmake,clion,emacs
 
 ## PERSO ##
-*~
-\#*\#
-*.o
 *.gc*
 unit_tests
 a.out
