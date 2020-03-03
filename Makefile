@@ -7,11 +7,13 @@
 
 NAME	=	arcade
 
-SRC_TEST	=	tests/OSRedirector.cpp			\
+SRC_TEST	=	tests/OSRedirector.cpp	\
+				tests/DLLoader.cpp		\
 
 MAIN	=	src/main.cpp
 
 SRC	=\
+		src/Error.cpp	\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 
@@ -26,7 +28,9 @@ RM	=	rm -f
 
 CXX	=	g++
 
-TEST_LDFLAGS	=	-lcriterion --coverage
+LDFLAGS	=	-ldl
+
+TEST_LDFLAGS	=	-lcriterion --coverage -Ltests -lkoala -Wl,-rpath=tests
 
 COV_TMP	=	$(SRC:%.cpp=%.gcda) $(SRC:%.cpp=%.gcno) $(SRC_TEST:%.cpp=%.gcda) $(SRC_TEST:%.cpp=%.gcno)
 
@@ -35,7 +39,7 @@ TEST_NAME	=	unit_tests
 all:	$(NAME)
 
 $(NAME):	$(OBJ) $(OBJ_MAIN)
-			$(CXX) -o $(NAME) $(OBJ) $(OBJ_MAIN)
+			$(CXX) -o $(NAME) $(OBJ) $(OBJ_MAIN) $(LDFLAGS)
 
 clean_coverage	:
 					$(RM) $(COV_TMP)
@@ -48,9 +52,9 @@ fclean	:	clean
 
 re	:	fclean all
 
-tests_run	:	CXXFLAGS+= -fprofile-arcs -ftest-coverage -Itests
+tests_run	:	CXXFLAGS+= -fprofile-arcs -ftest-coverage -Itests/include
 tests_run	: 	$(OBJ) $(OBJ_TEST)
-				$(CXX) -o $(TEST_NAME) $(OBJ) $(OBJ_TEST) $(TEST_LDFLAGS)
+				$(CXX) -o $(TEST_NAME) $(OBJ) $(OBJ_TEST) $(TEST_LDFLAGS) $(LDFLAGS)
 				./$(TEST_NAME)
 				gcovr --exclude tests
 
