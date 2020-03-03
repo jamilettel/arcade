@@ -30,7 +30,7 @@ CXX	=	g++
 
 LDFLAGS	=	-ldl
 
-TEST_LDFLAGS	=	-lcriterion --coverage -Ltests -lkoala -Wl,-rpath=tests
+TEST_LDFLAGS	=	-lcriterion --coverage
 
 COV_TMP	=	$(SRC:%.cpp=%.gcda) $(SRC:%.cpp=%.gcno) $(SRC_TEST:%.cpp=%.gcda) $(SRC_TEST:%.cpp=%.gcno)
 
