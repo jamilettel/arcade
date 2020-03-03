@@ -1,0 +1,8 @@
+*~
+\#*\#
+*.o
+*.gc*
+unit_tests
+a.out
+*tmp*
+arcade
