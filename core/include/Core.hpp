@@ -43,8 +43,8 @@ namespace arc {
         std::string _currentGraphicalLib;
         std::vector<std::string> _graphicalList;
 
-        std::vector<std::string> _mainMenuOptions;
-        std::vector<std::string> _pauseMenuOptions;
+        std::map<std::string, std::function<void()>> _mainMenuOptions;
+        std::map<std::string, std::function<void()>> _pauseMenuOptions;
 
     };
 

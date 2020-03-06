@@ -64,26 +64,27 @@ void Core::refreshLibrarieLists()
 
 void Core::setMenuOptions()
 {
-    _mainMenuOptions.push_back("Choose game");
-    _mainMenuOptions.push_back("Change library");
-    _mainMenuOptions.push_back("How to play");
-    _mainMenuOptions.push_back("Quit");
+    // _mainMenuOptions.push_back("Choose game");
+    // _mainMenuOptions.push_back("Change library");
+    // _mainMenuOptions.push_back("How to play");
+    // _mainMenuOptions.push_back("Quit");
 }
 
 void Core::setPauseOptions()
 {
     std::map<std::string, std::function<void()>> a;
 
-    a["Resume"] = [this] () {
-                      _graphical->setScene(IGraphical::GAME);
-                  };
-    a["Resume"] = [this] () {
-                      _graphical->setScene(IGraphical::GAME);
-                  };
-    _mainMenuOptions.push_back("Resume");
-    _mainMenuOptions.push_back("Change library");
-    _mainMenuOptions.push_back("How to play");
-    _mainMenuOptions.push_back("Return to menu");
+    _mainMenuOptions["Resume"] =
+        [this] () {
+            _graphical->setScene(IGraphical::GAME);
+        };
+    // _mainMenuOptions["Change Library"] =
+    //     [this] () {
+    //     };
+    // _mainMenuOptions.push_back("Resume");
+    // _mainMenuOptions.push_back("Change library");
+    // _mainMenuOptions.push_back("How to play");
+    // _mainMenuOptions.push_back("Return to menu");
 }
 
 const std::vector<std::string> &Core::getGameList() const
