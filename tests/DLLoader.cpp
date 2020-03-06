@@ -32,7 +32,7 @@ Test(DLLoader, basic_test)
 Test(DLLoader, invalid_lib)
 {
     try {
-        DLLoader<Animal *()> koalalib("lib qui n'existe pas");
+        DLLoader<Animal *()> koalalib("graphics qui n'existe pas");
 
         cr_assert(false);
     } catch (ArcadeError &e) {
