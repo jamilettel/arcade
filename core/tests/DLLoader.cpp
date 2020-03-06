@@ -11,12 +11,14 @@
 #include "Error.hpp"
 #include "OSRedirector.hpp"
 
+using namespace arc;
+
 Test(DLLoader, basic_test)
 {
     OSRedirector redirector(std::cout);
 
     try {
-        DLLoader<Animal> koalalib("tests/libkoala.so");
+        DLLoader<Animal> koalalib("core/tests/libkoala.so");
         Animal *koala = koalalib.getInstance("koala_ctor");
 
         koala->print();

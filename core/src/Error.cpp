@@ -6,6 +6,9 @@
 */
 
 #include "Error.hpp"
+#include "DLLoader.hpp"
+
+using namespace arc;
 
 ArcadeError::ArcadeError(const std::string &component, const std::string &message):
     _component(component), _message(message)

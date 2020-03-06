@@ -7,8 +7,8 @@
 
 NAME	=	arcade
 
-SRC_TEST	=	tests/OSRedirector.cpp	\
-				tests/DLLoader.cpp		\
+SRC_TEST	=	core/tests/OSRedirector.cpp	\
+				core/tests/DLLoader.cpp		\
 
 MAIN	=	core/src/main.cpp
 
@@ -21,7 +21,7 @@ OBJ_MAIN	=	$(MAIN:%.cpp=%.o)
 
 OBJ_TEST	=	$(SRC_TEST:%.cpp=%.o)
 
-CXXFLAGS	=	-W -Wall -Wextra -Wshadow	-Icore/include
+CXXFLAGS	=	-W -Wall -Wextra -Wshadow	-Icore/include -Iinclude
 
 RM	=	rm -f
 
@@ -63,7 +63,7 @@ fclean: clean
 
 re: fclean all
 
-tests_run: CXXFLAGS+= -fprofile-arcs -ftest-coverage -Itests/include
+tests_run: CXXFLAGS+= -fprofile-arcs -ftest-coverage -Icore/tests/include
 tests_run: $(OBJ) $(OBJ_TEST)
 			$(CXX) -o $(TEST_NAME) $(OBJ) $(OBJ_TEST) $(TEST_LDFLAGS) $(LDFLAGS)
 			./$(TEST_NAME)

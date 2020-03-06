@@ -10,29 +10,35 @@
 
 #include <string>
 #include <dlfcn.h>
-#include "Error.hpp"
+#include "CoreError.hpp"
 
-template <typename T>
-class DLLoader {
-public:
-    DLLoader(const std::string &libpath):
-        _handle(dlopen(libpath.c_str(), RTLD_LAZY | RTLD_LOCAL)) {
-        if (!_handle)
-            throw DLLoaderError("Could not load dynamic library '" + libpath + "'");
-    }
+#define CONSTRUCTOR "instance_ctor"
 
-    ~DLLoader() {
-        dlclose(_handle);
-    }
+namespace arc {
 
-    T *getInstance(const std::string &fct) const {
-        T *(*ctor)() = reinterpret_cast<T *(*)()>(dlsym(_handle, fct.c_str()));
+    template <typename T>
+    class DLLoader {
+    public:
+        DLLoader(const std::string &libpath):
+            _handle(dlopen(libpath.c_str(), RTLD_LAZY | RTLD_LOCAL)) {
+            if (!_handle)
+                throw DLLoaderError("Could not load dynamic library '" + libpath + "'");
+        }
 
-        return (ctor());
-    }
+        ~DLLoader() {
+            dlclose(_handle);
+        }
 
-private:
-    void *_handle;
-};
+        T *getInstance(const std::string &constructor = CONSTRUCTOR) const {
+            T *(*ctor)() = reinterpret_cast<T *(*)()>(dlsym(_handle, constructor.c_str()));
+
+            return (ctor());
+        }
+
+    private:
+        void *_handle;
+    };
+
+}
 
 #endif /* DLLOADER_HPP_ */

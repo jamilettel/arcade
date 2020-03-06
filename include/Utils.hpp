@@ -5,6 +5,9 @@
 ** Utils
 */
 
+#ifndef UTILS_HPP_
+#define UTILS_HPP_
+
 namespace arc {
 
     struct Color {
@@ -93,3 +96,5 @@ namespace arc {
 
     }
 }
+
+#endif /* UTILS_HPP_ */
