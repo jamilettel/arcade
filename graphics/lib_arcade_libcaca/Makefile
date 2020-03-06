@@ -5,7 +5,7 @@
 ## Makefile
 ##
 
-NAME	=	lib_arcade_libcaca.so
+NAME	=	../lib_arcade_libcaca.so
 
 SRC	= src/main.cpp	\
 

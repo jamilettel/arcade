@@ -5,7 +5,7 @@
 ## Makefile
 ##
 
-NAME	=	lib_arcade_sfml.so
+NAME	=	../lib_arcade_sfml.so
 
 SRC	= src/main.cpp	\
 

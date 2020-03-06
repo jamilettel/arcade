@@ -5,7 +5,7 @@
 ## Makefile
 ##
 
-NAME	=	lib_arcade_centipede.so
+NAME	=	../lib_arcade_centipede.so
 
 SRC	= src/main.cpp	\
 
