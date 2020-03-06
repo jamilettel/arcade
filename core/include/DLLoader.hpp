@@ -29,7 +29,7 @@ namespace arc {
             dlclose(_handle);
         }
 
-        T *getInstance(const std::string &constructor = CONSTRUCTOR) const {
+        T *getInstance(const std::string &constructor = CONSTRUCTOR) {
             T *(*ctor)() = reinterpret_cast<T *(*)()>(dlsym(_handle, constructor.c_str()));
 
             return (ctor());

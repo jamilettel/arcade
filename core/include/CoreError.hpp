@@ -19,5 +19,10 @@ namespace arc {
         DLLoaderError(const std::string &message);
     };
 
+    class CoreError: public ArcadeError {
+    public:
+        CoreError(const std::string &message);
+    };
+
 }
 #endif /* COREERROR_HPP_ */

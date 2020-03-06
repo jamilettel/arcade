@@ -14,13 +14,13 @@
 
 #define GAME_DIR "games/"
 
-#define LIBRARY_DIR "lib/"
+#define GRAPHICAL_DIR "lib/"
 
 namespace arc {
 
     class Core {
     public:
-        Core(const std::string &graphicalLibName);
+        Core(const std::string &graphicalLib);
 
         void loadGraphicalLibrary(const std::string &path);
         void loadGameLibrary(const std::string &path);
@@ -31,12 +31,16 @@ namespace arc {
         const std::vector<std::string> &getGameList() const;
         const std::vector<std::string> &getGraphicalList() const;
 
-
     private:
+        void setMenuOptions();
+        void setPauseOptions();
+
         std::unique_ptr<IGraphical> _graphical;
         std::unique_ptr<IGame> _game;
 
+        std::string _currentGame;
         std::vector<std::string> _gameList;
+        std::string _currentGraphicalLib;
         std::vector<std::string> _graphicalList;
 
         std::vector<std::string> _mainMenuOptions;

@@ -27,3 +27,7 @@ const std::string &ArcadeError::getComponent() const noexcept
 DLLoaderError::DLLoaderError(const std::string &message):
     ArcadeError("DLLoader", message)
 {}
+
+CoreError::CoreError(const std::string &message):
+    ArcadeError("Core", message)
+{}
