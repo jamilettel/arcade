@@ -19,13 +19,13 @@ OBJ_MAIN	=	$(MAIN:%.cpp=%.o)
 
 OBJ_TEST	=	$(SRC_TEST:%.cpp=%.o)
 
-CXXFLAGS	=	-W -Wall -Wextra -Wshadow	-Iinclude -I./../../include -std=c++17
+CXXFLAGS	=	-W -Wall -Wextra -Wshadow	-Iinclude -I./../../include -std=c++17 -fPIC
 
 RM	=	rm -f
 
 CXX	=	g++
 
-LDFLAGS	=	-ldl -lstdc++fs
+LDFLAGS	=	-ldl -lstdc++fs -shared
 
 TEST_LDFLAGS	=	-lcriterion --coverage
 

@@ -5,7 +5,14 @@
 ** TODO: add description
 */
 
-int main(void)
+#include "Nibbler.hpp"
+
+arc::Nibbler::Nibbler()
 {
-    return (0);
+
+}
+
+arc::Nibbler::~Nibbler()
+{
+
 }
