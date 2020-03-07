@@ -38,7 +38,7 @@ namespace arc {
         virtual size_t getScreenWidth() const = 0;
         virtual size_t getScreenHeight() const = 0;
 
-        virtual void setScene(Scene scene) const = 0;
+        virtual void setScene(Scene scene) = 0;
         virtual Scene getScene() const = 0;
 
         virtual void setMainMenuOptions(const std::map<std::string, std::function<void()>> &mainMenu) = 0;

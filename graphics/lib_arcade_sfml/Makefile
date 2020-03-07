@@ -7,7 +7,7 @@
 
 NAME	=	../lib_arcade_sfml.so
 
-SRC	= src/main.cpp	\
+SRC	=
 
 OBJ	=	$(SRC:%.cpp=%.o)
 
