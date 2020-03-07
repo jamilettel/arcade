@@ -30,7 +30,7 @@ namespace arc {
             GET_INPUT,
         };
 
-        virtual ~IGraphical() = 0;
+        virtual ~IGraphical() = default;
 
         virtual void display() = 0;
         virtual Event::Type getEventType() const = 0;

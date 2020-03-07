@@ -11,7 +11,8 @@ SRC_TEST	=	\
 
 MAIN	=	\
 
-SRC	=	src/SfmlGraphical.cpp\
+SRC	=	src/SfmlGraphical.cpp	\
+		src/SfmlError.cpp		\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 
@@ -19,13 +20,13 @@ OBJ_MAIN	=	$(MAIN:%.cpp=%.o)
 
 OBJ_TEST	=	$(SRC_TEST:%.cpp=%.o)
 
-CXXFLAGS	=	-W -Wall -Wextra -Wshadow	-Iinclude -I./../../include -std=c++17
+CXXFLAGS	=	-W -Wall -Wextra -Wshadow	-Iinclude -I./../../include -std=c++17 -fPIC
 
 RM	=	rm -f
 
 CXX	=	g++
 
-LDFLAGS	=	-ldl -lstdc++fs
+LDFLAGS	=	-ldl -lstdc++fs -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -shared
 
 TEST_LDFLAGS	=	-lcriterion --coverage
 

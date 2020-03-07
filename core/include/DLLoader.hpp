@@ -13,6 +13,7 @@
 #include "CoreError.hpp"
 
 #define CONSTRUCTOR "instance_ctor"
+#include <iostream>
 
 namespace arc {
 
@@ -20,9 +21,10 @@ namespace arc {
     class DLLoader {
     public:
         DLLoader(const std::string &libpath):
-            _handle(dlopen(libpath.c_str(), RTLD_LAZY | RTLD_LOCAL)) {
+            _handle(dlopen(libpath.c_str(), RTLD_LAZY | RTLD_GLOBAL)) {
             if (!_handle)
-                throw DLLoaderError("Could not load dynamic library '" + libpath + "'");
+                throw DLLoaderError("Could not load dynamic library '" +
+                                    libpath + "': " + dlerror());
         }
 
         ~DLLoader() {
@@ -32,6 +34,8 @@ namespace arc {
         T *getInstance(const std::string &constructor = CONSTRUCTOR) {
             T *(*ctor)() = reinterpret_cast<T *(*)()>(dlsym(_handle, constructor.c_str()));
 
+            if (!ctor)
+                throw DLLoaderError("could not find function '"+constructor+"' in dynamic lib");
             return (ctor());
         }
 

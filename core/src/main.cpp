@@ -8,7 +8,24 @@
 // #include <caca.h>
 #include <fstream>
 #include <iostream>
-#include "IGraphical.hpp"
+#include "Core.hpp"
+#include "CoreError.hpp"
+
+int main(int ac, char **av)
+{
+    if (ac != 2)
+        return (84);
+
+    try {
+        arc::Core core(av[1]);
+
+        core.run();
+    } catch (arc::ArcadeError &error) {
+        std::cerr << error.getComponent() << ": " << error.what() << std::endl;
+    }
+
+    return (0);
+}
 
 // struct __attribute__((packed)) bmp_header_t
 // {
@@ -55,24 +72,3 @@
 //     void *_buff;
 //     int _length;
 // };
-
-int main(void)
-{
-    // caca_canvas_t *cv; caca_display_t *dp; caca_event_t ev;
-    // caca_dither_t *dither = NULL;
-    // BitmapReader img("test.bmp");
-
-    // dp = caca_create_display(NULL);
-    // if (!dp)
-    //     return (1);
-    // cv = caca_get_canvas(dp);
-    // dither = caca_create_dither(32, 100, 100, 40, 0xff0000, 0xff00, 0xff, 0xff000000);
-    // caca_dither_bitmap(cv, 0, 0, 40, 20, dither, img.getContents());
-    // caca_set_display_title(dp, "Hello!");
-    // caca_set_color_ansi(cv, CACA_BLACK, CACA_WHITE);
-    // caca_put_str(cv, 0, 0, "This is a message");
-    // caca_refresh_display(dp);
-    // caca_get_event(dp, CACA_EVENT_KEY_PRESS, &ev, -1);
-    // caca_free_display(dp);
-    return (0);
-}

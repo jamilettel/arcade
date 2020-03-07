@@ -17,7 +17,7 @@ namespace arc {
     public:
 
         SfmlGraphical();
-        ~SfmlGraphical();
+        ~SfmlGraphical() = default;
 
         void display();
         Event::Type getEventType() const;
@@ -45,6 +45,8 @@ namespace arc {
         void setHowToPlayFormatString(const std::string &info);
 
     private:
+        void checkEvents();
+
         sf::RenderWindow _window;
         sf::Event _event;
         Event::Type _eventType;
@@ -59,6 +61,15 @@ namespace arc {
         const std::vector<std::vector<char>> *_gameMap;
 
         std::string _input;
+
+        std::map<char, sf::Sprite> _sprites;
+        std::map<char, sf::Texture> _textures;
+
+        sf::Font _font;
+        sf::Text _text;
+
+        std::string _gameStats;
+        std::string _howToPlay;
 
     };
 

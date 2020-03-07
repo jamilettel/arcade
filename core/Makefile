@@ -12,8 +12,8 @@ SRC_TEST	=	tests/OSRedirector.cpp	\
 
 MAIN	=	src/main.cpp
 
-SRC	=	src/Error.cpp	\
-		src/Core.cpp	\
+SRC	=	src/Error.cpp		\
+		src/Core.cpp		\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 

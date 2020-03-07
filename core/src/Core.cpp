@@ -21,25 +21,25 @@ Core::Core(const std::string &graphicalLib): _quitGame(false)
     refreshLibrarieLists();
 }
 
-void Core::loadGameLibrary(const std::string &name)
+void Core::loadGameLibrary(const std::string &gamePath)
 {
-    std::string gamePath = GAME_DIR + name;
+    // std::string gamePath = GAME_DIR + name;
     DLLoader<IGame> game(gamePath);
 
     _game = std::unique_ptr<IGame>(game.getInstance());
-    _currentGraphicalLib = name;
+    _currentGraphicalLib = gamePath;
 }
 
-void Core::loadGraphicalLibrary(const std::string &name)
+void Core::loadGraphicalLibrary(const std::string &libPath)
 {
-    std::string libPath = GRAPHICAL_DIR + name;
+    // std::string libPath = GRAPHICAL_DIR + name;
     DLLoader<IGraphical> graphical(libPath);
 
     _graphical = std::unique_ptr<IGraphical>(graphical.getInstance());
     _graphical->setMainMenuOptions(_mainMenuOptions);
     _graphical->setPauseMenuOptions(_pauseMenuOptions);
     _graphical->setScene(IGraphical::MAIN_MENU);
-    _currentGraphicalLib = name;
+    _currentGraphicalLib = libPath;
 }
 
 void Core::refreshLibrarieLists()
