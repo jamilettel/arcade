@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['_7eanimal',['~Animal',['../class_animal.html#aa4619e5ee3b21b485f716fe985c4537f',1,'Animal']]],
-  ['_7edlloader',['~DLLoader',['../class_d_l_loader.html#aea867b497cf92c50f85ad7e1d37962ae',1,'DLLoader']]],
-  ['_7eosredirector',['~OSRedirector',['../class_o_s_redirector.html#a856cf6a01e641365d46808f089b8c677',1,'OSRedirector']]]
+  ['refreshlibrarielists',['refreshLibrarieLists',['../classarc_1_1_core.html#aeb4a2330e60df255fd59f02032b1efc2',1,'arc::Core']]],
+  ['restart',['restart',['../classarc_1_1_i_game.html#a1b332c630c0b2d7d43dbf6bdbe64a221',1,'arc::IGame']]],
+  ['run',['run',['../classarc_1_1_core.html#adcc93b561dfefacfe2bcbd60604ea7a6',1,'arc::Core']]]
 ];

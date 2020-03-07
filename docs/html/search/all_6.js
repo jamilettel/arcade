@@ -1,7 +1,24 @@
 var searchData=
 [
-  ['info_5farch',['info_arch',['../_c_make_c_compiler_id_8c.html#a59647e99d304ed33b15cb284c27ed391',1,'info_arch():&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a59647e99d304ed33b15cb284c27ed391',1,'info_arch():&#160;CMakeCXXCompilerId.cpp']]],
-  ['info_5fcompiler',['info_compiler',['../_c_make_c_compiler_id_8c.html#a4b0efeb7a5d59313986b3a0390f050f6',1,'info_compiler():&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a4b0efeb7a5d59313986b3a0390f050f6',1,'info_compiler():&#160;CMakeCXXCompilerId.cpp']]],
-  ['info_5flanguage_5fdialect_5fdefault',['info_language_dialect_default',['../_c_make_c_compiler_id_8c.html#a1ce162bad2fe6966ac8b33cc19e120b8',1,'info_language_dialect_default():&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a1ce162bad2fe6966ac8b33cc19e120b8',1,'info_language_dialect_default():&#160;CMakeCXXCompilerId.cpp']]],
-  ['info_5fplatform',['info_platform',['../_c_make_c_compiler_id_8c.html#a2321403dee54ee23f0c2fa849c60f7d4',1,'info_platform():&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a2321403dee54ee23f0c2fa849c60f7d4',1,'info_platform():&#160;CMakeCXXCompilerId.cpp']]]
+  ['g',['g',['../structarc_1_1_color.html#adfc8193f910adc67343a571a57a22070',1,'arc::Color::g()'],['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5a06365417726591223dee6e918b4cdaa6',1,'arc::Event::G()']]],
+  ['game',['GAME',['../classarc_1_1_i_graphical.html#a6cc5d1012f52742130149a1af0044315aae5a8f0804d575337a877814c38b0cfb',1,'arc::IGraphical']]],
+  ['game_5fdir',['GAME_DIR',['../_core_8hpp.html#a361170aa122df99bd2409af4dbc16486',1,'Core.hpp']]],
+  ['get_5finput',['GET_INPUT',['../classarc_1_1_i_graphical.html#a6cc5d1012f52742130149a1af0044315afe92350a4ed8211da5d079de3dcc1fe0',1,'arc::IGraphical']]],
+  ['getbackgroundcolors',['getBackgroundColors',['../classarc_1_1_i_game.html#ab3c99a2a932a777e15531d93a73cf747',1,'arc::IGame']]],
+  ['getcomponent',['getComponent',['../classarc_1_1_arcade_error.html#a868eff2fb85abcff0635a66cbaa18de0',1,'arc::ArcadeError']]],
+  ['getcontent',['getContent',['../class_o_s_redirector.html#a56bbc2121c1026a2763a000074dc4f16',1,'OSRedirector']]],
+  ['geteventtype',['getEventType',['../classarc_1_1_i_graphical.html#a7f1dc734c30a4f75a2f6ace7f178e0fd',1,'arc::IGraphical']]],
+  ['getgamecontrolsformatstring',['getGameControlsFormatString',['../classarc_1_1_i_game.html#a5b4643d11f246edf90727e948b51d7f4',1,'arc::IGame']]],
+  ['getgamelist',['getGameList',['../classarc_1_1_core.html#a6f9de2f87b8953f2a986e36452681016',1,'arc::Core']]],
+  ['getgamestatsformatstring',['getGameStatsFormatString',['../classarc_1_1_i_game.html#a665de395a64847adb2e84b72e164d22e',1,'arc::IGame']]],
+  ['getgraphicallist',['getGraphicalList',['../classarc_1_1_core.html#ad19a6b1b7189e0c4139935603a5612c9',1,'arc::Core']]],
+  ['getinput',['getInput',['../classarc_1_1_i_graphical.html#abaa1bb46d670ae8345a001ef21f902db',1,'arc::IGraphical']]],
+  ['getinstance',['getInstance',['../classarc_1_1_d_l_loader.html#a944ed4c4bb969f5def7c026c7c00606d',1,'arc::DLLoader']]],
+  ['getkeypressed',['getKeyPressed',['../classarc_1_1_i_graphical.html#a2de48fac3a1770a132b5b07c80167e00',1,'arc::IGraphical']]],
+  ['getmap',['getMap',['../classarc_1_1_i_game.html#a92e1801d4e548b5d83679a46938d73b0',1,'arc::IGame']]],
+  ['getscene',['getScene',['../classarc_1_1_i_graphical.html#a926e6df1e55d3879c98557ededea9d80',1,'arc::IGraphical']]],
+  ['getscreenheight',['getScreenHeight',['../classarc_1_1_i_graphical.html#a2ca1a0fbb770638ef15b8dc4d7162cf7',1,'arc::IGraphical']]],
+  ['getscreenwidth',['getScreenWidth',['../classarc_1_1_i_graphical.html#aa4f3b79b308d20085c3ca955fac629a4',1,'arc::IGraphical']]],
+  ['getsprites',['getSprites',['../classarc_1_1_i_game.html#a18647ad45f7af56886c13889ba35c352',1,'arc::IGame']]],
+  ['graphical_5fdir',['GRAPHICAL_DIR',['../_core_8hpp.html#a03d189a348ca6c4cac1233b3e045bba2',1,'Core.hpp']]]
 ];

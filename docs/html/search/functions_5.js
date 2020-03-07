@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['osredirector',['OSRedirector',['../class_o_s_redirector.html#aac2725ed78571a52c01279c49bd623cd',1,'OSRedirector']]]
+  ['loadgamelibrary',['loadGameLibrary',['../classarc_1_1_core.html#aaf86e0be7cad4b241111cd6ecd32093a',1,'arc::Core']]],
+  ['loadgraphicallibrary',['loadGraphicalLibrary',['../classarc_1_1_core.html#a4f9d1082c29a1835f95cfb0d760433d4',1,'arc::Core']]]
 ];
