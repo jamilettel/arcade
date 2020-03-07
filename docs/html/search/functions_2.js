@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['getcomponent',['getComponent',['../class_arcade_error.html#a868eff2fb85abcff0635a66cbaa18de0',1,'ArcadeError']]],
-  ['getcontent',['getContent',['../class_o_s_redirector.html#a56bbc2121c1026a2763a000074dc4f16',1,'OSRedirector']]],
-  ['getinstance',['getInstance',['../class_d_l_loader.html#ab113a50a47d41cf014dea65fcc08782f',1,'DLLoader']]]
+  ['display',['display',['../classarc_1_1_i_graphical.html#af8da4425d2f527a76058307b09ecf210',1,'arc::IGraphical']]],
+  ['dlloader',['DLLoader',['../classarc_1_1_d_l_loader.html#a019e3c64ffb3a06b440d1c340012d5d9',1,'arc::DLLoader']]],
+  ['dlloadererror',['DLLoaderError',['../classarc_1_1_d_l_loader_error.html#abe1ea6f33c981ba251d2e29e003a71f5',1,'arc::DLLoaderError']]]
 ];

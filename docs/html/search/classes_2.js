@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['koala',['Koala',['../class_koala.html',1,'']]]
+  ['dlloader',['DLLoader',['../classarc_1_1_d_l_loader.html',1,'arc']]],
+  ['dlloadererror',['DLLoaderError',['../classarc_1_1_d_l_loader_error.html',1,'arc']]]
 ];

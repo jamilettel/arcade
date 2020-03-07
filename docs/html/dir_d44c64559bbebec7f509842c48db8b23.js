@@ -1,10 +1,13 @@
 var dir_d44c64559bbebec7f509842c48db8b23 =
 [
-    [ "DLLoader.hpp", "_d_l_loader_8hpp.html", [
-      [ "DLLoader", "class_d_l_loader.html", "class_d_l_loader" ]
-    ] ],
     [ "Error.hpp", "_error_8hpp.html", [
-      [ "ArcadeError", "class_arcade_error.html", "class_arcade_error" ],
-      [ "DLLoaderError", "class_d_l_loader_error.html", "class_d_l_loader_error" ]
-    ] ]
+      [ "ArcadeError", "classarc_1_1_arcade_error.html", "classarc_1_1_arcade_error" ]
+    ] ],
+    [ "IGame.hpp", "_i_game_8hpp.html", [
+      [ "IGame", "classarc_1_1_i_game.html", "classarc_1_1_i_game" ]
+    ] ],
+    [ "IGraphical.hpp", "_i_graphical_8hpp.html", [
+      [ "IGraphical", "classarc_1_1_i_graphical.html", "classarc_1_1_i_graphical" ]
+    ] ],
+    [ "Utils.hpp", "_utils_8hpp.html", "_utils_8hpp" ]
 ];

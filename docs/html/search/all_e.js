@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['_7eanimal',['~Animal',['../class_animal.html#aa4619e5ee3b21b485f716fe985c4537f',1,'Animal']]],
-  ['_7edlloader',['~DLLoader',['../class_d_l_loader.html#aea867b497cf92c50f85ad7e1d37962ae',1,'DLLoader']]],
-  ['_7eosredirector',['~OSRedirector',['../class_o_s_redirector.html#a856cf6a01e641365d46808f089b8c677',1,'OSRedirector']]]
+  ['o',['O',['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5a8b4348e42566cf4e73dc865443df7e30',1,'arc::Event']]],
+  ['osredirector',['OSRedirector',['../class_o_s_redirector.html',1,'OSRedirector'],['../class_o_s_redirector.html#aac2725ed78571a52c01279c49bd623cd',1,'OSRedirector::OSRedirector()']]],
+  ['osredirector_2ecpp',['OSRedirector.cpp',['../_o_s_redirector_8cpp.html',1,'']]],
+  ['osredirector_2ehpp',['OSRedirector.hpp',['../_o_s_redirector_8hpp.html',1,'']]]
 ];
