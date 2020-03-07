@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['error_2ecpp',['Error.cpp',['../_error_8cpp.html',1,'']]],
-  ['error_2ehpp',['Error.hpp',['../_error_8hpp.html',1,'']]]
+  ['igame_2ehpp',['IGame.hpp',['../_i_game_8hpp.html',1,'']]],
+  ['igraphical_2ehpp',['IGraphical.hpp',['../_i_graphical_8hpp.html',1,'']]]
 ];

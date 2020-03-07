@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['loadgamelibrary',['loadGameLibrary',['../classarc_1_1_core.html#aaf86e0be7cad4b241111cd6ecd32093a',1,'arc::Core']]],
-  ['loadgraphicallibrary',['loadGraphicalLibrary',['../classarc_1_1_core.html#a4f9d1082c29a1835f95cfb0d760433d4',1,'arc::Core']]]
+  ['main',['main',['../_c_make_c_compiler_id_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCXXCompilerId.cpp'],['../core_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.cpp'],['../games_2lib__arcade__centipede_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.cpp'],['../games_2lib__arcade__nibbler_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.cpp'],['../graphics_2lib__arcade__libcaca_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.cpp'],['../graphics_2lib__arcade__sfml_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.cpp']]]
 ];

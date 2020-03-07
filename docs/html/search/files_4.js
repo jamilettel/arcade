@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['igame_2ehpp',['IGame.hpp',['../_i_game_8hpp.html',1,'']]],
-  ['igraphical_2ehpp',['IGraphical.hpp',['../_i_graphical_8hpp.html',1,'']]]
+  ['main_2ecpp',['main.cpp',['../core_2src_2main_8cpp.html',1,'(Global Namespace)'],['../games_2lib__arcade__centipede_2src_2main_8cpp.html',1,'(Global Namespace)'],['../games_2lib__arcade__nibbler_2src_2main_8cpp.html',1,'(Global Namespace)'],['../graphics_2lib__arcade__libcaca_2src_2main_8cpp.html',1,'(Global Namespace)'],['../graphics_2lib__arcade__sfml_2src_2main_8cpp.html',1,'(Global Namespace)']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['koala',['Koala',['../class_koala.html#af9653ca040492032181dfda4753c6076',1,'Koala']]],
-  ['koala_5fctor',['koala_ctor',['../_koala_8cpp.html#a155f0e0d9ccea8cc46bb2f88a2adc7f8',1,'Koala.cpp']]]
+  ['loadgamelibrary',['loadGameLibrary',['../classarc_1_1_core.html#aaf86e0be7cad4b241111cd6ecd32093a',1,'arc::Core']]],
+  ['loadgraphicallibrary',['loadGraphicalLibrary',['../classarc_1_1_core.html#a4f9d1082c29a1835f95cfb0d760433d4',1,'arc::Core']]]
 ];

@@ -6,7 +6,6 @@ var searchData=
   ['get_5finput',['GET_INPUT',['../classarc_1_1_i_graphical.html#a6cc5d1012f52742130149a1af0044315afe92350a4ed8211da5d079de3dcc1fe0',1,'arc::IGraphical']]],
   ['getbackgroundcolors',['getBackgroundColors',['../classarc_1_1_i_game.html#ab3c99a2a932a777e15531d93a73cf747',1,'arc::IGame']]],
   ['getcomponent',['getComponent',['../classarc_1_1_arcade_error.html#a868eff2fb85abcff0635a66cbaa18de0',1,'arc::ArcadeError']]],
-  ['getcontent',['getContent',['../class_o_s_redirector.html#a56bbc2121c1026a2763a000074dc4f16',1,'OSRedirector']]],
   ['geteventtype',['getEventType',['../classarc_1_1_i_graphical.html#a7f1dc734c30a4f75a2f6ace7f178e0fd',1,'arc::IGraphical']]],
   ['getgamecontrolsformatstring',['getGameControlsFormatString',['../classarc_1_1_i_game.html#a5b4643d11f246edf90727e948b51d7f4',1,'arc::IGame']]],
   ['getgamelist',['getGameList',['../classarc_1_1_core.html#a6f9de2f87b8953f2a986e36452681016',1,'arc::Core']]],

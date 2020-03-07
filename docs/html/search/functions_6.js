@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['main',['main',['../_c_make_c_compiler_id_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCXXCompilerId.cpp'],['../core_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.cpp'],['../games_2lib__arcade__centipede_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.cpp'],['../games_2lib__arcade__nibbler_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.cpp'],['../graphics_2lib__arcade__libcaca_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.cpp'],['../graphics_2lib__arcade__sfml_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.cpp']]]
+  ['refreshlibrarielists',['refreshLibrarieLists',['../classarc_1_1_core.html#aeb4a2330e60df255fd59f02032b1efc2',1,'arc::Core']]],
+  ['restart',['restart',['../classarc_1_1_i_game.html#a1b332c630c0b2d7d43dbf6bdbe64a221',1,'arc::IGame']]],
+  ['run',['run',['../classarc_1_1_core.html#adcc93b561dfefacfe2bcbd60604ea7a6',1,'arc::Core']]]
 ];
