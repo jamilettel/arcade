@@ -22,13 +22,13 @@ OBJ_MAIN	=	$(MAIN:%.cpp=%.o)
 
 OBJ_TEST	=	$(SRC_TEST:%.cpp=%.o)
 
-CXXFLAGS	=	-W -Wall -Wextra -Wshadow -Icore/include -Iinclude -std=c++17
+CXXFLAGS	=	-W -Wall -Wextra -Wshadow	-Icore/include -Iinclude -std=c++17
 
 RM	=	rm -f
 
 CXX	=	g++
 
-LDFLAGS	=	-ldl -lstdc++fs
+LDFLAGS	=	-ldl
 
 TEST_LDFLAGS	=	-lcriterion --coverage
 
@@ -64,7 +64,7 @@ fclean: clean
 
 re: fclean all
 
-tests_run: CXXFLAGS += -fprofile-arcs -ftest-coverage -Icore/tests/include
+tests_run: CXXFLAGS+= -fprofile-arcs -ftest-coverage -Icore/tests/include
 tests_run: $(OBJ) $(OBJ_TEST)
 			$(CXX) -o $(TEST_NAME) $(OBJ) $(OBJ_TEST) $(TEST_LDFLAGS) $(LDFLAGS)
 			./$(TEST_NAME)
