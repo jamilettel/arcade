@@ -48,6 +48,8 @@ namespace arc {
         virtual void setEndGameMessage(const std::string &message) = 0;
         virtual void updateGameInfo(const std::vector<std::vector<char>> &gameMap) = 0;
 
+        virtual const std::string &getInput() const = 0;
+
         virtual void setSprites(const std::map<char, std::string> &sprites) = 0;
         virtual void setBackgroundColors(const std::map<char, Color> &sprites) = 0;
         virtual void setFont(const std::string &font) = 0;

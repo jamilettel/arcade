@@ -14,6 +14,7 @@ MAIN	=	core/src/main.cpp
 
 SRC	=\
 		core/src/Error.cpp	\
+		core/src/Core.cpp	\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 
@@ -21,7 +22,7 @@ OBJ_MAIN	=	$(MAIN:%.cpp=%.o)
 
 OBJ_TEST	=	$(SRC_TEST:%.cpp=%.o)
 
-CXXFLAGS	=	-W -Wall -Wextra -Wshadow	-Icore/include -Iinclude
+CXXFLAGS	=	-W -Wall -Wextra -Wshadow	-Icore/include -Iinclude -std=c++17
 
 RM	=	rm -f
 

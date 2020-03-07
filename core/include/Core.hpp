@@ -46,6 +46,8 @@ namespace arc {
         std::map<std::string, std::function<void()>> _mainMenuOptions;
         std::map<std::string, std::function<void()>> _pauseMenuOptions;
 
+        bool _quitGame;
+
     };
 
 }

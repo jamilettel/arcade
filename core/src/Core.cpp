@@ -12,7 +12,7 @@
 
 using namespace arc;
 
-Core::Core(const std::string &graphicalLib)
+Core::Core(const std::string &graphicalLib): _quitGame(false)
 {
     refreshLibrarieLists();
     loadGraphicalLibrary(graphicalLib);
@@ -68,19 +68,18 @@ void Core::setMenuOptions()
     // _mainMenuOptions.push_back("Change library");
     // _mainMenuOptions.push_back("How to play");
     // _mainMenuOptions.push_back("Quit");
+    _mainMenuOptions["Quit"] =
+        [this] () {
+            _quitGame = true;
+        };
 }
 
 void Core::setPauseOptions()
 {
-    std::map<std::string, std::function<void()>> a;
-
     _mainMenuOptions["Resume"] =
         [this] () {
             _graphical->setScene(IGraphical::GAME);
         };
-    // _mainMenuOptions["Change Library"] =
-    //     [this] () {
-    //     };
     // _mainMenuOptions.push_back("Resume");
     // _mainMenuOptions.push_back("Change library");
     // _mainMenuOptions.push_back("How to play");
@@ -99,7 +98,7 @@ const std::vector<std::string> &Core::getGraphicalList() const
 
 void Core::run()
 {
-    while (_graphical->getEventType() != Event::QUIT) {
+    while (_graphical->getEventType() != Event::QUIT && !_quitGame) {
         _graphical->display();
         // if (_graphical->getSceneChoice(_graphical->getScene()));
     }
