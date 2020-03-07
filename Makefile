@@ -5,58 +5,29 @@
 ## Makefile
 ##
 
-NAME	=	arcade
-
-SRC_TEST	=	core/tests/OSRedirector.cpp	\
-				core/tests/DLLoader.cpp		\
-
-MAIN	=	core/src/main.cpp
-
-SRC	=\
-		core/src/Error.cpp	\
-		core/src/Core.cpp	\
-
-OBJ	=	$(SRC:%.cpp=%.o)
-
-OBJ_MAIN	=	$(MAIN:%.cpp=%.o)
-
-OBJ_TEST	=	$(SRC_TEST:%.cpp=%.o)
-
-CXXFLAGS	=	-W -Wall -Wextra -Wshadow -Icore/include -Iinclude -std=c++17
-
-RM	=	rm -f
-
-CXX	=	g++
-
-LDFLAGS	=	-ldl -lstdc++fs
-
-TEST_LDFLAGS	=	-lcriterion --coverage
-
-COV_TMP	=	$(SRC:%.cpp=%.gcda) $(SRC:%.cpp=%.gcno) $(SRC_TEST:%.cpp=%.gcda) $(SRC_TEST:%.cpp=%.gcno)
-
-TEST_NAME	=	unit_tests
-
-all: $(NAME)
-
-$(NAME): $(OBJ) $(OBJ_MAIN)
-		$(CXX) -o $(NAME) $(OBJ) $(OBJ_MAIN) $(LDFLAGS)
+all:
+		$(MAKE) -C core/
 		$(MAKE) -C games/lib_arcade_centipede/
 		$(MAKE) -C games/lib_arcade_nibbler/
 		$(MAKE) -C graphics/lib_arcade_libcaca/
 		$(MAKE) -C graphics/lib_arcade_sfml/
 
 clean_coverage:
-		$(RM) $(COV_TMP)
+		$(MAKE) -C core/ clean_coverage
+		$(MAKE) -C games/lib_arcade_centipede/ clean_coverage
+		$(MAKE) -C games/lib_arcade_nibbler/ clean_coverage
+		$(MAKE) -C graphics/lib_arcade_libcaca/ clean_coverage
+		$(MAKE) -C graphics/lib_arcade_sfml/ clean_coverage
 
 clean: clean_coverage
-		$(RM) $(OBJ) $(OBJ_TEST) $(OBJ_MAIN)
+		$(MAKE) -C core/ clean
 		$(MAKE) -C games/lib_arcade_centipede/ clean
 		$(MAKE) -C games/lib_arcade_nibbler/ clean
 		$(MAKE) -C graphics/lib_arcade_libcaca/ clean
 		$(MAKE) -C graphics/lib_arcade_sfml/ clean
 
 fclean: clean
-		$(RM) $(NAME) $(TEST_NAME)
+		$(MAKE) -C core/ fclean
 		$(MAKE) -C games/lib_arcade_centipede/ fclean
 		$(MAKE) -C games/lib_arcade_nibbler/ fclean
 		$(MAKE) -C graphics/lib_arcade_libcaca/ fclean
@@ -64,14 +35,19 @@ fclean: clean
 
 re: fclean all
 
-tests_run: CXXFLAGS += -fprofile-arcs -ftest-coverage -Icore/tests/include
-tests_run: $(OBJ) $(OBJ_TEST)
-			$(CXX) -o $(TEST_NAME) $(OBJ) $(OBJ_TEST) $(TEST_LDFLAGS) $(LDFLAGS)
-			./$(TEST_NAME)
-			gcovr --exclude tests
+tests_run:
+		$(MAKE) -C core/ tests_run
+		$(MAKE) -C games/lib_arcade_centipede/ tests_run
+		$(MAKE) -C games/lib_arcade_nibbler/ tests_run
+		$(MAKE) -C graphics/lib_arcade_libcaca/ tests_run
+		$(MAKE) -C graphics/lib_arcade_sfml/ tests_run
 
-debug: CXXFLAGS+ = -g
-debug: all
+debug:
+		$(MAKE) -C core/ debug
+		$(MAKE) -C games/lib_arcade_centipede/ debug
+		$(MAKE) -C games/lib_arcade_nibbler/ debug
+		$(MAKE) -C graphics/lib_arcade_libcaca/ debug
+		$(MAKE) -C graphics/lib_arcade_sfml/ debug
 
 games:
 	$(MAKE) -C games/lib_arcade_centipede/

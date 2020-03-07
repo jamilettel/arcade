@@ -18,7 +18,7 @@ Test(DLLoader, basic_test)
     OSRedirector redirector(std::cout);
 
     try {
-        DLLoader<Animal> koalalib("core/tests/libkoala.so");
+        DLLoader<Animal> koalalib("/tests/libkoala.so");
         Animal *koala = koalalib.getInstance("koala_ctor");
 
         koala->print();
