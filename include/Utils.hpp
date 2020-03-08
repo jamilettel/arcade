@@ -32,6 +32,14 @@ namespace arc {
         Color backgroundColor;
         float x;
         float y;
+
+        bool operator==(const Entity &rhs) const {
+            return x == rhs.x && y == rhs.y;
+        }
+
+        bool operator!=(const Entity &rhs) const {
+            return !(rhs == *this);
+        }
     };
 
     namespace Event {

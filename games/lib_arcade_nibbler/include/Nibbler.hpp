@@ -9,6 +9,8 @@
 #define OOP_ARCADE_2019_NIBBLER_H
 
 #include "IGame.hpp"
+#include <iostream>
+#include <chrono>
 
 #define ROWS_SNAKE 20
 #define COLS_SNAKE 20
@@ -18,32 +20,39 @@ namespace arc {
     class Nibbler : public IGame {
     public:
         Nibbler();
-        ~Nibbler() override;
+        ~Nibbler() = default;
 
-        const std::map<char, std::string> &getSprites() const override;
-        const std::map<char, Color> &getBackgroundColors() const override;
-        const std::string &getGameControlsFormatString() const override;
+        size_t getMapHeight() const override;
+        size_t getMapWidth() const override;
+
+        const std::vector<std::pair<std::string, std::string>> &getGameControlsFormatString() const override;
 
         void restart() override;
-        void updateGame(Event::Type type, Event::Key keyPressed) override;
+        void updateGame() override;
 
-        const std::vector<std::vector<char>> &getMap() const override;
-        const std::string &getGameStatsFormatString() const override;
+        const std::vector<Entity> &getEntities() const override ;
+        const std::vector<std::string> &getGameStatsFormatString() const override;
+
+        bool isGameOver() const override;
+
+        const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &getControls() const override;
 
     private:
-        std::vector<std::vector<char>> _map;
-        std::map<char, std::string> _sprites;
-        std::map<char, Color> _backgroundColors;
-        std::string _gameControlsFormatString;
-        std::string _gameStatsFormatString;
-        std::pair<int, int> _fruit;
-        std::pair<int, int> _snakeHead;
+        bool _gameOver;
+        std::vector<std::pair<std::string, std::string>> _gameControlsFormat;
+        std::vector<Entity> _entities;
+        std::vector<std::string> _gameStatsFormat;
+        std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _controls;
 
-        void mapCreation();
+    private:
         void initSnakeHead();
-        void generateFruit();
-        void spritesCreation();
-        void backgroundColorsCreation();
+        void generateNewFruit();
+        void popFruit(Entity fruit);
+
+        Entity *_snakeHead;
+        std::vector<Entity*> _snake;
+        std::vector<Entity*> _fruits;
+    public:
     };
 }
 #endif //OOP_ARCADE_2019_NIBBLER_H
