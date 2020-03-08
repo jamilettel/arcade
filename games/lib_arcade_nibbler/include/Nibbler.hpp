@@ -45,6 +45,7 @@ namespace arc {
         std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _controls;
 
     private:
+        void initControlFormat();
         void initSnakeHead();
         void generateNewFruit();
         void popFruit(Entity fruit);

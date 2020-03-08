@@ -19,6 +19,17 @@ arc::Nibbler::Nibbler() : _gameOver(false)
     this->generateNewFruit();
 }
 
+void arc::Nibbler::initControlFormat()
+{
+    _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MOVE UP"), std::string("ARROW KEY UP")));
+    _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MOVE DOWN"), std::string("ARROW KEY DOWN")));
+    _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MOVE RIGHT"), std::string("ARROW KEY RIGHT")));
+    _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MOVE LEFT"), std::string("ARROW KEY LEFT")));
+    _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("RESTART"), std::string("R")));
+    _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("PAUSE"), std::string("ECHAP")));
+    _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MAIN MENU"), std::string("M")));
+}
+
 void arc::Nibbler::updateGame()
 {
 }
