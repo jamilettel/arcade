@@ -20,29 +20,32 @@ namespace arc {
         ~SfmlGraphical() = default;
 
         void display();
-        Event::Type getEventType() const;
+        Event::Type getEventType();
         Event::Key getKeyPressed() const;
-        size_t getScreenWidth() const;
-        size_t getScreenHeight() const;
 
-        void setScene(Scene scene);
+        void setListGames(const std::vector<std::string> &games, const std::function<void (const std::string &)> &fct, int chosen = -1);
+        void setListLibraries(const std::vector<std::string> &libraries, const std::function<void (const std::string &)> &fct, int chosen = -1);
+        void setScores(const std::vector<std::pair<std::string, std::string>> &scores);
+
+        void setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &controls);
+
+        void setFunctionPlay(const std::function<void()> &function);
+        void setFunctionRestart(const std::function<void()> &function);
+        void setFunctionMenu(const std::function<void()> &function);
+        void setFunctionTogglePause(const std::function<void()> &function);
+
+        const std::string &getUsername() const;
         Scene getScene() const;
+        void setScene(Scene scene);
 
-        void setMainMenuOptions(const std::map<std::string, std::function<void()>> &mainMenu);
-        void setPauseMenuOptions(const std::map<std::string, std::function<void()>> &pauseMenu);
-        void setList(const std::vector<std::string> &list);
-        void setGetInputMessage(const std::string &message);
-        void setEndGameMessage(const std::string &message);
-        void updateGameInfo(const std::vector<std::vector<char>> &gameMap);
-
-        const std::string &getInput() const;
-
+        void setHowToPlay(const std::vector<std::pair<std::string, std::string>> &info);
+        void setGameStatsFormatString(const std::vector<std::string> &info);
+        void setFont(const std::string &font);
         void setSprites(const std::map<char, std::string> &sprites);
         void setBackgroundColors(const std::map<char, Color> &sprites);
-        void setFont(const std::string &font);
-
-        void setGameStatsFormatString(const std::string &info);
-        void setHowToPlayFormatString(const std::string &info);
+        void updateGameInfo(const std::vector<Entity> &gameMap);
+        void setMusic(const std::string &music);
+        void playSound(const std::string &sound);
 
     private:
         void checkEvents();
@@ -52,9 +55,8 @@ namespace arc {
         Event::Type _eventType;
         Event::Key _keyPressed;
         Scene _scene;
+        std::string _username;
 
-        std::map<std::string, std::function<void()>> _mainMenuOptions;
-        std::map<std::string, std::function<void()>> _pauseMenuOptions;
         std::vector<std::string> _list;
         std::string _getInputMessage;
         std::string _endGameMessage;
@@ -64,12 +66,15 @@ namespace arc {
 
         std::map<char, sf::Sprite> _sprites;
         std::map<char, sf::Texture> _textures;
+        std::map<char, std::string> _spriteMap;
 
         sf::Font _font;
         sf::Text _text;
 
-        std::string _gameStats;
-        std::string _howToPlay;
+        std::vector<std::string> _gameStats;
+        std::vector<std::pair<std::string, std::string>> _controls;
+
+        std::vector<std::pair<std::string,std::string>> _scores;
 
     };
 

@@ -27,13 +27,15 @@ namespace arc {
 
         void run();
 
+        std::vector<std::pair<std::string, std::string>> getControls() const;
+
+    private:
         void refreshLibrarieLists();
         const std::vector<std::string> &getGameList() const;
         const std::vector<std::string> &getGraphicalList() const;
 
-    private:
-        void setMenuOptions();
-        void setPauseOptions();
+        void setGraphicalLibFunctions();
+        void startGame();
 
         std::unique_ptr<IGraphical> _graphical;
         std::unique_ptr<IGame> _game;
@@ -43,10 +45,8 @@ namespace arc {
         std::string _currentGraphicalLib;
         std::vector<std::string> _graphicalList;
 
-        std::map<std::string, std::function<void()>> _mainMenuOptions;
-        std::map<std::string, std::function<void()>> _pauseMenuOptions;
-
         bool _quitGame;
+        bool _isPaused;
 
     };
 
