@@ -8,10 +8,10 @@
 #ifndef IGAME_HPP_
 #define IGAME_HPP_
 
-
 #include "Utils.hpp"
 #include <vector>
 #include <map>
+#include <functional>
 
 namespace arc {
 
@@ -19,15 +19,20 @@ namespace arc {
     public:
         virtual ~IGame() = 0;
 
-        virtual const std::map<char, std::string> &getSprites() const = 0;
-        virtual const std::map<char, Color> &getBackgroundColors() const = 0;
-        virtual const std::string &getGameControlsFormatString() const = 0;
+        virtual size_t getMapHeight() const = 0;
+        virtual size_t getMapWidth() const = 0;
+
+        virtual const std::vector<std::pair<std::string, std::string>> &getGameControlsFormatString() const = 0;
 
         virtual void restart() = 0;
-        virtual void updateGame(Event::Type type, Event::Key keyPressed) = 0;
+        virtual void updateGame() = 0;
 
-        virtual const std::vector<std::vector<char>> &getMap() const = 0;
-        virtual const std::string &getGameStatsFormatString() const = 0;
+        virtual const std::vector<Entity> &getEntities() const = 0;
+        virtual const std::vector<std::string> &getGameStatsFormatString() const = 0;
+
+        virtual bool isGameOver() const = 0;
+
+        virtual const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &getControls() const = 0;
 
     };
 

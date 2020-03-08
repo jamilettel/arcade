@@ -18,47 +18,45 @@
 namespace arc {
 
     class IGraphical {
-    public:
+        public:
 
-        enum Scene {
-            MAIN_MENU,
-            PAUSE_MENU,
-            GAME,
-            END_GAME,
-            LIST,
-            HOW_TO_PLAY,
-            GET_INPUT,
-        };
+            enum Scene {
+                MAIN_MENU,
+                GAME,
+                END_GAME,
+                HOW_TO_PLAY,
+            };
 
-        virtual ~IGraphical() = default;
+            virtual ~IGraphical() = default;
 
-        virtual void display() = 0;
-        virtual Event::Type getEventType() const = 0;
-        virtual Event::Key getKeyPressed() const = 0;
-        virtual size_t getScreenWidth() const = 0;
-        virtual size_t getScreenHeight() const = 0;
+            virtual void display() = 0;
+            virtual Event::Type getEventType() = 0;
+            virtual Event::Key getKeyPressed() const = 0;
 
-        virtual void setScene(Scene scene) = 0;
-        virtual Scene getScene() const = 0;
+            virtual void setListGames(const std::vector<std::string> &games, const std::function<void (const std::string &)> &fct, int chosen = -1) = 0;
+            virtual void setListLibraries(const std::vector<std::string> &libraries, const std::function<void (const std::string &)> &fct, int chosen = -1) = 0;
+            virtual void setScores(const std::vector<std::pair<std::string, std::string>> &scores) = 0;
 
-        virtual void setMainMenuOptions(const std::map<std::string, std::function<void()>> &mainMenu) = 0;
-        virtual void setPauseMenuOptions(const std::map<std::string, std::function<void()>> &pauseMenu) = 0;
-        virtual void setList(const std::vector<std::string> &list) = 0;
-        virtual void setGetInputMessage(const std::string &message) = 0;
-        virtual void setEndGameMessage(const std::string &message) = 0;
-        virtual void updateGameInfo(const std::vector<std::vector<char>> &gameMap) = 0;
+            virtual void setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &controls) = 0;
 
-        virtual const std::string &getInput() const = 0;
+            virtual void setFunctionPlay(const std::function<void()> &function) = 0;
+            virtual void setFunctionRestart(const std::function<void()> &function) = 0;
+            virtual void setFunctionMenu(const std::function<void()> &function) = 0;
+            virtual void setFunctionTogglePause(const std::function<void()> &function) = 0;
 
-        virtual void setSprites(const std::map<char, std::string> &sprites) = 0;
-        virtual void setBackgroundColors(const std::map<char, Color> &sprites) = 0;
-        virtual void setFont(const std::string &font) = 0;
+            virtual const std::string &getUsername() const = 0;
+            virtual Scene getScene() const = 0;
+            virtual void setScene(Scene scene) = 0;
 
-        virtual void setGameStatsFormatString(const std::string &info) = 0;
-        virtual void setHowToPlayFormatString(const std::string &info) = 0;
-
+            virtual void setHowToPlay(const std::vector<std::pair<std::string, std::string>> &info) = 0;
+            virtual void setGameStatsFormatString(const std::vector<std::string> &info) = 0;
+            virtual void setFont(const std::string &font) = 0;
+            virtual void setSprites(const std::map<char, std::string> &sprites) = 0;
+            virtual void setBackgroundColors(const std::map<char, Color> &sprites) = 0;
+            virtual void updateGameInfo(const std::vector<std::vector<char>> &gameMap) = 0;
+            virtual void setMusic(const std::string &music) = 0;
+            virtual void playSound(const std::string &sound) = 0;
     };
-
 }
 
 #endif /* IGRAPHICAL_HPP_ */
