@@ -78,6 +78,7 @@ void arc::Nibbler::mapCreation()
                 _map[i][j] = ' ';
         }
     }
+    _map[ROWS_SNAKE / 2][COLS_SNAKE / 2] = 'G';
 }
 
 void arc::Nibbler::backgroundColorsCreation()
