@@ -24,7 +24,6 @@ namespace arc {
                 MAIN_MENU,
                 GAME,
                 END_GAME,
-                HOW_TO_PLAY,
             };
 
             virtual ~IGraphical() = default;
@@ -53,7 +52,7 @@ namespace arc {
             virtual void setFont(const std::string &font) = 0;
             virtual void setSprites(const std::map<char, std::string> &sprites) = 0;
             virtual void setBackgroundColors(const std::map<char, Color> &sprites) = 0;
-            virtual void updateGameInfo(const std::vector<std::vector<char>> &gameMap) = 0;
+            virtual void updateGameInfo(const std::vector<Entity> &gameMap) = 0;
             virtual void setMusic(const std::string &music) = 0;
             virtual void playSound(const std::string &sound) = 0;
     };
