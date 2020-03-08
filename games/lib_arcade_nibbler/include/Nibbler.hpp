@@ -36,8 +36,12 @@ namespace arc {
         std::map<char, Color> _backgroundColors;
         std::string _gameControlsFormatString;
         std::string _gameStatsFormatString;
+        std::pair<int, int> _fruit;
+        std::pair<int, int> _snakeHead;
 
         void mapCreation();
+        void initSnakeHead();
+        void generateFruit();
         void spritesCreation();
         void backgroundColorsCreation();
     };
