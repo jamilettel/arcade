@@ -48,6 +48,8 @@ namespace arc {
         void initSnakeHead();
         void generateNewFruit();
         void popFruit(Entity fruit);
+        void eatFruit(Entity fruit);
+        bool invalidCoordonate(float x, float y);
 
         Entity *_snakeHead;
         std::vector<Entity*> _snake;
