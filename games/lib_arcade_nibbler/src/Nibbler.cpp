@@ -12,7 +12,7 @@ extern "C" arc::IGame *instance_ctor() {
     return (new arc::Nibbler);
 };
 
-arc::Nibbler::Nibbler() : _gameOver(false)
+arc::Nibbler::Nibbler() : _gameOver(false), _controls(initControls())
 {
     srand(time(nullptr));
     this->initSnakeHead();
@@ -28,6 +28,46 @@ void arc::Nibbler::initControlFormat()
     _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("RESTART"), std::string("R")));
     _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("PAUSE"), std::string("ECHAP")));
     _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MAIN MENU"), std::string("M")));
+}
+
+std::map<std::pair<arc::Event::Type, arc::Event::Key>, std::function<void ()>> arc::Nibbler::initControls()
+{
+    std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> controls;
+    controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::DOWN)] = [this](){
+        arc::Nibbler::moveDown();
+    };
+
+    return controls;
+}
+
+void arc::Nibbler::moveDown()
+{
+
+}
+
+void arc::Nibbler::moveUp()
+{
+
+}
+
+void arc::Nibbler::moveRight()
+{
+
+}
+
+void arc::Nibbler::moveLeft()
+{
+
+}
+
+void arc::Nibbler::pause()
+{
+
+}
+
+void arc::Nibbler::mainMenu()
+{
+
 }
 
 void arc::Nibbler::updateGame()
