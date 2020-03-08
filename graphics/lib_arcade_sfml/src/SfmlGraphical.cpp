@@ -38,24 +38,9 @@ void SfmlGraphical::checkEvents()
     }
 }
 
-Event::Type SfmlGraphical::getEventType() const
-{
-    return (_eventType);
-}
-
 Event::Key SfmlGraphical::getKeyPressed() const
 {
     return (_keyPressed);
-}
-
-size_t SfmlGraphical::getScreenHeight() const
-{
-    return (_window.getSize().y);
-}
-
-size_t SfmlGraphical::getScreenWidth() const
-{
-    return (_window.getSize().x);
 }
 
 void SfmlGraphical::setScene(Scene scene)
@@ -68,43 +53,9 @@ SfmlGraphical::Scene SfmlGraphical::getScene() const
     return (_scene);
 }
 
-void SfmlGraphical::setMainMenuOptions(const std::map<std::string, std::function<void()>> &mainMenu)
-{
-    _mainMenuOptions = mainMenu;
-}
-
-void SfmlGraphical::setPauseMenuOptions(const std::map<std::string, std::function<void()>> &pauseMenu)
-{
-    _pauseMenuOptions = pauseMenu;
-}
-
-void SfmlGraphical::setList(const std::vector<std::string> &list)
-{
-    _list = list;
-}
-
-void SfmlGraphical::setGetInputMessage(const std::string &message)
-{
-    _getInputMessage = message;
-}
-
-void SfmlGraphical::setEndGameMessage(const std::string &message)
-{
-    _endGameMessage = message;
-}
-
-void SfmlGraphical::updateGameInfo(const std::vector<std::vector<char>> &gameMap)
-{
-    _gameMap = &gameMap;
-}
-
-const std::string &SfmlGraphical::getInput() const
-{
-    return (_input);
-}
-
 void SfmlGraphical::setSprites(const std::map<char, std::string> &sprites)
 {
+    _spriteMap = sprites;
     std::for_each(sprites.begin(), sprites.end(),
                   [this] (const std::pair<char, std::string> &it) {
                       if (!_textures[it.first].loadFromFile(it.second))
@@ -125,12 +76,65 @@ void SfmlGraphical::setFont(const std::string &font)
     _text.setFont(_font);
 }
 
-void SfmlGraphical::setGameStatsFormatString(const std::string &info)
+Event::Type SfmlGraphical::getEventType()
 {
-    _gameStats = info;
+    return (_eventType);
 }
 
-void SfmlGraphical::setHowToPlayFormatString(const std::string &info)
+void SfmlGraphical::setScores(const std::vector<std::pair<std::string,std::string>> &scores)
 {
-    _howToPlay = info;
+    _scores = scores;
+}
+
+void SfmlGraphical::setFunctionPlay(const std::function<void()> &function)
+{
+}
+
+void SfmlGraphical::setFunctionRestart(const std::function<void()> &function)
+{
+}
+
+void SfmlGraphical::setFunctionMenu(const std::function<void()> &function)
+{
+}
+
+void SfmlGraphical::setFunctionTogglePause(const std::function<void()> &function)
+{
+}
+
+const std::string &SfmlGraphical::getUsername() const
+{
+    return (_username);
+}
+
+void SfmlGraphical::setHowToPlay(const std::vector<std::pair<std::string,std::string>> &info)
+{
+}
+
+void SfmlGraphical::setGameStatsFormatString(const std::vector<std::string> &info)
+{
+}
+
+void SfmlGraphical::updateGameInfo(const std::vector<Entity> &gameMap)
+{
+}
+
+void SfmlGraphical::setMusic(const std::string &music)
+{
+}
+
+void SfmlGraphical::playSound(const std::string &sound)
+{
+}
+
+void SfmlGraphical::setListGames(const std::vector<std::string>& games, const std::function<void (const std::string &)> &fct, int chosen)
+{
+}
+
+void SfmlGraphical::setListLibraries(const std::vector<std::string> &libraries, const std::function<void (const std::string &)> &fct, int chosen)
+{
+}
+
+void SfmlGraphical::setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &controls)
+{
 }

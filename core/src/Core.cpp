@@ -12,35 +12,46 @@
 
 using namespace arc;
 
-Core::Core(const std::string &graphicalLib): _quitGame(false)
+Core::Core(const std::string &graphicalLib):
+    _graphical(nullptr), _game(nullptr), _quitGame(false), _isPaused(false)
 {
     refreshLibrarieLists();
     loadGraphicalLibrary(graphicalLib);
-    loadGameLibrary("games/lib_arcade_nibbler.so");
-    setMenuOptions();
-    setPauseOptions();
-    refreshLibrarieLists();
 }
 
 void Core::loadGameLibrary(const std::string &gamePath)
 {
-    // std::string gamePath = GAME_DIR + name;
     DLLoader<IGame> game(gamePath);
 
     _game = std::unique_ptr<IGame>(game.getInstance());
     _currentGraphicalLib = gamePath;
+    _graphical->setControls(_game->getControls());
+    _graphical->setHowToPlay(getControls());
+    if (std::find(_graphicalList.begin(), _graphicalList.end(), gamePath) == _graphicalList.end())
+        _graphicalList.push_back(gamePath);
+}
+
+std::vector<std::pair<std::string, std::string>> Core::getControls() const
+{
+    std::vector<std::pair<std::string, std::string>> controls;
+
+    controls.push_back(std::pair<std::string, std::string>("Previous library", "9"));
+    controls.push_back(std::pair<std::string, std::string>("Next library", "0"));
+    if (_game != nullptr) {
+        controls.insert(controls.end(), _game->getGameControlsFormatString().begin(),
+                        _game->getGameControlsFormatString().end());
+    }
+    return (controls);
 }
 
 void Core::loadGraphicalLibrary(const std::string &libPath)
 {
-    // std::string libPath = GRAPHICAL_DIR + name;
     DLLoader<IGraphical> graphical(libPath);
 
     _graphical = std::unique_ptr<IGraphical>(graphical.getInstance());
-    _graphical->setMainMenuOptions(_mainMenuOptions);
-    _graphical->setPauseMenuOptions(_pauseMenuOptions);
     _graphical->setScene(IGraphical::MAIN_MENU);
     _currentGraphicalLib = libPath;
+    setGraphicalLibFunctions();
 }
 
 void Core::refreshLibrarieLists()
@@ -63,28 +74,25 @@ void Core::refreshLibrarieLists()
     }
 }
 
-void Core::setMenuOptions()
+void Core::startGame()
 {
-    // _mainMenuOptions.push_back("Choose game");
-    // _mainMenuOptions.push_back("Change library");
-    // _mainMenuOptions.push_back("How to play");
-    // _mainMenuOptions.push_back("Quit");
-    _mainMenuOptions["Quit"] =
-        [this] () {
-            _quitGame = true;
-        };
+    loadGameLibrary(_currentGame);
+    _graphical->setScene(IGraphical::GAME);
 }
 
-void Core::setPauseOptions()
+void Core::setGraphicalLibFunctions()
 {
-    _mainMenuOptions["Resume"] =
-        [this] () {
-            _graphical->setScene(IGraphical::GAME);
-        };
-    // _mainMenuOptions.push_back("Resume");
-    // _mainMenuOptions.push_back("Change library");
-    // _mainMenuOptions.push_back("How to play");
-    // _mainMenuOptions.push_back("Return to menu");
+    _graphical->setFunctionPlay([this] () {startGame();});
+    _graphical->setFunctionMenu([this] () {
+                                    _graphical->setScene(IGraphical::MAIN_MENU);
+                                    _game.release();
+                                    _game = nullptr;
+                                });
+    _graphical->setFunctionRestart([this] () {
+                                       _game->restart();
+                                       _graphical->setScene(IGraphical::GAME);
+                                   });
+    _graphical->setFunctionTogglePause([this] () {_isPaused = !_isPaused;});
 }
 
 const std::vector<std::string> &Core::getGameList() const
