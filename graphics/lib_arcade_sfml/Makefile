@@ -22,7 +22,7 @@ OBJ_TEST	=	$(SRC_TEST:%.cpp=%.o)
 
 CXXFLAGS	=	-W -Wall -Wextra -Wshadow	-Iinclude -I./../../include -std=c++17 -fPIC
 
-RM	=	rm -f
+RM	=	@rm -f
 
 CXX	=	g++
 

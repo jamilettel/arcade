@@ -16,6 +16,7 @@ Core::Core(const std::string &graphicalLib): _quitGame(false)
 {
     refreshLibrarieLists();
     loadGraphicalLibrary(graphicalLib);
+    loadGameLibrary("games/lib_arcade_nibbler.so");
     setMenuOptions();
     setPauseOptions();
     refreshLibrarieLists();

@@ -14,7 +14,7 @@
 
 #define GAME_DIR "games/"
 
-#define GRAPHICAL_DIR "lib/"
+#define GRAPHICAL_DIR "graphics/"
 
 namespace arc {
 
