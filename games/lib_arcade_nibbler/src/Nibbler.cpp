@@ -48,6 +48,8 @@ void arc::Nibbler::initControls()
 
 void arc::Nibbler::moveDown()
 {
+    if (_moveCoordonnate.second == -1)
+        return;
     _started = true;
     _moveCoordonnate.first = 0;
     _moveCoordonnate.second = 1;
@@ -55,6 +57,8 @@ void arc::Nibbler::moveDown()
 
 void arc::Nibbler::moveUp()
 {
+    if (_moveCoordonnate.second == 1)
+        return;
     _started = true;
     _moveCoordonnate.first = 0;
     _moveCoordonnate.second = -1;
@@ -62,6 +66,8 @@ void arc::Nibbler::moveUp()
 
 void arc::Nibbler::moveRight()
 {
+    if (_moveCoordonnate.first == -1)
+        return;
     _started = true;
     _moveCoordonnate.first = 1;
     _moveCoordonnate.second = 0;
@@ -69,6 +75,10 @@ void arc::Nibbler::moveRight()
 
 void arc::Nibbler::moveLeft()
 {
+    if (!_started)
+        return;
+    if (_moveCoordonnate.first == 1)
+        return;
     _started = true;
     _moveCoordonnate.first = -1;
     _moveCoordonnate.second = 0;
@@ -76,6 +86,8 @@ void arc::Nibbler::moveLeft()
 
 void arc::Nibbler::updateGame()
 {
+    if (!_started) return;
+
 }
 
 void arc::Nibbler::restart()
