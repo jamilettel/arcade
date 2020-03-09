@@ -42,19 +42,28 @@ namespace arc {
         std::vector<std::pair<std::string, std::string>> _gameControlsFormat;
         std::vector<Entity> _entities;
         std::vector<std::string> _gameStatsFormat;
-        std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _controls;
+        const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _controls;
 
     private:
         void initControlFormat();
+        std::map<std::pair<arc::Event::Type, arc::Event::Key>, std::function<void ()>> initControls();
         void initSnakeHead();
         void generateNewFruit();
         void popFruit(Entity fruit);
         void eatFruit(Entity fruit);
         bool invalidCoordonate(float x, float y);
 
+        void moveUp();
+        void moveDown();
+        void moveLeft();
+        void moveRight();
+        void pause();
+        void mainMenu();
+
         Entity *_snakeHead;
         std::vector<Entity*> _snake;
         std::vector<Entity*> _fruits;
+        //std::pair<float, float> _moveCoordonnate;
     public:
     };
 }
