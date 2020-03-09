@@ -39,7 +39,6 @@ const std::map<sf::Keyboard::Key, Event::Key> SfmlGraphical::_equivalentKeys = {
     {sf::Keyboard::X, Event::X},
     {sf::Keyboard::Y, Event::Y},
     {sf::Keyboard::Z, Event::Z},
-    {sf::Keyboard::Enter, Event::RETURN},
     {sf::Keyboard::Pause, Event::PAUSE},
     {sf::Keyboard::BackSpace, Event::BACKSPACE},
     {sf::Keyboard::Tab, Event::TAB},
