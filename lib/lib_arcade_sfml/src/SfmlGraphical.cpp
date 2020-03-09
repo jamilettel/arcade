@@ -106,6 +106,30 @@ void SfmlGraphical::display()
 
 void SfmlGraphical::displayGame()
 {
+    sf::RectangleShape rs;
+
+    rs.setSize(sf::Vector2f(18, 18));
+    rs.setFillColor(sf::Color::White);
+    for (size_t i = 0; i < _mapHeight; i++) {
+        for (size_t j = 0; j < _mapWidth; j++) {
+            rs.setPosition(j * 20 + 1, i * 20 + 1);
+            _window.draw(rs);
+        }
+    }
+    std::for_each(_gameMap.begin(), _gameMap.end(),
+                  [this] (Entity &entity) {
+                      if (!_sprites.count(entity.spritePath))
+                          loadSprite(entity.spritePath);
+                      _sprites[entity.spritePath].setPosition(entity.x * 20, entity.y * 20);
+                      _window.draw(_sprites[entity.spritePath]);
+                  });
+}
+
+void SfmlGraphical::loadSprite(const std::string &spritePath)
+{
+    if (!_textures[spritePath].loadFromFile(spritePath))
+        throw SfmlError("could not load texture '" + spritePath + "'");;
+    _sprites[spritePath].setTexture(_textures[spritePath]);
 }
 
 void SfmlGraphical::checkGameEvents()
@@ -178,9 +202,9 @@ void SfmlGraphical::setVisualAssets(const std::map<char, std::pair<std::string, 
     _spriteMap = assets;
     std::for_each(assets.begin(), assets.end(),
                   [this] (const std::pair<char, std::pair<std::string, Color>> &it) {
-                      if (!_textures[it.first].loadFromFile(it.second.first))
+                      if (!_textures[it.second.first].loadFromFile(it.second.first))
                           throw SfmlError("could not load texture '" + it.second.first + "'");
-                      _sprites[it.first].setTexture(_textures[it.first]);
+                      _sprites[it.second.first].setTexture(_textures[it.second.first]);
                   });
 }
 

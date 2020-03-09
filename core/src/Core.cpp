@@ -32,6 +32,8 @@ void Core::loadGameLibrary(const std::string &gamePath)
     _currentGame = gamePath;
     _graphical->setControls(_game->getControls());
     _graphical->setHowToPlay(getControls());
+    _game->getEntities();
+    _graphical->setMapSize(_game->getMapHeight(), _game->getMapWidth());
 }
 
 std::vector<std::pair<std::string, std::string>> Core::getControls() const
@@ -124,5 +126,9 @@ void Core::run()
 {
     do {
         _graphical->display();
+        if (_graphical->getScene() == IGraphical::Scene::GAME && _game.get() != nullptr) {
+            _game->updateGame();
+            _graphical->updateGameInfo(_game->getEntities());
+        }
     } while (_graphical->getEventType() != Event::QUIT && !_quitGame);
 }

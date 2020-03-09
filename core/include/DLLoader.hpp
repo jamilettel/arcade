@@ -24,7 +24,7 @@ namespace arc {
             std::string errorMessage;
 
             if (libpath != "") {
-                _handle = dlopen(libpath.c_str(), RTLD_NOW | RTLD_GLOBAL);
+                _handle = dlopen(libpath.c_str(), RTLD_NOW | RTLD_GLOBAL | RTLD_NODELETE);
                 if (!_handle)
                     errorMessage = ": " + std::string(dlerror());
             }

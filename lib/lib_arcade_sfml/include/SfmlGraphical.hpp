@@ -65,6 +65,7 @@ namespace arc {
         void checkEvents();
         void checkGameEvents();
         void displayGame();
+        void loadSprite(const std::string &spritePath);
 
         sf::RenderWindow _window;
         sf::Event _event;
@@ -80,8 +81,8 @@ namespace arc {
 
         std::string _input;
 
-        std::map<char, sf::Sprite> _sprites;
-        std::map<char, sf:: Texture> _textures;
+        std::map<std::string, sf::Sprite> _sprites;
+        std::map<std::string, sf:: Texture> _textures;
         std::map<char, std::pair<std::string, Color>> _spriteMap;
 
         sf::Font _font;
