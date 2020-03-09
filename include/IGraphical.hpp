@@ -50,8 +50,7 @@ namespace arc {
             virtual void setHowToPlay(const std::vector<std::pair<std::string, std::string>> &info) = 0;
             virtual void setGameStatsFormatString(const std::vector<std::string> &info) = 0;
             virtual void setFont(const std::string &font) = 0;
-            virtual void setSprites(const std::map<char, std::string> &sprites) = 0;
-            virtual void setBackgroundColors(const std::map<char, Color> &sprites) = 0;
+            virtual void setVisualAssets(const std::map<char, std::pair<std::string, Color>> &sprites) = 0;
             virtual void updateGameInfo(const std::vector<Entity> &gameMap) = 0;
             virtual void setMusic(const std::string &music) = 0;
             virtual void playSound(const std::string &sound) = 0;

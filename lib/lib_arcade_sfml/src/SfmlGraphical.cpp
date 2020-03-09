@@ -14,7 +14,7 @@ extern "C" IGraphical *instance_ctor() {
     return (new SfmlGraphical);
 };
 
-const std::map<sf::Keyboard::Key, Event::Key> equivalentKeys = {
+const std::map<sf::Keyboard::Key, Event::Key> SfmlGraphical::_equivalentKeys = {
     {sf::Keyboard::A, Event::A},
     {sf::Keyboard::B, Event::B},
     {sf::Keyboard::C, Event::C},
@@ -87,14 +87,35 @@ SfmlGraphical::SfmlGraphical():
 void SfmlGraphical::display()
 {
     checkEvents();
-    if (getScene() == Scene::MAIN_MENU) {
+    switch (getScene()) {
+    case (Scene::MAIN_MENU):
         std::for_each(_mainMenuButtons.begin(), _mainMenuButtons.end(),
                       [] (auto &button) {button->draw();});
         std::for_each(_gamesList.begin(), _gamesList.end(),
                       [] (auto &button) {button->draw();});
+        break;
+    case (Scene::GAME):
+        displayGame();
+        break;
+    default:
+        break;
     }
     _window.display();
     _window.clear();
+}
+
+void SfmlGraphical::displayGame()
+{
+}
+
+void SfmlGraphical::checkGameEvents()
+{
+    if (_scene == Scene::GAME) {
+        std::pair<Event::Type, Event::Key> event(_eventType, _keyPressed);
+
+        if (_controlsMap && _controlsMap->count(event))
+            _controlsMap->at(event)();
+    }
 }
 
 void SfmlGraphical::checkEvents()
@@ -110,8 +131,31 @@ void SfmlGraphical::checkEvents()
         if (_event.type == sf::Event::Closed) {
             _window.close();
             _eventType = Event::QUIT;
+        } else if (_event.type == sf::Event::KeyPressed) {
+            _eventType = Event::KEY_PRESSED;
+            if (_equivalentKeys.count(_event.key.code))
+                _keyPressed = _equivalentKeys.at(_event.key.code);
+            else
+                _keyPressed = Event::Key::NONE;
+        } else if (_event.type == sf::Event::MouseButtonPressed) {
+            _eventType = Event::MOUSE_PRESSED;
+            switch (_event.mouseButton.button) {
+            case (sf::Mouse::Button::Left):
+                _keyPressed = Event::MOUSE_1;
+                break;
+            case (sf::Mouse::Button::Middle):
+                _keyPressed = Event::MOUSE_2;
+                break;
+            case (sf::Mouse::Button::Right):
+                _keyPressed = Event::MOUSE_3;
+                break;
+            default:
+                _keyPressed = Event::NONE;
+                break;
+            }
         }
     }
+    checkGameEvents();
 }
 
 Event::Key SfmlGraphical::getKeyPressed() const
@@ -129,20 +173,15 @@ SfmlGraphical::Scene SfmlGraphical::getScene() const
     return (_scene);
 }
 
-void SfmlGraphical::setSprites(const std::map<char, std::string> &sprites)
+void SfmlGraphical::setVisualAssets(const std::map<char, std::pair<std::string, Color>> &assets)
 {
-    _spriteMap = sprites;
-    std::for_each(sprites.begin(), sprites.end(),
-                  [this] (const std::pair<char, std::string> &it) {
-                      if (!_textures[it.first].loadFromFile(it.second))
-                          throw SfmlError("could not load texture '" + it.second + "'");
+    _spriteMap = assets;
+    std::for_each(assets.begin(), assets.end(),
+                  [this] (const std::pair<char, std::pair<std::string, Color>> &it) {
+                      if (!_textures[it.first].loadFromFile(it.second.first))
+                          throw SfmlError("could not load texture '" + it.second.first + "'");
                       _sprites[it.first].setTexture(_textures[it.first]);
                   });
-}
-
-void SfmlGraphical::setBackgroundColors(const std::map<char, Color> &)
-{
-    // left empty intentionnaly: will not be used in SFML
 }
 
 void SfmlGraphical::setFont(const std::string &font)
