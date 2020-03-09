@@ -1,8 +1,23 @@
 var searchData=
 [
-  ['a',['a',['../structarc_1_1_color.html#a6e1eb34b9aa59d09e658bd3bf7b5ae00',1,'arc::Color::a()'],['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5a80969d27e91710882ec6939b23aa7b26',1,'arc::Event::A()']]],
-  ['arc',['arc',['../namespacearc.html',1,'']]],
-  ['arcadeerror',['ArcadeError',['../classarc_1_1_arcade_error.html',1,'arc::ArcadeError'],['../classarc_1_1_arcade_error.html#a8681b2142a0e0779325fe8f00b20c2d6',1,'arc::ArcadeError::ArcadeError()']]],
-  ['architecture_5fid',['ARCHITECTURE_ID',['../_c_make_c_compiler_id_8c.html#aba35d0d200deaeb06aee95ca297acb28',1,'ARCHITECTURE_ID():&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#aba35d0d200deaeb06aee95ca297acb28',1,'ARCHITECTURE_ID():&#160;CMakeCXXCompilerId.cpp']]],
-  ['event',['Event',['../namespacearc_1_1_event.html',1,'arc']]]
+  ['_5fbcolor',['_bColor',['../class_my_sf_1_1_button_1_1_a_button.html#ae63a71f4e4d84195518b65e29be60261',1,'MySf::Button::AButton']]],
+  ['_5fbcurrentcolor',['_bCurrentColor',['../class_my_sf_1_1_button_1_1_a_button.html#a2898fe92a25dc0db7e95d7049b432a93',1,'MySf::Button::AButton']]],
+  ['_5fbutton',['_button',['../class_my_sf_1_1_button_1_1_a_button.html#a0c909085c88c385a7afb8fe7721d600d',1,'MySf::Button::AButton']]],
+  ['_5fbuttoncolor',['_buttonColor',['../class_my_sf_1_1_button_1_1_a_button.html#a9bf5201083742bc5566615e9eba97280',1,'MySf::Button::AButton']]],
+  ['_5fcolor',['_color',['../class_my_sf_1_1_color_1_1_a_color.html#ad964b1c73e39e2f8dac0bb6e94886b85',1,'MySf::Color::AColor']]],
+  ['_5fcs',['_cs',['../class_my_sf_1_1_button_1_1_basic_button.html#ad9e28bb8df613b7b906a03cd45dccdc7',1,'MySf::Button::BasicButton']]],
+  ['_5ff',['_f',['../class_my_sf_1_1_button_1_1_a_button.html#af3edff5853cc04cb90925a33d5b642b2',1,'MySf::Button::AButton']]],
+  ['_5ffunc',['_func',['../class_my_sf_1_1_button_1_1_a_button.html#a303f7700f9e504629525777b66cebad7',1,'MySf::Button::AButton']]],
+  ['_5flabel',['_label',['../class_my_sf_1_1_button_1_1_a_button.html#a4b9b073498990ebe9195ad24510c0060',1,'MySf::Button::AButton']]],
+  ['_5flines',['_lines',['../class_my_sf_1_1_button_1_1_basic_button_outline.html#a7117ae2391e227485b29fb530738fc32',1,'MySf::Button::BasicButtonOutline']]],
+  ['_5fmouse',['_mouse',['../class_my_sf_1_1_button_1_1_a_button.html#a7f29459e35d53cd49450671ddbf45757',1,'MySf::Button::AButton']]],
+  ['_5fpos',['_pos',['../class_my_sf_1_1_button_1_1_a_button.html#a1ba9fca7559effe81138929171b5ff88',1,'MySf::Button::AButton']]],
+  ['_5frectangle',['_rectangle',['../class_my_sf_1_1_button_1_1_basic_button.html#a7abb7ac05ed2eff654fb9bd3beda1ce6',1,'MySf::Button::BasicButton::_rectangle()'],['../class_my_sf_1_1_button_1_1_rect_button.html#a1fe31f93c6a9fc5a9e8504a2fe631e6a',1,'MySf::Button::RectButton::_rectangle()']]],
+  ['_5fsize',['_size',['../class_my_sf_1_1_button_1_1_a_button.html#a166657df9396955815e31855a316bd3e',1,'MySf::Button::AButton']]],
+  ['_5fstate',['_state',['../class_my_sf_1_1_button_1_1_a_button.html#aeadd5273f32ad718c21f3c8f52e6adc8',1,'MySf::Button::AButton']]],
+  ['_5ft',['_t',['../class_my_sf_1_1_button_1_1_a_button.html#af8a003d0dc8d0848610a60a73998ff99',1,'MySf::Button::AButton']]],
+  ['_5ftcolor',['_tColor',['../class_my_sf_1_1_button_1_1_a_button.html#ab7e63278d03da2a0cdddcda088f3ca5e',1,'MySf::Button::AButton']]],
+  ['_5ftcurrentcolor',['_tCurrentColor',['../class_my_sf_1_1_button_1_1_a_button.html#adc1363c2ca8d0690502fd0472152aac6',1,'MySf::Button::AButton']]],
+  ['_5ftextcolor',['_textColor',['../class_my_sf_1_1_button_1_1_a_button.html#a19147c51f7ef30e5c60695a8d390cf24',1,'MySf::Button::AButton']]],
+  ['_5fwindow',['_window',['../class_my_sf_1_1_button_1_1_a_button.html#abe233756379d3fbdc51548913addea08',1,'MySf::Button::AButton']]]
 ];

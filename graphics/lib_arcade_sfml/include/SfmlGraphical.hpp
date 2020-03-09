@@ -11,6 +11,7 @@
 #include "IGraphical.hpp"
 #include <SFML/Graphics.hpp>
 #include "Button/RectButton.hpp"
+#include <SFML/Audio.hpp>
 
 #define BUTTON_COLOR MySf::Button::TriColor(sf::Color(0x416C99FF),\
                                             sf::Color(0x5B95D4FF),\
@@ -59,6 +60,8 @@ namespace arc {
         void setMusic(const std::string &music);
         void playSound(const std::string &sound);
 
+        void setMapSize(size_t height, size_t width);
+
     private:
         void checkEvents();
 
@@ -95,6 +98,13 @@ namespace arc {
 
         std::vector<std::unique_ptr<MySf::Button::IButton>> _gamesList;
         std::function<void (const std::string &)> _changeGameFct;
+
+        size_t _mapHeight;
+        size_t _mapWidth;
+
+        std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _controlsMap;
+
+        sf::Music _music;
 
     };
 

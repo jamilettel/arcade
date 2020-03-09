@@ -15,7 +15,7 @@ extern "C" IGraphical *instance_ctor() {
 };
 
 SfmlGraphical::SfmlGraphical():
-    _window(sf::VideoMode(1600, 900), "Arcade")
+    _window(sf::VideoMode(1600, 900), "Arcade"), _mapHeight(0), _mapWidth(0)
 {
     _window.setFramerateLimit(60);
 }
@@ -184,10 +184,12 @@ const std::string &SfmlGraphical::getUsername() const
 
 void SfmlGraphical::setHowToPlay(const std::vector<std::pair<std::string,std::string>> &info)
 {
+    _controls = info;
 }
 
 void SfmlGraphical::setGameStatsFormatString(const std::vector<std::string> &info)
 {
+    _gameStats = info;
 }
 
 void SfmlGraphical::updateGameInfo(const std::vector<Entity> &gameMap)
@@ -197,15 +199,19 @@ void SfmlGraphical::updateGameInfo(const std::vector<Entity> &gameMap)
 
 void SfmlGraphical::setMusic(const std::string &music)
 {
+    if (_music.openFromFile(music)) {
+        _music.setLoop(true);
+        _music.play();
+    }
 }
 
-void SfmlGraphical::playSound(const std::string &sound)
+void SfmlGraphical::playSound(const std::string &)
 {
 }
 
 void SfmlGraphical::setListGames(const std::vector<std::string> &games,
                                  const std::function<void (const std::string &)> &fct,
-                                 int chosen)
+                                 int)
 {
     sf::Vector2f pos(600, 100);
 
@@ -222,7 +228,6 @@ void SfmlGraphical::setListGames(const std::vector<std::string> &games,
                                                            TEXT_COLOR,
                                                            game,
                                                            [this, game] () {
-                                                               std::cout << game << std::endl;
                                                                _changeGameFct(game);
                                                            })));
                       pos.y += 50;
@@ -237,4 +242,11 @@ void SfmlGraphical::setListLibraries(const std::vector<std::string> &libraries,
 
 void SfmlGraphical::setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &controls)
 {
+    _controlsMap = controls;
+}
+
+void SfmlGraphical::setMapSize(size_t height, size_t width)
+{
+    _mapHeight = height;
+    _mapWidth = width;
 }

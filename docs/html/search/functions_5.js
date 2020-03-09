@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['main',['main',['../_c_make_c_compiler_id_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCXXCompilerId.cpp'],['../core_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.cpp'],['../games_2lib__arcade__centipede_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.cpp'],['../games_2lib__arcade__nibbler_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.cpp'],['../graphics_2lib__arcade__libcaca_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.cpp'],['../graphics_2lib__arcade__sfml_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.cpp']]]
+  ['instance_5fctor',['instance_ctor',['../_nibbler_8cpp.html#ab7f0f008f2acf200013c326fce770863',1,'instance_ctor():&#160;Nibbler.cpp'],['../_sfml_graphical_8cpp.html#ae3befce7e398022c022d29651a2c5f75',1,'instance_ctor():&#160;SfmlGraphical.cpp']]],
+  ['isgameover',['isGameOver',['../classarc_1_1_nibbler.html#a826b4af6821f3b1c80257d8cd744cbbf',1,'arc::Nibbler::isGameOver()'],['../classarc_1_1_i_game.html#aa526918ee2c06594c63d8ce3d090fc27',1,'arc::IGame::isGameOver()']]]
 ];

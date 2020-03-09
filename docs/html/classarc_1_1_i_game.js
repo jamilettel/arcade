@@ -1,11 +1,13 @@
 var classarc_1_1_i_game =
 [
-    [ "~IGame", "classarc_1_1_i_game.html#a9c84c989e1e8d677bc4c9930d6a8406f", null ],
-    [ "getBackgroundColors", "classarc_1_1_i_game.html#ab3c99a2a932a777e15531d93a73cf747", null ],
-    [ "getGameControlsFormatString", "classarc_1_1_i_game.html#a5b4643d11f246edf90727e948b51d7f4", null ],
-    [ "getGameStatsFormatString", "classarc_1_1_i_game.html#a665de395a64847adb2e84b72e164d22e", null ],
-    [ "getMap", "classarc_1_1_i_game.html#a92e1801d4e548b5d83679a46938d73b0", null ],
-    [ "getSprites", "classarc_1_1_i_game.html#a18647ad45f7af56886c13889ba35c352", null ],
+    [ "~IGame", "classarc_1_1_i_game.html#a35b0c983ceff303b26a5d15a5b66963b", null ],
+    [ "getControls", "classarc_1_1_i_game.html#ae1bb23b83a17b821990703d4a55d1ae1", null ],
+    [ "getEntities", "classarc_1_1_i_game.html#a7c9a8c467e3e0ce4fbdec19546de4218", null ],
+    [ "getGameControlsFormatString", "classarc_1_1_i_game.html#a746da935d5942e47a1e4214cbf2aa096", null ],
+    [ "getGameStatsFormatString", "classarc_1_1_i_game.html#ab3ad5a7b3772cc96e02b0390a0e83937", null ],
+    [ "getMapHeight", "classarc_1_1_i_game.html#abae4411fe26b067590441527f348c8a2", null ],
+    [ "getMapWidth", "classarc_1_1_i_game.html#a40a8ec7ac320ed3f3efa02c0a71bb455", null ],
+    [ "isGameOver", "classarc_1_1_i_game.html#aa526918ee2c06594c63d8ce3d090fc27", null ],
     [ "restart", "classarc_1_1_i_game.html#a1b332c630c0b2d7d43dbf6bdbe64a221", null ],
-    [ "updateGame", "classarc_1_1_i_game.html#ac1c32b6667d56cd11d92730a9556a58c", null ]
+    [ "updateGame", "classarc_1_1_i_game.html#ab83fdb6bc841c064b54af406c7d79e52", null ]
 ];

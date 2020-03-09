@@ -1,18 +1,7 @@
 var searchData=
 [
-  ['getbackgroundcolors',['getBackgroundColors',['../classarc_1_1_i_game.html#ab3c99a2a932a777e15531d93a73cf747',1,'arc::IGame']]],
-  ['getcomponent',['getComponent',['../classarc_1_1_arcade_error.html#a868eff2fb85abcff0635a66cbaa18de0',1,'arc::ArcadeError']]],
-  ['geteventtype',['getEventType',['../classarc_1_1_i_graphical.html#a7f1dc734c30a4f75a2f6ace7f178e0fd',1,'arc::IGraphical']]],
-  ['getgamecontrolsformatstring',['getGameControlsFormatString',['../classarc_1_1_i_game.html#a5b4643d11f246edf90727e948b51d7f4',1,'arc::IGame']]],
-  ['getgamelist',['getGameList',['../classarc_1_1_core.html#a6f9de2f87b8953f2a986e36452681016',1,'arc::Core']]],
-  ['getgamestatsformatstring',['getGameStatsFormatString',['../classarc_1_1_i_game.html#a665de395a64847adb2e84b72e164d22e',1,'arc::IGame']]],
-  ['getgraphicallist',['getGraphicalList',['../classarc_1_1_core.html#ad19a6b1b7189e0c4139935603a5612c9',1,'arc::Core']]],
-  ['getinput',['getInput',['../classarc_1_1_i_graphical.html#abaa1bb46d670ae8345a001ef21f902db',1,'arc::IGraphical']]],
-  ['getinstance',['getInstance',['../classarc_1_1_d_l_loader.html#a944ed4c4bb969f5def7c026c7c00606d',1,'arc::DLLoader']]],
-  ['getkeypressed',['getKeyPressed',['../classarc_1_1_i_graphical.html#a2de48fac3a1770a132b5b07c80167e00',1,'arc::IGraphical']]],
-  ['getmap',['getMap',['../classarc_1_1_i_game.html#a92e1801d4e548b5d83679a46938d73b0',1,'arc::IGame']]],
-  ['getscene',['getScene',['../classarc_1_1_i_graphical.html#a926e6df1e55d3879c98557ededea9d80',1,'arc::IGraphical']]],
-  ['getscreenheight',['getScreenHeight',['../classarc_1_1_i_graphical.html#a2ca1a0fbb770638ef15b8dc4d7162cf7',1,'arc::IGraphical']]],
-  ['getscreenwidth',['getScreenWidth',['../classarc_1_1_i_graphical.html#aa4f3b79b308d20085c3ca955fac629a4',1,'arc::IGraphical']]],
-  ['getsprites',['getSprites',['../classarc_1_1_i_game.html#a18647ad45f7af56886c13889ba35c352',1,'arc::IGame']]]
+  ['display',['display',['../classarc_1_1_sfml_graphical.html#a7c54bcf0738d2d48dacbfaea9a5092ed',1,'arc::SfmlGraphical::display()'],['../classarc_1_1_i_graphical.html#af8da4425d2f527a76058307b09ecf210',1,'arc::IGraphical::display()']]],
+  ['dlloader',['DLLoader',['../classarc_1_1_d_l_loader.html#a019e3c64ffb3a06b440d1c340012d5d9',1,'arc::DLLoader']]],
+  ['dlloadererror',['DLLoaderError',['../classarc_1_1_d_l_loader_error.html#abe1ea6f33c981ba251d2e29e003a71f5',1,'arc::DLLoaderError']]],
+  ['draw',['draw',['../class_my_sf_1_1_button_1_1_a_button.html#a4c84541a67448a19970dd965ee16c1ce',1,'MySf::Button::AButton::draw()'],['../class_my_sf_1_1_button_1_1_basic_button.html#a588ea3f2e595561977252e23dbe1f90d',1,'MySf::Button::BasicButton::draw()'],['../class_my_sf_1_1_button_1_1_basic_button_outline.html#a71047d104cd3aba78250f0a9e0ce121e',1,'MySf::Button::BasicButtonOutline::draw()'],['../class_my_sf_1_1_button_1_1_i_button.html#aa985b4d26f445674215cb66419071824',1,'MySf::Button::IButton::draw()'],['../class_my_sf_1_1_button_1_1_rect_button.html#ac4b93a11a3251b2c8f8fc5727724baa3',1,'MySf::Button::RectButton::draw()']]]
 ];

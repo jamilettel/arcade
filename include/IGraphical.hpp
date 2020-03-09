@@ -55,6 +55,8 @@ namespace arc {
             virtual void updateGameInfo(const std::vector<Entity> &gameMap) = 0;
             virtual void setMusic(const std::string &music) = 0;
             virtual void playSound(const std::string &sound) = 0;
+
+            virtual void setMapSize(size_t height, size_t width) = 0;
     };
 }
 

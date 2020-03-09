@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['igame',['IGame',['../classarc_1_1_i_game.html',1,'arc']]],
-  ['igraphical',['IGraphical',['../classarc_1_1_i_graphical.html',1,'arc']]]
+  ['dlloader',['DLLoader',['../classarc_1_1_d_l_loader.html',1,'arc']]],
+  ['dlloadererror',['DLLoaderError',['../classarc_1_1_d_l_loader_error.html',1,'arc']]]
 ];

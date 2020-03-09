@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['dlloader',['DLLoader',['../classarc_1_1_d_l_loader.html',1,'arc']]],
-  ['dlloadererror',['DLLoaderError',['../classarc_1_1_d_l_loader_error.html',1,'arc']]]
+  ['color',['Color',['../structarc_1_1_color.html',1,'arc']]],
+  ['core',['Core',['../classarc_1_1_core.html',1,'arc']]],
+  ['coreerror',['CoreError',['../classarc_1_1_core_error.html',1,'arc']]]
 ];

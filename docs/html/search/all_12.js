@@ -1,18 +1,13 @@
 var searchData=
 [
-  ['s',['S',['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5a2d17d505ec9bbe031b208bed941724d9',1,'arc::Event']]],
-  ['scene',['Scene',['../classarc_1_1_i_graphical.html#a6cc5d1012f52742130149a1af0044315',1,'arc::IGraphical']]],
-  ['setbackgroundcolors',['setBackgroundColors',['../classarc_1_1_i_graphical.html#a3aa1dafacd7212e25d91cced7f6297d0',1,'arc::IGraphical']]],
-  ['setendgamemessage',['setEndGameMessage',['../classarc_1_1_i_graphical.html#a9a99c7ce231ca057118db00f13d987cc',1,'arc::IGraphical']]],
-  ['setfont',['setFont',['../classarc_1_1_i_graphical.html#af4464cd9c1b5c8f697f35b5bfd5b61da',1,'arc::IGraphical']]],
-  ['setgamestatsformatstring',['setGameStatsFormatString',['../classarc_1_1_i_graphical.html#a5f1c9ee3378a37e698eb44d794b41b48',1,'arc::IGraphical']]],
-  ['setgetinputmessage',['setGetInputMessage',['../classarc_1_1_i_graphical.html#ac64e23f31ea792d7b8de67e5806123ff',1,'arc::IGraphical']]],
-  ['sethowtoplayformatstring',['setHowToPlayFormatString',['../classarc_1_1_i_graphical.html#a87680aeed2f73d5dc918a1b981cd6aa4',1,'arc::IGraphical']]],
-  ['setlist',['setList',['../classarc_1_1_i_graphical.html#a56f82af25c5cbe8967e4e5142c6f5737',1,'arc::IGraphical']]],
-  ['setmainmenuoptions',['setMainMenuOptions',['../classarc_1_1_i_graphical.html#aa70d2db47d6acb48b935cfc6645843db',1,'arc::IGraphical']]],
-  ['setpausemenuoptions',['setPauseMenuOptions',['../classarc_1_1_i_graphical.html#a660aea9c495f5619443e1860909fd1b6',1,'arc::IGraphical']]],
-  ['setscene',['setScene',['../classarc_1_1_i_graphical.html#ab7deaa92120dcb08b3a4ed5c38a5b04a',1,'arc::IGraphical']]],
-  ['setsprites',['setSprites',['../classarc_1_1_i_graphical.html#a44b9b157c5826dc328223f5fd97c5747',1,'arc::IGraphical']]],
-  ['stringify',['STRINGIFY',['../_c_make_c_compiler_id_8c.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY():&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY():&#160;CMakeCXXCompilerId.cpp']]],
-  ['stringify_5fhelper',['STRINGIFY_HELPER',['../_c_make_c_compiler_id_8c.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER():&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER():&#160;CMakeCXXCompilerId.cpp']]]
+  ['r',['r',['../structarc_1_1_color.html#a8e0ed5f4973792b4764b4b5388c56fa5',1,'arc::Color::r()'],['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5a4c370e21403c50d6e51af0e9907c27c3',1,'arc::Event::R()']]],
+  ['rectbutton',['RectButton',['../class_my_sf_1_1_button_1_1_rect_button.html',1,'MySf::Button::RectButton'],['../class_my_sf_1_1_button_1_1_rect_button.html#a91e018fcf791b29923dfdea0c5facc44',1,'MySf::Button::RectButton::RectButton()']]],
+  ['rectbutton_2ecpp',['RectButton.cpp',['../_rect_button_8cpp.html',1,'']]],
+  ['rectbutton_2ehpp',['RectButton.hpp',['../_rect_button_8hpp.html',1,'']]],
+  ['resize',['RESIZE',['../namespacearc_1_1_event.html#a93c5eedc3af4e1e09d2e44c4985cd15da7b683ca3e3ed690a042e2490c4dcaa34',1,'arc::Event']]],
+  ['restart',['restart',['../classarc_1_1_nibbler.html#a7c4b902687516cb3d9ae5d93eb5eb826',1,'arc::Nibbler::restart()'],['../classarc_1_1_i_game.html#a1b332c630c0b2d7d43dbf6bdbe64a221',1,'arc::IGame::restart()']]],
+  ['return',['RETURN',['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5acc0d01a072cccd4522f73b1e5421d56a',1,'arc::Event']]],
+  ['right',['RIGHT',['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5a51978c7c12a5acaa84b813ba8faab297',1,'arc::Event::RIGHT()'],['../namespacearc.html#a1759394e274827127f1f9a8b1eead526ad0dc0eb9b77827fa44cfa8f57239f477',1,'arc::RIGHT()']]],
+  ['rows_5fsnake',['ROWS_SNAKE',['../_nibbler_8hpp.html#a02c3811323aecfb227761d9ef4ebf1f6',1,'Nibbler.hpp']]],
+  ['run',['run',['../classarc_1_1_core.html#adcc93b561dfefacfe2bcbd60604ea7a6',1,'arc::Core']]]
 ];

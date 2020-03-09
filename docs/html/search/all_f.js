@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['p',['P',['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5aa39170c8e96959c29e9c4fe57fe82442',1,'arc::Event']]],
-  ['pagedown',['PAGEDOWN',['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5a8a04f3cf69ab681add53842f13b54cc0',1,'arc::Event']]],
-  ['pageup',['PAGEUP',['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5ac152df97ceb077c249acde49a4aa3759',1,'arc::Event']]],
-  ['pause',['PAUSE',['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5a686f689186aedf18c3b70b744b15468c',1,'arc::Event']]],
-  ['pause_5fmenu',['PAUSE_MENU',['../classarc_1_1_i_graphical.html#a6cc5d1012f52742130149a1af0044315a0f69ff78d60d3a942a0adab33490b6bb',1,'arc::IGraphical']]],
-  ['platform_5fid',['PLATFORM_ID',['../_c_make_c_compiler_id_8c.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCXXCompilerId.cpp']]]
+  ['o',['O',['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5a8b4348e42566cf4e73dc865443df7e30',1,'arc::Event']]],
+  ['operator_21_3d',['operator!=',['../structarc_1_1_entity.html#a08f71c1911ee47d4c6e23e434a37f404',1,'arc::Entity']]],
+  ['operator_3d',['operator=',['../class_my_sf_1_1_color_1_1_a_color.html#a46a9ff0430c0e537c96009ddcc193e10',1,'MySf::Color::AColor::operator=(const sf::Color &amp;color)'],['../class_my_sf_1_1_color_1_1_a_color.html#aed87312832de3606ebf62b1dd0aa1171',1,'MySf::Color::AColor::operator=(const IColor &amp;color)'],['../class_my_sf_1_1_color_1_1_i_color.html#adb021a0f66a1e331fa6060e556711d03',1,'MySf::Color::IColor::operator=(const sf::Color &amp;color)=0'],['../class_my_sf_1_1_color_1_1_i_color.html#ab5cef5e1a9073757a205012c3d08e0f4',1,'MySf::Color::IColor::operator=(const IColor &amp;color)=0']]],
+  ['operator_3d_3d',['operator==',['../structarc_1_1_entity.html#a3e76efead7346e650b30935e644ace2f',1,'arc::Entity']]],
+  ['orientation',['orientation',['../structarc_1_1_entity.html#a14130528e183369c7a2ec44f806d70c9',1,'arc::Entity::orientation()'],['../namespacearc.html#a1759394e274827127f1f9a8b1eead526',1,'arc::Orientation()']]]
 ];

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['color',['Color',['../structarc_1_1_color.html',1,'arc']]],
-  ['core',['Core',['../classarc_1_1_core.html',1,'arc']]],
-  ['coreerror',['CoreError',['../classarc_1_1_core_error.html',1,'arc']]]
+  ['basicbutton',['BasicButton',['../class_my_sf_1_1_button_1_1_basic_button.html',1,'MySf::Button']]],
+  ['basicbuttonoutline',['BasicButtonOutline',['../class_my_sf_1_1_button_1_1_basic_button_outline.html',1,'MySf::Button']]]
 ];
