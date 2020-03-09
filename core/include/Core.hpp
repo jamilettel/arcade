@@ -21,6 +21,7 @@ namespace arc {
     class Core {
     public:
         Core(const std::string &graphicalLib);
+        ~Core(); // = default;
 
         void loadGraphicalLibrary(const std::string &path);
         void loadGameLibrary(const std::string &path);

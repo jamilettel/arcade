@@ -30,8 +30,6 @@ namespace arc {
             }
             if (!_handle) {
                 errorMessage = "Could not load dynamic library '" + libpath + "'" + errorMessage;
-                // if (dlerror())
-                //     errorMessage += ": " + std::string(dlerror());
                 throw DLLoaderError(errorMessage);
             }
         }

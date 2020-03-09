@@ -19,16 +19,20 @@ Core::Core(const std::string &graphicalLib):
     refreshLibrarieLists();
 }
 
+Core::~Core()
+{
+    _game.release();
+}
+
 void Core::loadGameLibrary(const std::string &gamePath)
 {
     DLLoader<IGame> game(gamePath);
 
+    std::cout << "Lib: " << gamePath << std::endl;
     _game = std::unique_ptr<IGame>(game.getInstance());
-    _currentGraphicalLib = gamePath;
+    _currentGame = gamePath;
     _graphical->setControls(_game->getControls());
     _graphical->setHowToPlay(getControls());
-    if (std::find(_graphicalList.begin(), _graphicalList.end(), gamePath) == _graphicalList.end())
-        _graphicalList.push_back(gamePath);
 }
 
 std::vector<std::pair<std::string, std::string>> Core::getControls() const
@@ -37,6 +41,8 @@ std::vector<std::pair<std::string, std::string>> Core::getControls() const
 
     controls.push_back(std::pair<std::string, std::string>("Previous library", "9"));
     controls.push_back(std::pair<std::string, std::string>("Next library", "0"));
+    controls.push_back(std::pair<std::string, std::string>("Previous game", "7"));
+    controls.push_back(std::pair<std::string, std::string>("Next game", "8"));
     if (_game != nullptr) {
         controls.insert(controls.end(), _game->getGameControlsFormatString().begin(),
                         _game->getGameControlsFormatString().end());
@@ -53,6 +59,8 @@ void Core::loadGraphicalLibrary(const std::string &libPath)
     _currentGraphicalLib = libPath;
     _graphical->setFont("assets/font.otf");
     setGraphicalLibFunctions();
+    if (std::find(_graphicalList.begin(), _graphicalList.end(), libPath) == _graphicalList.end())
+        _graphicalList.push_back(libPath);
 }
 
 void Core::refreshLibrarieLists()
