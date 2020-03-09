@@ -65,20 +65,27 @@ void Core::refreshLibrarieLists()
         std::filesystem::directory_iterator graphicalLibDir(GRAPHICAL_DIR);
 
         for (auto &file: gameDir) {
-            _gameList.push_back(file.path());
+            if (file.path().filename().extension() == ".so")
+                _gameList.push_back(file.path());
         }
         for (auto &file: graphicalLibDir) {
-            _graphicalList.push_back(file.path());
+            if (file.path().filename().extension() == ".so")
+                _graphicalList.push_back(file.path());
         }
     } catch (std::exception &error) {
         throw CoreError(error.what());
     }
+    _graphical->setListGames(_gameList, [this] (const std::string &game) {_currentGame = game;});
 }
 
 void Core::startGame()
 {
-    loadGameLibrary(_currentGame);
-    _graphical->setScene(IGraphical::GAME);
+    try {
+        loadGameLibrary(_currentGame);
+        _graphical->setScene(IGraphical::GAME);
+    } catch (ArcadeError &e) {
+        std::cerr << e.getComponent() << ": " << e.what() << std::endl;
+    }
 }
 
 void Core::setGraphicalLibFunctions()

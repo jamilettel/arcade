@@ -19,7 +19,7 @@ SRC	=	src/SfmlGraphical.cpp				\
 		src/Button/BasicButton.cpp			\
 		src/Button/BasicButtonOutline.cpp	\
 		src/Button/AButton.cpp				\
-
+		src/Button/RectButton.cpp			\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 

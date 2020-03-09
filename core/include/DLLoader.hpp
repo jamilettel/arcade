@@ -21,10 +21,19 @@ namespace arc {
     class DLLoader {
     public:
         DLLoader(const std::string &libpath): _handle(nullptr) {
-            if (libpath != "")
+            std::string errorMessage;
+
+            if (libpath != "") {
                 _handle = dlopen(libpath.c_str(), RTLD_NOW | RTLD_GLOBAL);
-            if (!_handle)
-                throw DLLoaderError("Could not load dynamic library '" + libpath + "'");
+                if (!_handle)
+                    errorMessage = ": " + std::string(dlerror());
+            }
+            if (!_handle) {
+                errorMessage = "Could not load dynamic library '" + libpath + "'" + errorMessage;
+                // if (dlerror())
+                //     errorMessage += ": " + std::string(dlerror());
+                throw DLLoaderError(errorMessage);
+            }
         }
 
         ~DLLoader() {

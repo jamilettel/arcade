@@ -10,7 +10,7 @@
 
 #include "IGraphical.hpp"
 #include <SFML/Graphics.hpp>
-#include "Button/BasicButton.hpp"
+#include "Button/RectButton.hpp"
 
 #define BUTTON_COLOR MySf::Button::TriColor(sf::Color(0x416C99FF),\
                                             sf::Color(0x5B95D4FF),\
@@ -32,10 +32,13 @@ namespace arc {
         Event::Type getEventType();
         Event::Key getKeyPressed() const;
 
-        void setListGames(const std::vector<std::string> &games, const std::function<void (const std::string &)> &fct, int chosen = -1);
-        void setListLibraries(const std::vector<std::string> &libraries, const std::function<void (const std::string &)> &fct, int chosen = -1);
+        void setListGames(const std::vector<std::string> &games,
+                          const std::function<void (const std::string &)> &fct,
+                          int chosen = -1);
+        void setListLibraries(const std::vector<std::string> &libraries,
+                              const std::function<void (const std::string &)> &fct,
+                              int chosen = -1);
         void setScores(const std::vector<std::pair<std::string, std::string>> &scores);
-
         void setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &controls);
 
         void setFunctionPlay(const std::function<void()> &function);
@@ -85,10 +88,13 @@ namespace arc {
 
         std::vector<std::pair<std::string,std::string>> _scores;
 
-        std::vector<std::unique_ptr<MySf::Button::BasicButton>> _mainMenuButtons;
-        std::vector<std::unique_ptr<MySf::Button::BasicButton>> _pauseMenuButtons;
+        std::vector<std::unique_ptr<MySf::Button::IButton>> _mainMenuButtons;
+        std::vector<std::unique_ptr<MySf::Button::IButton>> _pauseMenuButtons;
 
-        std::unique_ptr<MySf::Button::BasicButton> _pauseButton;
+        std::unique_ptr<MySf::Button::IButton> _pauseButton;
+
+        std::vector<std::unique_ptr<MySf::Button::IButton>> _gamesList;
+        std::function<void (const std::string &)> _changeGameFct;
 
     };
 

@@ -13,7 +13,7 @@ AButton::AButton(sf::RenderWindow &w, sf::Vector2f pos, sf::Vector2f size, const
                  const TriColor &button, const TriColor &text, const std::function<void()> &fct):
     _window(w), _button(sf::Mouse::Button::Left), _pos(pos),
     _size(size), _bColor(button), _tColor(text), _state(NONE),
-    _func(fct), _f(f) {}
+    _func(fct), _f(f), _t("", _f) {}
 
 void AButton::setPosition(float x, float y)
 {
@@ -65,8 +65,8 @@ void AButton::manageState()
     sf::Vector2i pos = _mouse.getPosition(_window);
     bool hovering = false;
 
-    if (pos.x >= _pos.x && pos.x <= _pos.x + _size.x &&
-        pos.y >= _pos.y && pos.y <= _pos.y + _size.y)
+    if (pos.x >= _pos.x && pos.x < _pos.x + _size.x &&
+        pos.y >= _pos.y && pos.y < _pos.y + _size.y)
         hovering = true;
     if (_state != PRESSED) {
         if (_mouse.isButtonPressed(_button) && _state == HOVERING) {
