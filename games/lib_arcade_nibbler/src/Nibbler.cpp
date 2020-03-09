@@ -84,7 +84,7 @@ void arc::Nibbler::restart()
 
 void arc::Nibbler::initSnakeHead()
 {
-    _snakeHead.spritePath = std::string("");
+    _snakeHead.spritePath = std::string("assets/nibbler/snake_head_color.png");
     _snakeHead.orientation = UP;
     _snakeHead.backgroundColor = {244, 255, 40, 1};
     _snakeHead.x = rand() % COLS_SNAKE + 1;
@@ -99,7 +99,7 @@ void arc::Nibbler::initSnakeHead()
 void arc::Nibbler::generateNewFruit()
 {
     Entity *newFruit = new Entity;
-    newFruit->spritePath = std::string("");
+    newFruit->spritePath = std::string("assets/nibbler/snake_color.png");
     newFruit->orientation = UP;
     newFruit->backgroundColor = {255, 51, 40, 1};
     do {
