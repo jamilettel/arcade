@@ -27,7 +27,7 @@ namespace arc {
         const std::string &getFont() const override ;
         const std::string &getMusic() const override ;
         const std::string &getSound() const override ;
-        const std::string &getScore() const override ;
+        const std::string &getScore() override ;
         const std::map<char, std::pair<std::string, Color>> &getVisualAssets() const override ;
         const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &getControls() const override;
 
@@ -50,7 +50,8 @@ namespace arc {
         std::string _font;
         std::string _music;
         std::string _sound;
-        std::string _score;
+        std::string _scoreString;
+        int _score;
         std::map<char, std::pair<std::string, Color>> _visualAssets;
 
     private:
@@ -62,7 +63,7 @@ namespace arc {
         void addSnakeBody();
         void generateNewFruit();
         void popFruit(Entity fruit);
-        void eatFruit(Entity fruit);
+        void eatFruit();
 
         bool invalidCoordonate(float x, float y);
         std::pair<float, float> findCoordSnakeBody(float x, float y);

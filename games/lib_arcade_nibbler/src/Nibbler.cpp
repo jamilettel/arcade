@@ -12,7 +12,7 @@ extern "C" arc::IGame *instance_ctor() {
     return (new arc::Nibbler);
 };
 
-arc::Nibbler::Nibbler() : _gameOver(false), _started(false), _moveCoordonnate(std::pair<float, float>(0, 0)), _score(std::string("0"))
+arc::Nibbler::Nibbler() : _gameOver(false), _scoreString(std::string("0")), _score(0), _started(false), _moveCoordonnate(std::pair<float, float>(0, 0))
 {
     srand(time(nullptr));
     this->initControls();
@@ -88,6 +88,7 @@ void arc::Nibbler::moveLeft()
 void arc::Nibbler::updateGame()
 {
     if (!_started) return;
+    this->eatFruit();
 
 }
 
@@ -97,7 +98,8 @@ void arc::Nibbler::restart()
     _entities.clear();
     _snake.clear();
     _fruits.clear();
-    _score = std::string("0");
+    _scoreString = std::string("0");
+    _score = 0;
     this->initSnakeHead();
     this->initSnakeBody();
     this->generateNewFruit();
@@ -133,6 +135,10 @@ void arc::Nibbler::addSnakeBody()
     else
         validCoordBody = findCoordSnakeBody(_snake.back()->x, _snake.back()->y);
 
+    if (validCoordBody.first == -2 && validCoordBody.second == -2) {
+        _gameOver = true;
+        return;
+    }
     newBody->x = validCoordBody.first;
     newBody->y = validCoordBody.second;
 
@@ -186,15 +192,21 @@ void arc::Nibbler::generateNewFruit()
 void arc::Nibbler::popFruit(Entity fruit)
 {
     _entities.erase(std::remove(_entities.begin(), _entities.end(), fruit), _entities.end());
-    _fruits.erase(std::remove(_fruits.begin(), _fruits.end(),&fruit), _fruits.end());
+    _fruits.erase(std::remove(_fruits.begin(), _fruits.end(), &fruit), _fruits.end());
 }
 
-void arc::Nibbler::eatFruit(Entity fruit)
+void arc::Nibbler::eatFruit()
 {
-    do {
-        fruit.x = rand() % COLS_SNAKE + 1;
-        fruit.y = rand() % ROWS_SNAKE + 1;
-    } while (invalidCoordonate(fruit.x, fruit.y));
+    for (auto &fruit : _fruits) {
+        if (fruit->x == _snakeHead.x && fruit->y == _snakeHead.y) {
+            _score++;
+            this->addSnakeBody();
+            do {
+                fruit->x = rand() % COLS_SNAKE + 1;
+                fruit->y = rand() % ROWS_SNAKE + 1;
+            } while (invalidCoordonate(fruit->x, fruit->y));
+        }
+    }
 }
 
 bool arc::Nibbler::invalidCoordonate(float x, float y)
@@ -241,9 +253,10 @@ bool arc::Nibbler::isGameOver() const
     return _gameOver;
 }
 
-const std::string &arc::Nibbler::getScore() const
+const std::string &arc::Nibbler::getScore()
 {
-    return _score;
+    _scoreString = std::to_string(_score);
+    return _scoreString;
 }
 
 const std::string &arc::Nibbler::getMusic() const

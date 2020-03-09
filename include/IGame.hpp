@@ -24,7 +24,7 @@ namespace arc {
         virtual const std::string &getFont() const = 0;
         virtual const std::string &getMusic() const = 0;
         virtual const std::string &getSound() const = 0;
-        virtual const std::string &getScore() const = 0;
+        virtual const std::string &getScore() = 0;
         virtual const std::map<char, std::pair<std::string, Color>> &getVisualAssets() const = 0;
         virtual const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &getControls() const = 0;
 
