@@ -12,12 +12,13 @@ extern "C" arc::IGame *instance_ctor() {
     return (new arc::Nibbler);
 };
 
-arc::Nibbler::Nibbler() : _gameOver(false), _started(false), _moveCoordonnate(std::pair<float, float>(0, 0))
+arc::Nibbler::Nibbler() : _gameOver(false), _started(false), _moveCoordonnate(std::pair<float, float>(0, 0)), _score(std::string("0"))
 {
     srand(time(nullptr));
     this->initControls();
     this->initControlFormat();
     this->initSnakeHead();
+    this->initSnakeBody();
     this->generateNewFruit();
 }
 
@@ -96,7 +97,9 @@ void arc::Nibbler::restart()
     _entities.clear();
     _snake.clear();
     _fruits.clear();
+    _score = std::string("0");
     this->initSnakeHead();
+    this->initSnakeBody();
     this->generateNewFruit();
 }
 
@@ -104,14 +107,66 @@ void arc::Nibbler::initSnakeHead()
 {
     _snakeHead.spritePath = std::string("assets/nibbler/snake_head_color.png");
     _snakeHead.orientation = UP;
-    _snakeHead.backgroundColor = {244, 255, 40, 1};
-    _snakeHead.x = rand() % COLS_SNAKE + 1;
-    _snakeHead.y = rand() % ROWS_SNAKE + 1;
-    do {
-        _snakeHead.x = rand() % COLS_SNAKE + 1;
-        _snakeHead.y = rand() % ROWS_SNAKE + 1;
-    } while (invalidCoordonate(_snakeHead.x, _snakeHead.y));
+    _snakeHead.backgroundColor = {245, 66, 66, 1};
+    _snakeHead.x = (COLS_SNAKE + 1) / 2;
+    _snakeHead.y = (ROWS_SNAKE + 1) / 2;
     _entities.emplace_back(_snakeHead);
+}
+
+void arc::Nibbler::initSnakeBody()
+{
+    this->addSnakeBody();
+    this->addSnakeBody();
+    this->addSnakeBody();
+}
+
+void arc::Nibbler::addSnakeBody()
+{
+    Entity *newBody = new Entity;
+    std::pair<float, float> validCoordBody;
+    newBody->spritePath = std::string("assets/nibbler/snake_color.png");
+    newBody->orientation = UP;
+    newBody->backgroundColor = {69, 245, 66, 1};
+
+    if (_snake.empty())
+        validCoordBody = findCoordSnakeBody(_snakeHead.x, _snakeHead.y);
+    else
+        validCoordBody = findCoordSnakeBody(_snake.back()->x, _snake.back()->y);
+
+    newBody->x = validCoordBody.first;
+    newBody->y = validCoordBody.second;
+
+    _entities.emplace_back(*newBody);
+    _snake.emplace_back(newBody);
+}
+
+std::pair<float, float> arc::Nibbler::findCoordSnakeBody(float x, float y)
+{
+    const auto findObjLeft = std::find_if(_entities.begin(), _entities.end(), [x, y](const auto &obj){
+        return obj.x == (x - 1) && obj.y == y;
+    });
+    if (findObjLeft == _entities.end())
+        return std::pair<float, float>(x - 1, y);
+
+    const auto findObjBottom = std::find_if(_entities.begin(), _entities.end(), [x, y](const auto &obj){
+        return obj.x == x && obj.y == (y + 1);
+    });
+    if (findObjBottom == _entities.end())
+        return std::pair<float, float>(x, (y + 1));
+
+    const auto &findObjRight = std::find_if(_entities.begin(), _entities.end(), [x, y](const auto &obj){
+        return obj.x == (x + 1) && obj.y == y;
+    });
+    if (findObjRight == _entities.end())
+        return std::pair<float, float>(x + 1, y);
+
+    const auto &findObjTop = std::find_if(_entities.begin(), _entities.end(), [x, y](const auto &obj){
+        return obj.x == x && obj.y == (y - 1);
+    });
+    if (findObjTop == _entities.end())
+        return std::pair<float, float>(x, (y - 1));
+
+    return std::pair<float, float>(-2, -2);
 }
 
 void arc::Nibbler::generateNewFruit()
@@ -184,6 +239,31 @@ const std::vector<std::string> & arc::Nibbler::getGameStatsFormatString() const
 bool arc::Nibbler::isGameOver() const
 {
     return _gameOver;
+}
+
+const std::string &arc::Nibbler::getScore() const
+{
+    return _score;
+}
+
+const std::string &arc::Nibbler::getMusic() const
+{
+    return _music;
+}
+
+const std::string &arc::Nibbler::getFont() const
+{
+    return _font;
+}
+
+const std::string &arc::Nibbler::getSound() const
+{
+    return _sound;
+}
+
+const std::map<char, std::pair<std::string, arc::Color>> &arc::Nibbler::getVisualAssets() const
+{
+    return _visualAssets;
 }
 
 /*
