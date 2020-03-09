@@ -33,7 +33,16 @@ void arc::Nibbler::initControlFormat()
 void arc::Nibbler::initControls()
 {
     _controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::DOWN)] = [this](){
-        this->moveDown();
+        arc::Nibbler::moveDown();
+    };
+    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::UP)] = [this](){
+        arc::Nibbler::moveUp();
+    };
+    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::RIGHT)] = [this](){
+        arc::Nibbler::moveRight();
+    };
+    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::LEFT)] = [this](){
+        arc::Nibbler::moveLeft();
     };
 }
 
