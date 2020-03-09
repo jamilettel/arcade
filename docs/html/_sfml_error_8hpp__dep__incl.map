@@ -1,5 +1,4 @@
 <map id="graphics/lib_arcade_sfml/include/SfmlError.hpp" name="graphics/lib_arcade_sfml/include/SfmlError.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="96,5,297,47"/>
-<area shape="rect" id="node2" href="$_sfml_error_8cpp.html" title=" " alt="" coords="5,95,177,136"/>
-<area shape="rect" id="node3" href="$_sfml_graphical_8cpp.html" title=" " alt="" coords="201,95,405,136"/>
+<area shape="rect" id="node2" href="$_sfml_error_8cpp.html" title="graphics/lib_arcade\l_sfml/src/SfmlError.cpp" alt="" coords="5,95,177,136"/>
+<area shape="rect" id="node3" href="$_sfml_graphical_8cpp.html" title="graphics/lib_arcade\l_sfml/src/SfmlGraphical.cpp" alt="" coords="201,95,405,136"/>
 </map>

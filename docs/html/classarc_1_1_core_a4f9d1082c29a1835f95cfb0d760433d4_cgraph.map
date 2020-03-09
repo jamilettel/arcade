@@ -1,4 +1,3 @@
 <map id="arc::Core::loadGraphicalLibrary" name="arc::Core::loadGraphicalLibrary">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,184,47"/>
-<area shape="rect" id="node2" href="$classarc_1_1_d_l_loader.html#a944ed4c4bb969f5def7c026c7c00606d" title=" " alt="" coords="232,13,427,39"/>
+<area shape="rect" id="node2" href="$classarc_1_1_d_l_loader.html#a944ed4c4bb969f5def7c026c7c00606d" title="arc::DLLoader::getInstance" alt="" coords="232,13,427,39"/>
 </map>

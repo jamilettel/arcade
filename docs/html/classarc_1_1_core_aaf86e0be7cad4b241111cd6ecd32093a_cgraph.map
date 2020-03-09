@@ -1,5 +1,4 @@
 <map id="arc::Core::loadGameLibrary" name="arc::Core::loadGameLibrary">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,205,57"/>
-<area shape="rect" id="node2" href="$classarc_1_1_d_l_loader.html#a944ed4c4bb969f5def7c026c7c00606d" title=" " alt="" coords="253,5,448,32"/>
-<area shape="rect" id="node3" href="$classarc_1_1_core.html#ab931690dbde1bbd3ddecc699628d690c" title=" " alt="" coords="269,56,432,83"/>
+<area shape="rect" id="node2" href="$classarc_1_1_d_l_loader.html#a944ed4c4bb969f5def7c026c7c00606d" title="arc::DLLoader::getInstance" alt="" coords="253,5,448,32"/>
+<area shape="rect" id="node3" href="$classarc_1_1_core.html#ab931690dbde1bbd3ddecc699628d690c" title="arc::Core::getControls" alt="" coords="269,56,432,83"/>
 </map>

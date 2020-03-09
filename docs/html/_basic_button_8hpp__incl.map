@@ -1,12 +1,7 @@
 <map id="graphics/lib_arcade_sfml/include/Button/BasicButton.hpp" name="graphics/lib_arcade_sfml/include/Button/BasicButton.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="237,5,393,61"/>
-<area shape="rect" id="node2" href="$_a_button_8hpp.html" title=" " alt="" coords="128,109,277,136"/>
-<area shape="rect" id="node8" title=" " alt="" coords="275,184,355,211"/>
-<area shape="rect" id="node9" href="$_smooth_shifting_8hpp.html" title=" " alt="" coords="353,109,541,136"/>
-<area shape="rect" id="node3" href="$_i_button_8hpp.html" title=" " alt="" coords="5,184,149,211"/>
-<area shape="rect" id="node7" title=" " alt="" coords="173,184,251,211"/>
-<area shape="rect" id="node4" title=" " alt="" coords="69,333,216,360"/>
-<area shape="rect" id="node5" href="$_i_color_8hpp.html" title=" " alt="" coords="187,259,312,285"/>
-<area shape="rect" id="node6" title=" " alt="" coords="75,259,162,285"/>
-<area shape="rect" id="node10" href="$_a_color_8hpp.html" title=" " alt="" coords="380,184,511,211"/>
+<area shape="rect" id="node2" href="$_a_button_8hpp.html" title="Button/AButton.hpp" alt="" coords="128,109,277,136"/>
+<area shape="rect" id="node9" href="$_smooth_shifting_8hpp.html" title="Color/SmoothShifting.hpp" alt="" coords="353,109,541,136"/>
+<area shape="rect" id="node3" href="$_i_button_8hpp.html" title="Button/IButton.hpp" alt="" coords="5,184,149,211"/>
+<area shape="rect" id="node5" href="$_i_color_8hpp.html" title="Color/IColor.hpp" alt="" coords="187,259,312,285"/>
+<area shape="rect" id="node10" href="$_a_color_8hpp.html" title="Color/AColor.hpp" alt="" coords="380,184,511,211"/>
 </map>

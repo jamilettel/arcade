@@ -1,4 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classarc_1_1_i_graphical.html" title=" " alt="" coords="5,5,121,32"/>
-<area shape="rect" id="node2" href="$classarc_1_1_sfml_graphical.html" title=" " alt="" coords="169,5,312,32"/>
+<area shape="rect" id="node1" href="$classarc_1_1_i_graphical.html" title="arc::IGraphical" alt="" coords="5,5,121,32"/>
+<area shape="rect" id="node2" href="$classarc_1_1_sfml_graphical.html" title="arc::SfmlGraphical" alt="" coords="169,5,312,32"/>
 </map>

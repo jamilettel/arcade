@@ -1,13 +1,5 @@
 <map id="games/lib_arcade_nibbler/src/Nibbler.cpp" name="games/lib_arcade_nibbler/src/Nibbler.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="140,5,329,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="135,95,220,121"/>
-<area shape="rect" id="node3" href="$_nibbler_8hpp.html" title=" " alt="" coords="244,95,340,121"/>
-<area shape="rect" id="node4" href="$_i_game_8hpp.html" title=" " alt="" coords="135,169,228,196"/>
-<area shape="rect" id="node10" title=" " alt="" coords="252,169,332,196"/>
-<area shape="rect" id="node11" title=" " alt="" coords="356,169,423,196"/>
-<area shape="rect" id="node5" href="$include_2_utils_8hpp.html" title=" " alt="" coords="5,244,85,271"/>
-<area shape="rect" id="node7" title=" " alt="" coords="110,244,173,271"/>
-<area shape="rect" id="node8" title=" " alt="" coords="197,244,248,271"/>
-<area shape="rect" id="node9" title=" " alt="" coords="273,244,359,271"/>
-<area shape="rect" id="node6" title=" " alt="" coords="16,319,75,345"/>
+<area shape="rect" id="node3" href="$_nibbler_8hpp.html" title="Nibbler.hpp" alt="" coords="244,95,340,121"/>
+<area shape="rect" id="node4" href="$_i_game_8hpp.html" title="IGame.hpp" alt="" coords="135,169,228,196"/>
+<area shape="rect" id="node5" href="$include_2_utils_8hpp.html" title="Utils.hpp" alt="" coords="5,244,85,271"/>
 </map>

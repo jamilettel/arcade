@@ -1,7 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,56,92,83"/>
-<area shape="rect" id="node2" href="$classarc_1_1_arcade_error.html" title=" " alt="" coords="140,56,267,83"/>
-<area shape="rect" id="node3" href="$classarc_1_1_core_error.html" title=" " alt="" coords="331,5,441,32"/>
-<area shape="rect" id="node4" href="$classarc_1_1_d_l_loader_error.html" title=" " alt="" coords="315,56,457,83"/>
-<area shape="rect" id="node5" href="$classarc_1_1_sfml_error.html" title=" " alt="" coords="331,107,441,133"/>
+<area shape="rect" id="node2" href="$classarc_1_1_arcade_error.html" title="arc::ArcadeError" alt="" coords="140,56,267,83"/>
+<area shape="rect" id="node3" href="$classarc_1_1_core_error.html" title="arc::CoreError" alt="" coords="331,5,441,32"/>
+<area shape="rect" id="node4" href="$classarc_1_1_d_l_loader_error.html" title="arc::DLLoaderError" alt="" coords="315,56,457,83"/>
+<area shape="rect" id="node5" href="$classarc_1_1_sfml_error.html" title="arc::SfmlError" alt="" coords="331,107,441,133"/>
 </map>

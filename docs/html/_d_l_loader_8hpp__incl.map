@@ -1,9 +1,4 @@
 <map id="core/include/DLLoader.hpp" name="core/include/DLLoader.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="19,5,212,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="38,229,97,256"/>
-<area shape="rect" id="node3" title=" " alt="" coords="26,80,93,107"/>
-<area shape="rect" id="node4" href="$_core_error_8hpp.html" title=" " alt="" coords="118,80,228,107"/>
-<area shape="rect" id="node7" title=" " alt="" coords="253,80,333,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="150,229,236,256"/>
-<area shape="rect" id="node6" href="$_error_8hpp.html" title=" " alt="" coords="105,155,185,181"/>
+<area shape="rect" id="node4" href="$_core_error_8hpp.html" title="CoreError.hpp" alt="" coords="118,80,228,107"/>
+<area shape="rect" id="node6" href="$_error_8hpp.html" title="Error.hpp" alt="" coords="105,155,185,181"/>
 </map>

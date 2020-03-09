@@ -1,7 +1,6 @@
 <map id="MySf::Button::BasicButtonOutline" name="MySf::Button::BasicButtonOutline">
-<area shape="rect" id="node1" title=" " alt="" coords="83,261,275,303"/>
-<area shape="rect" id="node2" href="$class_my_sf_1_1_button_1_1_basic_button.html" title=" " alt="" coords="83,185,275,212"/>
-<area shape="rect" id="node3" href="$class_my_sf_1_1_button_1_1_a_button.html" title=" " alt="" coords="96,109,263,136"/>
-<area shape="rect" id="node4" href="$class_my_sf_1_1_button_1_1_i_button.html" title=" " alt="" coords="5,5,167,32"/>
-<area shape="rect" id="node5" href="$struct_my_sf_1_1_button_1_1_tri_color.html" title=" " alt="" coords="191,5,354,32"/>
+<area shape="rect" id="node2" href="$class_my_sf_1_1_button_1_1_basic_button.html" title="MySf::Button::BasicButton" alt="" coords="82,185,273,212"/>
+<area shape="rect" id="node3" href="$class_my_sf_1_1_button_1_1_a_button.html" title="MySf::Button::AButton" alt="" coords="95,109,260,136"/>
+<area shape="rect" id="node4" href="$class_my_sf_1_1_button_1_1_i_button.html" title="MySf::Button::IButton" alt="" coords="5,5,165,32"/>
+<area shape="rect" id="node5" href="$struct_my_sf_1_1_button_1_1_tri_color.html" title="MySf::Button::TriColor" alt="" coords="189,5,352,32"/>
 </map>
