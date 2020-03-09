@@ -26,8 +26,6 @@ void arc::Nibbler::initControlFormat()
     _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MOVE RIGHT"), std::string("ARROW KEY RIGHT")));
     _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MOVE LEFT"), std::string("ARROW KEY LEFT")));
     _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("RESTART"), std::string("R")));
-    _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("PAUSE"), std::string("ECHAP")));
-    _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MAIN MENU"), std::string("M")));
 }
 
 std::map<std::pair<arc::Event::Type, arc::Event::Key>, std::function<void ()>> arc::Nibbler::initControls()
@@ -36,7 +34,15 @@ std::map<std::pair<arc::Event::Type, arc::Event::Key>, std::function<void ()>> a
     controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::DOWN)] = [this](){
         arc::Nibbler::moveDown();
     };
-
+    controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::UP)] = [this](){
+        arc::Nibbler::moveUp();
+    };
+    controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::RIGHT)] = [this](){
+        arc::Nibbler::moveRight();
+    };
+    controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::LEFT)] = [this](){
+        arc::Nibbler::moveLeft();
+    };
     return controls;
 }
 
@@ -56,16 +62,6 @@ void arc::Nibbler::moveRight()
 }
 
 void arc::Nibbler::moveLeft()
-{
-
-}
-
-void arc::Nibbler::pause()
-{
-
-}
-
-void arc::Nibbler::mainMenu()
 {
 
 }
