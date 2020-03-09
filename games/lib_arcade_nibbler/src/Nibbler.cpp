@@ -82,16 +82,16 @@ void arc::Nibbler::restart()
 
 void arc::Nibbler::initSnakeHead()
 {
-    _snakeHead->spritePath = std::string("");
-    _snakeHead->orientation = UP;
-    _snakeHead->backgroundColor = {244, 255, 40, 1};
-    _snakeHead->x = rand() % COLS_SNAKE + 1;
-    _snakeHead->y = rand() % ROWS_SNAKE + 1;
-    do {
-        _snakeHead->x = rand() % COLS_SNAKE + 1;
-        _snakeHead->y = rand() % ROWS_SNAKE + 1;
-    } while (invalidCoordonate(_snakeHead->x, _snakeHead->y));
-    _entities.emplace_back(*_snakeHead);
+    //_snakeHead->spritePath = std::string("");
+    //_snakeHead->orientation = UP;
+    //_snakeHead->backgroundColor = {244, 255, 40, 1};
+    //_snakeHead->x = rand() % COLS_SNAKE + 1;
+    //_snakeHead->y = rand() % ROWS_SNAKE + 1;
+    //do {
+    //    _snakeHead->x = rand() % COLS_SNAKE + 1;
+    //    _snakeHead->y = rand() % ROWS_SNAKE + 1;
+    //} while (invalidCoordonate(_snakeHead->x, _snakeHead->y));
+    //_entities.emplace_back(*_snakeHead);
 }
 
 void arc::Nibbler::generateNewFruit()
