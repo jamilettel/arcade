@@ -21,21 +21,23 @@ namespace arc {
 
         virtual size_t getMapHeight() const = 0;
         virtual size_t getMapWidth() const = 0;
+        virtual const std::string &getFont() const = 0;
+        virtual const std::string &getMusic() const = 0;
+        virtual const std::string &getSound() const = 0;
+        virtual const std::string &getScore() const = 0;
+        virtual const std::map<char, std::pair<std::string, Color>> &getVisualAssets() const = 0;
+        virtual const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &getControls() const = 0;
+
+        virtual const std::vector<Entity> &getEntities() const = 0;
 
         virtual const std::vector<std::pair<std::string, std::string>> &getGameControlsFormatString() const = 0;
+        virtual const std::vector<std::string> &getGameStatsFormatString() const = 0;
 
         virtual void restart() = 0;
         virtual void updateGame() = 0;
 
-        virtual const std::vector<Entity> &getEntities() const = 0;
-        virtual const std::vector<std::string> &getGameStatsFormatString() const = 0;
-
         virtual bool isGameOver() const = 0;
-
-        virtual const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &getControls() const = 0;
-
     };
-
 }
 
 #endif /* IGAME_HPP_ */
