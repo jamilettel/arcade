@@ -12,40 +12,29 @@ extern "C" arc::IGame *instance_ctor() {
     return (new arc::Nibbler);
 };
 
-arc::Nibbler::Nibbler() : _gameOver(false), _controls(initControls()), _gameControlsFormat(initControlFormat()), _started(false), _moveCoordonnate(std::pair<float, float>(0, 0))
+arc::Nibbler::Nibbler() : _gameOver(false), _started(false), _moveCoordonnate(std::pair<float, float>(0, 0))
 {
     srand(time(nullptr));
+    this->initControls();
+    this->initControlFormat();
     this->initSnakeHead();
     this->generateNewFruit();
 }
 
-std::vector<std::pair<std::string, std::string>> arc::Nibbler::initControlFormat()
+void arc::Nibbler::initControlFormat()
 {
-    std::vector<std::pair<std::string, std::string>> gameControlsFormat;
-    gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MOVE UP"), std::string("ARROW KEY UP")));
-    gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MOVE DOWN"), std::string("ARROW KEY DOWN")));
-    gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MOVE RIGHT"), std::string("ARROW KEY RIGHT")));
-    gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MOVE LEFT"), std::string("ARROW KEY LEFT")));
-    gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("RESTART"), std::string("R")));
-    return gameControlsFormat;
+    _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MOVE UP"), std::string("ARROW KEY UP")));
+    _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MOVE DOWN"), std::string("ARROW KEY DOWN")));
+    _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MOVE RIGHT"), std::string("ARROW KEY RIGHT")));
+    _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MOVE LEFT"), std::string("ARROW KEY LEFT")));
+    _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("RESTART"), std::string("R")));
 }
 
-std::map<std::pair<arc::Event::Type, arc::Event::Key>, std::function<void ()>> arc::Nibbler::initControls()
+void arc::Nibbler::initControls()
 {
-    std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> controls;
-    controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::DOWN)] = [this](){
-        arc::Nibbler::moveDown();
+    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::DOWN)] = [this](){
+        this->moveDown();
     };
-    controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::UP)] = [this](){
-        arc::Nibbler::moveUp();
-    };
-    controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::RIGHT)] = [this](){
-        arc::Nibbler::moveRight();
-    };
-    controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::LEFT)] = [this](){
-        arc::Nibbler::moveLeft();
-    };
-    return controls;
 }
 
 void arc::Nibbler::moveDown()

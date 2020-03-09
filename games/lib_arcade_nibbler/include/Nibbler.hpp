@@ -39,14 +39,14 @@ namespace arc {
 
     private:
         bool _gameOver;
-        const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _controls;
+        std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _controls;
         std::vector<std::pair<std::string, std::string>> _gameControlsFormat;
         std::vector<Entity> _entities;
         std::vector<std::string> _gameStatsFormat;
 
     private:
-        std::vector<std::pair<std::string, std::string>> initControlFormat();
-        std::map<std::pair<arc::Event::Type, arc::Event::Key>, std::function<void ()>> initControls();
+        void initControlFormat();
+        void initControls();
         void initSnakeHead();
         void generateNewFruit();
         void popFruit(Entity fruit);

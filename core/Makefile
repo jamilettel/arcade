@@ -57,7 +57,7 @@ tests_run: $(OBJ) $(OBJ_TEST)
 			./$(TEST_NAME)
 			gcovr --exclude tests
 
-debug: CXXFLAGS+ = -g
+debug: CXXFLAGS += -g
 debug: all
 
 .PHONY : clean fclean re tests_run clean_coverage debug
