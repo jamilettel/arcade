@@ -57,8 +57,6 @@ namespace arc {
         void moveDown();
         void moveLeft();
         void moveRight();
-        void pause();
-        void mainMenu();
 
         Entity *_snakeHead;
         std::vector<Entity*> _snake;
