@@ -20,15 +20,16 @@ namespace arc {
     template <typename T>
     class DLLoader {
     public:
-        DLLoader(const std::string &libpath):
-            _handle(dlopen(libpath.c_str(), RTLD_LAZY | RTLD_GLOBAL)) {
+        DLLoader(const std::string &libpath): _handle(nullptr) {
+            if (libpath != "")
+                _handle = dlopen(libpath.c_str(), RTLD_NOW | RTLD_GLOBAL);
             if (!_handle)
-                throw DLLoaderError("Could not load dynamic library '" +
-                                    libpath + "': " + dlerror());
+                throw DLLoaderError("Could not load dynamic library '" + libpath + "'");
         }
 
         ~DLLoader() {
-            dlclose(_handle);
+            if (_handle)
+                dlclose(_handle);
         }
 
         T *getInstance(const std::string &constructor = CONSTRUCTOR) {

@@ -15,8 +15,7 @@ extern "C" IGraphical *instance_ctor() {
 };
 
 SfmlGraphical::SfmlGraphical():
-    _window(sf::VideoMode(1600, 900), "Arcade", sf::Style::Close, sf::ContextSettings(0, 0, 8)),
-    _gameMap(nullptr)
+    _window(sf::VideoMode(1600, 900), "Arcade", sf::Style::Close, sf::ContextSettings(0, 0, 8))
 {
     _window.setFramerateLimit(60);
 }
@@ -24,6 +23,10 @@ SfmlGraphical::SfmlGraphical():
 void SfmlGraphical::display()
 {
     checkEvents();
+    if (getScene() == Scene::MAIN_MENU) {
+        std::for_each(_mainMenuButtons.begin(), _mainMenuButtons.end(),
+                      [] (auto &button) {button->draw();});
+    }
     _window.display();
 }
 
@@ -88,18 +91,68 @@ void SfmlGraphical::setScores(const std::vector<std::pair<std::string,std::strin
 
 void SfmlGraphical::setFunctionPlay(const std::function<void()> &function)
 {
+    _mainMenuButtons.push_back(
+        std::unique_ptr<MySf::Button::BasicButton>(
+            new MySf::Button::BasicButton(_window,
+                                          sf::Vector2f(100, 100),
+                                          sf::Vector2f(200, 50),
+                                          _font,
+                                          BUTTON_COLOR,
+                                          TEXT_COLOR,
+                                          "Play",
+                                          function)));
 }
 
 void SfmlGraphical::setFunctionRestart(const std::function<void()> &function)
 {
+    _pauseMenuButtons.push_back(
+        std::unique_ptr<MySf::Button::BasicButton>(
+            new MySf::Button::BasicButton(_window,
+                                          sf::Vector2f(100, 175),
+                                          sf::Vector2f(200, 50),
+                                          _font,
+                                          BUTTON_COLOR,
+                                          TEXT_COLOR,
+                                          "Restart",
+                                          function)));
 }
 
 void SfmlGraphical::setFunctionMenu(const std::function<void()> &function)
 {
+    _pauseMenuButtons.push_back(
+        std::unique_ptr<MySf::Button::BasicButton>(
+            new MySf::Button::BasicButton(_window,
+                                          sf::Vector2f(100, 250),
+                                          sf::Vector2f(200, 50),
+                                          _font,
+                                          BUTTON_COLOR,
+                                          TEXT_COLOR,
+                                          "Return to menu",
+                                          function)));
 }
 
 void SfmlGraphical::setFunctionTogglePause(const std::function<void()> &function)
 {
+    _pauseMenuButtons.push_back(
+        std::unique_ptr<MySf::Button::BasicButton>(
+            new MySf::Button::BasicButton(_window,
+                                          sf::Vector2f(100, 100),
+                                          sf::Vector2f(200, 50),
+                                          _font,
+                                          BUTTON_COLOR,
+                                          TEXT_COLOR,
+                                          "Resume",
+                                          function)));
+
+    _pauseButton = std::unique_ptr<MySf::Button::BasicButton>(
+        new MySf::Button::BasicButton(_window,
+                                      sf::Vector2f(100, 100),
+                                      sf::Vector2f(200, 50),
+                                      _font,
+                                      BUTTON_COLOR,
+                                      TEXT_COLOR,
+                                      "Pause",
+                                      function));
 }
 
 const std::string &SfmlGraphical::getUsername() const
@@ -117,6 +170,7 @@ void SfmlGraphical::setGameStatsFormatString(const std::vector<std::string> &inf
 
 void SfmlGraphical::updateGameInfo(const std::vector<Entity> &gameMap)
 {
+    _gameMap = gameMap;
 }
 
 void SfmlGraphical::setMusic(const std::string &music)

@@ -15,8 +15,8 @@ using namespace arc;
 Core::Core(const std::string &graphicalLib):
     _graphical(nullptr), _game(nullptr), _quitGame(false), _isPaused(false)
 {
-    refreshLibrarieLists();
     loadGraphicalLibrary(graphicalLib);
+    refreshLibrarieLists();
 }
 
 void Core::loadGameLibrary(const std::string &gamePath)
@@ -51,6 +51,7 @@ void Core::loadGraphicalLibrary(const std::string &libPath)
     _graphical = std::unique_ptr<IGraphical>(graphical.getInstance());
     _graphical->setScene(IGraphical::MAIN_MENU);
     _currentGraphicalLib = libPath;
+    _graphical->setFont("assets/font.otf");
     setGraphicalLibFunctions();
 }
 
@@ -107,8 +108,7 @@ const std::vector<std::string> &Core::getGraphicalList() const
 
 void Core::run()
 {
-    while (_graphical->getEventType() != Event::QUIT && !_quitGame) {
+    do {
         _graphical->display();
-        // if (_graphical->getSceneChoice(_graphical->getScene()));
-    }
+    } while (_graphical->getEventType() != Event::QUIT && !_quitGame);
 }

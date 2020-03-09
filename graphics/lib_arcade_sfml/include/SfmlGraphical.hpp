@@ -10,6 +10,15 @@
 
 #include "IGraphical.hpp"
 #include <SFML/Graphics.hpp>
+#include "Button/BasicButton.hpp"
+
+#define BUTTON_COLOR MySf::Button::TriColor(sf::Color(0x416C99FF),\
+                                            sf::Color(0x5B95D4FF),\
+                                            sf::Color::White)
+
+#define TEXT_COLOR MySf::Button::TriColor(sf::Color::White,\
+                                          sf::Color::White,\
+                                          sf::Color(0x5B95D4FF))
 
 namespace arc {
 
@@ -60,7 +69,7 @@ namespace arc {
         std::vector<std::string> _list;
         std::string _getInputMessage;
         std::string _endGameMessage;
-        const std::vector<std::vector<char>> *_gameMap;
+        std::vector<Entity> _gameMap;
 
         std::string _input;
 
@@ -75,6 +84,11 @@ namespace arc {
         std::vector<std::pair<std::string, std::string>> _controls;
 
         std::vector<std::pair<std::string,std::string>> _scores;
+
+        std::vector<std::unique_ptr<MySf::Button::BasicButton>> _mainMenuButtons;
+        std::vector<std::unique_ptr<MySf::Button::BasicButton>> _pauseMenuButtons;
+
+        std::unique_ptr<MySf::Button::BasicButton> _pauseButton;
 
     };
 

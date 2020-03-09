@@ -11,8 +11,15 @@ SRC_TEST	=	\
 
 MAIN	=	\
 
-SRC	=	src/SfmlGraphical.cpp	\
-		src/SfmlError.cpp		\
+SRC	=	src/SfmlGraphical.cpp				\
+		src/SfmlError.cpp					\
+		src/Color/Utils.cpp					\
+		src/Color/SmoothShifting.cpp		\
+		src/Color/AColor.cpp				\
+		src/Button/BasicButton.cpp			\
+		src/Button/BasicButtonOutline.cpp	\
+		src/Button/AButton.cpp				\
+
 
 OBJ	=	$(SRC:%.cpp=%.o)
 
