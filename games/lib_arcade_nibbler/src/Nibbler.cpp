@@ -33,12 +33,23 @@ void arc::Nibbler::initControlFormat()
 void arc::Nibbler::initControls()
 {
     _controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::DOWN)] = [this](){
-        this->moveDown();
+        arc::Nibbler::moveDown();
+    };
+    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::UP)] = [this](){
+        arc::Nibbler::moveUp();
+    };
+    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::RIGHT)] = [this](){
+        arc::Nibbler::moveRight();
+    };
+    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::LEFT)] = [this](){
+        arc::Nibbler::moveLeft();
     };
 }
 
 void arc::Nibbler::moveDown()
 {
+    if (_moveCoordonnate.second == -1)
+        return;
     _started = true;
     _moveCoordonnate.first = 0;
     _moveCoordonnate.second = 1;
@@ -46,6 +57,8 @@ void arc::Nibbler::moveDown()
 
 void arc::Nibbler::moveUp()
 {
+    if (_moveCoordonnate.second == 1)
+        return;
     _started = true;
     _moveCoordonnate.first = 0;
     _moveCoordonnate.second = -1;
@@ -53,6 +66,8 @@ void arc::Nibbler::moveUp()
 
 void arc::Nibbler::moveRight()
 {
+    if (_moveCoordonnate.first == -1)
+        return;
     _started = true;
     _moveCoordonnate.first = 1;
     _moveCoordonnate.second = 0;
@@ -60,6 +75,10 @@ void arc::Nibbler::moveRight()
 
 void arc::Nibbler::moveLeft()
 {
+    if (!_started)
+        return;
+    if (_moveCoordonnate.first == 1)
+        return;
     _started = true;
     _moveCoordonnate.first = -1;
     _moveCoordonnate.second = 0;
@@ -67,6 +86,8 @@ void arc::Nibbler::moveLeft()
 
 void arc::Nibbler::updateGame()
 {
+    if (!_started) return;
+
 }
 
 void arc::Nibbler::restart()

@@ -66,4 +66,5 @@ namespace arc {
     public:
     };
 }
+
 #endif //OOP_ARCADE_2019_NIBBLER_H
