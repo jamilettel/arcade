@@ -58,7 +58,7 @@ namespace arc {
         void moveLeft();
         void moveRight();
 
-        Entity *_snakeHead;
+        Entity _snakeHead;
         std::vector<Entity*> _snake;
         std::vector<Entity*> _fruits;
         //std::pair<float, float> _moveCoordonnate;
