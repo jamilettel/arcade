@@ -28,7 +28,6 @@ void Core::loadGameLibrary(const std::string &gamePath)
 {
     DLLoader<IGame> game(gamePath);
 
-    std::cout << "Lib: " << gamePath << std::endl;
     _game = std::unique_ptr<IGame>(game.getInstance());
     _currentGame = gamePath;
     _graphical->setControls(_game->getControls());

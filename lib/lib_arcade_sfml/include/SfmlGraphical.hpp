@@ -102,7 +102,7 @@ namespace arc {
         size_t _mapHeight;
         size_t _mapWidth;
 
-        std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _controlsMap;
+        const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> *_controlsMap;
 
         sf::Music _music;
 

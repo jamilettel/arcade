@@ -15,7 +15,7 @@ extern "C" IGraphical *instance_ctor() {
 };
 
 SfmlGraphical::SfmlGraphical():
-    _window(sf::VideoMode(1600, 900), "Arcade"), _mapHeight(0), _mapWidth(0)
+    _window(sf::VideoMode(1600, 900), "Arcade"), _mapHeight(0), _mapWidth(0), _controlsMap(nullptr)
 {
     _window.setFramerateLimit(60);
 }
@@ -242,7 +242,7 @@ void SfmlGraphical::setListLibraries(const std::vector<std::string> &libraries,
 
 void SfmlGraphical::setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &controls)
 {
-    _controlsMap = controls;
+    _controlsMap = &controls;
 }
 
 void SfmlGraphical::setMapSize(size_t height, size_t width)
