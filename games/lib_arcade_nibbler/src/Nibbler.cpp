@@ -104,18 +104,34 @@ void arc::Nibbler::moveSnake()
     });
 }
 
+bool arc::Nibbler::collisionSnake()
+{
+    auto elemF = find_if(_snake.begin(), _snake.end(), [this](const std::shared_ptr<Entity> &elem)
+    {
+        return elem->x == _snakeHead->x && elem->y == _snakeHead->y;
+    });
+    if (elemF == _snake.end())
+        return false;
+    return true;
+}
+
 void arc::Nibbler::updateGame()
 {
     if (!_started) return;
     if (!this->moveDelay())
         return;
-    this->eatFruit();
     this->moveSnake();
+    if (this->collisionSnake()) {
+        _gameOver = true;
+        this->restart();
+    }
+    this->eatFruit();
 }
 
 void arc::Nibbler::restart()
 {
     _gameOver = false;
+    _started = false;
     _entities.clear();
     _snake.clear();
     _fruits.clear();

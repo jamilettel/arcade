@@ -74,6 +74,7 @@ namespace arc {
         void moveLeft();
         void moveRight();
         void moveSnake();
+        bool collisionSnake();
         bool moveDelay();
 
         std::shared_ptr<Entity> _snakeHead;
