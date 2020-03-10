@@ -78,7 +78,7 @@ const std::map<sf::Keyboard::Key, Event::Key> SfmlGraphical::_equivalentKeys = {
 };
 
 SfmlGraphical::SfmlGraphical():
-    _window(sf::VideoMode(1600, 900), "Arcade", sf::Style::Close), _mapHeight(0), _mapWidth(0), _controlsMap(nullptr)
+    _window(sf::VideoMode(1600, 900), "Arcade", sf::Style::Close), _mapHeight(0), _mapWidth(0)
 {
     _window.setFramerateLimit(60);
 }
@@ -115,12 +115,14 @@ void SfmlGraphical::displayGame()
             _window.draw(rs);
         }
     }
-    std::for_each(_gameMap.begin(), _gameMap.end(),
-                  [this] (Entity &entity) {
-                      if (!_sprites.count(entity.spritePath))
-                          loadSprite(entity.spritePath);
-                      _sprites[entity.spritePath].setPosition(entity.x * 20, entity.y * 20);
-                      _window.draw(_sprites[entity.spritePath]);
+    if (!_gameMap.has_value())
+        return;
+    std::for_each(_gameMap->begin(), _gameMap->end(),
+                  [this] (std::shared_ptr<Entity> &entity) {
+                      if (!_sprites.count(entity->spritePath))
+                          loadSprite(entity->spritePath);
+                      _sprites[entity->spritePath].setPosition(entity->x * 20, entity->y * 20);
+                      _window.draw(_sprites[entity->spritePath]);
                   });
 }
 
@@ -136,7 +138,7 @@ void SfmlGraphical::checkGameEvents()
     if (_scene == Scene::GAME) {
         std::pair<Event::Type, Event::Key> event(_eventType, _keyPressed);
 
-        if (_controlsMap && _controlsMap->count(event))
+        if (_controlsMap.has_value() && _controlsMap->count(event))
             _controlsMap->at(event)();
     }
 }
@@ -318,9 +320,9 @@ void SfmlGraphical::setGameStatsFormatString(const std::vector<std::string> &inf
     _gameStats = info;
 }
 
-void SfmlGraphical::updateGameInfo(const std::vector<Entity> &gameMap)
+void SfmlGraphical::updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap)
 {
-    _gameMap = gameMap;
+    _gameMap.emplace(gameMap);
 }
 
 void SfmlGraphical::setMusic(const std::string &music)
@@ -368,7 +370,7 @@ void SfmlGraphical::setListLibraries(const std::vector<std::string> &libraries,
 
 void SfmlGraphical::setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &controls)
 {
-    _controlsMap = &controls;
+    _controlsMap.emplace(controls);
 }
 
 void SfmlGraphical::setMapSize(size_t height, size_t width)

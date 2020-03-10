@@ -55,7 +55,7 @@ namespace arc {
         void setGameStatsFormatString(const std::vector<std::string> &info);
         void setFont(const std::string &font);
         void setVisualAssets(const std::map<char, std::pair<std::string, Color>> &sprites);
-        void updateGameInfo(const std::vector<Entity> &gameMap);
+        void updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap);
         void setMusic(const std::string &music);
         void playSound(const std::string &sound);
 
@@ -77,7 +77,7 @@ namespace arc {
         std::vector<std::string> _list;
         std::string _getInputMessage;
         std::string _endGameMessage;
-        std::vector<Entity> _gameMap;
+        std::optional<std::vector<std::shared_ptr<Entity>>> _gameMap;
 
         std::string _input;
 
@@ -104,13 +104,11 @@ namespace arc {
         size_t _mapHeight;
         size_t _mapWidth;
 
-        const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> *_controlsMap;
+        std::optional<const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>>> _controlsMap;
 
         sf::Music _music;
 
         static const std::map<sf::Keyboard::Key, Event::Key> _equivalentKeys;
-
-        sf::Mouse _mouse;
 
     };
 
