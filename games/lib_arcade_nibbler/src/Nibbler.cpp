@@ -241,6 +241,8 @@ void arc::Nibbler::eatFruit()
         if (fruit->x == _snakeHead->x && fruit->y == _snakeHead->y) {
             _score++;
             this->addSnakeBody();
+            if (_gameOver)
+                return;
             do {
                 newX = rand() % COLS_SNAKE;
                 newY = rand() % ROWS_SNAKE;
