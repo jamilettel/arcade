@@ -12,6 +12,7 @@
 #include <vector>
 #include <map>
 #include <functional>
+#include <memory>
 
 namespace arc {
 
@@ -28,7 +29,7 @@ namespace arc {
         virtual const std::map<char, std::pair<std::string, Color>> &getVisualAssets() const = 0;
         virtual const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &getControls() const = 0;
 
-        virtual const std::vector<Entity> &getEntities() const = 0;
+        virtual const std::vector<std::shared_ptr<Entity>> &getEntities() const = 0;
 
         virtual const std::vector<std::pair<std::string, std::string>> &getGameControlsFormatString() const = 0;
         virtual const std::vector<std::string> &getGameStatsFormatString() const = 0;
