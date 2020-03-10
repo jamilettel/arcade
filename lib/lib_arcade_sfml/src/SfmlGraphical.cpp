@@ -101,18 +101,18 @@ void SfmlGraphical::display()
         break;
     }
     _window.display();
-    _window.clear();
+    _window.clear(sf::Color(0x1c1c1cff));
 }
 
 void SfmlGraphical::displayGame()
 {
     sf::RectangleShape rs;
 
-    rs.setSize(sf::Vector2f(18, 18));
-    rs.setFillColor(sf::Color::White);
+    rs.setSize(sf::Vector2f(20, 20));
+    rs.setFillColor(sf::Color(0x101010ff));
     for (size_t i = 0; i < _mapHeight; i++) {
         for (size_t j = 0; j < _mapWidth; j++) {
-            rs.setPosition(100 + j * 20 + 1, 100 + i * 20 + 1);
+            rs.setPosition(100 + j * 20, 100 + i * 20);
             _window.draw(rs);
         }
     }
