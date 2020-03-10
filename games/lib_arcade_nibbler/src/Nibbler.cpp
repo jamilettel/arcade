@@ -13,7 +13,7 @@ extern "C" arc::IGame *instance_ctor() {
     return (new arc::Nibbler);
 };
 
-arc::Nibbler::Nibbler() : _gameOver(false), _scoreString(std::string("0")), _score(0), _started(false), _moveCoordonnate(std::pair<float, float>(0, 0))
+arc::Nibbler::Nibbler() : _gameOver(false), _scoreString(std::string("0")), _score(0), _started(false), _moveCoordonnate(std::pair<float, float>(0, 0)), _startTime(std::chrono::system_clock::now())
 {
     srand(time(nullptr));
     this->initControls();
@@ -50,28 +50,28 @@ void arc::Nibbler::initControls()
 
 void arc::Nibbler::moveDown()
 {
-    if (_moveCoordonnate.second == -0.5)
+    if (_moveCoordonnate.second == -1)
         return;
     _started = true;
     _moveCoordonnate.first = 0;
-    _moveCoordonnate.second = 0.5;
+    _moveCoordonnate.second = 1;
 }
 
 void arc::Nibbler::moveUp()
 {
-    if (_moveCoordonnate.second == 0.5)
+    if (_moveCoordonnate.second == 1)
         return;
     _started = true;
     _moveCoordonnate.first = 0;
-    _moveCoordonnate.second = -0.5;
+    _moveCoordonnate.second = -1;
 }
 
 void arc::Nibbler::moveRight()
 {
-    if (_moveCoordonnate.first == -0.5)
+    if (_moveCoordonnate.first == -1)
         return;
     _started = true;
-    _moveCoordonnate.first = 0.5;
+    _moveCoordonnate.first = 1;
     _moveCoordonnate.second = 0;
 }
 
@@ -79,16 +79,18 @@ void arc::Nibbler::moveLeft()
 {
     if (!_started)
         return;
-    if (_moveCoordonnate.first == 0.5)
+    if (_moveCoordonnate.first == 1)
         return;
     _started = true;
-    _moveCoordonnate.first = -0.5;
+    _moveCoordonnate.first = -1;
     _moveCoordonnate.second = 0;
 }
 
 void arc::Nibbler::updateGame()
 {
     if (!_started) return;
+    if (!this->moveDelay())
+        return;
     this->eatFruit();
     _snakeHead->x += _moveCoordonnate.first;
     _snakeHead->y += _moveCoordonnate.second;
@@ -185,8 +187,8 @@ void arc::Nibbler::generateNewFruit()
     newFruit->orientation = UP;
     newFruit->backgroundColor = {255, 51, 40, 1};
     do {
-        newFruit->x = rand() % COLS_SNAKE + 1;
-        newFruit->y = rand() % ROWS_SNAKE + 1;
+        newFruit->x = rand() % COLS_SNAKE;
+        newFruit->y = rand() % ROWS_SNAKE;
     } while (invalidCoordonate(newFruit->x, newFruit->y));
     _entities.emplace_back(newFruit);
     _fruits.emplace_back(newFruit);
@@ -205,9 +207,8 @@ void arc::Nibbler::eatFruit()
             _score++;
             this->addSnakeBody();
             do {
-                fruit->x = rand() % COLS_SNAKE + 1;
-                fruit->y = rand() % ROWS_SNAKE + 1;
-                std::cout << "TEST" << std::endl;
+                fruit->x = rand() % COLS_SNAKE;
+                fruit->y = rand() % ROWS_SNAKE;
             } while (invalidCoordonate(fruit->x, fruit->y));
         }
     }
@@ -219,7 +220,9 @@ bool arc::Nibbler::invalidCoordonate(float x, float y)
     {
         return elem->x == x && elem->y == y;
     });
-    return elemF == _entities.end();
+    if (elemF == _entities.end())
+        return false;
+    return true;
 }
 
 size_t arc::Nibbler::getMapWidth() const
@@ -283,16 +286,15 @@ const std::map<char, std::pair<std::string, arc::Color>> &arc::Nibbler::getVisua
     return _visualAssets;
 }
 
-/*
-
-int arc::Nibbler::moveDelay()
+bool arc::Nibbler::moveDelay()
 {
     _endTime = std::chrono::system_clock::now();
-
     int elapsed_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>
         (_endTime - _startTime).count();
 
-    std::cout << elapsed_milliseconds << std::endl;
-    return 1;
+    if (elapsed_milliseconds > 300) {
+        _startTime = std::chrono::system_clock::now();
+        return true;
+    }
+    return false;
 }
- */

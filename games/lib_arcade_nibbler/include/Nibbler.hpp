@@ -72,12 +72,15 @@ namespace arc {
         void moveDown();
         void moveLeft();
         void moveRight();
+        bool moveDelay();
 
         std::shared_ptr<Entity> _snakeHead;
         std::vector<std::shared_ptr<Entity>> _snake;
         std::vector<std::shared_ptr<Entity>> _fruits;
         bool _started;
         std::pair<float, float> _moveCoordonnate;
+        std::chrono::system_clock::time_point _startTime;
+        std::chrono::system_clock::time_point _endTime;
     public:
     };
 }
