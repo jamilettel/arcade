@@ -106,13 +106,13 @@ void arc::Nibbler::moveSnake()
 
 bool arc::Nibbler::collisionSnake()
 {
+    if (_snakeHead->x >= COLS_SNAKE || _snakeHead->y >= ROWS_SNAKE || _snakeHead->x < 0 || _snakeHead->y < 0)
+        return true;
     auto elemF = find_if(_snake.begin(), _snake.end(), [this](const std::shared_ptr<Entity> &elem)
     {
         return elem->x == _snakeHead->x && elem->y == _snakeHead->y;
     });
-    if (elemF == _snake.end())
-        return false;
-    return true;
+    return elemF != _snake.end();
 }
 
 void arc::Nibbler::updateGame()
