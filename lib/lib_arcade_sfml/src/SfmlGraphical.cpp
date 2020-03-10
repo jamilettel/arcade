@@ -78,7 +78,7 @@ const std::map<sf::Keyboard::Key, Event::Key> SfmlGraphical::_equivalentKeys = {
 };
 
 SfmlGraphical::SfmlGraphical():
-    _window(sf::VideoMode(1600, 900), "Arcade"), _mapHeight(0), _mapWidth(0), _controlsMap(nullptr)
+    _window(sf::VideoMode(1600, 900), "Arcade", sf::Style::Close), _mapHeight(0), _mapWidth(0), _controlsMap(nullptr)
 {
     _window.setFramerateLimit(60);
 }
