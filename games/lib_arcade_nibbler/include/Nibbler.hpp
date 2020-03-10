@@ -12,8 +12,8 @@
 #include <iostream>
 #include <chrono>
 
-#define ROWS_SNAKE 20
-#define COLS_SNAKE 40
+#define ROWS_SNAKE 27
+#define COLS_SNAKE 36
 #define MOVE_DELAY 150
 
 namespace arc {
