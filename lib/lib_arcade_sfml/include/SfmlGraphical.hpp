@@ -67,6 +67,8 @@ namespace arc {
         void displayGame();
         void loadSprite(const std::string &spritePath);
 
+        void setSpriteScales();
+
         sf::RenderWindow _window;
         sf::Event _event;
         Event::Type _eventType;
@@ -103,6 +105,9 @@ namespace arc {
 
         size_t _mapHeight;
         size_t _mapWidth;
+
+        static const sf::IntRect _gameArea;
+        sf::Vector2f _cellSize;
 
         std::optional<const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>>> _controlsMap;
 

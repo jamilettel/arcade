@@ -14,6 +14,8 @@ extern "C" IGraphical *instance_ctor() {
     return (new SfmlGraphical);
 };
 
+const sf::IntRect SfmlGraphical::_gameArea(50, 50, 1060, 795);
+
 const std::map<sf::Keyboard::Key, Event::Key> SfmlGraphical::_equivalentKeys = {
     {sf::Keyboard::A, Event::A},
     {sf::Keyboard::B, Event::B},
@@ -108,21 +110,17 @@ void SfmlGraphical::displayGame()
 {
     sf::RectangleShape rs;
 
-    rs.setSize(sf::Vector2f(20, 20));
+    rs.setPosition(sf::Vector2f(_gameArea.left, _gameArea.top));
+    rs.setSize(sf::Vector2f(_gameArea.width, _gameArea.height));
     rs.setFillColor(sf::Color(0x101010ff));
-    for (size_t i = 0; i < _mapHeight; i++) {
-        for (size_t j = 0; j < _mapWidth; j++) {
-            rs.setPosition(100 + j * 20, 100 + i * 20);
-            _window.draw(rs);
-        }
-    }
+    _window.draw(rs);
     if (!_gameMap.has_value())
         return;
     std::for_each(_gameMap->begin(), _gameMap->end(),
                   [this] (std::shared_ptr<Entity> &entity) {
                       if (!_sprites.count(entity->spritePath))
                           loadSprite(entity->spritePath);
-                      _sprites[entity->spritePath].setPosition(100 + entity->x * 20, 100 + entity->y * 20);
+                      _sprites[entity->spritePath].setPosition(_gameArea.left + entity->x * _cellSize.x, _gameArea.top + entity->y * _cellSize.y);
                       _window.draw(_sprites[entity->spritePath]);
                   });
 }
@@ -130,8 +128,9 @@ void SfmlGraphical::displayGame()
 void SfmlGraphical::loadSprite(const std::string &spritePath)
 {
     if (!_textures[spritePath].loadFromFile(spritePath))
-        throw SfmlError("could not load texture '" + spritePath + "'");;
+        throw SfmlError("could not load texture '" + spritePath + "'");
     _sprites[spritePath].setTexture(_textures[spritePath]);
+    setSpriteScales();
 }
 
 void SfmlGraphical::checkGameEvents()
@@ -381,4 +380,24 @@ void SfmlGraphical::setMapSize(size_t height, size_t width)
 {
     _mapHeight = height;
     _mapWidth = width;
+    _cellSize.x = static_cast<float>(_gameArea.width) / static_cast<float>(_mapWidth);
+    _cellSize.y = static_cast<float>(_gameArea.height) / static_cast<float>(_mapHeight);
+
+    std::cout << _cellSize.x << " " << _cellSize.y << std::endl;
+    setSpriteScales();
+}
+
+void SfmlGraphical::setSpriteScales()
+{
+    sf::FloatRect rect;
+    sf::Vector2f scale;
+
+    if (!_cellSize.x || !_cellSize.y)
+        return;
+    for (const std::pair<std::string, sf::Sprite> &sprite: _sprites) {
+        rect = _sprites.at(sprite.first).getGlobalBounds();
+        scale.x = _cellSize.x / rect.width;
+        scale.y = _cellSize.y / rect.height;
+        _sprites.at(sprite.first).scale(scale);
+    }
 }
