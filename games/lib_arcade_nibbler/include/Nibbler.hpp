@@ -13,7 +13,8 @@
 #include <chrono>
 
 #define ROWS_SNAKE 20
-#define COLS_SNAKE 20
+#define COLS_SNAKE 40
+#define MOVE_DELAY 150
 
 namespace arc {
 
@@ -72,6 +73,7 @@ namespace arc {
         void moveDown();
         void moveLeft();
         void moveRight();
+        void moveSnake();
         bool moveDelay();
 
         std::shared_ptr<Entity> _snakeHead;

@@ -86,14 +86,31 @@ void arc::Nibbler::moveLeft()
     _moveCoordonnate.second = 0;
 }
 
+void arc::Nibbler::moveSnake()
+{
+    float x = _snakeHead->x;
+    float y = _snakeHead->y;
+
+    _snakeHead->x += _moveCoordonnate.first;
+    _snakeHead->y += _moveCoordonnate.second;
+    for_each(_snake.begin(), _snake.end(), [&x, &y](std::shared_ptr<Entity> &body)
+    {
+        float old_x = body->x;
+        float old_y = body->y;
+        body->x = x;
+        body->y = y;
+        x = old_x;
+        y = old_y;
+    });
+}
+
 void arc::Nibbler::updateGame()
 {
     if (!_started) return;
     if (!this->moveDelay())
         return;
     this->eatFruit();
-    _snakeHead->x += _moveCoordonnate.first;
-    _snakeHead->y += _moveCoordonnate.second;
+    this->moveSnake();
 }
 
 void arc::Nibbler::restart()
@@ -292,7 +309,7 @@ bool arc::Nibbler::moveDelay()
     int elapsed_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>
         (_endTime - _startTime).count();
 
-    if (elapsed_milliseconds > 300) {
+    if (elapsed_milliseconds > MOVE_DELAY) {
         _startTime = std::chrono::system_clock::now();
         return true;
     }
