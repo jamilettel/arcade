@@ -206,7 +206,7 @@ void arc::Nibbler::generateNewFruit()
     do {
         newFruit->x = rand() % COLS_SNAKE;
         newFruit->y = rand() % ROWS_SNAKE;
-    } while (invalidCoordonate(newFruit->x, newFruit->y));
+    } while (!invalidCoordonate(newFruit->x, newFruit->y));
     _entities.emplace_back(newFruit);
     _fruits.emplace_back(newFruit);
 }
@@ -219,14 +219,18 @@ void arc::Nibbler::popFruit(std::shared_ptr<Entity> &fruit)
 
 void arc::Nibbler::eatFruit()
 {
+    float newX = 0;
+    float newY = 0;
     for (auto &fruit : _fruits) {
         if (fruit->x == _snakeHead->x && fruit->y == _snakeHead->y) {
             _score++;
             this->addSnakeBody();
             do {
-                fruit->x = rand() % COLS_SNAKE;
-                fruit->y = rand() % ROWS_SNAKE;
-            } while (invalidCoordonate(fruit->x, fruit->y));
+                newX = rand() % COLS_SNAKE;
+                newY = rand() % ROWS_SNAKE;
+            } while (!invalidCoordonate(newX, newY));
+            fruit->x = newX;
+            fruit->y = newY;
         }
     }
 }
@@ -237,9 +241,7 @@ bool arc::Nibbler::invalidCoordonate(float x, float y)
     {
         return elem->x == x && elem->y == y;
     });
-    if (elemF == _entities.end())
-        return false;
-    return true;
+    return elemF == _entities.end();
 }
 
 size_t arc::Nibbler::getMapWidth() const
