@@ -44,6 +44,7 @@ const std::map<sf::Keyboard::Key, Event::Key> SfmlGraphical::_equivalentKeys = {
     {sf::Keyboard::Tab, Event::TAB},
     {sf::Keyboard::Escape, Event::ESCAPE},
     {sf::Keyboard::Delete, Event::DELETE},
+    {sf::Keyboard::Return, Event::RETURN},
     {sf::Keyboard::Up, Event::UP},
     {sf::Keyboard::Down, Event::DOWN},
     {sf::Keyboard::Left, Event::LEFT},
@@ -111,7 +112,7 @@ void SfmlGraphical::displayGame()
     rs.setFillColor(sf::Color::White);
     for (size_t i = 0; i < _mapHeight; i++) {
         for (size_t j = 0; j < _mapWidth; j++) {
-            rs.setPosition(j * 20 + 1, i * 20 + 1);
+            rs.setPosition(100 + j * 20 + 1, 100 + i * 20 + 1);
             _window.draw(rs);
         }
     }
@@ -121,7 +122,7 @@ void SfmlGraphical::displayGame()
                   [this] (std::shared_ptr<Entity> &entity) {
                       if (!_sprites.count(entity->spritePath))
                           loadSprite(entity->spritePath);
-                      _sprites[entity->spritePath].setPosition(entity->x * 20, entity->y * 20);
+                      _sprites[entity->spritePath].setPosition(100 + entity->x * 20, 100 + entity->y * 20);
                       _window.draw(_sprites[entity->spritePath]);
                   });
 }
@@ -156,8 +157,11 @@ void SfmlGraphical::checkEvents()
         if (_event.type == sf::Event::Closed) {
             _window.close();
             _eventType = Event::QUIT;
-        } else if (_event.type == sf::Event::KeyPressed) {
-            _eventType = Event::KEY_PRESSED;
+        } else if (_event.type == sf::Event::KeyPressed || _event.type == sf::Event::KeyReleased) {
+            if (_event.type == sf::Event::KeyPressed)
+                _eventType = Event::KEY_PRESSED;
+            else
+                _eventType = Event::KEY_RELEASED;
             if (_equivalentKeys.count(_event.key.code))
                 _keyPressed = _equivalentKeys.at(_event.key.code);
             else
@@ -362,9 +366,9 @@ void SfmlGraphical::setListGames(const std::vector<std::string> &games,
                   });
 }
 
-void SfmlGraphical::setListLibraries(const std::vector<std::string> &libraries,
-                                     const std::function<void (const std::string &)> &fct,
-                                     int chosen)
+void SfmlGraphical::setListLibraries(const std::vector<std::string> &,
+                                     const std::function<void (const std::string &)> &,
+                                     int)
 {
 }
 
