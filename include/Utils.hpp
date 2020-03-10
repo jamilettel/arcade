@@ -117,7 +117,6 @@ namespace arc {
             NUM0,
         };
 
-
         enum Type {
             NO_EVENT,
             MOUSE_PRESSED,
