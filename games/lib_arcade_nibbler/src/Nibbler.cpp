@@ -33,22 +33,23 @@ void arc::Nibbler::initControlFormat()
 
 void arc::Nibbler::initControls()
 {
-    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::DOWN)] = [this](){
+    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::DOWN)] = [this](){
         arc::Nibbler::moveDown();
     };
-    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::UP)] = [this](){
+    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::UP)] = [this](){
         arc::Nibbler::moveUp();
     };
-    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::RIGHT)] = [this](){
+    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::RIGHT)] = [this](){
         arc::Nibbler::moveRight();
     };
-    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_RELEASED, Event::LEFT)] = [this](){
+    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::LEFT)] = [this](){
         arc::Nibbler::moveLeft();
     };
 }
 
 void arc::Nibbler::moveDown()
 {
+    std::cout << "MOVE DOWN" << std::endl;
     if (_moveCoordonnate.second == -1)
         return;
     _started = true;
@@ -87,9 +88,11 @@ void arc::Nibbler::moveLeft()
 
 void arc::Nibbler::updateGame()
 {
-    if (!_started) return;
+    //if (!_started) return;
     this->eatFruit();
-
+    this->_snakeHead->x += 1;
+    this->_snakeHead->y += 1;
+    std::cout << _snakeHead->x << " " << _snakeHead->y << std::endl;
 }
 
 void arc::Nibbler::restart()
@@ -107,12 +110,13 @@ void arc::Nibbler::restart()
 
 void arc::Nibbler::initSnakeHead()
 {
-    _snakeHead.spritePath = std::string("assets/nibbler/snake_head_color.png");
-    _snakeHead.orientation = UP;
-    _snakeHead.backgroundColor = {245, 66, 66, 1};
-    _snakeHead.x = (COLS_SNAKE + 1) / 2;
-    _snakeHead.y = (ROWS_SNAKE + 1) / 2;
-    _entities.emplace_back(_snakeHead);
+    _snakeHead = new Entity;
+    _snakeHead->spritePath = std::string("assets/nibbler/snake_head_color.png");
+    _snakeHead->orientation = UP;
+    _snakeHead->backgroundColor = {245, 66, 66, 1};
+    _snakeHead->x = (COLS_SNAKE + 1) / 2;
+    _snakeHead->y = (ROWS_SNAKE + 1) / 2;
+    _entities.emplace_back(*_snakeHead);
 }
 
 void arc::Nibbler::initSnakeBody()
@@ -131,7 +135,7 @@ void arc::Nibbler::addSnakeBody()
     newBody->backgroundColor = {69, 245, 66, 1};
 
     if (_snake.empty())
-        validCoordBody = findCoordSnakeBody(_snakeHead.x, _snakeHead.y);
+        validCoordBody = findCoordSnakeBody(_snakeHead->x, _snakeHead->y);
     else
         validCoordBody = findCoordSnakeBody(_snake.back()->x, _snake.back()->y);
 
@@ -178,7 +182,7 @@ std::pair<float, float> arc::Nibbler::findCoordSnakeBody(float x, float y)
 void arc::Nibbler::generateNewFruit()
 {
     Entity *newFruit = new Entity;
-    newFruit->spritePath = std::string("assets/nibbler/snake_color.png");
+    newFruit->spritePath = std::string("assets/nibbler/fruit.png");
     newFruit->orientation = UP;
     newFruit->backgroundColor = {255, 51, 40, 1};
     do {
@@ -198,7 +202,7 @@ void arc::Nibbler::popFruit(Entity fruit)
 void arc::Nibbler::eatFruit()
 {
     for (auto &fruit : _fruits) {
-        if (fruit->x == _snakeHead.x && fruit->y == _snakeHead.y) {
+        if (fruit->x == _snakeHead->x && fruit->y == _snakeHead->y) {
             _score++;
             this->addSnakeBody();
             do {
