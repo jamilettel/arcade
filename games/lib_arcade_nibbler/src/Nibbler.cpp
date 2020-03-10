@@ -6,6 +6,7 @@
 */
 
 #include <algorithm>
+#include <memory>
 #include "Nibbler.hpp"
 
 extern "C" arc::IGame *instance_ctor() {
@@ -49,29 +50,28 @@ void arc::Nibbler::initControls()
 
 void arc::Nibbler::moveDown()
 {
-    std::cout << "MOVE DOWN" << std::endl;
-    if (_moveCoordonnate.second == -1)
+    if (_moveCoordonnate.second == -0.5)
         return;
     _started = true;
     _moveCoordonnate.first = 0;
-    _moveCoordonnate.second = 1;
+    _moveCoordonnate.second = 0.5;
 }
 
 void arc::Nibbler::moveUp()
 {
-    if (_moveCoordonnate.second == 1)
+    if (_moveCoordonnate.second == 0.5)
         return;
     _started = true;
     _moveCoordonnate.first = 0;
-    _moveCoordonnate.second = -1;
+    _moveCoordonnate.second = -0.5;
 }
 
 void arc::Nibbler::moveRight()
 {
-    if (_moveCoordonnate.first == -1)
+    if (_moveCoordonnate.first == -0.5)
         return;
     _started = true;
-    _moveCoordonnate.first = 1;
+    _moveCoordonnate.first = 0.5;
     _moveCoordonnate.second = 0;
 }
 
@@ -79,20 +79,19 @@ void arc::Nibbler::moveLeft()
 {
     if (!_started)
         return;
-    if (_moveCoordonnate.first == 1)
+    if (_moveCoordonnate.first == 0.5)
         return;
     _started = true;
-    _moveCoordonnate.first = -1;
+    _moveCoordonnate.first = -0.5;
     _moveCoordonnate.second = 0;
 }
 
 void arc::Nibbler::updateGame()
 {
-    //if (!_started) return;
+    if (!_started) return;
     this->eatFruit();
-    this->_snakeHead->x += 1;
-    this->_snakeHead->y += 1;
-    std::cout << _snakeHead->x << " " << _snakeHead->y << std::endl;
+    _snakeHead->x += _moveCoordonnate.first;
+    _snakeHead->y += _moveCoordonnate.second;
 }
 
 void arc::Nibbler::restart()
@@ -110,13 +109,13 @@ void arc::Nibbler::restart()
 
 void arc::Nibbler::initSnakeHead()
 {
-    _snakeHead = new Entity;
+    _snakeHead = std::make_shared<Entity>();
     _snakeHead->spritePath = std::string("assets/nibbler/snake_head_color.png");
     _snakeHead->orientation = UP;
     _snakeHead->backgroundColor = {245, 66, 66, 1};
     _snakeHead->x = (COLS_SNAKE + 1) / 2;
     _snakeHead->y = (ROWS_SNAKE + 1) / 2;
-    _entities.emplace_back(*_snakeHead);
+    _entities.emplace_back(_snakeHead);
 }
 
 void arc::Nibbler::initSnakeBody()
@@ -128,7 +127,7 @@ void arc::Nibbler::initSnakeBody()
 
 void arc::Nibbler::addSnakeBody()
 {
-    Entity *newBody = new Entity;
+    std::shared_ptr<Entity> newBody(new Entity);
     std::pair<float, float> validCoordBody;
     newBody->spritePath = std::string("assets/nibbler/snake_color.png");
     newBody->orientation = UP;
@@ -146,32 +145,32 @@ void arc::Nibbler::addSnakeBody()
     newBody->x = validCoordBody.first;
     newBody->y = validCoordBody.second;
 
-    _entities.emplace_back(*newBody);
+    _entities.emplace_back(newBody);
     _snake.emplace_back(newBody);
 }
 
 std::pair<float, float> arc::Nibbler::findCoordSnakeBody(float x, float y)
 {
-    const auto findObjLeft = std::find_if(_entities.begin(), _entities.end(), [x, y](const auto &obj){
-        return obj.x == (x - 1) && obj.y == y;
+    const auto findObjLeft = std::find_if(_entities.begin(), _entities.end(), [x, y](std::shared_ptr<Entity> const &obj){
+        return obj->x == (x - 1) && obj->y == y;
     });
     if (findObjLeft == _entities.end())
         return std::pair<float, float>(x - 1, y);
 
-    const auto findObjBottom = std::find_if(_entities.begin(), _entities.end(), [x, y](const auto &obj){
-        return obj.x == x && obj.y == (y + 1);
+    const auto findObjBottom = std::find_if(_entities.begin(), _entities.end(), [x, y](std::shared_ptr<Entity> const &obj){
+        return obj->x == x && obj->y == (y + 1);
     });
     if (findObjBottom == _entities.end())
         return std::pair<float, float>(x, (y + 1));
 
-    const auto &findObjRight = std::find_if(_entities.begin(), _entities.end(), [x, y](const auto &obj){
-        return obj.x == (x + 1) && obj.y == y;
+    const auto &findObjRight = std::find_if(_entities.begin(), _entities.end(), [x, y](std::shared_ptr<Entity> const &obj){
+        return obj->x == (x + 1) && obj->y == y;
     });
     if (findObjRight == _entities.end())
         return std::pair<float, float>(x + 1, y);
 
-    const auto &findObjTop = std::find_if(_entities.begin(), _entities.end(), [x, y](const auto &obj){
-        return obj.x == x && obj.y == (y - 1);
+    const auto &findObjTop = std::find_if(_entities.begin(), _entities.end(), [x, y](std::shared_ptr<Entity> const &obj){
+        return obj->x == x && obj->y == (y - 1);
     });
     if (findObjTop == _entities.end())
         return std::pair<float, float>(x, (y - 1));
@@ -181,7 +180,7 @@ std::pair<float, float> arc::Nibbler::findCoordSnakeBody(float x, float y)
 
 void arc::Nibbler::generateNewFruit()
 {
-    Entity *newFruit = new Entity;
+    std::shared_ptr<Entity> newFruit(new Entity);
     newFruit->spritePath = std::string("assets/nibbler/fruit.png");
     newFruit->orientation = UP;
     newFruit->backgroundColor = {255, 51, 40, 1};
@@ -189,14 +188,14 @@ void arc::Nibbler::generateNewFruit()
         newFruit->x = rand() % COLS_SNAKE + 1;
         newFruit->y = rand() % ROWS_SNAKE + 1;
     } while (invalidCoordonate(newFruit->x, newFruit->y));
-    _entities.emplace_back(*newFruit);
+    _entities.emplace_back(newFruit);
     _fruits.emplace_back(newFruit);
 }
 
-void arc::Nibbler::popFruit(Entity fruit)
+void arc::Nibbler::popFruit(std::shared_ptr<Entity> &fruit)
 {
     _entities.erase(std::remove(_entities.begin(), _entities.end(), fruit), _entities.end());
-    _fruits.erase(std::remove(_fruits.begin(), _fruits.end(), &fruit), _fruits.end());
+    _fruits.erase(std::remove(_fruits.begin(), _fruits.end(), fruit), _fruits.end());
 }
 
 void arc::Nibbler::eatFruit()
@@ -208,6 +207,7 @@ void arc::Nibbler::eatFruit()
             do {
                 fruit->x = rand() % COLS_SNAKE + 1;
                 fruit->y = rand() % ROWS_SNAKE + 1;
+                std::cout << "TEST" << std::endl;
             } while (invalidCoordonate(fruit->x, fruit->y));
         }
     }
@@ -215,11 +215,11 @@ void arc::Nibbler::eatFruit()
 
 bool arc::Nibbler::invalidCoordonate(float x, float y)
 {
-    auto elemF = find_if(_entities.begin(), _entities.end(), [x, y](const Entity &elem)
+    auto elemF = find_if(_entities.begin(), _entities.end(), [x, y](const std::shared_ptr<Entity> &elem)
     {
-        return elem.x == x && elem.y == y;
+        return elem->x == x && elem->y == y;
     });
-    return elemF != _entities.end();
+    return elemF == _entities.end();
 }
 
 size_t arc::Nibbler::getMapWidth() const
@@ -242,7 +242,7 @@ const std::map<std::pair<arc::Event::Type, arc::Event::Key>, std::function<void 
     return _controls;
 }
 
-const std::vector<arc::Entity> & arc::Nibbler::getEntities() const
+const std::vector<std::shared_ptr<arc::Entity>> & arc::Nibbler::getEntities() const
 {
     return _entities;
 }
