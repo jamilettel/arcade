@@ -29,7 +29,7 @@ namespace arc {
             virtual ~IGraphical() = default;
 
             virtual void display() = 0;
-            virtual Event::Type getEventType() = 0;
+            virtual Event::Type getEventType() const = 0;
             virtual Event::Key getKeyPressed() const = 0;
 
             virtual void setListGames(const std::vector<std::string> &games, const std::function<void (const std::string &)> &fct, int chosen = -1) = 0;
