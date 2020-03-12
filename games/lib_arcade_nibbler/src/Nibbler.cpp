@@ -145,7 +145,7 @@ void arc::Nibbler::restart()
 void arc::Nibbler::initSnakeHead()
 {
     _snakeHead = std::make_shared<Entity>();
-    _snakeHead->spritePath = std::string("assets/nibbler/snake_head_color.png");
+    _snakeHead->spritePath = std::string("assets/nibbler/snake_head.png");
     _snakeHead->orientation = UP;
     _snakeHead->backgroundColor = {245, 66, 66, 1};
     _snakeHead->x = (COLS_SNAKE + 1) / 2;
@@ -164,7 +164,7 @@ void arc::Nibbler::addSnakeBody()
 {
     std::shared_ptr<Entity> newBody(new Entity);
     std::pair<float, float> validCoordBody;
-    newBody->spritePath = std::string("assets/nibbler/snake_color.png");
+    newBody->spritePath = std::string("assets/nibbler/snake.png");
     newBody->orientation = UP;
     newBody->backgroundColor = {69, 245, 66, 1};
 
