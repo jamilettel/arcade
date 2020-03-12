@@ -220,7 +220,7 @@ void SfmlGraphical::setFont(const std::string &font)
     createMainMenuButtons();
 }
 
-Event::Type SfmlGraphical::getEventType()
+Event::Type SfmlGraphical::getEventType() const
 {
     return (_eventType);
 }
