@@ -120,7 +120,8 @@ namespace arc {
 
         static const std::map<sf::Keyboard::Key, Event::Key> _equivalentKeys;
 
-        std::string _gameTitle;
+        sf::Text _gameTitle;
+        sf::RectangleShape _gameBackground;
 
     };
 

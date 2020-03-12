@@ -83,6 +83,9 @@ const std::map<sf::Keyboard::Key, Event::Key> SfmlGraphical::_equivalentKeys = {
 SfmlGraphical::SfmlGraphical():
     _window(sf::VideoMode(1600, 900), "Arcade", sf::Style::Close), _mapHeight(0), _mapWidth(0)
 {
+    _gameBackground.setPosition(sf::Vector2f(_gameArea.left, _gameArea.top));
+    _gameBackground.setSize(sf::Vector2f(_gameArea.width, _gameArea.height));
+    _gameBackground.setFillColor(sf::Color(0x101010ff));
     _window.setFramerateLimit(60);
 }
 
@@ -108,21 +111,18 @@ void SfmlGraphical::display()
 
 void SfmlGraphical::displayGame()
 {
-    sf::RectangleShape rs;
-
-    rs.setPosition(sf::Vector2f(_gameArea.left, _gameArea.top));
-    rs.setSize(sf::Vector2f(_gameArea.width, _gameArea.height));
-    rs.setFillColor(sf::Color(0x101010ff));
-    _window.draw(rs);
+    _window.draw(_gameBackground);
     if (!_gameMap.has_value())
         return;
     std::for_each(_gameMap->begin(), _gameMap->end(),
                   [this] (std::shared_ptr<Entity> &entity) {
                       if (!_sprites.count(entity->spritePath))
                           loadSprite(entity->spritePath);
-                      _sprites[entity->spritePath].setPosition(_gameArea.left + entity->x * _cellSize.x, _gameArea.top + entity->y * _cellSize.y);
+                      _sprites[entity->spritePath].setPosition(_gameArea.left + entity->x * _cellSize.x,
+                                                               _gameArea.top + entity->y * _cellSize.y);
                       _window.draw(_sprites[entity->spritePath]);
                   });
+    _window.draw(_gameTitle);
 }
 
 void SfmlGraphical::loadSprite(const std::string &spritePath)
@@ -214,9 +214,15 @@ void SfmlGraphical::setVisualAssets(const std::map<char, std::pair<std::string, 
 
 void SfmlGraphical::setFont(const std::string &font)
 {
+    sf::FloatRect gameTitleBounds;
+
     if (!_font.loadFromFile(font))
         throw SfmlError("could not load font '" + font + "'");
     _text.setFont(_font);
+    _gameTitle.setFont(_font);
+    gameTitleBounds = _gameTitle.getGlobalBounds();
+    _gameTitle.setPosition((_gameArea.left + _gameArea.width) + (_window.getSize().x - _gameArea.left - _gameArea.width) / 2 - gameTitleBounds.width / 2,
+                           _gameArea.top);
     createMainMenuButtons();
 }
 
@@ -410,5 +416,11 @@ void SfmlGraphical::setSpriteScales()
 
 void SfmlGraphical::setGameTitle(const std::string &game)
 {
-    _gameTitle = game;
+    sf::FloatRect gameTitleBounds;
+
+    _gameTitle.setString(game);
+    _gameTitle.setCharacterSize(64);
+    gameTitleBounds = _gameTitle.getGlobalBounds();
+    _gameTitle.setPosition((_gameArea.left + _gameArea.width) + (_window.getSize().x - _gameArea.left - _gameArea.width) / 2 - gameTitleBounds.width / 2,
+                           _gameArea.top);
 }
