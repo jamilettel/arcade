@@ -62,6 +62,7 @@ namespace arc {
         void playSound(const std::string &sound);
 
         void setMapSize(size_t height, size_t width);
+        void setGameTitle(const std::string &game);
 
     private:
         void checkEvents();
@@ -118,6 +119,8 @@ namespace arc {
         sf::Music _music;
 
         static const std::map<sf::Keyboard::Key, Event::Key> _equivalentKeys;
+
+        std::string _gameTitle;
 
     };
 

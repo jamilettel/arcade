@@ -56,6 +56,7 @@ namespace arc {
             virtual void playSound(const std::string &sound) = 0;
 
             virtual void setMapSize(size_t height, size_t width) = 0;
+            virtual void setGameTitle(const std::string &game) = 0;
     };
 }
 

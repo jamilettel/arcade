@@ -42,6 +42,8 @@ namespace arc {
 
         bool isGameOver() const override;
 
+        const std::string &getTitle() const override;
+
     private:
         bool _gameOver;
         std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _controls;
@@ -84,6 +86,8 @@ namespace arc {
         std::pair<float, float> _moveCoordonnate;
         std::chrono::system_clock::time_point _startTime;
         std::chrono::system_clock::time_point _endTime;
+
+        const std::string _title;
     public:
     };
 }

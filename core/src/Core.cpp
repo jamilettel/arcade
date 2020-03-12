@@ -34,6 +34,7 @@ void Core::loadGameLibrary(const std::string &gamePath)
     _graphical->setHowToPlay(getControls());
     _game->getEntities();
     _graphical->setMapSize(_game->getMapHeight(), _game->getMapWidth());
+    _graphical->setGameTitle(_game->getTitle());
 }
 
 std::vector<std::pair<std::string, std::string>> Core::getControls() const

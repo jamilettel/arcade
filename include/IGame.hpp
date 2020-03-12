@@ -38,6 +38,8 @@ namespace arc {
         virtual void updateGame() = 0;
 
         virtual bool isGameOver() const = 0;
+
+        virtual const std::string &getTitle() const = 0;
     };
 }
 

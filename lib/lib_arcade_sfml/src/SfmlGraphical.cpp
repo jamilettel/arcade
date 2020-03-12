@@ -390,8 +390,6 @@ void SfmlGraphical::setMapSize(size_t height, size_t width)
     _mapWidth = width;
     _cellSize.x = static_cast<float>(_gameArea.width) / static_cast<float>(_mapWidth);
     _cellSize.y = static_cast<float>(_gameArea.height) / static_cast<float>(_mapHeight);
-
-    std::cout << _cellSize.x << " " << _cellSize.y << std::endl;
     setSpriteScales();
 }
 
@@ -408,4 +406,9 @@ void SfmlGraphical::setSpriteScales()
         scale.y = _cellSize.y / rect.height;
         _sprites.at(sprite.first).scale(scale);
     }
+}
+
+void SfmlGraphical::setGameTitle(const std::string &game)
+{
+    _gameTitle = game;
 }
