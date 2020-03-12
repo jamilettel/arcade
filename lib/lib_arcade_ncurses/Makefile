@@ -11,7 +11,7 @@ SRC_TEST	=	\
 
 MAIN	=	src/main.cpp
 
-SRC	=	\
+SRC	=	src/NcursesError.cpp\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 
