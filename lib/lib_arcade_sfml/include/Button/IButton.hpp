@@ -16,17 +16,18 @@ namespace MySf {
 
     namespace Button {
 
-        struct TriColor {
-            TriColor() = delete;
-            TriColor(const sf::Color &_c, const sf::Color &_h, const sf::Color &_p):
-                c(_c), h(_h), p(_p) {}
+        struct ButtonColor {
+            ButtonColor() = delete;
+            ButtonColor(const sf::Color &_c, const sf::Color &_h, const sf::Color &_p, const sf::Color &_inactif):
+                c(_c), h(_h), p(_p), inactif(_inactif) {}
 
-            TriColor(const sf::Color &oneColor):
-                c(oneColor), h(oneColor), p(oneColor) {}
+            ButtonColor(const sf::Color &oneColor):
+                c(oneColor), h(oneColor), p(oneColor), inactif(oneColor) {}
 
             sf::Color c;
             sf::Color h;
             sf::Color p;
+            sf::Color inactif;
         };
 
         enum ButtonState {
@@ -54,6 +55,9 @@ namespace MySf {
 
             virtual sf::Text &getText() = 0;
             virtual void setButton(sf::Mouse::Button b) = 0;
+
+            virtual void setActivation(bool actif) = 0;
+            virtual bool isActif() const = 0;
 
         protected:
             virtual void manageState() = 0;

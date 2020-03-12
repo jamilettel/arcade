@@ -13,13 +13,15 @@
 #include "Button/RectButton.hpp"
 #include <SFML/Audio.hpp>
 
-#define BUTTON_COLOR MySf::Button::TriColor(sf::Color(0x416C99FF),\
-                                            sf::Color(0x5B95D4FF),\
-                                            sf::Color::White)
+#define BUTTON_COLOR MySf::Button::ButtonColor(sf::Color(0x416C99FF),\
+                                               sf::Color(0x5B95D4FF),\
+                                               sf::Color::White,\
+                                               sf::Color(0x444444ff))
 
-#define TEXT_COLOR MySf::Button::TriColor(sf::Color::White,\
-                                          sf::Color::White,\
-                                          sf::Color(0x5B95D4FF))
+#define TEXT_COLOR MySf::Button::ButtonColor(sf::Color::White,\
+                                             sf::Color::White,\
+                                             sf::Color(0x5B95D4FF),\
+                                             sf::Color(0xbbbbbbff))
 
 namespace arc {
 
@@ -66,6 +68,8 @@ namespace arc {
         void checkGameEvents();
         void displayGame();
         void loadSprite(const std::string &spritePath);
+
+        void createMainMenuButtons();
 
         void setSpriteScales();
 

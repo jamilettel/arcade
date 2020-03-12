@@ -217,6 +217,7 @@ void SfmlGraphical::setFont(const std::string &font)
     if (!_font.loadFromFile(font))
         throw SfmlError("could not load font '" + font + "'");
     _text.setFont(_font);
+    createMainMenuButtons();
 }
 
 Event::Type SfmlGraphical::getEventType()
@@ -229,7 +230,7 @@ void SfmlGraphical::setScores(const std::vector<std::pair<std::string,std::strin
     _scores = scores;
 }
 
-void SfmlGraphical::setFunctionPlay(const std::function<void()> &function)
+void SfmlGraphical::createMainMenuButtons()
 {
     _mainMenuButtons.erase(_mainMenuButtons.begin(), _mainMenuButtons.end());
     _mainMenuButtons.push_back(
@@ -241,7 +242,8 @@ void SfmlGraphical::setFunctionPlay(const std::function<void()> &function)
                                          BUTTON_COLOR,
                                          TEXT_COLOR,
                                          "Play",
-                                         function)));
+                                         [] () {})));
+    _mainMenuButtons[0]->setActivation(false);
     _mainMenuButtons.push_back(
         std::unique_ptr<MySf::Button::RectButton>(
             new MySf::Button::RectButton(_window,
@@ -254,6 +256,11 @@ void SfmlGraphical::setFunctionPlay(const std::function<void()> &function)
                                          [this] () {
                                              _window.close();
                                          })));
+}
+
+void SfmlGraphical::setFunctionPlay(const std::function<void()> &function)
+{
+    _mainMenuButtons[0]->setFunc(function);
 }
 
 void SfmlGraphical::setFunctionRestart(const std::function<void()> &function)
@@ -360,6 +367,7 @@ void SfmlGraphical::setListGames(const std::vector<std::string> &games,
                                                            game,
                                                            [this, game] () {
                                                                _changeGameFct(game);
+                                                               _mainMenuButtons[0]->setActivation(true);
                                                            })));
                       pos.y += 50;
                   });

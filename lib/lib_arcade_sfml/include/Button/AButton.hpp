@@ -19,7 +19,7 @@ namespace MySf {
         class AButton: public IButton {
         public:
             AButton(sf::RenderWindow &w, sf::Vector2f pos, sf::Vector2f size, const sf::Font &f,
-                    const TriColor &button, const TriColor &text, const std::function<void()> &fct);
+                    const ButtonColor &button, const ButtonColor &text, const std::function<void()> &fct);
 
             virtual ~AButton() = default;
 
@@ -35,6 +35,9 @@ namespace MySf {
             virtual sf::Text &getText();
             virtual void setButton(sf::Mouse::Button b);
 
+            virtual void setActivation(bool actif);
+            virtual bool isActif() const;
+
         protected:
             virtual void manageState();
             virtual void manageCurrentColor();
@@ -44,10 +47,10 @@ namespace MySf {
             sf::Mouse::Button _button;
             sf::Vector2f _pos;
             sf::Vector2f _size;
-            TriColor _bColor;
+            ButtonColor _bColor;
             sf::Color _bCurrentColor;
             sf::Color _tCurrentColor;
-            TriColor _tColor;
+            ButtonColor _tColor;
             std::unique_ptr<Color::IColor> _buttonColor;
             std::unique_ptr<Color::IColor> _textColor;
             ButtonState _state;
@@ -55,6 +58,7 @@ namespace MySf {
             std::string _label;
             sf::Font _f;
             sf::Text _t;
+            bool _actif;
         };
 
     }

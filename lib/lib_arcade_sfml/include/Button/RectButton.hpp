@@ -21,8 +21,8 @@ namespace MySf {
                        sf::Vector2f pos,
                        sf::Vector2f size,
                        sf::Font &f,
-                       const TriColor &button,
-                       const TriColor &text,
+                       const ButtonColor &button,
+                       const ButtonColor &text,
                        const std::string &label,
                        const std::function<void()> &fct);
 
