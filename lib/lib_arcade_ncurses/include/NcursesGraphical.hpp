@@ -9,6 +9,7 @@
 #define OOP_ARCADE_2019_NCURSESGRAPHICAL_HPP
 
 #include "IGraphical.hpp"
+#include <ncurses.h>
 
 namespace arc {
 
