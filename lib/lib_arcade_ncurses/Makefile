@@ -9,9 +9,10 @@ NAME	=	../lib_arcade_ncurses.so
 
 SRC_TEST	=	\
 
-MAIN	=	src/main.cpp
+MAIN	=	\
 
 SRC	=	src/NcursesError.cpp\
+		src/NcursesGraphical.cpp	\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 
