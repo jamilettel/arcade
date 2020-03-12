@@ -31,38 +31,38 @@ namespace arc {
         SfmlGraphical();
         ~SfmlGraphical() = default;
 
-        void display();
-        Event::Type getEventType();
-        Event::Key getKeyPressed() const;
+        void display() override;
+        Event::Type getEventType() override;
+        Event::Key getKeyPressed() const override;
 
         void setListGames(const std::vector<std::string> &games,
                           const std::function<void (const std::string &)> &fct,
-                          int chosen = -1);
+                          int chosen = -1) override;
         void setListLibraries(const std::vector<std::string> &libraries,
                               const std::function<void (const std::string &)> &fct,
-                              int chosen = -1);
-        void setScores(const std::vector<std::pair<std::string, std::string>> &scores);
-        void setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &controls);
+                              int chosen = -1) override;
+        void setScores(const std::vector<std::pair<std::string, std::string>> &scores) override;
+        void setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &controls) override;
 
-        void setFunctionPlay(const std::function<void()> &function);
-        void setFunctionRestart(const std::function<void()> &function);
-        void setFunctionMenu(const std::function<void()> &function);
-        void setFunctionTogglePause(const std::function<void()> &function);
+        void setFunctionPlay(const std::function<void()> &function) override;
+        void setFunctionRestart(const std::function<void()> &function) override;
+        void setFunctionMenu(const std::function<void()> &function) override;
+        void setFunctionTogglePause(const std::function<void()> &function) override;
 
-        const std::string &getUsername() const;
-        Scene getScene() const;
-        void setScene(Scene scene);
+        const std::string &getUsername() const override;
+        Scene getScene() const override;
+        void setScene(Scene scene) override;
 
-        void setHowToPlay(const std::vector<std::pair<std::string, std::string>> &info);
-        void setGameStatsFormatString(const std::vector<std::string> &info);
-        void setFont(const std::string &font);
-        void setVisualAssets(const std::map<char, std::pair<std::string, Color>> &sprites);
-        void updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap);
-        void setMusic(const std::string &music);
-        void playSound(const std::string &sound);
+        void setHowToPlay(const std::vector<std::pair<std::string, std::string>> &info) override;
+        void setGameStatsFormatString(const std::vector<std::string> &info) override;
+        void setFont(const std::string &font) override;
+        void setVisualAssets(const std::map<char, std::pair<std::string, Color>> &sprites) override;
+        void updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap) override;
+        void setMusic(const std::string &music) override;
+        void playSound(const std::string &sound) override;
 
-        void setMapSize(size_t height, size_t width);
-        void setGameTitle(const std::string &game);
+        void setMapSize(size_t height, size_t width) override;
+        void setGameTitle(const std::string &game) override;
 
     private:
         void checkEvents();
