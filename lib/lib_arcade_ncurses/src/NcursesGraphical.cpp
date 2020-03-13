@@ -58,7 +58,7 @@ void NcursesGraphical::setControls(const std::map<std::pair<Event::Type, Event::
     _controlsMap.emplace(controls);
 }
 
-const std::string & NcursesGraphical::getUsername() const
+const std::string & NcursesGraphical::getUsername()
 {
     return _username;
 }
