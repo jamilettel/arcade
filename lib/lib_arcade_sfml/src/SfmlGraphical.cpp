@@ -231,7 +231,7 @@ void SfmlGraphical::setFont(const std::string &font)
     _usernameInput = std::make_unique<MySf::InputZone>(_window, sf::Vector2f(500, 500), sf::Vector2f(500, 50), _font, "Username");
 }
 
-Event::Type SfmlGraphical::getEventType()
+Event::Type SfmlGraphical::getEventType() const
 {
     return (_eventType);
 }

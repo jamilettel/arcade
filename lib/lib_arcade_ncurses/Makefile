@@ -9,9 +9,10 @@ NAME	=	../lib_arcade_ncurses.so
 
 SRC_TEST	=	\
 
-MAIN	=	src/main.cpp
+MAIN	=	\
 
 SRC	=	src/NcursesError.cpp\
+		src/NcursesGraphical.cpp	\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 
@@ -25,7 +26,7 @@ RM	=	@rm -f
 
 CXX	=	g++
 
-LDFLAGS	=	-ldl -lstdc++fs -shared
+LDFLAGS	=	-ldl -lstdc++fs -lncurses -shared
 
 TEST_LDFLAGS	=	-lcriterion --coverage
 

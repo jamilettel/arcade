@@ -33,7 +33,7 @@ namespace arc {
         ~SfmlGraphical() = default;
 
         void display() override;
-        Event::Type getEventType() override;
+        Event::Type getEventType() const override;
         Event::Key getKeyPressed() const override;
 
         void setListGames(const std::vector<std::string> &games,
