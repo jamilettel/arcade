@@ -61,8 +61,13 @@ namespace arc {
         void createMainMenu();
         void displayMainMenu();
         void displayMainTitle();
+
+        /* COLORS */
+        bool supportColor() const;
+        void initColor() const;
     private:
         std::map<std::string, WINDOW*> _mainMenuBox;
+        bool _termColor;
 
     };
 }

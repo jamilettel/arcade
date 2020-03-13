@@ -14,12 +14,22 @@ extern "C" IGraphical *instance_ctor() {
     return (new NcursesGraphical);
 }
 
+enum COLOR_PAIR
+{
+    GREEN_BLACK = 1,
+};
+
 NcursesGraphical::NcursesGraphical()
 {
     initscr();
     cbreak();
     noecho();
     curs_set(0);
+    _termColor = has_colors();
+    if (supportColor()) {
+        start_color();
+        initColor();
+    }
     createMainMenu();
 }
 
@@ -158,7 +168,6 @@ void NcursesGraphical::setMapSize(size_t height, size_t width)
 void NcursesGraphical::createMainMenu()
 {
     _mainMenuBox["MainTitle"] = subwin(stdscr, 10, 63, 0, ((COLS - 63) / 2));
-    //box(_mainMenuBox["MainTitle"], ACS_VLINE, ACS_HLINE);
 }
 
 void NcursesGraphical::displayMainMenu()
@@ -168,6 +177,7 @@ void NcursesGraphical::displayMainMenu()
 
 void NcursesGraphical::displayMainTitle()
 {
+    wattron(_mainMenuBox["MainTitle"], COLOR_PAIR(GREEN_BLACK));
     mvwprintw(_mainMenuBox["MainTitle"], 2, 1, "   /$$$$$$  /$$$$$$$   /$$$$$$   /$$$$$$  /$$$$$$$  /$$$$$$$$ ");
     mvwprintw(_mainMenuBox["MainTitle"], 3, 1, "  /$$__  $$| $$__  $$ /$$__  $$ /$$__  $$| $$__  $$| $$_____/ ");
     mvwprintw(_mainMenuBox["MainTitle"], 4, 1, " | $$  \\ $$| $$  \\ $$| $$  \\__/| $$  \\ $$| $$  \\ $$| $$ ");
@@ -176,5 +186,17 @@ void NcursesGraphical::displayMainTitle()
     mvwprintw(_mainMenuBox["MainTitle"], 7, 1, " | $$  | $$| $$  \\ $$| $$    $$| $$  | $$| $$  | $$| $$ ");
     mvwprintw(_mainMenuBox["MainTitle"], 8, 1, " | $$  | $$| $$  | $$|  $$$$$$/| $$  | $$| $$$$$$$/| $$$$$$$$ ");
     mvwprintw(_mainMenuBox["MainTitle"], 9, 1, " |__/  |__/|__/  |__/ \\______/ |__/  |__/|_______/ |________/ ");
+    wattroff(_mainMenuBox["MainTitle"], COLOR_PAIR(GREEN_BLACK));
     wnoutrefresh(_mainMenuBox["MainTitle"]);
+}
+
+/* COLOR */
+bool NcursesGraphical::supportColor() const
+{
+    return _termColor;
+}
+
+void NcursesGraphical::initColor() const
+{
+    init_pair(GREEN_BLACK, COLOR_GREEN, COLOR_BLACK);
 }
