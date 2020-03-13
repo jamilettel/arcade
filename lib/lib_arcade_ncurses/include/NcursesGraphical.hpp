@@ -33,7 +33,7 @@ namespace arc {
         void setFunctionMenu(const std::function<void()> &function) override;
         void setFunctionTogglePause(const std::function<void()> &function) override;
 
-        const std::string &getUsername() const override;
+        const std::string &getUsername() override;
         Scene getScene() const override;
         void setScene(Scene scene) override;
 
