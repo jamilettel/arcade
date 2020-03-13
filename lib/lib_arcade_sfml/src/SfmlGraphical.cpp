@@ -98,6 +98,7 @@ void SfmlGraphical::display()
                       [] (auto &button) {button->draw();});
         std::for_each(_gamesList.begin(), _gamesList.end(),
                       [] (auto &button) {button->draw();});
+        _usernameInput->draw();
         break;
     case (Scene::GAME):
         displayGame();
@@ -182,6 +183,9 @@ void SfmlGraphical::checkEvents()
                 break;
             }
         }
+
+        if (getScene() == Scene::MAIN_MENU)
+            _usernameInput->update(_event);
     }
     checkGameEvents();
 }
@@ -224,6 +228,7 @@ void SfmlGraphical::setFont(const std::string &font)
     _gameTitle.setPosition((_gameArea.left + _gameArea.width) + (_window.getSize().x - _gameArea.left - _gameArea.width) / 2 - gameTitleBounds.width / 2,
                            _gameArea.top);
     createMainMenuButtons();
+    _usernameInput = std::make_unique<MySf::InputZone>(_window, sf::Vector2f(500, 500), sf::Vector2f(500, 50), _font, "Username");
 }
 
 Event::Type SfmlGraphical::getEventType()
@@ -239,29 +244,27 @@ void SfmlGraphical::setScores(const std::vector<std::pair<std::string,std::strin
 void SfmlGraphical::createMainMenuButtons()
 {
     _mainMenuButtons.erase(_mainMenuButtons.begin(), _mainMenuButtons.end());
-    _mainMenuButtons.push_back(
-        std::unique_ptr<MySf::Button::RectButton>(
-            new MySf::Button::RectButton(_window,
-                                         sf::Vector2f(100, 100),
-                                         sf::Vector2f(200, 50),
-                                         _font,
-                                         BUTTON_COLOR,
-                                         TEXT_COLOR,
-                                         "Play",
-                                         [] () {})));
+    _mainMenuButtons.emplace_back(std::make_unique<MySf::Button::RectButton>(
+                                      _window,
+                                      sf::Vector2f(100, 100),
+                                      sf::Vector2f(200, 50),
+                                      _font,
+                                      BUTTON_COLOR,
+                                      TEXT_COLOR,
+                                      "Play",
+                                      [] () {}));
     _mainMenuButtons[0]->setActivation(false);
-    _mainMenuButtons.push_back(
-        std::unique_ptr<MySf::Button::RectButton>(
-            new MySf::Button::RectButton(_window,
-                                         sf::Vector2f(100, 175),
-                                         sf::Vector2f(200, 50),
-                                         _font,
-                                         BUTTON_COLOR,
-                                         TEXT_COLOR,
-                                         "Exit",
-                                         [this] () {
-                                             _window.close();
-                                         })));
+    _mainMenuButtons.emplace_back(std::make_unique<MySf::Button::RectButton>(
+                                      _window,
+                                      sf::Vector2f(100, 175),
+                                      sf::Vector2f(200, 50),
+                                      _font,
+                                      BUTTON_COLOR,
+                                      TEXT_COLOR,
+                                      "Exit",
+                                      [this] () {
+                                          _window.close();
+                                      }));
 }
 
 void SfmlGraphical::setFunctionPlay(const std::function<void()> &function)
@@ -271,59 +274,56 @@ void SfmlGraphical::setFunctionPlay(const std::function<void()> &function)
 
 void SfmlGraphical::setFunctionRestart(const std::function<void()> &function)
 {
-    _pauseMenuButtons.push_back(
-        std::unique_ptr<MySf::Button::RectButton>(
-            new MySf::Button::RectButton(_window,
-                                         sf::Vector2f(100, 175),
-                                         sf::Vector2f(200, 50),
-                                         _font,
-                                         BUTTON_COLOR,
-                                         TEXT_COLOR,
-                                         "Restart",
-                                         function)));
+    _pauseMenuButtons.emplace_back(std::make_unique<MySf::Button::RectButton>(
+                                       _window,
+                                       sf::Vector2f(100, 175),
+                                       sf::Vector2f(200, 50),
+                                       _font,
+                                       BUTTON_COLOR,
+                                       TEXT_COLOR,
+                                       "Restart",
+                                       function));
 }
 
 void SfmlGraphical::setFunctionMenu(const std::function<void()> &function)
 {
-    _pauseMenuButtons.push_back(
-        std::unique_ptr<MySf::Button::RectButton>(
-            new MySf::Button::RectButton(_window,
-                                         sf::Vector2f(100, 250),
-                                         sf::Vector2f(200, 50),
-                                         _font,
-                                         BUTTON_COLOR,
-                                         TEXT_COLOR,
-                                         "Return to menu",
-                                         function)));
+    _pauseMenuButtons.emplace_back(std::make_unique<MySf::Button::RectButton>(
+                                       _window,
+                                       sf::Vector2f(100, 250),
+                                       sf::Vector2f(200, 50),
+                                       _font,
+                                       BUTTON_COLOR,
+                                       TEXT_COLOR,
+                                       "Return to menu",
+                                       function));
 }
 
 void SfmlGraphical::setFunctionTogglePause(const std::function<void()> &function)
 {
-    _pauseMenuButtons.push_back(
-        std::unique_ptr<MySf::Button::RectButton>(
-            new MySf::Button::RectButton(_window,
-                                         sf::Vector2f(100, 100),
-                                         sf::Vector2f(200, 50),
-                                         _font,
-                                         BUTTON_COLOR,
-                                         TEXT_COLOR,
-                                         "Resume",
-                                         function)));
+    _pauseMenuButtons.emplace_back(std::make_unique<MySf::Button::RectButton>(
+                                       _window,
+                                       sf::Vector2f(100, 100),
+                                       sf::Vector2f(200, 50),
+                                       _font,
+                                       BUTTON_COLOR,
+                                       TEXT_COLOR,
+                                       "Resume",
+                                       function));
 
-    _pauseButton = std::unique_ptr<MySf::Button::RectButton>(
-        new MySf::Button::RectButton(_window,
-                                     sf::Vector2f(100, 100),
-                                     sf::Vector2f(200, 50),
-                                     _font,
-                                     BUTTON_COLOR,
-                                     TEXT_COLOR,
-                                     "Pause",
-                                     function));
+    _pauseButton = std::make_unique<MySf::Button::RectButton>(
+        _window,
+        sf::Vector2f(100, 100),
+        sf::Vector2f(200, 50),
+        _font,
+        BUTTON_COLOR,
+        TEXT_COLOR,
+        "Pause",
+        function);
 }
 
-const std::string &SfmlGraphical::getUsername() const
+const std::string &SfmlGraphical::getUsername()
 {
-    return (_username);
+    return (_usernameInput->getAnsiInput());
 }
 
 void SfmlGraphical::setHowToPlay(const std::vector<std::pair<std::string,std::string>> &info)
@@ -362,19 +362,19 @@ void SfmlGraphical::setListGames(const std::vector<std::string> &games,
     _changeGameFct = fct;
     std::for_each(games.begin(), games.end(),
                   [&pos, this] (const std::string &game) {
-                      _gamesList.push_back(
-                          std::unique_ptr<MySf::Button::IButton>(
-                              new MySf::Button::RectButton(_window,
-                                                           pos,
-                                                           sf::Vector2f(700, 50),
-                                                           _font,
-                                                           BUTTON_COLOR,
-                                                           TEXT_COLOR,
-                                                           game,
-                                                           [this, game] () {
-                                                               _changeGameFct(game);
-                                                               _mainMenuButtons[0]->setActivation(true);
-                                                           })));
+                      _gamesList.emplace_back(
+                          std::make_unique<MySf::Button::RectButton>(
+                              _window,
+                              pos,
+                              sf::Vector2f(700, 50),
+                              _font,
+                              BUTTON_COLOR,
+                              TEXT_COLOR,
+                              game,
+                              [this, game] () {
+                                  _changeGameFct(game);
+                                  _mainMenuButtons[0]->setActivation(true);
+                              }));
                       pos.y += 50;
                   });
 }

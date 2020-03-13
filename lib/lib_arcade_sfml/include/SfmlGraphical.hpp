@@ -8,6 +8,7 @@
 #ifndef SFML_GRAPHICAL_HPP_
 #define SFML_GRAPHICAL_HPP_
 
+#include "InputZone.hpp"
 #include "IGraphical.hpp"
 #include <SFML/Graphics.hpp>
 #include "Button/RectButton.hpp"
@@ -49,7 +50,7 @@ namespace arc {
         void setFunctionMenu(const std::function<void()> &function) override;
         void setFunctionTogglePause(const std::function<void()> &function) override;
 
-        const std::string &getUsername() const override;
+        const std::string &getUsername() override;
         Scene getScene() const override;
         void setScene(Scene scene) override;
 
@@ -79,7 +80,6 @@ namespace arc {
         Event::Type _eventType;
         Event::Key _keyPressed;
         Scene _scene;
-        std::string _username;
 
         std::vector<std::string> _list;
         std::string _getInputMessage;
@@ -122,6 +122,8 @@ namespace arc {
 
         sf::Text _gameTitle;
         sf::RectangleShape _gameBackground;
+
+        std::unique_ptr<MySf::InputZone> _usernameInput;
 
     };
 
