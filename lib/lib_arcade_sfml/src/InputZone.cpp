@@ -108,7 +108,7 @@ void InputZone::setOutlineColor(const sf::Color &focused, const sf::Color &unfoc
 void InputZone::addChar(sf::Uint32 c)
 {
     if (!_isFull) {
-        _content += c;
+        _content.insert(_cursorPos, c);
         _cursorPos++;
     }
 }
