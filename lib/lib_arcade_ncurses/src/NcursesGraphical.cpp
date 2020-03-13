@@ -28,8 +28,14 @@ NcursesGraphical::~NcursesGraphical()
 
 void NcursesGraphical::display()
 {
-    getch();
-    _eventType = Event::QUIT;
+    switch (getScene()) {
+        case (Scene::MAIN_MENU):
+            getch();
+            _eventType = Event::QUIT;
+            break;
+        default:
+            break;
+    }
 }
 
 Event::Type NcursesGraphical::getEventType() const
