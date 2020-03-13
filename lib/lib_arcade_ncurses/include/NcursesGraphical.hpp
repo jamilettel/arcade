@@ -57,9 +57,12 @@ namespace arc {
         std::string _username;
         std::string _gameTitle;
 
-    public:
-
     private:
+        void createMainMenu();
+        void displayMainMenu();
+        void displayMainTitle();
+    private:
+        std::map<std::string, WINDOW*> _mainMenuBox;
 
     };
 }

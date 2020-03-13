@@ -17,12 +17,16 @@ extern "C" IGraphical *instance_ctor() {
 NcursesGraphical::NcursesGraphical()
 {
     initscr();
-    printw("Hello World");
-    refresh();
+    cbreak();
+    noecho();
+    curs_set(0);
+    createMainMenu();
 }
 
 NcursesGraphical::~NcursesGraphical()
 {
+    echo();
+    nocbreak();
     endwin();
 }
 
@@ -30,12 +34,14 @@ void NcursesGraphical::display()
 {
     switch (getScene()) {
         case (Scene::MAIN_MENU):
-            getch();
-            _eventType = Event::QUIT;
+            displayMainMenu();
             break;
         default:
             break;
     }
+    refresh();
+    getch();
+    _eventType = Event::QUIT;
 }
 
 Event::Type NcursesGraphical::getEventType() const
@@ -146,4 +152,29 @@ void NcursesGraphical::playSound(const std::string &sound)
 void NcursesGraphical::setMapSize(size_t height, size_t width)
 {
 
+}
+
+/* MAIN MENU */
+void NcursesGraphical::createMainMenu()
+{
+    _mainMenuBox["MainTitle"] = subwin(stdscr, 10, 63, 0, ((COLS - 63) / 2));
+    //box(_mainMenuBox["MainTitle"], ACS_VLINE, ACS_HLINE);
+}
+
+void NcursesGraphical::displayMainMenu()
+{
+    displayMainTitle();
+}
+
+void NcursesGraphical::displayMainTitle()
+{
+    mvwprintw(_mainMenuBox["MainTitle"], 2, 1, "   /$$$$$$  /$$$$$$$   /$$$$$$   /$$$$$$  /$$$$$$$  /$$$$$$$$ ");
+    mvwprintw(_mainMenuBox["MainTitle"], 3, 1, "  /$$__  $$| $$__  $$ /$$__  $$ /$$__  $$| $$__  $$| $$_____/ ");
+    mvwprintw(_mainMenuBox["MainTitle"], 4, 1, " | $$  \\ $$| $$  \\ $$| $$  \\__/| $$  \\ $$| $$  \\ $$| $$ ");
+    mvwprintw(_mainMenuBox["MainTitle"], 5, 1, " | $$$$$$$$| $$$$$$$/| $$      | $$$$$$$$| $$  | $$| $$$$$ ");
+    mvwprintw(_mainMenuBox["MainTitle"], 6, 1, " | $$__  $$| $$__  $$| $$      | $$__  $$| $$  | $$| $$__/ ");
+    mvwprintw(_mainMenuBox["MainTitle"], 7, 1, " | $$  | $$| $$  \\ $$| $$    $$| $$  | $$| $$  | $$| $$ ");
+    mvwprintw(_mainMenuBox["MainTitle"], 8, 1, " | $$  | $$| $$  | $$|  $$$$$$/| $$  | $$| $$$$$$$/| $$$$$$$$ ");
+    mvwprintw(_mainMenuBox["MainTitle"], 9, 1, " |__/  |__/|__/  |__/ \\______/ |__/  |__/|_______/ |________/ ");
+    wnoutrefresh(_mainMenuBox["MainTitle"]);
 }
