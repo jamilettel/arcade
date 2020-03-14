@@ -8,6 +8,7 @@
 #ifndef SFML_GRAPHICAL_HPP_
 #define SFML_GRAPHICAL_HPP_
 
+#include "Scene/IScene.hpp"
 #include "InputZone.hpp"
 #include "IGraphical.hpp"
 #include <SFML/Graphics.hpp>
@@ -65,15 +66,14 @@ namespace arc {
         void setMapSize(size_t height, size_t width) override;
         void setGameTitle(const std::string &game) override;
 
+        sf::Sprite &getSprite(const std::string &sprite, const sf::Vector2f &size);
+        sf::Sprite &getSprite(char sprite, const sf::Vector2f &size);
+
     private:
         void checkEvents();
-        void checkGameEvents();
-        void displayGame();
         void loadSprite(const std::string &spritePath);
 
-        void createMainMenuButtons();
-
-        void setSpriteScales();
+        static void setSpriteSize(sf::Sprite &sprite, const sf::Vector2f &size);
 
         sf::RenderWindow _window;
         sf::Event _event;
@@ -81,49 +81,16 @@ namespace arc {
         Event::Key _keyPressed;
         Scene _scene;
 
-        std::vector<std::string> _list;
-        std::string _getInputMessage;
-        std::string _endGameMessage;
-        std::optional<std::vector<std::shared_ptr<Entity>>> _gameMap;
-
-        std::string _input;
+        std::map<Scene, std::unique_ptr<IScene>> _scenes;
 
         std::map<std::string, sf::Sprite> _sprites;
         std::map<std::string, sf:: Texture> _textures;
         std::map<char, std::pair<std::string, Color>> _spriteMap;
 
         sf::Font _font;
-        sf::Text _text;
-
-        std::vector<std::string> _gameStats;
-        std::vector<std::pair<std::string, std::string>> _controls;
-
-        std::vector<std::pair<std::string,std::string>> _scores;
-
-        std::vector<std::unique_ptr<MySf::Button::IButton>> _mainMenuButtons;
-        std::vector<std::unique_ptr<MySf::Button::IButton>> _pauseMenuButtons;
-
-        std::unique_ptr<MySf::Button::IButton> _pauseButton;
-
-        std::vector<std::unique_ptr<MySf::Button::IButton>> _gamesList;
-        std::function<void (const std::string &)> _changeGameFct;
-
-        size_t _mapHeight;
-        size_t _mapWidth;
-
-        static const sf::IntRect _gameArea;
-        sf::Vector2f _cellSize;
-
-        std::optional<const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>>> _controlsMap;
 
         sf::Music _music;
-
         static const std::map<sf::Keyboard::Key, Event::Key> _equivalentKeys;
-
-        sf::Text _gameTitle;
-        sf::RectangleShape _gameBackground;
-
-        std::unique_ptr<MySf::InputZone> _usernameInput;
 
     };
 
