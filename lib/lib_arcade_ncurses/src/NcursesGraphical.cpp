@@ -38,9 +38,11 @@ NcursesGraphical::~NcursesGraphical()
 
 void NcursesGraphical::display()
 {
-    _sceneList[MAIN_MENU]->display();
-    refresh();
-    getch();
+    while (1) {
+        clear();
+        _sceneList[MAIN_MENU]->display();
+        _sceneList[MAIN_MENU]->refresh();
+    }
     _eventType = Event::QUIT;
 }
 

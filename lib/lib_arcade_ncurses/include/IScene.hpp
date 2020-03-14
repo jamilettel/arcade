@@ -15,6 +15,7 @@ namespace arc {
         virtual ~IScene() = default;
 
         virtual void display() = 0;
+        virtual void refresh() = 0;
     };
 }
 #endif //OOP_ARCADE_2019_ISCENE_HPP

@@ -10,6 +10,7 @@
 
 #include "IScene.hpp"
 #include "NcursesGraphical.hpp"
+#include <panel.h>
 
 namespace arc
 {
@@ -20,13 +21,19 @@ namespace arc
             ~NcursesMainMenu() override;
 
             void display() override;
+            void refresh() override;
 
         private:
-            void displayMainMenu();
+            void createMainTitle();
             void displayMainTitle();
+            void createMenuGames();
+            void displayMenuGames();
+            void createMenuGraphics();
+            void displayMenuGraphics();
 
         private:
-            std::map<std::string, WINDOW*> _mainMenuBox;
+            std::map<std::string, WINDOW*> _windows;
+            std::map<std::string, PANEL*> _panel;
 
     };
 }

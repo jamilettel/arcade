@@ -52,7 +52,7 @@ int main()
     attron(COLOR_PAIR(4));
     mvprintw(LINES - 2, 0, "Use tab to browse through the windows (F1 to Exit)");
     attroff(COLOR_PAIR(4));
-    doupdate();
+    refresh();
 
     top = my_panels[2];
     while((ch = getch()) != KEY_F(1))
@@ -63,7 +63,7 @@ int main()
                 break;
         }
         update_panels();
-        doupdate();
+        refresh();
     }
     endwin();
     return 0;
