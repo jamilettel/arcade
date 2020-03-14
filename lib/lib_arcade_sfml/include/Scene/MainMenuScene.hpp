@@ -36,6 +36,8 @@ namespace arc {
                               int chosen = -1);
         void setScores(const std::vector<std::pair<std::string, std::string>> &scores);
 
+        const std::string &getUsername();
+
     private:
         SfmlGraphical &_lib;
         sf::RenderWindow &_window;

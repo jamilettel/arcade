@@ -16,8 +16,6 @@ extern "C" IGraphical *instance_ctor() {
     return (new SfmlGraphical);
 };
 
-// const sf::IntRect SfmlGraphical::_gameArea(50, 50, 1060, 795);
-
 const std::map<sf::Keyboard::Key, Event::Key> SfmlGraphical::_equivalentKeys = {
     {sf::Keyboard::A, Event::A},
     {sf::Keyboard::B, Event::B},
@@ -84,11 +82,7 @@ const std::map<sf::Keyboard::Key, Event::Key> SfmlGraphical::_equivalentKeys = {
 
 SfmlGraphical::SfmlGraphical():
     _window(sf::VideoMode(1600, 900), "Arcade", sf::Style::Close)
-// _mapHeight(0), _mapWidth(0)
 {
-    // _gameBackground.setPosition(sf::Vector2f(_gameArea.left, _gameArea.top));
-    // _gameBackground.setSize(sf::Vector2f(_gameArea.width, _gameArea.height));
-    // _gameBackground.setFillColor(sf::Color(0x101010ff));
     _window.setFramerateLimit(60);
     _scenes[MAIN_MENU] = std::make_unique<MainMenuScene>(_window, _font, *this);
     _scenes[GAME] = std::make_unique<GameScene>(_window, _font, *this);
@@ -97,62 +91,44 @@ SfmlGraphical::SfmlGraphical():
 void SfmlGraphical::display()
 {
     checkEvents();
-    // switch (getScene()) {
-    // case (Scene::MAIN_MENU):
-    //     std::for_each(_mainMenuButtons.begin(), _mainMenuButtons.end(),
-    //                   [] (auto &button) {button->draw();});
-    //     std::for_each(_gamesList.begin(), _gamesList.end(),
-    //                   [] (auto &button) {button->draw();});
-    //     _usernameInput->draw();
-    //     break;
-    // case (Scene::GAME):
-    //     displayGame();
-    //     break;
-    // default:
-    //     break;
-    // }
     if (_scenes.count(_scene))
         _scenes.at(_scene)->draw();
     _window.display();
     _window.clear(sf::Color(0x1c1c1cff));
 }
 
-// void SfmlGraphical::displayGame()
-// {
-//     _window.draw(_gameBackground);
-//     if (!_gameMap.has_value())
-//         return;
-//     std::for_each(_gameMap->begin(), _gameMap->end(),
-//                   [this] (std::shared_ptr<Entity> &entity) {
-//                       if (!_sprites.count(entity->spritePath))
-//                           loadSprite(entity->spritePath);
-//                       _sprites[entity->spritePath].setPosition(_gameArea.left + entity->x * _cellSize.x,
-//                                                                _gameArea.top + entity->y * _cellSize.y);
-//                       _window.draw(_sprites[entity->spritePath]);
-//                   });
-//     _window.draw(_gameTitle);
-// }
-
 void SfmlGraphical::loadSprite(const std::string &spritePath)
 {
     if (!_textures[spritePath].loadFromFile(spritePath))
         throw SfmlError("could not load texture '" + spritePath + "'");
     _sprites[spritePath].setTexture(_textures[spritePath]);
-    // setSpriteScales();
 }
 
-// void SfmlGraphical::checkGameEvents()
-// {
-//     if (_scene == Scene::GAME) {
-//         std::pair<Event::Type, Event::Key> event(_eventType, _keyPressed);
+sf::Sprite &SfmlGraphical::getSprite(char sprite, const sf::Vector2f &size)
+{
+    if (_spriteMap.count(sprite))
+        return (getSprite(_spriteMap.at(sprite).first, size));
 
-//         if (_controlsMap.has_value() && _controlsMap->count(event))
-//             _controlsMap->at(event)();
-//     }
-// }
+    std::string errorMessage = "could not find sprite associated with char '";
+    errorMessage += sprite;
+    errorMessage += "'";
+    throw SfmlError(errorMessage);
+}
+
+sf::Sprite &SfmlGraphical::getSprite(const std::string &sprite,
+                                                    const sf::Vector2f &size)
+{
+    if (_sprites.count(sprite)) {
+        setSpriteSize(_sprites.at(sprite), size);
+        return (_sprites.at(sprite));
+    }
+    loadSprite(sprite);
+    return (getSprite(sprite, size));
+}
 
 void SfmlGraphical::checkEvents()
 {
+    static std::pair<Event::Type, Event::Key> event;
     _eventType = Event::NO_EVENT;
     _keyPressed = Event::NONE;
 
@@ -194,6 +170,9 @@ void SfmlGraphical::checkEvents()
 
         if (_scenes.count(_scene))
             _scenes.at(_scene)->update(_event);
+
+        event.first = _eventType;
+        event.second = _keyPressed;
     }
 }
 
@@ -229,13 +208,6 @@ void SfmlGraphical::setFont(const std::string &font)
 
     if (!_font.loadFromFile(font))
         throw SfmlError("could not load font '" + font + "'");
-    // _text.setFont(_font);
-    // _gameTitle.setFont(_font);
-    // gameTitleBounds = _gameTitle.getGlobalBounds();
-    // _gameTitle.setPosition((_gameArea.left + _gameArea.width) + (_window.getSize().x - _gameArea.left - _gameArea.width) / 2 - gameTitleBounds.width / 2,
-    //                        _gameArea.top);
-    // createMainMenuButtons();
-    // _usernameInput = std::make_unique<MySf::InputZone>(_window, sf::Vector2f(500, 500), sf::Vector2f(500, 50), _font, "Username");
 }
 
 Event::Type SfmlGraphical::getEventType() const
@@ -245,34 +217,7 @@ Event::Type SfmlGraphical::getEventType() const
 
 void SfmlGraphical::setScores(const std::vector<std::pair<std::string,std::string>> &scores)
 {
-    // _scores = scores;
 }
-
-// void SfmlGraphical::createMainMenuButtons()
-// {
-//     _mainMenuButtons.erase(_mainMenuButtons.begin(), _mainMenuButtons.end());
-//     _mainMenuButtons.emplace_back(std::make_unique<MySf::Button::RectButton>(
-//                                       _window,
-//                                       sf::Vector2f(100, 100),
-//                                       sf::Vector2f(200, 50),
-//                                       _font,
-//                                       BUTTON_COLOR,
-//                                       TEXT_COLOR,
-//                                       "Play",
-//                                       [] () {}));
-//     _mainMenuButtons[0]->setActivation(false);
-//     _mainMenuButtons.emplace_back(std::make_unique<MySf::Button::RectButton>(
-//                                       _window,
-//                                       sf::Vector2f(100, 175),
-//                                       sf::Vector2f(200, 50),
-//                                       _font,
-//                                       BUTTON_COLOR,
-//                                       TEXT_COLOR,
-//                                       "Exit",
-//                                       [this] () {
-//                                           _window.close();
-//                                       }));
-// }
 
 void SfmlGraphical::setFunctionPlay(const std::function<void()> &function)
 {
@@ -281,72 +226,32 @@ void SfmlGraphical::setFunctionPlay(const std::function<void()> &function)
 
 void SfmlGraphical::setFunctionRestart(const std::function<void()> &function)
 {
-    // _pauseMenuButtons.emplace_back(std::make_unique<MySf::Button::RectButton>(
-    //                                    _window,
-    //                                    sf::Vector2f(100, 175),
-    //                                    sf::Vector2f(200, 50),
-    //                                    _font,
-    //                                    BUTTON_COLOR,
-    //                                    TEXT_COLOR,
-    //                                    "Restart",
-    //                                    function));
 }
 
 void SfmlGraphical::setFunctionMenu(const std::function<void()> &function)
 {
-    // _pauseMenuButtons.emplace_back(std::make_unique<MySf::Button::RectButton>(
-    //                                    _window,
-    //                                    sf::Vector2f(100, 250),
-    //                                    sf::Vector2f(200, 50),
-    //                                    _font,
-    //                                    BUTTON_COLOR,
-    //                                    TEXT_COLOR,
-    //                                    "Return to menu",
-    //                                    function));
 }
 
 void SfmlGraphical::setFunctionTogglePause(const std::function<void()> &function)
 {
-    // _pauseMenuButtons.emplace_back(std::make_unique<MySf::Button::RectButton>(
-    //                                    _window,
-    //                                    sf::Vector2f(100, 100),
-    //                                    sf::Vector2f(200, 50),
-    //                                    _font,
-    //                                    BUTTON_COLOR,
-    //                                    TEXT_COLOR,
-    //                                    "Resume",
-    //                                    function));
-
-    // _pauseButton = std::make_unique<MySf::Button::RectButton>(
-    //     _window,
-    //     sf::Vector2f(100, 100),
-    //     sf::Vector2f(200, 50),
-    //     _font,
-    //     BUTTON_COLOR,
-    //     TEXT_COLOR,
-    //     "Pause",
-    //     function);
 }
 
 const std::string &SfmlGraphical::getUsername()
 {
-    // return (_usernameInput->getAnsiInput());
-    return *(new std::string());
+    return (static_cast<MainMenuScene *>(_scenes.at(MAIN_MENU).get())->getUsername());
 }
 
 void SfmlGraphical::setHowToPlay(const std::vector<std::pair<std::string,std::string>> &info)
 {
-    // _controls = info;
 }
 
 void SfmlGraphical::setGameStatsFormatString(const std::vector<std::string> &info)
 {
-    // _gameStats = info;
 }
 
 void SfmlGraphical::updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap)
 {
-    // _gameMap.emplace(gameMap);
+    static_cast<GameScene *>(_scenes.at(GAME).get())->updateGameInfo(gameMap);
 }
 
 void SfmlGraphical::setMusic(const std::string &music)
@@ -366,26 +271,6 @@ void SfmlGraphical::setListGames(const std::vector<std::string> &games,
                                  int chosen)
 {
     static_cast<MainMenuScene *>(_scenes.at(MAIN_MENU).get())->setListGames(games, fct, chosen);
-    // sf::Vector2f pos(600, 100);
-
-    // _changeGameFct = fct;
-    // std::for_each(games.begin(), games.end(),
-    //               [&pos, this] (const std::string &game) {
-    //                   _gamesList.emplace_back(
-    //                       std::make_unique<MySf::Button::RectButton>(
-    //                           _window,
-    //                           pos,
-    //                           sf::Vector2f(700, 50),
-    //                           _font,
-    //                           BUTTON_COLOR,
-    //                           TEXT_COLOR,
-    //                           game,
-    //                           [this, game] () {
-    //                               _changeGameFct(game);
-    //                               _mainMenuButtons[0]->setActivation(true);
-    //                           }));
-    //                   pos.y += 50;
-    //               });
 }
 
 void SfmlGraphical::setListLibraries(const std::vector<std::string> &,
@@ -396,40 +281,27 @@ void SfmlGraphical::setListLibraries(const std::vector<std::string> &,
 
 void SfmlGraphical::setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &controls)
 {
-    // _controlsMap.emplace(controls);
+    static_cast<GameScene *>(_scenes.at(GAME).get())->setControls(controls);
 }
 
 void SfmlGraphical::setMapSize(size_t height, size_t width)
 {
-    // _mapHeight = height;
-    // _mapWidth = width;
-    // _cellSize.x = static_cast<float>(_gameArea.width) / static_cast<float>(_mapWidth);
-    // _cellSize.y = static_cast<float>(_gameArea.height) / static_cast<float>(_mapHeight);
-    // setSpriteScales();
+    static_cast<GameScene *>(_scenes.at(GAME).get())->setMapSize(height, width);
 }
 
-// void SfmlGraphical::setSpriteScales()
-// {
-//     sf::FloatRect rect;
-//     sf::Vector2f scale;
+void SfmlGraphical::setSpriteSize(sf::Sprite &sprite, const sf::Vector2f &size)
+{
+    sf::FloatRect rect = sprite.getGlobalBounds();
+    sf::Vector2f scale;
 
-//     if (!_cellSize.x || !_cellSize.y)
-//         return;
-//     for (const std::pair<std::string, sf::Sprite> &sprite: _sprites) {
-//         rect = _sprites.at(sprite.first).getGlobalBounds();
-//         scale.x = _cellSize.x / rect.width;
-//         scale.y = _cellSize.y / rect.height;
-//         _sprites.at(sprite.first).scale(scale);
-//     }
-// }
+    if (!rect.width || !rect.height || (rect.height == size.x && rect.width == size.y))
+        return;
+    scale.x = size.x / rect.width;
+    scale.y = size.y / rect.height;
+    sprite.scale(scale);
+}
 
 void SfmlGraphical::setGameTitle(const std::string &game)
 {
-//     sf::FloatRect gameTitleBounds;
-
-//     _gameTitle.setString(game);
-//     _gameTitle.setCharacterSize(64);
-//     gameTitleBounds = _gameTitle.getGlobalBounds();
-//     _gameTitle.setPosition((_gameArea.left + _gameArea.width) + (_window.getSize().x - _gameArea.left - _gameArea.width) / 2 - gameTitleBounds.width / 2,
-//                            _gameArea.top);
+    static_cast<GameScene *>(_scenes.at(GAME).get())->setGameTitle(game);
 }

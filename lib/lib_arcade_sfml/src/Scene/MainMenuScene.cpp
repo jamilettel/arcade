@@ -91,3 +91,8 @@ void MainMenuScene::setListGames(const std::vector<std::string> &games,
         pos.y += 60;
     }
 }
+
+const std::string &MainMenuScene::getUsername()
+{
+    return (_usernameInputZone.getAnsiInput());
+}
