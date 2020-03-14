@@ -8,6 +8,7 @@
 #ifndef SFML_GRAPHICAL_HPP_
 #define SFML_GRAPHICAL_HPP_
 
+#include "Scene/IScene.hpp"
 #include "InputZone.hpp"
 #include "IGraphical.hpp"
 #include <SFML/Graphics.hpp>
@@ -67,8 +68,8 @@ namespace arc {
 
     private:
         void checkEvents();
-        void checkGameEvents();
-        void displayGame();
+        // void checkGameEvents();
+        // void displayGame();
         void loadSprite(const std::string &spritePath);
 
         // void createMainMenuButtons();
@@ -81,24 +82,25 @@ namespace arc {
         Event::Key _keyPressed;
         Scene _scene;
 
-        std::vector<std::string> _list;
-        std::string _getInputMessage;
-        std::string _endGameMessage;
-        std::optional<std::vector<std::shared_ptr<Entity>>> _gameMap;
+        std::map<Scene, std::unique_ptr<IScene>> _scenes;
 
-        std::string _input;
+        // std::string _getInputMessage;
+        // std::string _endGameMessage;
+        // std::optional<std::vector<std::shared_ptr<Entity>>> _gameMap;
+
+        // std::string _input;
 
         std::map<std::string, sf::Sprite> _sprites;
         std::map<std::string, sf:: Texture> _textures;
         std::map<char, std::pair<std::string, Color>> _spriteMap;
 
-        // sf::Font _font;
+        sf::Font _font;
         // sf::Text _text;
 
         // std::vector<std::string> _gameStats;
-        std::vector<std::pair<std::string, std::string>> _controls;
+        // std::vector<std::pair<std::string, std::string>> _controls;
 
-        std::vector<std::pair<std::string,std::string>> _scores;
+        // std::vector<std::pair<std::string,std::string>> _scores;
 
         // std::vector<std::unique_ptr<MySf::Button::IButton>> _mainMenuButtons;
         // std::vector<std::unique_ptr<MySf::Button::IButton>> _pauseMenuButtons;
@@ -111,13 +113,12 @@ namespace arc {
         // std::optional<const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>>> _controlsMap;
 
         sf::Music _music;
-
         static const std::map<sf::Keyboard::Key, Event::Key> _equivalentKeys;
 
-        sf::Text _gameTitle;
-        sf::RectangleShape _gameBackground;
+        // sf::Text _gameTitle;
+        // sf::RectangleShape _gameBackground;
 
-        std::unique_ptr<MySf::InputZone> _usernameInput;
+        // std::unique_ptr<MySf::InputZone> _usernameInput;
 
     };
 

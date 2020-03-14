@@ -12,7 +12,7 @@ using namespace MySf;
 InputZone::InputZone(sf::RenderWindow &window,
                      const sf::Vector2f &pos,
                      const sf::Vector2f &size,
-                     const sf::Font &font,
+                     sf::Font &font,
                      const std::string &placeHolder):
     _placeHolder(placeHolder), _font(font), _cursorPos(0), _hasFocus(false),
     _window(window), _pos(pos), _size(size), _colorText(sf::Color(0x0a0a0aff)),
@@ -110,6 +110,7 @@ void InputZone::addChar(sf::Uint32 c)
     if (!_isFull) {
         _content.insert(_cursorPos, c);
         _cursorPos++;
+        _clock.restart();
     }
 }
 
@@ -118,6 +119,7 @@ void InputZone::removeChar()
     if (_content.getSize() && _cursorPos) {
         _content.erase(_cursorPos - 1);
         _cursorPos--;
+        _clock.restart();
     }
 }
 
@@ -139,8 +141,10 @@ void InputZone::update(const sf::Event &event)
     } else if (event.type == sf::Event::KeyPressed) {
         if (event.key.code == sf::Keyboard::Left && _cursorPos > 0) {
             _cursorPos--;
+            _clock.restart();
         } else if (event.key.code == sf::Keyboard::Right) {
             _cursorPos++;
+            _clock.restart();
         }
         if (_cursorPos > _content.getSize()) {
             _cursorPos = _content.getSize();
@@ -179,7 +183,7 @@ void InputZone::draw()
     }
     _window.draw(_text);
 
-    if (_hasFocus && (_clock.getElapsedTime().asMilliseconds() / 650) % 2 ) {
+    if (_hasFocus && !((_clock.getElapsedTime().asMilliseconds() / 600) % 2)) {
         if (_content == "")
             _cursor.setPosition(_text.findCharacterPos(0));
         else

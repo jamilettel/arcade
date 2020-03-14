@@ -15,6 +15,8 @@ namespace arc {
     class IScene {
     public:
 
+        virtual ~IScene() = default;
+
         virtual void draw() = 0;
         virtual void update(const sf::Event &event) = 0;
 

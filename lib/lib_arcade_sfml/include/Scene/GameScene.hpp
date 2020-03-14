@@ -5,8 +5,8 @@
 ** GameScene
 */
 
-#ifndef GAMESCENE_HPP_
-#define GAMESCENE_HPP_
+#ifndef GAMESCENE_SCENE_HPP_
+#define GAMESCENE_SCENE_HPP_
 
 #include "Scene/IScene.hpp"
 #include "Button/RectButton.hpp"
@@ -17,7 +17,8 @@ namespace arc {
 
     class GameScene: public IScene {
     public:
-        GameScene(sf::RenderWindow &window, sf::Font &font,
+        GameScene(sf::RenderWindow &window,
+                  sf::Font &font,
                   SfmlGraphical &lib);
 
         void draw() override;
@@ -26,11 +27,12 @@ namespace arc {
     private:
         void loadSprite(const std::string &spritePath);
 
-        static const sf::IntRect _gameArea;
-
-        sf::RenderWindow &_window;
-        sf::Font _font;
         SfmlGraphical &_lib;
+        sf::RenderWindow &_window;
+        sf::Font &_font;
+
+        static const sf::IntRect _gameArea;
+        sf::RectangleShape _gameBackground;
 
         std::vector<MySf::Button::RectButton> _buttons;
         std::optional<std::vector<std::shared_ptr<Entity>>> _gameMap;
@@ -40,10 +42,8 @@ namespace arc {
         size_t _mapHeight;
         size_t _mapWidth;
 
-        
-
     };
 
 }
 
-#endif /* GAMESCENE_HPP_ */
+#endif /* GAMESCENE_SCENE_HPP_ */

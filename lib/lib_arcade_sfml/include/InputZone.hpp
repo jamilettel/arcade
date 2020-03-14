@@ -19,7 +19,7 @@ namespace MySf {
         InputZone(sf::RenderWindow &window,
                   const sf::Vector2f &pos,
                   const sf::Vector2f &size,
-                  const sf::Font &font,
+                  sf::Font &font,
                   const std::string &placeHolder);
         ~InputZone() = default;
 
@@ -53,7 +53,7 @@ namespace MySf {
         void applySizeAndPos();
 
         sf::String _placeHolder;
-        sf::Font _font;
+        sf::Font &_font;
         sf::String _content;
         std::string _stringContent;
 
