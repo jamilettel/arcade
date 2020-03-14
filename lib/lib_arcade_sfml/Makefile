@@ -21,6 +21,8 @@ SRC	=	src/SfmlGraphical.cpp				\
 		src/Button/AButton.cpp				\
 		src/Button/RectButton.cpp			\
 		src/InputZone.cpp					\
+		src/Scene/MainMenuScene.cpp			\
+		src/Scene/GameScene.cpp				\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 

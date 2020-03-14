@@ -9,8 +9,13 @@
 
 using namespace MySf::Button;
 
-AButton::AButton(sf::RenderWindow &w, sf::Vector2f pos, sf::Vector2f size, const sf::Font &f,
-                 const ButtonColor &button, const ButtonColor &text, const std::function<void()> &fct):
+AButton::AButton(sf::RenderWindow &w,
+                 const sf::Vector2f &pos,
+                 const sf::Vector2f &size,
+                 sf::Font &f,
+                 const ButtonColor &button,
+                 const ButtonColor &text,
+                 const std::function<void()> &fct):
     _window(w), _button(sf::Mouse::Button::Left), _pos(pos),
     _size(size), _bColor(button), _tColor(text), _state(NONE),
     _func(fct), _f(f), _actif(true) {}
