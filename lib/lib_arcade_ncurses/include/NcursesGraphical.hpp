@@ -9,6 +9,7 @@
 #define OOP_ARCADE_2019_NCURSESGRAPHICAL_HPP
 
 #include "IGraphical.hpp"
+#include "IScene.hpp"
 #include <ncurses.h>
 
 namespace arc {
@@ -58,12 +59,19 @@ namespace arc {
         std::string _gameTitle;
 
     private:
-        void createMainMenu();
-        void displayMainMenu();
-        void displayMainTitle();
+        /* COLORS */
+        bool supportColor() const;
+        void initColor() const;
     private:
-        std::map<std::string, WINDOW*> _mainMenuBox;
+        std::map<Scene, std::shared_ptr<IScene>> _sceneList;
+        bool _termColor;
 
+    };
+
+    enum COLOR_PAIR
+    {
+        GREEN_BLACK = 1,
+        RED_BLACK = 2,
     };
 }
 

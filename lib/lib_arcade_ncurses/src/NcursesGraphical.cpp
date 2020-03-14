@@ -7,6 +7,7 @@
 
 #include "NcursesError.hpp"
 #include "NcursesGraphical.hpp"
+#include "NcursesMainMenu.hpp"
 
 using namespace arc;
 
@@ -14,13 +15,18 @@ extern "C" IGraphical *instance_ctor() {
     return (new NcursesGraphical);
 }
 
-NcursesGraphical::NcursesGraphical()
+NcursesGraphical::NcursesGraphical() : _eventType(Event::NO_EVENT), _keyPressed(Event::NONE), _scene(MAIN_MENU)
 {
     initscr();
     cbreak();
     noecho();
     curs_set(0);
-    createMainMenu();
+    _termColor = has_colors();
+    if (supportColor()) {
+        start_color();
+        initColor();
+    }
+    _sceneList[MAIN_MENU] = std::shared_ptr<IScene>(new NcursesMainMenu());
 }
 
 NcursesGraphical::~NcursesGraphical()
@@ -32,13 +38,7 @@ NcursesGraphical::~NcursesGraphical()
 
 void NcursesGraphical::display()
 {
-    switch (getScene()) {
-        case (Scene::MAIN_MENU):
-            displayMainMenu();
-            break;
-        default:
-            break;
-    }
+    _sceneList[MAIN_MENU]->display();
     refresh();
     getch();
     _eventType = Event::QUIT;
@@ -154,27 +154,14 @@ void NcursesGraphical::setMapSize(size_t height, size_t width)
 
 }
 
-/* MAIN MENU */
-void NcursesGraphical::createMainMenu()
+/* COLOR */
+bool NcursesGraphical::supportColor() const
 {
-    _mainMenuBox["MainTitle"] = subwin(stdscr, 10, 63, 0, ((COLS - 63) / 2));
-    //box(_mainMenuBox["MainTitle"], ACS_VLINE, ACS_HLINE);
+    return _termColor;
 }
 
-void NcursesGraphical::displayMainMenu()
+void NcursesGraphical::initColor() const
 {
-    displayMainTitle();
-}
-
-void NcursesGraphical::displayMainTitle()
-{
-    mvwprintw(_mainMenuBox["MainTitle"], 2, 1, "   /$$$$$$  /$$$$$$$   /$$$$$$   /$$$$$$  /$$$$$$$  /$$$$$$$$ ");
-    mvwprintw(_mainMenuBox["MainTitle"], 3, 1, "  /$$__  $$| $$__  $$ /$$__  $$ /$$__  $$| $$__  $$| $$_____/ ");
-    mvwprintw(_mainMenuBox["MainTitle"], 4, 1, " | $$  \\ $$| $$  \\ $$| $$  \\__/| $$  \\ $$| $$  \\ $$| $$ ");
-    mvwprintw(_mainMenuBox["MainTitle"], 5, 1, " | $$$$$$$$| $$$$$$$/| $$      | $$$$$$$$| $$  | $$| $$$$$ ");
-    mvwprintw(_mainMenuBox["MainTitle"], 6, 1, " | $$__  $$| $$__  $$| $$      | $$__  $$| $$  | $$| $$__/ ");
-    mvwprintw(_mainMenuBox["MainTitle"], 7, 1, " | $$  | $$| $$  \\ $$| $$    $$| $$  | $$| $$  | $$| $$ ");
-    mvwprintw(_mainMenuBox["MainTitle"], 8, 1, " | $$  | $$| $$  | $$|  $$$$$$/| $$  | $$| $$$$$$$/| $$$$$$$$ ");
-    mvwprintw(_mainMenuBox["MainTitle"], 9, 1, " |__/  |__/|__/  |__/ \\______/ |__/  |__/|_______/ |________/ ");
-    wnoutrefresh(_mainMenuBox["MainTitle"]);
+    init_pair(GREEN_BLACK, COLOR_GREEN, COLOR_BLACK);
+    init_pair(RED_BLACK, COLOR_RED, COLOR_BLACK);
 }
