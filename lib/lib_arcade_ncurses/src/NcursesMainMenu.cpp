@@ -23,6 +23,7 @@ NcursesMainMenu::~NcursesMainMenu()
 
 void NcursesMainMenu::display()
 {
+    clear();
     this->displayMainTitle();
 }
 
@@ -41,6 +42,7 @@ void NcursesMainMenu::createMainTitle()
 
 void NcursesMainMenu::displayMainTitle()
 {
+    _windows["MainTitle"] = subwin(stdscr, 10, 63, 0, ((COLS - 63) / 2));
     wattron(_windows["MainTitle"], COLOR_PAIR(GREEN_BLACK));
     mvwprintw(_windows["MainTitle"], 2, 1, "   /$$$$$$  /$$$$$$$   /$$$$$$   /$$$$$$  /$$$$$$$  /$$$$$$$$ ");
     mvwprintw(_windows["MainTitle"], 3, 1, "  /$$__  $$| $$__  $$ /$$__  $$ /$$__  $$| $$__  $$| $$_____/ ");
@@ -49,6 +51,7 @@ void NcursesMainMenu::displayMainTitle()
     mvwprintw(_windows["MainTitle"], 6, 1, " | $$__  $$| $$__  $$| $$      | $$__  $$| $$  | $$| $$__/ ");
     mvwprintw(_windows["MainTitle"], 7, 1, " | $$  | $$| $$  \\ $$| $$    $$| $$  | $$| $$  | $$| $$ ");
     mvwprintw(_windows["MainTitle"], 8, 1, " | $$  | $$| $$  | $$|  $$$$$$/| $$  | $$| $$$$$$$/| $$$$$$$$ ");
+    mvwprintw(_windows["MainTitle"], 9, 1, " |__/  |__/|__/  |__/ \\______/ |__/  |__/|_______/ |________/ ");
     mvwprintw(_windows["MainTitle"], 9, 1, " |__/  |__/|__/  |__/ \\______/ |__/  |__/|_______/ |________/ ");
     wattroff(_windows["MainTitle"], COLOR_PAIR(GREEN_BLACK));
 }

@@ -39,7 +39,7 @@ NcursesGraphical::~NcursesGraphical()
 void NcursesGraphical::display()
 {
     while (1) {
-        clear();
+        //clear();
         _sceneList[MAIN_MENU]->display();
         _sceneList[MAIN_MENU]->refresh();
     }
