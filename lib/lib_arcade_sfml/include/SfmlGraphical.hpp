@@ -71,9 +71,9 @@ namespace arc {
         void displayGame();
         void loadSprite(const std::string &spritePath);
 
-        void createMainMenuButtons();
+        // void createMainMenuButtons();
 
-        void setSpriteScales();
+        // void setSpriteScales();
 
         sf::RenderWindow _window;
         sf::Event _event;
@@ -92,29 +92,23 @@ namespace arc {
         std::map<std::string, sf:: Texture> _textures;
         std::map<char, std::pair<std::string, Color>> _spriteMap;
 
-        sf::Font _font;
-        sf::Text _text;
+        // sf::Font _font;
+        // sf::Text _text;
 
-        std::vector<std::string> _gameStats;
+        // std::vector<std::string> _gameStats;
         std::vector<std::pair<std::string, std::string>> _controls;
 
         std::vector<std::pair<std::string,std::string>> _scores;
 
-        std::vector<std::unique_ptr<MySf::Button::IButton>> _mainMenuButtons;
-        std::vector<std::unique_ptr<MySf::Button::IButton>> _pauseMenuButtons;
+        // std::vector<std::unique_ptr<MySf::Button::IButton>> _mainMenuButtons;
+        // std::vector<std::unique_ptr<MySf::Button::IButton>> _pauseMenuButtons;
 
-        std::unique_ptr<MySf::Button::IButton> _pauseButton;
+        // std::unique_ptr<MySf::Button::IButton> _pauseButton;
 
-        std::vector<std::unique_ptr<MySf::Button::IButton>> _gamesList;
-        std::function<void (const std::string &)> _changeGameFct;
+        // std::vector<std::unique_ptr<MySf::Button::IButton>> _gamesList;
+        // std::function<void (const std::string &)> _changeGameFct;
 
-        size_t _mapHeight;
-        size_t _mapWidth;
-
-        static const sf::IntRect _gameArea;
-        sf::Vector2f _cellSize;
-
-        std::optional<const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>>> _controlsMap;
+        // std::optional<const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>>> _controlsMap;
 
         sf::Music _music;
 
