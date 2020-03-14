@@ -13,6 +13,7 @@ MAIN	=	\
 
 SRC	=	src/NcursesError.cpp\
 		src/NcursesGraphical.cpp	\
+		src/NcursesMainMenu.cpp	\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 

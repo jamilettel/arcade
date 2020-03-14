@@ -7,6 +7,7 @@
 
 #include "NcursesError.hpp"
 #include "NcursesGraphical.hpp"
+#include "NcursesMainMenu.hpp"
 
 using namespace arc;
 
@@ -14,12 +15,7 @@ extern "C" IGraphical *instance_ctor() {
     return (new NcursesGraphical);
 }
 
-enum COLOR_PAIR
-{
-    GREEN_BLACK = 1,
-};
-
-NcursesGraphical::NcursesGraphical()
+NcursesGraphical::NcursesGraphical() : _eventType(Event::NO_EVENT), _keyPressed(Event::NONE), _scene(MAIN_MENU)
 {
     initscr();
     cbreak();
@@ -30,7 +26,7 @@ NcursesGraphical::NcursesGraphical()
         start_color();
         initColor();
     }
-    createMainMenu();
+    _sceneList[MAIN_MENU] = std::shared_ptr<IScene>(new NcursesMainMenu());
 }
 
 NcursesGraphical::~NcursesGraphical()
@@ -42,13 +38,7 @@ NcursesGraphical::~NcursesGraphical()
 
 void NcursesGraphical::display()
 {
-    switch (getScene()) {
-        case (Scene::MAIN_MENU):
-            displayMainMenu();
-            break;
-        default:
-            break;
-    }
+    _sceneList[MAIN_MENU]->display();
     refresh();
     getch();
     _eventType = Event::QUIT;
@@ -164,32 +154,6 @@ void NcursesGraphical::setMapSize(size_t height, size_t width)
 
 }
 
-/* MAIN MENU */
-void NcursesGraphical::createMainMenu()
-{
-    _mainMenuBox["MainTitle"] = subwin(stdscr, 10, 63, 0, ((COLS - 63) / 2));
-}
-
-void NcursesGraphical::displayMainMenu()
-{
-    displayMainTitle();
-}
-
-void NcursesGraphical::displayMainTitle()
-{
-    wattron(_mainMenuBox["MainTitle"], COLOR_PAIR(GREEN_BLACK));
-    mvwprintw(_mainMenuBox["MainTitle"], 2, 1, "   /$$$$$$  /$$$$$$$   /$$$$$$   /$$$$$$  /$$$$$$$  /$$$$$$$$ ");
-    mvwprintw(_mainMenuBox["MainTitle"], 3, 1, "  /$$__  $$| $$__  $$ /$$__  $$ /$$__  $$| $$__  $$| $$_____/ ");
-    mvwprintw(_mainMenuBox["MainTitle"], 4, 1, " | $$  \\ $$| $$  \\ $$| $$  \\__/| $$  \\ $$| $$  \\ $$| $$ ");
-    mvwprintw(_mainMenuBox["MainTitle"], 5, 1, " | $$$$$$$$| $$$$$$$/| $$      | $$$$$$$$| $$  | $$| $$$$$ ");
-    mvwprintw(_mainMenuBox["MainTitle"], 6, 1, " | $$__  $$| $$__  $$| $$      | $$__  $$| $$  | $$| $$__/ ");
-    mvwprintw(_mainMenuBox["MainTitle"], 7, 1, " | $$  | $$| $$  \\ $$| $$    $$| $$  | $$| $$  | $$| $$ ");
-    mvwprintw(_mainMenuBox["MainTitle"], 8, 1, " | $$  | $$| $$  | $$|  $$$$$$/| $$  | $$| $$$$$$$/| $$$$$$$$ ");
-    mvwprintw(_mainMenuBox["MainTitle"], 9, 1, " |__/  |__/|__/  |__/ \\______/ |__/  |__/|_______/ |________/ ");
-    wattroff(_mainMenuBox["MainTitle"], COLOR_PAIR(GREEN_BLACK));
-    wnoutrefresh(_mainMenuBox["MainTitle"]);
-}
-
 /* COLOR */
 bool NcursesGraphical::supportColor() const
 {
@@ -199,4 +163,5 @@ bool NcursesGraphical::supportColor() const
 void NcursesGraphical::initColor() const
 {
     init_pair(GREEN_BLACK, COLOR_GREEN, COLOR_BLACK);
+    init_pair(RED_BLACK, COLOR_RED, COLOR_BLACK);
 }
