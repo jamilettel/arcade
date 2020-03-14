@@ -39,9 +39,15 @@ NcursesGraphical::~NcursesGraphical()
 void NcursesGraphical::display()
 {
     while (1) {
-        //clear();
-        _sceneList[MAIN_MENU]->display();
-        _sceneList[MAIN_MENU]->refresh();
+        erase();
+        if (LINES < 24 || COLS < 150) {
+            mvprintw((LINES / 2), (COLS / 2) - (21 / 2),
+                     "window size too small");
+        } else {
+            _sceneList[MAIN_MENU]->display();
+            _sceneList[MAIN_MENU]->refresh();
+        }
+        refresh();
     }
     _eventType = Event::QUIT;
 }
