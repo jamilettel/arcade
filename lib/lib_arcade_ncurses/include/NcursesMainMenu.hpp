@@ -11,20 +11,22 @@
 #include "IScene.hpp"
 #include "NcursesGraphical.hpp"
 #include <panel.h>
+#include <menu.h>
 
 namespace arc
 {
     class NcursesMainMenu : public IScene
     {
         public:
-            NcursesMainMenu();
-            ~NcursesMainMenu() override;
+            NcursesMainMenu(NcursesGraphical &mainLib);
+            ~NcursesMainMenu() override = default;
 
             void display() override;
             void refresh() override;
+            void setListGames(std::vector<std::string> name, std::function<void (const std::string &)> fct, int chose);
 
         private:
-            void createMainTitle();
+            bool supportColor();
             void displayMainTitle();
             void createMenuGames();
             void displayMenuGames();
@@ -33,7 +35,10 @@ namespace arc
 
         private:
             std::map<std::string, WINDOW*> _windows;
-            std::map<std::string, PANEL*> _panel;
+            bool _termColor;
+            std::vector<std::string> _listGames;
+            int _chosenGame;
+            std::function<void (const std::string &)> _ftGames;
 
     };
 }

@@ -26,7 +26,7 @@ NcursesGraphical::NcursesGraphical() : _eventType(Event::NO_EVENT), _keyPressed(
         start_color();
         initColor();
     }
-    _sceneList[MAIN_MENU] = std::shared_ptr<IScene>(new NcursesMainMenu());
+    _sceneList[MAIN_MENU] = std::shared_ptr<IScene>(new NcursesMainMenu(*this));
 }
 
 NcursesGraphical::~NcursesGraphical()
@@ -47,7 +47,7 @@ void NcursesGraphical::display()
             _sceneList[MAIN_MENU]->display();
             _sceneList[MAIN_MENU]->refresh();
         }
-        refresh();
+        getch();
     }
     _eventType = Event::QUIT;
 }
@@ -94,7 +94,7 @@ void NcursesGraphical::setGameTitle(const std::string &game)
 
 void NcursesGraphical::setListGames(const std::vector<std::string> &games, const std::function<void(const std::string &)> &fct, int chosen)
 {
-
+    static_cast<NcursesMainMenu *>(_sceneList[getScene()].get())->setListGames(games, fct, chosen);
 }
 
 void NcursesGraphical::setListLibraries(const std::vector<std::string> &libraries, const std::function<void(const std::string &)> &fct, int chosen)
@@ -172,4 +172,9 @@ void NcursesGraphical::initColor() const
 {
     init_pair(GREEN_BLACK, COLOR_GREEN, COLOR_BLACK);
     init_pair(RED_BLACK, COLOR_RED, COLOR_BLACK);
+    init_pair(BLACK_BLUE, COLOR_BLACK, COLOR_BLUE);
+    init_pair(GREEN_BLUE, COLOR_GREEN, COLOR_BLUE);
+    init_pair(RED_BLUE, COLOR_RED, COLOR_BLUE);
+    init_pair(RED_WHITE, COLOR_RED, COLOR_WHITE);
+    init_pair(YELLOW_BLUE, COLOR_YELLOW, COLOR_BLUE);
 }

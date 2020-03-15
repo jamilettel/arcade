@@ -7,44 +7,49 @@
 
 #include "NcursesMainMenu.hpp"
 
+#include <iostream>
+
 using namespace arc;
 
-NcursesMainMenu::NcursesMainMenu()
+NcursesMainMenu::NcursesMainMenu(NcursesGraphical &mainLib)
 {
-    //_panel["Menu1"] = new_panel(_windows["Menu1"]);
-    //set_panel_userptr(_panel["Menu1"], _panel["Menu2"]);
-    //this->createMenuGames();
-    //this->createMenuGraphics();
-    //update_panels();
-}
-
-NcursesMainMenu::~NcursesMainMenu()
-{
+    _termColor = has_colors();
+    if (supportColor()) {
+        wbkgd(stdscr, COLOR_PAIR(BLACK_BLUE));
+    }
 }
 
 void NcursesMainMenu::display()
 {
     this->displayMainTitle();
-    //this->createMenuGames();
+    this->createMenuGames();
+    this->createMenuGraphics();
 }
 
 void NcursesMainMenu::refresh()
 {
-    //update_panels();
-    //std::for_each(_windows.begin(), _windows.end(), [](const std::pair<std::string, WINDOW*> &win){
-    //    wnoutrefresh(win.second);
-    //});
-    //::refresh();
-    //doupdate();
+    ::refresh();
+    std::for_each(_windows.begin(), _windows.end(), [](const std::pair<std::string, WINDOW*>& win){
+        wrefresh(win.second);
+    });
 }
 
-void NcursesMainMenu::createMainTitle()
+void NcursesMainMenu::setListGames(std::vector<std::string> name, std::function<void (const std::string &)> fct, int chosen)
 {
+    _listGames = name;
+    _ftGames = fct;
+    _chosenGame = chosen;
+}
+
+bool NcursesMainMenu::supportColor()
+{
+    return _termColor;
 }
 
 void NcursesMainMenu::displayMainTitle()
 {
-    wattron(stdscr, COLOR_PAIR(GREEN_BLACK));
+    if (has_colors())
+        wattron(stdscr, COLOR_PAIR(YELLOW_BLUE));
     mvwprintw(stdscr, 3, COLS / 2 - 62 / 2, "   /$$$$$$  /$$$$$$$   /$$$$$$   /$$$$$$  /$$$$$$$  /$$$$$$$$ ");
     mvwprintw(stdscr, 4, COLS / 2 - 62 / 2, "  /$$__  $$| $$__  $$ /$$__  $$ /$$__  $$| $$__  $$| $$_____/ ");
     mvwprintw(stdscr, 5, COLS / 2 - 62 / 2, " | $$  \\ $$| $$  \\ $$| $$  \\__/| $$  \\ $$| $$  \\ $$| $$ ");
@@ -53,47 +58,24 @@ void NcursesMainMenu::displayMainTitle()
     mvwprintw(stdscr, 8, COLS / 2 - 62 / 2, " | $$  | $$| $$  \\ $$| $$    $$| $$  | $$| $$  | $$| $$ ");
     mvwprintw(stdscr, 9, COLS / 2 - 62 / 2, " | $$  | $$| $$  | $$|  $$$$$$/| $$  | $$| $$$$$$$/| $$$$$$$$ ");
     mvwprintw(stdscr, 10, COLS / 2 - 62 / 2, " |__/  |__/|__/  |__/ \\______/ |__/  |__/|_______/ |________/ ");
-    wattroff(stdscr, COLOR_PAIR(GREEN_BLACK));
+    if (has_colors())
+        wattroff(stdscr, COLOR_PAIR(YELLOW_BLUE));
 }
 
 void NcursesMainMenu::createMenuGames()
 {
-
-    /*
-        int startx, starty, width, height;
-
-        getbegyx(_windows["Menu1"], starty, startx);
-        getmaxyx(_windows["Menu1"], height, width);
-
-        //box(_windows["Menu1"], ACS_VLINE, ACS_HLINE);
-        //mvwaddch(_windows["Menu1"], 2, 0, ACS_LTEE);
-        //mvwhline(_windows["Menu1"], 2, 1, ACS_HLINE, width - 2);
-        //mvwaddch(_windows["Menu1"], 2, width - 1, ACS_RTEE);
-
-        int length, x, y;
-        float temp;
-        std::string test("Games");
-
-        getyx(_windows["Menu1"], y, x);
-        if(startx != 0)
-            x = startx;
-        if(starty != 0)
-            y = starty;
-        if(width == 0)
-            width = 80;
-
-        length = test.length();
-        temp = (width - length)/ 2;
-        x = startx + (int)temp;
-        */
-    wattron(_windows["Menu1"], COLOR_PAIR(GREEN_BLACK));
-    mvwprintw(_windows["Menu1"], 10, 0, "GAMES");
-    wattroff(_windows["Menu1"], COLOR_PAIR(GREEN_BLACK));
+    _windows["MenuGames"] = subwin(stdscr, 20, 30, LINES / 2 - 20 / 2, COLS / 2 - 40);
+    if (supportColor())
+        wattron(_windows["MenuGames"], COLOR_PAIR(YELLOW_BLUE));
+    box(_windows["MenuGames"], 0, 0);
+    mvwprintw(_windows["MenuGames"], 0, 0, "Games");
+    if (supportColor())
+        wattroff(_windows["MenuGames"], COLOR_PAIR(YELLOW_BLUE));
 }
 
 void NcursesMainMenu::createMenuGraphics()
 {
-    _windows["Menu2"] = newwin(20, 20, 40, 40);
-    _panel["Menu2"] = new_panel(_windows["Menu2"]);
-    set_panel_userptr(_panel["Menu2"], _panel["Menu1"]);
+    _windows["MenuGraphics"] = subwin(stdscr, 20, 30, LINES / 2 - 20 / 2, COLS / 2 + 10);
+    box(_windows["MenuGraphics"], 0, 0);
+    mvwprintw(_windows["MenuGraphics"], 0, 0, "Graphics");
 }

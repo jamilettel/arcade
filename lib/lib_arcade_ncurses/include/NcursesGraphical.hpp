@@ -71,7 +71,12 @@ namespace arc {
     enum COLOR_PAIR
     {
         GREEN_BLACK = 1,
-        RED_BLACK = 2,
+        RED_BLACK,
+        BLACK_BLUE,
+        GREEN_BLUE,
+        RED_BLUE,
+        RED_WHITE,
+        YELLOW_BLUE,
     };
 }
 
