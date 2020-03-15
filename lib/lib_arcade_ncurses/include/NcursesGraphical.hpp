@@ -49,6 +49,8 @@ namespace arc {
         void setMapSize(size_t height, size_t width) override;
         void setGameTitle(const std::string &game) override;
 
+    public:
+        void checkEvents();
     private:
         Event::Type _eventType;
         Event::Key _keyPressed;
@@ -65,6 +67,7 @@ namespace arc {
     private:
         std::map<Scene, std::shared_ptr<IScene>> _sceneList;
         bool _termColor;
+        static const std::map<int, Event::Key> _equivalentKeys;
 
     };
 

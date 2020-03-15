@@ -22,6 +22,7 @@ namespace arc
             ~NcursesMainMenu() override = default;
 
             void display() override;
+            void update() override;
             void refresh() override;
             void setListGames(const std::vector<std::string> &name, const std::function<void (const std::string &)> &fct, int chosen);
             void setListGraphics(const std::vector<std::string> &name, const std::function<void (const std::string &)> &fct, int chosen);
@@ -35,6 +36,7 @@ namespace arc
             void displayMenuGraphics();
 
         private:
+            NcursesGraphical &_lib;
             std::map<std::string, WINDOW*> _windows;
             bool _termColor;
             std::optional<std::vector<std::string>> _listGames;

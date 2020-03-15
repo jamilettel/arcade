@@ -11,7 +11,7 @@
 
 using namespace arc;
 
-NcursesMainMenu::NcursesMainMenu(NcursesGraphical &mainLib)
+NcursesMainMenu::NcursesMainMenu(NcursesGraphical &mainLib) : _lib(mainLib)
 {
     _termColor = has_colors();
     if (supportColor()) {
@@ -24,6 +24,16 @@ void NcursesMainMenu::display()
     this->displayMainTitle();
     this->createMenuGames();
     this->createMenuGraphics();
+}
+
+void NcursesMainMenu::update()
+{
+    std::pair<Event::Type, Event::Key> event;
+
+    event.first = _lib.getEventType();
+    event.second = _lib.getKeyPressed();
+    if (event.second == Event::A)
+        exit(84);
 }
 
 void NcursesMainMenu::refresh()

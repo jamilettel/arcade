@@ -14,6 +14,7 @@ namespace arc {
     public:
         virtual ~IScene() = default;
 
+        virtual void update() = 0;
         virtual void display() = 0;
         virtual void refresh() = 0;
     };
