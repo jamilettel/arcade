@@ -23,7 +23,8 @@ namespace arc
 
             void display() override;
             void refresh() override;
-            void setListGames(std::vector<std::string> name, std::function<void (const std::string &)> fct, int chose);
+            void setListGames(const std::vector<std::string> &name, const std::function<void (const std::string &)> &fct, int chosen);
+            void setListGraphics(const std::vector<std::string> &name, const std::function<void (const std::string &)> &fct, int chosen);
 
         private:
             bool supportColor();
@@ -36,9 +37,12 @@ namespace arc
         private:
             std::map<std::string, WINDOW*> _windows;
             bool _termColor;
-            std::vector<std::string> _listGames;
+            std::optional<std::vector<std::string>> _listGames;
             int _chosenGame;
-            std::function<void (const std::string &)> _ftGames;
+            std::optional<std::function<void (const std::string&)>> _ftGames;
+            std::optional<std::vector<std::string>> _listGraphics;
+            int _chosenGraphics;
+            std::optional<std::function<void (const std::string&)>> _ftGraphics;
 
     };
 }

@@ -86,6 +86,7 @@ void Core::refreshLibrarieLists()
         throw CoreError(error.what());
     }
     _graphical->setListGames(_gameList, [this] (const std::string &game) {_currentGame = game;});
+    _graphical->setListLibraries(_graphicalList, [this] (const std::string &lib) {_currentGraphicalLib = lib;});
 }
 
 void Core::startGame()

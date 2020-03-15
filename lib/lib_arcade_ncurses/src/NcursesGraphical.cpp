@@ -99,7 +99,7 @@ void NcursesGraphical::setListGames(const std::vector<std::string> &games, const
 
 void NcursesGraphical::setListLibraries(const std::vector<std::string> &libraries, const std::function<void(const std::string &)> &fct, int chosen)
 {
-
+    static_cast<NcursesMainMenu *>(_sceneList[getScene()].get())->setListGraphics(libraries, fct, chosen);
 }
 
 void NcursesGraphical::setFunctionPlay(const std::function<void()> &function)
