@@ -32,8 +32,10 @@ void NcursesMainMenu::update()
 
     event.first = _lib.getEventType();
     event.second = _lib.getKeyPressed();
-    if (event.second == Event::A)
-        exit(84);
+    if (event.second == Event::Key::DOWN && _chosenGame + 1 != _listGames->size())
+        _chosenGame++;
+    if (event.second == Event::Key::UP && _chosenGame != 0)
+        _chosenGame--;
 }
 
 void NcursesMainMenu::refresh()
