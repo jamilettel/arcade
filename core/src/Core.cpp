@@ -61,6 +61,7 @@ void Core::loadGraphicalLibrary(const std::string &libPath)
     _currentGraphicalLib = libPath;
     _graphical->setFont("assets/font.otf");
     setGraphicalLibFunctions();
+    _graphical->setHowToPlay(getControls());
     if (std::find(_graphicalList.begin(), _graphicalList.end(), libPath) == _graphicalList.end())
         _graphicalList.push_back(libPath);
 }

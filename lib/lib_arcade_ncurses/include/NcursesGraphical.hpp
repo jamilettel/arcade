@@ -51,6 +51,7 @@ namespace arc {
 
     public:
         void checkEvents();
+        std::optional<std::vector<std::pair<std::string, std::string>>> &getHowToPlay();
     private:
         Event::Type _eventType;
         Event::Key _keyPressed;
@@ -59,6 +60,7 @@ namespace arc {
         Scene _scene;
         std::string _username;
         std::string _gameTitle;
+        std::optional<std::vector<std::pair<std::string, std::string>>> _controlsString;
 
     private:
         /* COLORS */

@@ -30,21 +30,23 @@ namespace arc
         private:
             bool supportColor();
             void displayMainTitle();
-            void createMenuGames();
             void displayMenuGames();
-            void createMenuGraphics();
             void displayMenuGraphics();
+            void displayInfo();
+
 
         private:
             NcursesGraphical &_lib;
             std::map<std::string, WINDOW*> _windows;
             bool _termColor;
+            int _activeMenu;
             std::optional<std::vector<std::string>> _listGames;
-            int _chosenGame;
+            unsigned int _chosenGame;
             std::optional<std::function<void (const std::string&)>> _ftGames;
             std::optional<std::vector<std::string>> _listGraphics;
-            int _chosenGraphics;
+            unsigned int _chosenGraphics;
             std::optional<std::function<void (const std::string&)>> _ftGraphics;
+            std::optional<std::vector<std::pair<std::string, std::string>>> &_controls;
 
     };
 }

@@ -11,7 +11,7 @@
 
 using namespace arc;
 
-NcursesMainMenu::NcursesMainMenu(NcursesGraphical &mainLib) : _lib(mainLib)
+NcursesMainMenu::NcursesMainMenu(NcursesGraphical &mainLib) : _lib(mainLib), _activeMenu(1), _controls(_lib.getHowToPlay())
 {
     _termColor = has_colors();
     if (supportColor()) {
@@ -21,9 +21,11 @@ NcursesMainMenu::NcursesMainMenu(NcursesGraphical &mainLib) : _lib(mainLib)
 
 void NcursesMainMenu::display()
 {
+    erase();
     this->displayMainTitle();
-    this->createMenuGames();
-    this->createMenuGraphics();
+    this->displayMenuGames();
+    this->displayMenuGraphics();
+    this->displayInfo();
 }
 
 void NcursesMainMenu::update()
@@ -32,18 +34,30 @@ void NcursesMainMenu::update()
 
     event.first = _lib.getEventType();
     event.second = _lib.getKeyPressed();
-    if (event.second == Event::Key::DOWN && _chosenGame + 1 != _listGames->size())
-        _chosenGame++;
-    if (event.second == Event::Key::UP && _chosenGame != 0)
-        _chosenGame--;
+    if (event.second == Event::Key::DOWN) {
+        if (_activeMenu == 1 && _chosenGame + 1 != _listGames->size())
+            _chosenGame++;
+        else if (_activeMenu == 2 && _chosenGraphics + 1 != _listGraphics->size())
+            _chosenGraphics++;
+    }
+    if (event.second == Event::Key::UP) {
+        if (_activeMenu == 1 && _chosenGame != 0)
+            _chosenGame--;
+        else if (_activeMenu == 2 && _chosenGraphics != 0)
+            _chosenGraphics--;
+    }
+    if (event.second == Event::Key::LEFT)
+        _activeMenu = 1;
+    if (event.second == Event::Key::RIGHT)
+        _activeMenu = 2;
 }
 
 void NcursesMainMenu::refresh()
 {
-    ::refresh();
     std::for_each(_windows.begin(), _windows.end(), [](const std::pair<std::string, WINDOW*>& win){
-        wrefresh(win.second);
+        wnoutrefresh(win.second);
     });
+    ::refresh();
 }
 
 void NcursesMainMenu::setListGames(const std::vector<std::string> &name, const std::function<void (const std::string &)> &fct, int chosen)
@@ -86,18 +100,20 @@ void NcursesMainMenu::displayMainTitle()
     wattroff(stdscr, COLOR_PAIR(YELLOW_BLUE));
 }
 
-void NcursesMainMenu::createMenuGames()
+void NcursesMainMenu::displayMenuGames()
 {
-    int i = 0;
+    unsigned int i = 0;
+    delwin(_windows["MenuGames"]);
     _windows["MenuGames"] = subwin(stdscr, 20, 30, LINES / 2 - 20 / 2, COLS / 2 - 40);
     if (supportColor())
         wattron(_windows["MenuGames"], COLOR_PAIR(YELLOW_BLUE));
     box(_windows["MenuGames"], 0, 0);
     mvwprintw(_windows["MenuGames"], 0, 0, "Games");
+    mvwprintw(_windows["MenuGames"], 19, 0, "Press enter to play");
     wattroff(_windows["MenuGames"], COLOR_PAIR(YELLOW_BLUE));
 
     for (const std::string &game : _listGames.value()) {
-        if (_chosenGame == i / 3)
+        if (_chosenGame == i / 3 && _activeMenu == 1)
             wattron(_windows["MenuGames"], A_REVERSE);
         mvwprintw(_windows["MenuGames"], i + 3, 30 / 2 - game.substr(0, game.find_last_of('.')).substr(game.find_last_of('_') + 1).length() / 2, game.substr(0, game.find_last_of('.')).substr(game.find_last_of('_') + 1).c_str());
         wattroff(_windows["MenuGames"], A_REVERSE);
@@ -105,21 +121,44 @@ void NcursesMainMenu::createMenuGames()
     }
 }
 
-void NcursesMainMenu::createMenuGraphics()
+void NcursesMainMenu::displayMenuGraphics()
 {
-    int i = 0;
+    unsigned int i = 0;
+    delwin(_windows["MenuGraphics"]);
     _windows["MenuGraphics"] = subwin(stdscr, 20, 30, LINES / 2 - 20 / 2, COLS / 2 + 10);
     if (supportColor())
         wattron(_windows["MenuGraphics"], COLOR_PAIR(YELLOW_BLUE));
     box(_windows["MenuGraphics"], 0, 0);
     mvwprintw(_windows["MenuGraphics"], 0, 0, "Graphics");
-    if (supportColor())
-        wattroff(_windows["MenuGraphics"], COLOR_PAIR(YELLOW_BLUE));
+    mvwprintw(_windows["MenuGraphics"], 19, 0, "Enter to change graphic mode");
+    wattroff(_windows["MenuGraphics"], COLOR_PAIR(YELLOW_BLUE));
+
     for (const std::string &graphic : _listGraphics.value()) {
-        if (_chosenGraphics == i / 3)
+        if (_chosenGraphics == i / 3 && _activeMenu == 2)
             wattron(_windows["MenuGraphics"], A_REVERSE);
         mvwprintw(_windows["MenuGraphics"], i + 3, 30 / 2 - graphic.substr(0, graphic.find_last_of('.')).substr(graphic.find_last_of('_') + 1).length() / 2, graphic.substr(0, graphic.find_last_of('.')).substr(graphic.find_last_of('_') + 1).c_str());
         wattroff(_windows["MenuGraphics"], A_REVERSE);
         i += 3;
     }
+}
+
+void NcursesMainMenu::displayInfo()
+{
+    int i = 2;
+    delwin(_windows["InfoBox"]);
+    _windows["InfoBox"] = subwin(stdscr, 10, 30, LINES / 2 + 12, COLS / 3 + 18);
+    if (supportColor())
+        wattron(_windows["InfoBox"], COLOR_PAIR(YELLOW_BLUE));
+    box(_windows["InfoBox"], 0, 0);
+    mvwprintw(_windows["InfoBox"], 0, 0, "Some Controls in game");
+    wattroff(_windows["InfoBox"], COLOR_PAIR(YELLOW_BLUE));
+    if (supportColor())
+        wattron(_windows["InfoBox"], COLOR_PAIR(GREEN_BLUE));
+    for (const std::pair<std::string, std::string> &control : *_controls) {
+        mvwprintw(_windows["InfoBox"], i, 2, control.first.c_str());
+        mvwprintw(_windows["InfoBox"], i, control.first.length() + 3, ":");
+        mvwprintw(_windows["InfoBox"], i, control.first.length() + 5, control.second.c_str());
+        i++;
+    }
+    wattroff(_windows["InfoBox"], COLOR_PAIR(GREEN_BLUE));
 }

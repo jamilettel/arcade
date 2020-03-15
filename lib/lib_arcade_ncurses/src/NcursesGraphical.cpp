@@ -100,12 +100,12 @@ NcursesGraphical::~NcursesGraphical()
 
 void NcursesGraphical::display()
 {
-    checkEvents();
-    erase();
-    if (LINES < 24 || COLS < 150) {
-        mvprintw((LINES / 2), (COLS / 2) - (21 / 2),
-                 "window size too small");
+    if (LINES < 50 || COLS < 150) {
+        clear();
+        mvprintw((LINES / 2), (COLS / 2) - (21 / 2), "window size too small");
+        refresh();
     } else {
+        checkEvents();
         _sceneList[MAIN_MENU]->display();
         _sceneList[MAIN_MENU]->refresh();
     }
@@ -197,7 +197,12 @@ void NcursesGraphical::setFunctionRestart(const std::function<void()> &function)
 
 void NcursesGraphical::setHowToPlay(const std::vector<std::pair<std::string, std::string>> &info)
 {
+    _controlsString = info;
+}
 
+std::optional<std::vector<std::pair<std::string, std::string>>>& NcursesGraphical::getHowToPlay()
+{
+    return _controlsString;
 }
 
 void NcursesGraphical::setGameStatsFormatString(const std::vector<std::string> &info)
