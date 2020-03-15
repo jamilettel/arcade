@@ -44,6 +44,7 @@ const std::map<int, Event::Key> NcursesGraphical::_equivalentKeys = {
     {122, Event::Key::Z},
     {KEY_BACKSPACE, Event::Key::BACKSPACE},
     {9, Event::Key::TAB},
+    {10, Event::Key::ENTER},
     {27, Event::Key::ESCAPE},
     {330, Event::Key::DELETE},
     {KEY_UP, Event::Key::UP},
@@ -106,8 +107,8 @@ void NcursesGraphical::display()
         refresh();
     } else {
         checkEvents();
-        _sceneList[MAIN_MENU]->display();
-        _sceneList[MAIN_MENU]->refresh();
+        _sceneList[getScene()]->display();
+        _sceneList[getScene()]->refresh();
     }
 }
 
@@ -177,22 +178,22 @@ void NcursesGraphical::setListLibraries(const std::vector<std::string> &librarie
 
 void NcursesGraphical::setFunctionPlay(const std::function<void()> &function)
 {
-
+    _playFct = function;
 }
 
 void NcursesGraphical::setFunctionMenu(const std::function<void()> &function)
 {
-
+    _menuFct = function;
 }
 
 void NcursesGraphical::setFunctionTogglePause(const std::function<void()> &function)
 {
-
+    _pauseFct = function;
 }
 
 void NcursesGraphical::setFunctionRestart(const std::function<void()> &function)
 {
-
+    _restartFct = function;
 }
 
 void NcursesGraphical::setHowToPlay(const std::vector<std::pair<std::string, std::string>> &info)

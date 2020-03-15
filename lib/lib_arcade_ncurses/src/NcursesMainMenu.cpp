@@ -50,6 +50,10 @@ void NcursesMainMenu::update()
         _activeMenu = 1;
     if (event.second == Event::Key::RIGHT)
         _activeMenu = 2;
+    if (event.second == Event::Key::ENTER) {
+        _ftGames.value()(_listGames->at(_chosenGame));
+        _lib._playFct.value()();
+    }
 }
 
 void NcursesMainMenu::refresh()

@@ -77,6 +77,7 @@ namespace arc {
             BACKSPACE,
             TAB,
             ESCAPE,
+            ENTER,
             DELETE,
             UP,
             DOWN,

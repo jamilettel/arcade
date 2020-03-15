@@ -61,6 +61,11 @@ namespace arc {
         std::string _username;
         std::string _gameTitle;
         std::optional<std::vector<std::pair<std::string, std::string>>> _controlsString;
+    public:
+        std::optional<std::function<void()>> _playFct;
+        std::optional<std::function<void()>> _restartFct;
+        std::optional<std::function<void()>> _menuFct;
+        std::optional<std::function<void()>> _pauseFct;
 
     private:
         /* COLORS */
