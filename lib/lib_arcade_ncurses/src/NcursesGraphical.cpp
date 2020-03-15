@@ -8,6 +8,7 @@
 #include "NcursesError.hpp"
 #include "NcursesGraphical.hpp"
 #include "NcursesMainMenu.hpp"
+#include "NcursesGame.hpp"
 
 using namespace arc;
 
@@ -90,6 +91,7 @@ NcursesGraphical::NcursesGraphical() : _eventType(Event::NO_EVENT), _keyPressed(
         initColor();
     }
     _sceneList[MAIN_MENU] = std::shared_ptr<IScene>(new NcursesMainMenu(*this));
+    _sceneList[GAME] = std::shared_ptr<IScene>(new NcursesGame(*this));
 }
 
 NcursesGraphical::~NcursesGraphical()
@@ -102,7 +104,7 @@ NcursesGraphical::~NcursesGraphical()
 void NcursesGraphical::display()
 {
     if (LINES < 50 || COLS < 150) {
-        clear();
+        erase();
         mvprintw((LINES / 2), (COLS / 2) - (21 / 2), "window size too small");
         refresh();
     } else {
