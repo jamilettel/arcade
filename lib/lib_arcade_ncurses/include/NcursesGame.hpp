@@ -51,6 +51,7 @@ namespace arc {
 
         private:
             std::pair<size_t, size_t> _mapSize;
+            std::optional<std::vector<std::pair<std::string, std::string>>> &_controls;
     };
 }
 

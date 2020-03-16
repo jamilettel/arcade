@@ -9,7 +9,7 @@
 
 using namespace arc;
 
-NcursesGame::NcursesGame(NcursesGraphical &mainLib) : _lib(mainLib), _mapSize(std::pair<size_t, size_t>(0, 0))
+NcursesGame::NcursesGame(NcursesGraphical &mainLib) : _lib(mainLib), _mapSize(std::pair<size_t, size_t>(0, 0)), _controls(_lib.getHowToPlay())
 {
     _termColor = has_colors();
     if (supportColor()) {
@@ -108,12 +108,27 @@ void NcursesGame::displayCommands()
 
 void NcursesGame::displayGameInfo()
 {
+    int i = 1;
+    int j = 0;
     delwin(_windows["Infos"]);
     _windows["Infos"] = subwin(stdscr, 8, 60, LINES - 10, COLS - 70);
     if (supportColor())
         wattron(_windows["Infos"], COLOR_PAIR(WHITE_WHITE));
     wbkgd(_windows["Infos"], COLOR_PAIR(WHITE_WHITE));
     wattroff(_windows["Infos"], COLOR_PAIR(WHITE_WHITE));
+    if (supportColor())
+        wattron(_windows["Infos"], COLOR_PAIR(GREEN_WHITE));
+    for (const std::pair<std::string, std::string> &control : *_controls) {
+        if (i == 7) {
+            j = 30;
+            i = 1;
+        }
+        mvwprintw(_windows["Infos"], i, 1 + j, control.first.c_str());
+        mvwprintw(_windows["Infos"], i, control.first.length() + 2 + j, ":");
+        mvwprintw(_windows["Infos"], i, control.first.length() + 4 + j, control.second.c_str());
+        i++;
+    }
+    wattroff(_windows["Infos"], COLOR_PAIR(GREEN_BLUE));
 }
 
 void NcursesGame::displayEntities()
