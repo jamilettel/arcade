@@ -240,7 +240,7 @@ void NcursesGraphical::playSound(const std::string &sound)
 
 void NcursesGraphical::setMapSize(size_t height, size_t width)
 {
-
+    dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->setMapSize(height, width);
 }
 
 /* COLOR */

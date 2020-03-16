@@ -26,7 +26,7 @@ namespace arc {
 
         public:
             void setGameTitle(std::string gameTitle);
-            void displayTitleGame();
+            void setMapSize(size_t height, size_t width);
 
         private:
             NcursesGraphical &_lib;
@@ -43,6 +43,11 @@ namespace arc {
 
         private:
             bool supportColor() const;
+            void displayTitleGame();
+            void displayMap();
+
+        private:
+            std::pair<size_t, size_t> _mapSize;
     };
 }
 

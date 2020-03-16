@@ -9,7 +9,7 @@
 
 using namespace arc;
 
-NcursesGame::NcursesGame(NcursesGraphical &mainLib) : _lib(mainLib)
+NcursesGame::NcursesGame(NcursesGraphical &mainLib) : _lib(mainLib), _mapSize(std::pair<size_t, size_t>(0, 0))
 {
     _termColor = has_colors();
     if (supportColor()) {
@@ -34,6 +34,7 @@ void NcursesGame::display()
 {
     erase();
     this->displayTitleGame();
+    this->displayMap();
 }
 
 void NcursesGame::refresh()
@@ -73,5 +74,21 @@ void NcursesGame::displayTitleGame()
     wbkgd(_windows["Title"], COLOR_PAIR(RED_WHITE));
     mvwprintw(_windows["Title"], 2, 30 / 2 - _gameTitle.length() / 2, _gameTitle.c_str());
 
-    wattroff(_windows["MenuGames"], COLOR_PAIR(RED_WHITE));
+    wattroff(_windows["Title"], COLOR_PAIR(RED_WHITE));
+}
+
+void NcursesGame::setMapSize(size_t height, size_t width)
+{
+    _mapSize.first = height;
+    _mapSize.second = width;
+}
+
+void NcursesGame::displayMap()
+{
+    delwin(_windows["Map"]);
+    _windows["Map"] = subwin(stdscr, _mapSize.first, _mapSize.second, LINES / 2 - _mapSize.first / 2, COLS / 2 - _mapSize.second / 2);
+    if (supportColor())
+        wattron(_windows["Map"], COLOR_PAIR(WHITE_WHITE));
+    wbkgd(_windows["Map"], COLOR_PAIR(WHITE_WHITE));
+    wattroff(_windows["Map"], COLOR_PAIR(WHITE_WHITE));
 }
