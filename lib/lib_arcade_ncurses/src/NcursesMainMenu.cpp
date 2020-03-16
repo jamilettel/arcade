@@ -19,6 +19,14 @@ NcursesMainMenu::NcursesMainMenu(NcursesGraphical &mainLib) : _lib(mainLib), _ac
     }
 }
 
+NcursesMainMenu::~NcursesMainMenu()
+{
+    std::for_each(_windows.begin(), _windows.end(), [](const std::pair<std::string, WINDOW*>& win){
+        delwin(win.second);
+    });
+    _windows.clear();
+}
+
 void NcursesMainMenu::display()
 {
     erase();
@@ -50,9 +58,13 @@ void NcursesMainMenu::update()
         _activeMenu = 1;
     if (event.second == Event::Key::RIGHT)
         _activeMenu = 2;
-    if (event.second == Event::Key::ENTER) {
+    if (event.second == Event::Key::ENTER && _activeMenu == 1) {
         _ftGames.value()(_listGames->at(_chosenGame));
         _lib._playFct.value()();
+    }
+    if (event.second == Event::Key::ENTER && _activeMenu == 2) {
+        _ftGraphics.value()(_listGraphics->at(_chosenGraphics));
+        //_lib._playFct.value()();
     }
 }
 
@@ -84,12 +96,12 @@ void NcursesMainMenu::setListGraphics(const std::vector<std::string> &name, cons
         _chosenGraphics = chosen;
 }
 
-bool NcursesMainMenu::supportColor()
+bool NcursesMainMenu::supportColor() const
 {
     return _termColor;
 }
 
-void NcursesMainMenu::displayMainTitle()
+void NcursesMainMenu::displayMainTitle() const
 {
     if (has_colors())
         wattron(stdscr, COLOR_PAIR(YELLOW_BLUE));

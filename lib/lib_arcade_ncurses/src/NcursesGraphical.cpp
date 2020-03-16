@@ -8,6 +8,7 @@
 #include "NcursesError.hpp"
 #include "NcursesGraphical.hpp"
 #include "NcursesMainMenu.hpp"
+#include "NcursesGame.hpp"
 
 using namespace arc;
 
@@ -90,6 +91,7 @@ NcursesGraphical::NcursesGraphical() : _eventType(Event::NO_EVENT), _keyPressed(
         initColor();
     }
     _sceneList[MAIN_MENU] = std::shared_ptr<IScene>(new NcursesMainMenu(*this));
+    _sceneList[GAME] = std::shared_ptr<IScene>(new NcursesGame(*this));
 }
 
 NcursesGraphical::~NcursesGraphical()
@@ -102,7 +104,7 @@ NcursesGraphical::~NcursesGraphical()
 void NcursesGraphical::display()
 {
     if (LINES < 50 || COLS < 150) {
-        clear();
+        erase();
         mvprintw((LINES / 2), (COLS / 2) - (21 / 2), "window size too small");
         refresh();
     } else {
@@ -163,17 +165,17 @@ IGraphical::Scene NcursesGraphical::getScene() const
 
 void NcursesGraphical::setGameTitle(const std::string &game)
 {
-    _gameTitle = game;
+    dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->setGameTitle(game);
 }
 
 void NcursesGraphical::setListGames(const std::vector<std::string> &games, const std::function<void(const std::string &)> &fct, int chosen)
 {
-    static_cast<NcursesMainMenu *>(_sceneList[getScene()].get())->setListGames(games, fct, chosen);
+    dynamic_cast<NcursesMainMenu *>(_sceneList[getScene()].get())->setListGames(games, fct, chosen);
 }
 
 void NcursesGraphical::setListLibraries(const std::vector<std::string> &libraries, const std::function<void(const std::string &)> &fct, int chosen)
 {
-    static_cast<NcursesMainMenu *>(_sceneList[getScene()].get())->setListGraphics(libraries, fct, chosen);
+    dynamic_cast<NcursesMainMenu *>(_sceneList[getScene()].get())->setListGraphics(libraries, fct, chosen);
 }
 
 void NcursesGraphical::setFunctionPlay(const std::function<void()> &function)
@@ -238,7 +240,7 @@ void NcursesGraphical::playSound(const std::string &sound)
 
 void NcursesGraphical::setMapSize(size_t height, size_t width)
 {
-
+    dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->setMapSize(height, width);
 }
 
 /* COLOR */
@@ -256,4 +258,5 @@ void NcursesGraphical::initColor() const
     init_pair(RED_BLUE, COLOR_RED, COLOR_BLUE);
     init_pair(RED_WHITE, COLOR_RED, COLOR_WHITE);
     init_pair(YELLOW_BLUE, COLOR_YELLOW, COLOR_BLUE);
+    init_pair(WHITE_WHITE, COLOR_WHITE, COLOR_WHITE);
 }

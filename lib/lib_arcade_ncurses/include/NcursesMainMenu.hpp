@@ -10,8 +10,6 @@
 
 #include "IScene.hpp"
 #include "NcursesGraphical.hpp"
-#include <panel.h>
-#include <menu.h>
 
 namespace arc
 {
@@ -19,7 +17,7 @@ namespace arc
     {
         public:
             NcursesMainMenu(NcursesGraphical &mainLib);
-            ~NcursesMainMenu() override = default;
+            ~NcursesMainMenu() override;
 
             void display() override;
             void update() override;
@@ -28,8 +26,8 @@ namespace arc
             void setListGraphics(const std::vector<std::string> &name, const std::function<void (const std::string &)> &fct, int chosen);
 
         private:
-            bool supportColor();
-            void displayMainTitle();
+            bool supportColor() const;
+            void displayMainTitle() const;
             void displayMenuGames();
             void displayMenuGraphics();
             void displayInfo();
