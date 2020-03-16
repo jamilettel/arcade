@@ -45,6 +45,9 @@ namespace arc {
             bool supportColor() const;
             void displayTitleGame();
             void displayMap();
+            void displayEntities();
+            void displayCommands();
+            void displayGameInfo();
 
         private:
             std::pair<size_t, size_t> _mapSize;

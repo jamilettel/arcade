@@ -35,6 +35,9 @@ void NcursesGame::display()
     erase();
     this->displayTitleGame();
     this->displayMap();
+    this->displayCommands();
+    this->displayGameInfo();
+    this->displayEntities();
 }
 
 void NcursesGame::refresh()
@@ -91,4 +94,29 @@ void NcursesGame::displayMap()
         wattron(_windows["Map"], COLOR_PAIR(WHITE_WHITE));
     wbkgd(_windows["Map"], COLOR_PAIR(WHITE_WHITE));
     wattroff(_windows["Map"], COLOR_PAIR(WHITE_WHITE));
+}
+
+void NcursesGame::displayCommands()
+{
+    delwin(_windows["Commands"]);
+    _windows["Commands"] = subwin(stdscr, 8, 60, LINES - 10, 10);
+    if (supportColor())
+        wattron(_windows["Commands"], COLOR_PAIR(WHITE_WHITE));
+    wbkgd(_windows["Commands"], COLOR_PAIR(WHITE_WHITE));
+    wattroff(_windows["Commands"], COLOR_PAIR(WHITE_WHITE));
+}
+
+void NcursesGame::displayGameInfo()
+{
+    delwin(_windows["Infos"]);
+    _windows["Infos"] = subwin(stdscr, 8, 60, LINES - 10, COLS - 70);
+    if (supportColor())
+        wattron(_windows["Infos"], COLOR_PAIR(WHITE_WHITE));
+    wbkgd(_windows["Infos"], COLOR_PAIR(WHITE_WHITE));
+    wattroff(_windows["Infos"], COLOR_PAIR(WHITE_WHITE));
+}
+
+void NcursesGame::displayEntities()
+{
+
 }
