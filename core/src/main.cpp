@@ -22,6 +22,7 @@ int main(int ac, char **av)
         core.run();
     } catch (arc::ArcadeError &error) {
         std::cerr << error.getComponent() << ": " << error.what() << std::endl;
+        return (84);
     }
 
     return (0);
