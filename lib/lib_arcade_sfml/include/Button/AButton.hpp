@@ -18,13 +18,8 @@ namespace MySf {
 
         class AButton: public IButton {
         public:
-            AButton(sf::RenderWindow &w,
-                    const sf::Vector2f &pos,
-                    const sf::Vector2f &size,
-                    sf::Font &f,
-                    const ButtonColor &button,
-                    const ButtonColor &text,
-                    const std::function<void()> &fct);
+            AButton(sf::RenderWindow &w, sf::Vector2f pos, sf::Vector2f size, sf::Font &f,
+                    const ButtonColor &button, const ButtonColor &text, const std::function<void()> &fct);
 
             virtual ~AButton() = default;
 
@@ -33,6 +28,9 @@ namespace MySf {
             virtual void setPosition(float x, float y);
             virtual void setPosition(const sf::Vector2f &pos);
             virtual const sf::Vector2f &getPosition() const;
+            virtual void setSize(float x, float y);
+            virtual void setSize(const sf::Vector2f &size);
+            virtual const sf::Vector2f &getSize() const;
             virtual const Color::IColor &getColor() const;
             virtual void setLabel(const std::string &str);
             virtual const std::string &getLabel() const;

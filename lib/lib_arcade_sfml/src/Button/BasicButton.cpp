@@ -10,8 +10,8 @@
 using namespace MySf::Button;
 
 BasicButton::BasicButton(sf::RenderWindow &w,
-                         sf::Vector2f pos,
-                         sf::Vector2f size,
+                         const sf::Vector2f &pos,
+                         const sf::Vector2f &size,
                          sf::Font &f,
                          const ButtonColor &button,
                          const ButtonColor &text,

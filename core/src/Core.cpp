@@ -89,8 +89,23 @@ void Core::refreshLibrarieLists()
     } catch (std::exception &error) {
         throw CoreError(error.what());
     }
-    _graphical->setListGames(_gameList, [this] (const std::string &game) {_currentGame = game;});
-    _graphical->setListLibraries(_graphicalList, [this] (const std::string &lib) {_currentGraphicalLib = lib;});
+
+    int currentGame = -1, currentLib = -1;
+
+    for (size_t i = 0; i < _graphicalList.size(); i++)
+        if (_currentGraphicalLib == _graphicalList[i]) {
+            currentLib = i;
+            break;
+        }
+
+    for (size_t i = 0; i < _gameList.size(); i++)
+        if (_currentGame == _gameList[i]) {
+            currentGame = i;
+            break;
+        }
+
+    _graphical->setListGames(_gameList, [this] (const std::string &game) {_currentGame = game;}, currentGame);
+    _graphical->setListLibraries(_graphicalList, [this] (const std::string &lib) {_currentGraphicalLib = lib;}, currentLib);
 }
 
 void Core::startGame()

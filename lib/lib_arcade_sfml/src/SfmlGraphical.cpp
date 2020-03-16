@@ -273,10 +273,11 @@ void SfmlGraphical::setListGames(const std::vector<std::string> &games,
     static_cast<MainMenuScene *>(_scenes.at(MAIN_MENU).get())->setListGames(games, fct, chosen);
 }
 
-void SfmlGraphical::setListLibraries(const std::vector<std::string> &,
-                                     const std::function<void (const std::string &)> &,
-                                     int)
+void SfmlGraphical::setListLibraries(const std::vector<std::string> &libraries,
+                                     const std::function<void (const std::string &)> &fct,
+                                     int chosen)
 {
+    static_cast<MainMenuScene *>(_scenes.at(MAIN_MENU).get())->setListLibraries(libraries, fct, chosen);
 }
 
 void SfmlGraphical::setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &controls)

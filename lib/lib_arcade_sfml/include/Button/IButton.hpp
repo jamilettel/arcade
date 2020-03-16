@@ -1,3 +1,4 @@
+
 /*
 ** EPITECH PROJECT, 2020
 ** IButton
@@ -45,6 +46,10 @@ namespace MySf {
             virtual void setPosition(float x, float y) = 0;
             virtual void setPosition(const sf::Vector2f &pos) = 0;
             virtual const sf::Vector2f &getPosition() const = 0;
+
+            virtual void setSize(float x, float y) = 0;
+            virtual void setSize(const sf::Vector2f &size) = 0;
+            virtual const sf::Vector2f &getSize() const = 0;
 
             virtual const Color::IColor &getColor() const = 0;
 

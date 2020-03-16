@@ -23,6 +23,7 @@ SRC	=	src/SfmlGraphical.cpp				\
 		src/InputZone.cpp					\
 		src/Scene/MainMenuScene.cpp			\
 		src/Scene/GameScene.cpp				\
+		src/List.cpp						\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 
