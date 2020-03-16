@@ -88,6 +88,7 @@ namespace arc {
         RED_WHITE,
         YELLOW_BLUE,
         WHITE_WHITE,
+        GREEN_WHITE,
     };
 }
 

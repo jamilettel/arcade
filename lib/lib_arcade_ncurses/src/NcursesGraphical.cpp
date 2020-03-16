@@ -259,4 +259,5 @@ void NcursesGraphical::initColor() const
     init_pair(RED_WHITE, COLOR_RED, COLOR_WHITE);
     init_pair(YELLOW_BLUE, COLOR_YELLOW, COLOR_BLUE);
     init_pair(WHITE_WHITE, COLOR_WHITE, COLOR_WHITE);
+    init_pair(GREEN_WHITE, COLOR_GREEN, COLOR_WHITE);
 }
