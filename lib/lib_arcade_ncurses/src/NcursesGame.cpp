@@ -19,7 +19,10 @@ NcursesGame::NcursesGame(NcursesGraphical &mainLib) : _lib(mainLib)
 
 NcursesGame::~NcursesGame()
 {
-
+    std::for_each(_windows.begin(), _windows.end(), [](const std::pair<std::string, WINDOW*>& win){
+        delwin(win.second);
+    });
+    _windows.clear();
 }
 
 bool NcursesGame::supportColor() const
@@ -29,11 +32,15 @@ bool NcursesGame::supportColor() const
 
 void NcursesGame::display()
 {
-    mvprintw(10, 10, "TEST");
+    erase();
+    this->displayTitleGame();
 }
 
 void NcursesGame::refresh()
 {
+    std::for_each(_windows.begin(), _windows.end(), [](const std::pair<std::string, WINDOW*>& win){
+        wnoutrefresh(win.second);
+    });
     ::refresh();
 }
 
@@ -50,4 +57,21 @@ void NcursesGame::setListGraphics(const std::vector<std::string> &name, const st
 void NcursesGame::setListGames(const std::vector<std::string> &name, const std::function<void (const std::string &)> &fct, int chosen)
 {
 
+}
+
+void NcursesGame::setGameTitle(std::string gameTitle)
+{
+    _gameTitle = gameTitle;
+}
+
+void NcursesGame::displayTitleGame()
+{
+    delwin(_windows["Title"]);
+    _windows["Title"] = subwin(stdscr, 5, 30, 2, COLS / 2 - 30 / 2);
+    if (supportColor())
+        wattron(_windows["Title"], COLOR_PAIR(RED_WHITE));
+    wbkgd(_windows["Title"], COLOR_PAIR(RED_WHITE));
+    mvwprintw(_windows["Title"], 2, 30 / 2 - _gameTitle.length() / 2, _gameTitle.c_str());
+
+    wattroff(_windows["MenuGames"], COLOR_PAIR(RED_WHITE));
 }

@@ -165,17 +165,17 @@ IGraphical::Scene NcursesGraphical::getScene() const
 
 void NcursesGraphical::setGameTitle(const std::string &game)
 {
-    _gameTitle = game;
+    dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->setGameTitle(game);
 }
 
 void NcursesGraphical::setListGames(const std::vector<std::string> &games, const std::function<void(const std::string &)> &fct, int chosen)
 {
-    static_cast<NcursesMainMenu *>(_sceneList[getScene()].get())->setListGames(games, fct, chosen);
+    dynamic_cast<NcursesMainMenu *>(_sceneList[getScene()].get())->setListGames(games, fct, chosen);
 }
 
 void NcursesGraphical::setListLibraries(const std::vector<std::string> &libraries, const std::function<void(const std::string &)> &fct, int chosen)
 {
-    static_cast<NcursesMainMenu *>(_sceneList[getScene()].get())->setListGraphics(libraries, fct, chosen);
+    dynamic_cast<NcursesMainMenu *>(_sceneList[getScene()].get())->setListGraphics(libraries, fct, chosen);
 }
 
 void NcursesGraphical::setFunctionPlay(const std::function<void()> &function)
@@ -258,4 +258,5 @@ void NcursesGraphical::initColor() const
     init_pair(RED_BLUE, COLOR_RED, COLOR_BLUE);
     init_pair(RED_WHITE, COLOR_RED, COLOR_WHITE);
     init_pair(YELLOW_BLUE, COLOR_YELLOW, COLOR_BLUE);
+    init_pair(WHITE_WHITE, COLOR_WHITE, COLOR_WHITE);
 }

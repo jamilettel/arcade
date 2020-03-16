@@ -24,10 +24,15 @@ namespace arc {
             void setListGames(const std::vector<std::string> &name, const std::function<void (const std::string &)> &fct, int chosen);
             void setListGraphics(const std::vector<std::string> &name, const std::function<void (const std::string &)> &fct, int chosen);
 
+        public:
+            void setGameTitle(std::string gameTitle);
+            void displayTitleGame();
+
         private:
             NcursesGraphical &_lib;
             std::map<std::string, WINDOW*> _windows;
             bool _termColor;
+            std::string _gameTitle;
             //std::optional<std::vector<std::string>> _listGames;
             //unsigned int _chosenGame;
             //std::optional<std::function<void (const std::string&)>> _ftGames;
