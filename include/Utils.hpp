@@ -26,15 +26,35 @@ namespace arc {
         LEFT,
     };
 
+    enum EntityType {
+        PLAYER,
+        ENEMY,
+        OBSTACLE,
+        CONSUMABLE,
+        OTHER,
+    };
+
     struct Entity {
+        Entity() {
+            static int _id = 0;
+
+            id = _id++;
+        }
+
         std::string spritePath;
         Orientation orientation;
+
         Color backgroundColor;
+
+        EntityType type;
+
         float x;
         float y;
 
+        int id;
+
         bool operator==(const Entity &rhs) const {
-            return x == rhs.x && y == rhs.y;
+            return (id == rhs.id);
         }
 
         bool operator!=(const Entity &rhs) const {

@@ -49,6 +49,8 @@ namespace arc {
         bool _quitGame;
         bool _isPaused;
 
+        IGraphical::Scene _scene;
+
     };
 
 }

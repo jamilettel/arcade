@@ -13,7 +13,8 @@
 using namespace arc;
 
 Core::Core(const std::string &graphicalLib):
-    _graphical(nullptr), _game(nullptr), _quitGame(false), _isPaused(false)
+    _graphical(nullptr), _game(nullptr), _quitGame(false), _isPaused(false),
+    _scene(IGraphical::Scene::MAIN_MENU)
 {
     loadGraphicalLibrary(graphicalLib);
     refreshLibrarieLists();
@@ -57,13 +58,15 @@ void Core::loadGraphicalLibrary(const std::string &libPath)
     DLLoader<IGraphical> graphical(libPath);
 
     _graphical = std::unique_ptr<IGraphical>(graphical.getInstance());
-    _graphical->setScene(IGraphical::MAIN_MENU);
+    _graphical->setScene(_scene);
     _currentGraphicalLib = libPath;
     _graphical->setFont("assets/font.otf");
     setGraphicalLibFunctions();
     _graphical->setHowToPlay(getControls());
     if (std::find(_graphicalList.begin(), _graphicalList.end(), libPath) == _graphicalList.end())
         _graphicalList.push_back(libPath);
+    if (_game != nullptr)
+        _graphical->setControls(_game->getControls());
 }
 
 void Core::refreshLibrarieLists()
@@ -94,7 +97,8 @@ void Core::startGame()
 {
     try {
         loadGameLibrary(_currentGame);
-        _graphical->setScene(IGraphical::GAME);
+        _scene = IGraphical::GAME;
+        _graphical->setScene(_scene);
     } catch (ArcadeError &e) {
         std::cerr << e.getComponent() << ": " << e.what() << std::endl;
     }
@@ -104,13 +108,15 @@ void Core::setGraphicalLibFunctions()
 {
     _graphical->setFunctionPlay([this] () {startGame();});
     _graphical->setFunctionMenu([this] () {
-                                    _graphical->setScene(IGraphical::MAIN_MENU);
+                                    _scene = IGraphical::MAIN_MENU;
+                                    _graphical->setScene(_scene);
                                     _game.release();
                                     _game = nullptr;
                                 });
     _graphical->setFunctionRestart([this] () {
                                        _game->restart();
-                                       _graphical->setScene(IGraphical::GAME);
+                                       _scene = IGraphical::GAME;
+                                       _graphical->setScene(_scene);
                                    });
     _graphical->setFunctionTogglePause([this] () {_isPaused = !_isPaused;});
 }
@@ -129,7 +135,7 @@ void Core::run()
 {
     do {
         _graphical->display();
-        if (_graphical->getScene() == IGraphical::Scene::GAME && _game.get() != nullptr) {
+        if (_scene == IGraphical::GAME && _game != nullptr) {
             _game->updateGame();
             _graphical->updateGameInfo(_game->getEntities());
         }
