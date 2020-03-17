@@ -64,7 +64,7 @@ void MainMenuScene::setFunctionPlay(const std::function<void ()> &function)
 }
 
 void MainMenuScene::setListLibraries(const std::vector<std::string> &libraries,
-                                     const std::function<void (const std::string &)> &,
+                                     const std::function<void (const std::string &)> &fct,
                                      int chosen)
 {
     sf::Vector2f pos(1050, 100);
@@ -73,9 +73,8 @@ void MainMenuScene::setListLibraries(const std::vector<std::string> &libraries,
     _graphicalList = std::make_unique<MySf::List>(
         _window,
         libraries,
-        [] (const std::string &) {
-            // fct(str);
-            // _playButton->setActivation(true);
+        [fct] (const std::string &str) {
+            fct(str);
         },
         "Libraries",
         _font,

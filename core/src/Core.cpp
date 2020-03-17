@@ -16,8 +16,8 @@ Core::Core(const std::string &graphicalLib):
     _graphical(nullptr), _game(nullptr), _quitGame(false), _isPaused(false),
     _scene(IGraphical::Scene::MAIN_MENU)
 {
-    loadGraphicalLibrary(graphicalLib);
     refreshLibrarieLists();
+    loadGraphicalLibrary(getDynamicLibraryName(graphicalLib));
 }
 
 Core::~Core()
@@ -27,9 +27,18 @@ Core::~Core()
 
 void Core::loadGameLibrary(const std::string &gamePath)
 {
-    DLLoader<IGame> game(gamePath);
+    if (gamePath == _currentGame)
+        return;
+    if (!_gameLoaders.count(gamePath))
+        throw CoreError("Game library couldn't be found in ./games");
 
-    _game = std::unique_ptr<IGame>(game.getInstance());
+    std::unique_ptr<IGame> newGame(_gameLoaders[gamePath]->getInstance());
+
+    // DLLoader<IGame> game(gamePath);
+
+    // _game = std::unique_ptr<IGame>(game.getInstance());
+    _game.swap(newGame);
+    _oldGame.swap(newGame);
     _currentGame = gamePath;
     _graphical->setControls(_game->getControls());
     _graphical->setHowToPlay(getControls());
@@ -55,41 +64,28 @@ std::vector<std::pair<std::string, std::string>> Core::getControls() const
 
 void Core::loadGraphicalLibrary(const std::string &libPath)
 {
-    DLLoader<IGraphical> graphical(libPath);
+    if (libPath == _currentGraphicalLib)
+        return;
+    if (!_graphicalLoaders.count(libPath))
+        throw CoreError("Graphical libraries should be located in ./lib");
 
-    _graphical = std::unique_ptr<IGraphical>(graphical.getInstance());
-    _graphical->setScene(_scene);
+    std::unique_ptr<IGraphical> newLib(_graphicalLoaders[libPath]->getInstance());
+
+    _graphical.swap(newLib);
+    _oldGraphical.swap(newLib);
     _currentGraphicalLib = libPath;
     _graphical->setFont("assets/font.otf");
+    _graphical->setScene(_scene);
     setGraphicalLibFunctions();
     _graphical->setHowToPlay(getControls());
-    if (std::find(_graphicalList.begin(), _graphicalList.end(), libPath) == _graphicalList.end())
-        _graphicalList.push_back(libPath);
+
     if (_game != nullptr)
         _graphical->setControls(_game->getControls());
+    sendListsToGraphicalLib();
 }
 
-void Core::refreshLibrarieLists()
+void Core::sendListsToGraphicalLib()
 {
-    _gameList.erase(_gameList.begin(), _gameList.end());
-    _graphicalList.erase(_graphicalList.begin(), _graphicalList.end());
-
-    try {
-        std::filesystem::directory_iterator gameDir(GAME_DIR);
-        std::filesystem::directory_iterator graphicalLibDir(GRAPHICAL_DIR);
-
-        for (auto &file: gameDir) {
-            if (file.path().filename().extension() == ".so")
-                _gameList.push_back(file.path());
-        }
-        for (auto &file: graphicalLibDir) {
-            if (file.path().filename().extension() == ".so")
-                _graphicalList.push_back(file.path());
-        }
-    } catch (std::exception &error) {
-        throw CoreError(error.what());
-    }
-
     int currentGame = -1, currentLib = -1;
 
     for (size_t i = 0; i < _graphicalList.size(); i++)
@@ -104,8 +100,65 @@ void Core::refreshLibrarieLists()
             break;
         }
 
-    _graphical->setListGames(_gameList, [this] (const std::string &game) {_currentGame = game;}, currentGame);
-    _graphical->setListLibraries(_graphicalList, [this] (const std::string &lib) {_currentGraphicalLib = lib;}, currentLib);
+    if (_graphical != nullptr) {
+        _graphical->setListGames(_gameList, [this] (const std::string &game) {setCurrentGame(game);}, currentGame);
+        _graphical->setListLibraries(_graphicalList, [this] (const std::string &lib) {
+                                                         setCurrentLib(lib);
+                                                     }, currentLib);
+    }
+}
+
+void Core::refreshLibrarieLists()
+{
+    _gameList.clear();
+    _graphicalList.clear();
+    _gameLoaders.clear();
+    _graphicalLoaders.clear();
+
+    try {
+        std::filesystem::directory_iterator gameDir(GAME_DIR);
+        std::filesystem::directory_iterator graphicalLibDir(GRAPHICAL_DIR);
+
+        for (auto &file: gameDir)
+            if (file.path().filename().extension() == ".so") {
+                try {
+                    std::string libname = getDynamicLibraryName(file.path());
+
+                    _gameLoaders[libname] = std::make_unique<DLLoader<IGame>>(file.path());
+                    _gameList.push_back(libname);
+                } catch (DLLoaderError &) {}
+            }
+
+        for (auto &file: graphicalLibDir)
+            if (file.path().filename().extension() == ".so") {
+                try {
+                    std::string libname = getDynamicLibraryName(file.path());
+
+                    _graphicalLoaders[libname] = std::make_unique<DLLoader<IGraphical>>(file.path());
+                    _graphicalList.push_back(libname);
+                } catch (DLLoaderError &) {}
+            }
+
+    } catch (std::exception &error) {
+        throw CoreError(error.what());
+    }
+
+    if (_graphical != nullptr)
+        sendListsToGraphicalLib();
+}
+
+void Core::setCurrentGame(const std::string &game)
+{
+    _currentGame = game;
+}
+
+void Core::setCurrentLib(const std::string &lib)
+{
+    try {
+        loadGraphicalLibrary(lib);
+    } catch (ArcadeError &e) {
+        std::cerr << e.what() << std::endl;
+    }
 }
 
 void Core::startGame()
@@ -149,10 +202,23 @@ const std::vector<std::string> &Core::getGraphicalList() const
 void Core::run()
 {
     do {
+        if (_oldGraphical != nullptr)
+            _oldGraphical.reset();
         _graphical->display();
         if (_scene == IGraphical::GAME && _game != nullptr) {
             _game->updateGame();
             _graphical->updateGameInfo(_game->getEntities());
         }
     } while (_graphical->getEventType() != Event::QUIT && !_quitGame);
+}
+
+std::string Core::getDynamicLibraryName(const std::string &path)
+{
+    std::string prefix = "/lib_arcade_";
+    size_t pos = path.find(prefix);
+
+    if (pos != std::string::npos) {
+        return (path.substr(pos + prefix.size(), path.size() - 3 - pos - prefix.size()));
+    }
+    return (path);
 }
