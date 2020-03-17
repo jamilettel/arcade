@@ -27,16 +27,11 @@ Core::~Core()
 
 void Core::loadGameLibrary(const std::string &gamePath)
 {
-    if (gamePath == _currentGame)
-        return;
     if (!_gameLoaders.count(gamePath))
         throw CoreError("Game library couldn't be found in ./games");
 
     std::unique_ptr<IGame> newGame(_gameLoaders[gamePath]->getInstance());
 
-    // DLLoader<IGame> game(gamePath);
-
-    // _game = std::unique_ptr<IGame>(game.getInstance());
     _game.swap(newGame);
     _oldGame.swap(newGame);
     _currentGame = gamePath;
