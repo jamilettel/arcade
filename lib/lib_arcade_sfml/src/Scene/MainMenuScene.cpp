@@ -100,6 +100,8 @@ void MainMenuScene::setListGames(const std::vector<std::string> &games,
         "Games",
         _font,
         chosen);
+    if (chosen >= 0 && chosen < static_cast<int>(games.size()))
+        _playButton->setActivation(true);
     _gamesList->setPos(pos);
     _gamesList->setSize(sf::Vector2f(500, 0));
 }
