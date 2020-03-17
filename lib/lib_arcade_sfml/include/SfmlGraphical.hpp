@@ -15,15 +15,15 @@
 #include "Button/RectButton.hpp"
 #include <SFML/Audio.hpp>
 
-#define BUTTON_COLOR MySf::Button::ButtonColor(sf::Color(0x416C99FF),\
-                                               sf::Color(0x5B95D4FF),\
-                                               sf::Color::White,\
-                                               sf::Color(0x444444ff))
+#define BUTTON_COLOR MySf::Button::ButtonColor(sf::Color(0x0a0a0aff),\
+                                               sf::Color(0x131313ff),\
+                                               sf::Color(0x5f5f5fff),\
+                                               sf::Color(0x343434ff))
 
 #define TEXT_COLOR MySf::Button::ButtonColor(sf::Color::White,\
                                              sf::Color::White,\
-                                             sf::Color(0x5B95D4FF),\
-                                             sf::Color(0xbbbbbbff))
+                                             sf::Color::White,\
+                                             sf::Color(0x777777ff))
 
 namespace arc {
 
