@@ -213,7 +213,11 @@ std::string Core::getDynamicLibraryName(const std::string &path)
     size_t pos = path.find(prefix);
 
     if (pos != std::string::npos) {
-        return (path.substr(pos + prefix.size(), path.size() - 3 - pos - prefix.size()));
+        std::string name = path.substr(pos + prefix.size(), path.size() - 3 - pos - prefix.size());
+
+        if (name[0] >= 'a' && name[0] <= 'z')
+            name[0] -= 32;
+        return (name);
     }
     return (path);
 }
