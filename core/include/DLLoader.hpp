@@ -20,7 +20,8 @@ namespace arc {
     template <typename T>
     class DLLoader {
     public:
-        DLLoader(const std::string &libpath): _handle(nullptr) {
+        DLLoader(const std::string &libpath, const std::string &constructor = CONSTRUCTOR):
+            _handle(nullptr), _ctor(nullptr) {
             std::string errorMessage;
 
             if (libpath != "") {
@@ -32,6 +33,9 @@ namespace arc {
                 errorMessage = "Could not load dynamic library '" + libpath + "'" + errorMessage;
                 throw DLLoaderError(errorMessage);
             }
+            _ctor = reinterpret_cast<T *(*)()>(dlsym(_handle, constructor.c_str()));
+            if (!_ctor)
+                throw DLLoaderError(std::string("could not load constructor: ") + dlerror());
         }
 
         ~DLLoader() {
@@ -39,16 +43,13 @@ namespace arc {
                 dlclose(_handle);
         }
 
-        T *getInstance(const std::string &constructor = CONSTRUCTOR) {
-            T *(*ctor)() = reinterpret_cast<T *(*)()>(dlsym(_handle, constructor.c_str()));
-
-            if (!ctor)
-                throw DLLoaderError("could not find function '"+constructor+"' in dynamic lib");
-            return (ctor());
+        T *getInstance() {
+            return (_ctor());
         }
 
     private:
         void *_handle;
+        T *(*_ctor)();
     };
 
 }
