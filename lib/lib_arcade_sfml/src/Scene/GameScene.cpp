@@ -26,7 +26,8 @@ void GameScene::draw()
 
     if (_gameMap.has_value()) {
         for (std::shared_ptr<Entity> &entity: _gameMap.value()) {
-            sf::Sprite &sprite = _lib.getSprite(entity->spritePath, _cellSize);
+            sf::Sprite &sprite = _lib.getSprite(entity->spritePath, _cellSize,
+                                                entity->backgroundColor);
 
             sprite.setPosition(_gameArea.left + _cellSize.x * entity->x,
                                _gameArea.top + _cellSize.y * entity->y);

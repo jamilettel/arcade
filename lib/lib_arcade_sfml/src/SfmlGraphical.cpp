@@ -99,17 +99,24 @@ void SfmlGraphical::display()
     _window.clear(sf::Color(0x1c1c1cff));
 }
 
-void SfmlGraphical::loadSprite(const std::string &spritePath)
+void SfmlGraphical::loadSprite(const std::string &spritePath, const Color &color)
 {
-    if (!_textures[spritePath].loadFromFile(spritePath))
-        throw SfmlError("could not load texture '" + spritePath + "'");
-    _sprites[spritePath].setTexture(_textures[spritePath]);
+    if (spritePath.substr(0, 7) == "__color" || !_textures[spritePath].loadFromFile(spritePath)) {
+        sf::Color sfmlColor(color.r, color.g, color.b, color.a);
+        static sf::Uint32 pixel = 0xffffffff;
+
+        _textures[spritePath].create(1, 1);
+        _textures[spritePath].update(reinterpret_cast<sf::Uint8 *>(&pixel));
+        _sprites[spritePath].setTexture(_textures[spritePath]);
+        _sprites[spritePath].setColor(sfmlColor);
+    } else
+        _sprites[spritePath].setTexture(_textures[spritePath]);
 }
 
 sf::Sprite &SfmlGraphical::getSprite(char sprite, const sf::Vector2f &size)
 {
     if (_spriteMap.count(sprite))
-        return (getSprite(_spriteMap.at(sprite).first, size));
+        return (getSprite(_spriteMap.at(sprite).first, size, Color()));
 
     std::string errorMessage = "could not find sprite associated with char '";
     errorMessage += sprite;
@@ -118,14 +125,21 @@ sf::Sprite &SfmlGraphical::getSprite(char sprite, const sf::Vector2f &size)
 }
 
 sf::Sprite &SfmlGraphical::getSprite(const std::string &sprite,
-                                                    const sf::Vector2f &size)
+                                     const sf::Vector2f &size,
+                                     const Color &color)
 {
+    if (sprite == "") {
+        sf::Uint32 c = (color.r << 24) | (color.g << 16) | (color.b << 8) | color.a;
+        std::string spriteName = "__color" + std::to_string(c);
+
+        return (getSprite(spriteName, size, color));
+    }
     if (_sprites.count(sprite)) {
         setSpriteSize(_sprites.at(sprite), size);
         return (_sprites.at(sprite));
     }
-    loadSprite(sprite);
-    return (getSprite(sprite, size));
+    loadSprite(sprite, color);
+    return (getSprite(sprite, size, color));
 }
 
 void SfmlGraphical::checkEvents()

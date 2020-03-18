@@ -66,12 +66,13 @@ namespace arc {
         void setMapSize(size_t height, size_t width) override;
         void setGameTitle(const std::string &game) override;
 
-        sf::Sprite &getSprite(const std::string &sprite, const sf::Vector2f &size);
+        sf::Sprite &getSprite(const std::string &sprite, const sf::Vector2f &size,
+                              const Color &color);
         sf::Sprite &getSprite(char sprite, const sf::Vector2f &size);
 
     private:
         void checkEvents();
-        void loadSprite(const std::string &spritePath);
+        void loadSprite(const std::string &spritePath, const Color &color);
 
         static void setSpriteSize(sf::Sprite &sprite, const sf::Vector2f &size);
 
