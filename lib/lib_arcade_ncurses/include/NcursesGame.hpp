@@ -21,8 +21,6 @@ namespace arc {
             void display() override;
             void update() override;
             void refresh() override;
-            void setListGames(const std::vector<std::string> &name, const std::function<void (const std::string &)> &fct, int chosen);
-            void setListGraphics(const std::vector<std::string> &name, const std::function<void (const std::string &)> &fct, int chosen);
             void setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()> > &controls);
             void setGameTitle(std::string gameTitle);
             void setMapSize(size_t height, size_t width);

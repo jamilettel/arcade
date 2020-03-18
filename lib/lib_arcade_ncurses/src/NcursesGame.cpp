@@ -61,16 +61,6 @@ void NcursesGame::update()
         _controlsFt->at(event)();
 }
 
-void NcursesGame::setListGraphics(const std::vector<std::string> &name, const std::function<void (const std::string &)> &fct, int chosen)
-{
-
-}
-
-void NcursesGame::setListGames(const std::vector<std::string> &name, const std::function<void (const std::string &)> &fct, int chosen)
-{
-
-}
-
 void NcursesGame::setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()> > &controls)
 {
     _controlsFt = controls;
