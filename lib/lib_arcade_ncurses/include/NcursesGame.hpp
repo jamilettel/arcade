@@ -23,6 +23,7 @@ namespace arc {
             void refresh() override;
             void setListGames(const std::vector<std::string> &name, const std::function<void (const std::string &)> &fct, int chosen);
             void setListGraphics(const std::vector<std::string> &name, const std::function<void (const std::string &)> &fct, int chosen);
+            void setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()> > &controls);
             void setGameTitle(std::string gameTitle);
             void setMapSize(size_t height, size_t width);
 
@@ -31,6 +32,7 @@ namespace arc {
             std::map<std::string, WINDOW*> _windows;
             bool _termColor;
             std::string _gameTitle;
+            std::optional<std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>>> _controlsFt;
             //std::optional<std::vector<std::string>> _listGames;
             //unsigned int _chosenGame;
             //std::optional<std::function<void (const std::string&)>> _ftGames;

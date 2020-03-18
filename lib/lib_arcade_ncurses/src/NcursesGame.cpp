@@ -53,7 +53,12 @@ void NcursesGame::refresh()
 
 void NcursesGame::update()
 {
+    std::pair<Event::Type, Event::Key> event;
 
+    event.first = _lib.getEventType();
+    event.second = _lib.getKeyPressed();
+    if (_controlsFt.has_value() && _controlsFt->count(event))
+        _controlsFt->at(event)();
 }
 
 void NcursesGame::setListGraphics(const std::vector<std::string> &name, const std::function<void (const std::string &)> &fct, int chosen)
@@ -64,6 +69,11 @@ void NcursesGame::setListGraphics(const std::vector<std::string> &name, const st
 void NcursesGame::setListGames(const std::vector<std::string> &name, const std::function<void (const std::string &)> &fct, int chosen)
 {
 
+}
+
+void NcursesGame::setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()> > &controls)
+{
+    _controlsFt = controls;
 }
 
 void NcursesGame::setGameTitle(std::string gameTitle)

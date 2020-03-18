@@ -145,7 +145,7 @@ void NcursesGraphical::setScores(const std::vector<std::pair<std::string, std::s
 
 void NcursesGraphical::setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()> > &controls)
 {
-    //static_cast<NcursesGameScene *>(_sceneList.at(GAME).get())->setControls(controls);
+    static_cast<NcursesGame *>(_sceneList.at(GAME).get())->setControls(controls);
 }
 
 const std::string & NcursesGraphical::getUsername()
