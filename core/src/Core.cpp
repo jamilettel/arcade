@@ -205,11 +205,11 @@ void Core::run()
             _oldGraphical.reset();
         _graphical->display();
         if (_scene == IGraphical::GAME && _game != nullptr) {
+            _game->updateGame();
+            _graphical->updateGameInfo(_game->getEntities());
             if (_generalControls.count(_graphical->getKeyPressed())) {
                 _generalControls.at(_graphical->getKeyPressed())();
             }
-            _game->updateGame();
-            _graphical->updateGameInfo(_game->getEntities());
         }
     } while (_graphical->getEventType() != Event::QUIT && !_quitGame);
 }
@@ -233,4 +233,8 @@ void Core::initGeneralControl()
 {
     _generalControls[Event::Key::R] = [this](){_game->restart();};
     _generalControls[Event::Key::ESCAPE] = [this](){_quitGame = true;};
+    _generalControls[Event::Key::M] = [this](){_scene = IGraphical::MAIN_MENU;
+                                                    _graphical->setScene(_scene);
+                                                    _game.release();
+                                                    _game = nullptr;};
 }
