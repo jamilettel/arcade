@@ -207,9 +207,9 @@ void Core::run()
         if (_scene == IGraphical::GAME && _game != nullptr) {
             _game->updateGame();
             _graphical->updateGameInfo(_game->getEntities());
-            if (_generalControls.count(_graphical->getKeyPressed())) {
-                _generalControls.at(_graphical->getKeyPressed())();
-            }
+        }
+        if (_generalControls.count(_graphical->getKeyPressed())) {
+            _generalControls.at(_graphical->getKeyPressed())();
         }
     } while (_graphical->getEventType() != Event::QUIT && !_quitGame);
 }
@@ -231,10 +231,12 @@ std::string Core::getDynamicLibraryName(const std::string &path)
 
 void Core::initGeneralControl()
 {
-    _generalControls[Event::Key::R] = [this](){_game->restart();};
+    _generalControls[Event::Key::R] = [this](){if (_game != nullptr) _game->restart();};
     _generalControls[Event::Key::ESCAPE] = [this](){_quitGame = true;};
-    _generalControls[Event::Key::M] = [this](){_scene = IGraphical::MAIN_MENU;
+    _generalControls[Event::Key::M] = [this](){if (_scene == IGraphical::MAIN_MENU) return;
+                                                    _scene = IGraphical::MAIN_MENU;
                                                     _graphical->setScene(_scene);
                                                     _game.release();
-                                                    _game = nullptr;};
+                                                    _game = nullptr;
+                                                    _graphical->setHowToPlay(getControls());};
 }
