@@ -69,7 +69,7 @@ void Core::loadGraphicalLibrary(const std::string &libPath)
     _graphical.swap(newLib);
     _oldGraphical.swap(newLib);
     _currentGraphicalLib = libPath;
-    _graphical->setFont("assets/font.otf");
+    _graphical->setFont("assets/font.ttf");
     _graphical->setScene(_scene);
     setGraphicalLibFunctions();
     _graphical->setHowToPlay(getControls());
