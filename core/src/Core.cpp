@@ -18,6 +18,7 @@ Core::Core(const std::string &graphicalLib):
 {
     refreshLibrarieLists();
     loadGraphicalLibrary(getDynamicLibraryName(graphicalLib));
+    initGeneralControl();
 }
 
 Core::~Core()
@@ -50,6 +51,9 @@ std::vector<std::pair<std::string, std::string>> Core::getControls() const
     controls.push_back(std::pair<std::string, std::string>("Next library", "0"));
     controls.push_back(std::pair<std::string, std::string>("Previous game", "7"));
     controls.push_back(std::pair<std::string, std::string>("Next game", "8"));
+    controls.push_back(std::pair<std::string, std::string>("Restart game", "R"));
+    controls.push_back(std::pair<std::string, std::string>("Quit Arcade", "Escape"));
+    controls.push_back(std::pair<std::string, std::string>("Return to Menu", "M"));
     if (_game != nullptr) {
         controls.insert(controls.end(), _game->getGameControlsFormatString().begin(),
                         _game->getGameControlsFormatString().end());
@@ -201,6 +205,9 @@ void Core::run()
             _oldGraphical.reset();
         _graphical->display();
         if (_scene == IGraphical::GAME && _game != nullptr) {
+            if (_generalControls.count(_graphical->getKeyPressed())) {
+                _generalControls.at(_graphical->getKeyPressed())();
+            }
             _game->updateGame();
             _graphical->updateGameInfo(_game->getEntities());
         }
@@ -220,4 +227,10 @@ std::string Core::getDynamicLibraryName(const std::string &path)
         return (name);
     }
     return (path);
+}
+
+void Core::initGeneralControl()
+{
+    _generalControls[Event::Key::R] = [this](){_game->restart();};
+    _generalControls[Event::Key::ESCAPE] = [this](){_quitGame = true;};
 }

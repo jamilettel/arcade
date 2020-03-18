@@ -46,6 +46,8 @@ namespace arc {
 
         void sendListsToGraphicalLib();
 
+        void initGeneralControl();
+
         std::unique_ptr<IGraphical> _graphical;
         std::unique_ptr<IGraphical> _oldGraphical;
         std::unique_ptr<IGame> _game;
@@ -63,6 +65,8 @@ namespace arc {
         bool _isPaused;
 
         IGraphical::Scene _scene;
+
+        std::map<Event::Key, std::function<void ()>> _generalControls;
 
     };
 

@@ -172,6 +172,8 @@ void NcursesGame::displayCommands()
 
 void NcursesGame::displayEntities()
 {
+    if (!_entities.has_value())
+        return;
     for (std::shared_ptr<Entity> &entitie : *_entities) {
         if (supportColor()) {
             _lib.addColor({entitie->backgroundColor.r, entitie->backgroundColor.g, entitie->backgroundColor.b, entitie->backgroundColor.a});
