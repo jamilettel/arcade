@@ -8,5 +8,6 @@ var classarc_1_1_main_menu_scene =
     [ "setListGames", "classarc_1_1_main_menu_scene.html#a891ec2a70f2c7fd9e99867af8ac22a81", null ],
     [ "setListLibraries", "classarc_1_1_main_menu_scene.html#af55bd42ff173f8e4956c57ddd65fb91b", null ],
     [ "setScores", "classarc_1_1_main_menu_scene.html#abfb9c35e54ee35e5d81b5d2f32b40fc0", null ],
+    [ "setUsername", "classarc_1_1_main_menu_scene.html#a96dd3877c920657e15ff5d398caa8130", null ],
     [ "update", "classarc_1_1_main_menu_scene.html#aa1f17c5e933d807e11cc055362503ef6", null ]
 ];

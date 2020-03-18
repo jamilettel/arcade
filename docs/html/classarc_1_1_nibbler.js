@@ -4,7 +4,6 @@ var classarc_1_1_nibbler =
     [ "~Nibbler", "classarc_1_1_nibbler.html#a846208db2d40786b9b33903486d48bd2", null ],
     [ "getControls", "classarc_1_1_nibbler.html#a488fb372209eddf7e480f7f7c79c6084", null ],
     [ "getEntities", "classarc_1_1_nibbler.html#a51d060cf6fe4abd765295429c27bc382", null ],
-    [ "getFont", "classarc_1_1_nibbler.html#ad84608ab117b0fd6b7181ebb65402b79", null ],
     [ "getGameControlsFormatString", "classarc_1_1_nibbler.html#a2892e0c6e98ff33372f61f36a38efb0c", null ],
     [ "getGameStatsFormatString", "classarc_1_1_nibbler.html#ac665e443a44f34e9e701f20f160dd7f0", null ],
     [ "getMapHeight", "classarc_1_1_nibbler.html#af7c27ee16634c821c2819124e25dc16c", null ],

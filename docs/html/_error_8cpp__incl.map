@@ -1,5 +1,10 @@
 <map id="core/src/Error.cpp" name="core/src/Error.cpp">
-<area shape="rect" id="node2" href="$_error_8hpp.html" title="Error.hpp" alt="" coords="352,229,432,256"/>
-<area shape="rect" id="node5" href="$_d_l_loader_8hpp.html" title="DLLoader.hpp" alt="" coords="158,80,269,107"/>
-<area shape="rect" id="node7" href="$_core_error_8hpp.html" title="CoreError.hpp" alt="" coords="251,155,362,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="239,5,374,32"/>
+<area shape="rect" id="node2" href="$_error_8hpp.html" title=" " alt="" coords="352,229,432,256"/>
+<area shape="rect" id="node5" href="$_d_l_loader_8hpp.html" title=" " alt="" coords="158,80,269,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="333,304,419,331"/>
+<area shape="rect" id="node4" title=" " alt="" coords="235,304,293,331"/>
+<area shape="rect" id="node6" title=" " alt="" coords="5,155,72,181"/>
+<area shape="rect" id="node7" href="$_core_error_8hpp.html" title=" " alt="" coords="251,155,362,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="96,155,176,181"/>
 </map>

@@ -9,7 +9,6 @@ var classarc_1_1_sfml_graphical =
     [ "getSprite", "classarc_1_1_sfml_graphical.html#a5ab3923748982861444da9624872176c", null ],
     [ "getSprite", "classarc_1_1_sfml_graphical.html#aacd472a6eadc696d06c10363bbb10e1b", null ],
     [ "getUsername", "classarc_1_1_sfml_graphical.html#a96948809c9aa5c9610b12f680a86a76b", null ],
-    [ "playSound", "classarc_1_1_sfml_graphical.html#a5d982f92c7667f61d6d12a95b470cb6f", null ],
     [ "setControls", "classarc_1_1_sfml_graphical.html#a0e32352891af044e6682c61de6241b68", null ],
     [ "setFont", "classarc_1_1_sfml_graphical.html#a7f30874f64ccbd5182d5361708512614", null ],
     [ "setFunctionMenu", "classarc_1_1_sfml_graphical.html#a5ffd6e346463eb907f2eab1f3f76fd56", null ],
@@ -22,9 +21,9 @@ var classarc_1_1_sfml_graphical =
     [ "setListGames", "classarc_1_1_sfml_graphical.html#a77b068b1ba1cc56311b6db624439bfd9", null ],
     [ "setListLibraries", "classarc_1_1_sfml_graphical.html#a7a101d2c76052df32968f48e02760aeb", null ],
     [ "setMapSize", "classarc_1_1_sfml_graphical.html#a1320025c047fba898a1e14b39ad99430", null ],
-    [ "setMusic", "classarc_1_1_sfml_graphical.html#a58a0f3e922ef399039afa6d1c59e37e2", null ],
     [ "setScene", "classarc_1_1_sfml_graphical.html#ae88b7a6dca46240337c7a0cc790cb3c9", null ],
     [ "setScores", "classarc_1_1_sfml_graphical.html#a0c85de96edb49a31a88e51b7949ed2e5", null ],
+    [ "setUsername", "classarc_1_1_sfml_graphical.html#aa7b51b64bba540d2fe97a5b8e02d68ff", null ],
     [ "setVisualAssets", "classarc_1_1_sfml_graphical.html#a2e59e41aa90d4bfd8728df24c0b0b19e", null ],
     [ "updateGameInfo", "classarc_1_1_sfml_graphical.html#a4e21c2e04e640e882ff859a5e3bb10b9", null ]
 ];

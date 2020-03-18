@@ -1,4 +1,5 @@
 <map id="arc::NcursesGame::update" name="arc::NcursesGame::update">
-<area shape="rect" id="node2" href="$classarc_1_1_ncurses_graphical.html#aff4600a1afadc7f43eece328a04b003c" title="arc::NcursesGraphical\l::getEventType" alt="" coords="248,5,412,47"/>
-<area shape="rect" id="node3" href="$classarc_1_1_ncurses_graphical.html#a1aa76fbb3f98089971439b14c6353388" title="arc::NcursesGraphical\l::getKeyPressed" alt="" coords="248,71,412,112"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,46,200,73"/>
+<area shape="rect" id="node2" href="$classarc_1_1_ncurses_graphical.html#aff4600a1afadc7f43eece328a04b003c" title=" " alt="" coords="248,5,412,47"/>
+<area shape="rect" id="node3" href="$classarc_1_1_ncurses_graphical.html#a1aa76fbb3f98089971439b14c6353388" title=" " alt="" coords="248,71,412,112"/>
 </map>

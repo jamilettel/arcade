@@ -11,7 +11,6 @@ var classarc_1_1_i_graphical =
     [ "getKeyPressed", "classarc_1_1_i_graphical.html#a2de48fac3a1770a132b5b07c80167e00", null ],
     [ "getScene", "classarc_1_1_i_graphical.html#a926e6df1e55d3879c98557ededea9d80", null ],
     [ "getUsername", "classarc_1_1_i_graphical.html#ad77cc29fad367378e7d215e472bdae6d", null ],
-    [ "playSound", "classarc_1_1_i_graphical.html#a03f2445f056a84f4e89270f116b21cae", null ],
     [ "setControls", "classarc_1_1_i_graphical.html#a80a35c0eaaa770bae8e87833c1abb417", null ],
     [ "setFont", "classarc_1_1_i_graphical.html#af4464cd9c1b5c8f697f35b5bfd5b61da", null ],
     [ "setFunctionMenu", "classarc_1_1_i_graphical.html#ae6624892be9f7d05de9a48b841aa65e5", null ],
@@ -24,9 +23,9 @@ var classarc_1_1_i_graphical =
     [ "setListGames", "classarc_1_1_i_graphical.html#adbb745413cffe3111a1138e7cf02e20f", null ],
     [ "setListLibraries", "classarc_1_1_i_graphical.html#ac963f92a151688bb86ae23dba0062d5d", null ],
     [ "setMapSize", "classarc_1_1_i_graphical.html#ae0e832190b870c7996778fd6d5516b9d", null ],
-    [ "setMusic", "classarc_1_1_i_graphical.html#ad22a9de4d76aaa2817f0a670a3fe9d79", null ],
     [ "setScene", "classarc_1_1_i_graphical.html#ad254bea1fe87db856b1ed935f185abd2", null ],
     [ "setScores", "classarc_1_1_i_graphical.html#ad56164910fd5355e407ba73aaa8dd443", null ],
+    [ "setUsername", "classarc_1_1_i_graphical.html#a3c58a06ece328549efdd25d99db5a76d", null ],
     [ "setVisualAssets", "classarc_1_1_i_graphical.html#afd55356d95eb248a7093e8bd3d2b0e44", null ],
     [ "updateGameInfo", "classarc_1_1_i_graphical.html#a1ad2c2fa4cbb21975d18a54c3248390a", null ]
 ];

@@ -1,15 +1,25 @@
 <map id="lib/lib_arcade_sfml/src/Scene/MainMenuScene.cpp" name="lib/lib_arcade_sfml/src/Scene/MainMenuScene.cpp">
-<area shape="rect" id="node2" href="$_main_menu_scene_8hpp.html" title="Scene/MainMenuScene.hpp" alt="" coords="604,95,802,121"/>
-<area shape="rect" id="node3" href="$lib__arcade__sfml_2include_2_scene_2_i_scene_8hpp.html" title="Scene/IScene.hpp" alt="" coords="23,244,159,271"/>
-<area shape="rect" id="node5" href="$_rect_button_8hpp.html" title="Button/RectButton.hpp" alt="" coords="656,244,824,271"/>
-<area shape="rect" id="node13" href="$_sfml_graphical_8hpp.html" title="SfmlGraphical.hpp" alt="" coords="325,169,468,196"/>
-<area shape="rect" id="node23" href="$_list_8hpp.html" title="List.hpp" alt="" coords="741,169,814,196"/>
-<area shape="rect" id="node6" href="$_a_button_8hpp.html" title="Button/AButton.hpp" alt="" coords="759,319,908,345"/>
-<area shape="rect" id="node7" href="$_i_button_8hpp.html" title="Button/IButton.hpp" alt="" coords="751,393,895,420"/>
-<area shape="rect" id="node8" href="$_i_color_8hpp.html" title="Color/IColor.hpp" alt="" coords="588,468,714,495"/>
-<area shape="rect" id="node14" href="$_input_zone_8hpp.html" title="InputZone.hpp" alt="" coords="437,244,553,271"/>
-<area shape="rect" id="node17" href="$_i_graphical_8hpp.html" title="IGraphical.hpp" alt="" coords="160,319,276,345"/>
-<area shape="rect" id="node15" href="$_smooth_shifting_8hpp.html" title="Color/SmoothShifting.hpp" alt="" coords="546,319,734,345"/>
-<area shape="rect" id="node16" href="$_a_color_8hpp.html" title="Color/AColor.hpp" alt="" coords="596,393,727,420"/>
-<area shape="rect" id="node21" href="$include_2_utils_8hpp.html" title="Utils.hpp" alt="" coords="100,393,180,420"/>
+<area shape="rect" id="node1" title=" " alt="" coords="590,5,816,47"/>
+<area shape="rect" id="node2" href="$_main_menu_scene_8hpp.html" title=" " alt="" coords="603,95,803,121"/>
+<area shape="rect" id="node3" href="$lib__arcade__sfml_2include_2_scene_2_i_scene_8hpp.html" title=" " alt="" coords="20,244,156,271"/>
+<area shape="rect" id="node5" href="$_rect_button_8hpp.html" title=" " alt="" coords="656,244,824,271"/>
+<area shape="rect" id="node12" title=" " alt="" coords="839,169,919,196"/>
+<area shape="rect" id="node13" href="$_sfml_graphical_8hpp.html" title=" " alt="" coords="325,169,468,196"/>
+<area shape="rect" id="node23" href="$_list_8hpp.html" title=" " alt="" coords="741,169,814,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="476,543,623,569"/>
+<area shape="rect" id="node6" href="$_a_button_8hpp.html" title=" " alt="" coords="759,319,908,345"/>
+<area shape="rect" id="node7" href="$_i_button_8hpp.html" title=" " alt="" coords="751,393,895,420"/>
+<area shape="rect" id="node10" title=" " alt="" coords="495,393,572,420"/>
+<area shape="rect" id="node11" title=" " alt="" coords="919,393,999,420"/>
+<area shape="rect" id="node8" href="$_i_color_8hpp.html" title=" " alt="" coords="588,468,714,495"/>
+<area shape="rect" id="node9" title=" " alt="" coords="789,468,876,495"/>
+<area shape="rect" id="node14" href="$_input_zone_8hpp.html" title=" " alt="" coords="437,244,553,271"/>
+<area shape="rect" id="node17" href="$_i_graphical_8hpp.html" title=" " alt="" coords="160,319,276,345"/>
+<area shape="rect" id="node22" title=" " alt="" coords="232,244,358,271"/>
+<area shape="rect" id="node15" href="$_smooth_shifting_8hpp.html" title=" " alt="" coords="546,319,734,345"/>
+<area shape="rect" id="node16" href="$_a_color_8hpp.html" title=" " alt="" coords="596,393,727,420"/>
+<area shape="rect" id="node18" title=" " alt="" coords="150,468,208,495"/>
+<area shape="rect" id="node19" title=" " alt="" coords="256,393,318,420"/>
+<area shape="rect" id="node20" title=" " alt="" coords="26,393,76,420"/>
+<area shape="rect" id="node21" href="$include_2_utils_8hpp.html" title=" " alt="" coords="100,393,180,420"/>
 </map>
