@@ -150,7 +150,11 @@ void Core::refreshLibrarieLists()
 
 void Core::setCurrentGame(const std::string &game)
 {
-    _currentGame = game;
+    try {
+        loadGameLibrary(game);
+    } catch (ArcadeError &e) {
+        std::cerr << e.what() << std::endl;
+    }
 }
 
 void Core::setCurrentLib(const std::string &lib)
