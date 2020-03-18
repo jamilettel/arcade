@@ -15,7 +15,10 @@ NcursesMainMenu::NcursesMainMenu(NcursesGraphical &mainLib) : _lib(mainLib), _ac
 {
     _termColor = has_colors();
     if (supportColor()) {
-        wbkgd(stdscr, COLOR_PAIR(BLACK_BLUE));
+        _lib.addColor({7, 29, 27, 1});
+        _lib.addColor({0, 0, 0, 1});
+        _lib.initPairColor(_lib.getColor({3, 111, 252, 1}), _lib.getColor({0, 0, 0, 1}));
+        wbkgd(stdscr, COLOR_PAIR(_lib.getPairColor(_lib.getColor({3, 111, 252, 1}), _lib.getColor({0, 0, 0, 1}))));
     }
 }
 
@@ -64,7 +67,6 @@ void NcursesMainMenu::update()
     }
     if (event.second == Event::Key::ENTER && _activeMenu == 2) {
         _ftGraphics.value()(_listGraphics->at(_chosenGraphics));
-        //_lib._playFct.value()();
     }
 }
 
@@ -103,8 +105,12 @@ bool NcursesMainMenu::supportColor() const
 
 void NcursesMainMenu::displayMainTitle() const
 {
-    if (has_colors())
-        wattron(stdscr, COLOR_PAIR(YELLOW_BLUE));
+    if (supportColor()) {
+        _lib.addColor({250, 233, 77, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(stdscr, COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
     mvwprintw(stdscr, 3, COLS / 2 - 62 / 2, "   /$$$$$$  /$$$$$$$   /$$$$$$   /$$$$$$  /$$$$$$$  /$$$$$$$$ ");
     mvwprintw(stdscr, 4, COLS / 2 - 62 / 2, "  /$$__  $$| $$__  $$ /$$__  $$ /$$__  $$| $$__  $$| $$_____/ ");
     mvwprintw(stdscr, 5, COLS / 2 - 62 / 2, " | $$  \\ $$| $$  \\ $$| $$  \\__/| $$  \\ $$| $$  \\ $$| $$ ");
@@ -113,7 +119,7 @@ void NcursesMainMenu::displayMainTitle() const
     mvwprintw(stdscr, 8, COLS / 2 - 62 / 2, " | $$  | $$| $$  \\ $$| $$    $$| $$  | $$| $$  | $$| $$ ");
     mvwprintw(stdscr, 9, COLS / 2 - 62 / 2, " | $$  | $$| $$  | $$|  $$$$$$/| $$  | $$| $$$$$$$/| $$$$$$$$ ");
     mvwprintw(stdscr, 10, COLS / 2 - 62 / 2, " |__/  |__/|__/  |__/ \\______/ |__/  |__/|_______/ |________/ ");
-    wattroff(stdscr, COLOR_PAIR(YELLOW_BLUE));
+    wattroff(stdscr, COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
 }
 
 void NcursesMainMenu::displayMenuGames()
@@ -121,12 +127,23 @@ void NcursesMainMenu::displayMenuGames()
     unsigned int i = 0;
     delwin(_windows["MenuGames"]);
     _windows["MenuGames"] = subwin(stdscr, 20, 30, LINES / 2 - 20 / 2, COLS / 2 - 40);
-    if (supportColor())
-        wattron(_windows["MenuGames"], COLOR_PAIR(YELLOW_BLUE));
+    if (supportColor()) {
+        _lib.addColor({250, 233, 77, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["MenuGames"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
     box(_windows["MenuGames"], 0, 0);
     mvwprintw(_windows["MenuGames"], 0, 0, "Games");
     mvwprintw(_windows["MenuGames"], 19, 0, "Press enter to play");
-    wattroff(_windows["MenuGames"], COLOR_PAIR(YELLOW_BLUE));
+    wattroff(_windows["MenuGames"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+
+    if (supportColor()) {
+        _lib.addColor({234, 234, 234, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["MenuGames"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
 
     for (const std::string &game : _listGames.value()) {
         if (_chosenGame == i / 3 && _activeMenu == 1)
@@ -135,6 +152,7 @@ void NcursesMainMenu::displayMenuGames()
         wattroff(_windows["MenuGames"], A_REVERSE);
         i += 3;
     }
+    wattroff(_windows["MenuGames"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
 }
 
 void NcursesMainMenu::displayMenuGraphics()
@@ -142,12 +160,23 @@ void NcursesMainMenu::displayMenuGraphics()
     unsigned int i = 0;
     delwin(_windows["MenuGraphics"]);
     _windows["MenuGraphics"] = subwin(stdscr, 20, 30, LINES / 2 - 20 / 2, COLS / 2 + 10);
-    if (supportColor())
-        wattron(_windows["MenuGraphics"], COLOR_PAIR(YELLOW_BLUE));
+    if (supportColor()) {
+        _lib.addColor({250, 233, 77, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["MenuGraphics"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
     box(_windows["MenuGraphics"], 0, 0);
     mvwprintw(_windows["MenuGraphics"], 0, 0, "Graphics");
     mvwprintw(_windows["MenuGraphics"], 19, 0, "Enter to change graphic mode");
-    wattroff(_windows["MenuGraphics"], COLOR_PAIR(YELLOW_BLUE));
+    wattroff(_windows["MenuGraphics"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+
+    if (supportColor()) {
+        _lib.addColor({234, 234, 234, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["MenuGraphics"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
 
     for (const std::string &graphic : _listGraphics.value()) {
         if (_chosenGraphics == i / 3 && _activeMenu == 2)
@@ -156,6 +185,7 @@ void NcursesMainMenu::displayMenuGraphics()
         wattroff(_windows["MenuGraphics"], A_REVERSE);
         i += 3;
     }
+    wattroff(_windows["MenuGraphics"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
 }
 
 void NcursesMainMenu::displayInfo()
@@ -163,18 +193,27 @@ void NcursesMainMenu::displayInfo()
     int i = 2;
     delwin(_windows["InfoBox"]);
     _windows["InfoBox"] = subwin(stdscr, 10, 30, LINES / 2 + 12, COLS / 3 + 18);
-    if (supportColor())
-        wattron(_windows["InfoBox"], COLOR_PAIR(YELLOW_BLUE));
+    if (supportColor()) {
+        _lib.addColor({250, 233, 77, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["InfoBox"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
     box(_windows["InfoBox"], 0, 0);
     mvwprintw(_windows["InfoBox"], 0, 0, "Some Controls in game");
-    wattroff(_windows["InfoBox"], COLOR_PAIR(YELLOW_BLUE));
-    if (supportColor())
-        wattron(_windows["InfoBox"], COLOR_PAIR(GREEN_BLUE));
+    wattroff(_windows["InfoBox"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+    if (supportColor()) {
+        _lib.addColor({234, 234, 234, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["InfoBox"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
+
     for (const std::pair<std::string, std::string> &control : *_controls) {
         mvwprintw(_windows["InfoBox"], i, 2, control.first.c_str());
         mvwprintw(_windows["InfoBox"], i, control.first.length() + 3, ":");
         mvwprintw(_windows["InfoBox"], i, control.first.length() + 5, control.second.c_str());
         i++;
     }
-    wattroff(_windows["InfoBox"], COLOR_PAIR(GREEN_BLUE));
+    wattroff(_windows["InfoBox"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
 }

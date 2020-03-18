@@ -17,6 +17,45 @@ namespace arc {
         unsigned char g;
         unsigned char b;
         unsigned char a;
+
+        bool operator<(const Color &rhs) const {
+            if (r < rhs.r)
+                return true;
+            if (rhs.r < r)
+                return false;
+            if (g < rhs.g)
+                return true;
+            if (rhs.g < g)
+                return false;
+            if (b < rhs.b)
+                return true;
+            if (rhs.b < b)
+                return false;
+            return a < rhs.a;
+        }
+
+        bool operator>(const Color &rhs) const {
+            return rhs < *this;
+        }
+
+        bool operator<=(const Color &rhs) const {
+            return !(rhs < *this);
+        }
+
+        bool operator>=(const Color &rhs) const {
+            return !(*this < rhs);
+        }
+
+        bool operator==(const arc::Color &rhs) const {
+            return r == rhs.r &&
+                   g == rhs.g &&
+                   b == rhs.b &&
+                   a == rhs.a;
+        }
+
+        bool operator!=(const arc::Color &rhs) const {
+            return !(rhs == *this);
+        }
     };
 
     enum Orientation {

@@ -67,6 +67,12 @@ namespace arc {
         std::optional<std::function<void()>> _menuFct;
         std::optional<std::function<void()>> _pauseFct;
 
+    public:
+        void addColor(Color color);
+        short getColor(Color color);
+        void initPairColor(short color1, short color2);
+        short getPairColor(short color1, short color2);
+
     private:
         /* COLORS */
         bool supportColor() const;
@@ -75,6 +81,8 @@ namespace arc {
         std::map<Scene, std::shared_ptr<IScene>> _sceneList;
         bool _termColor;
         static const std::map<int, Event::Key> _equivalentKeys;
+        std::map<Color, short> _colorIndex;
+        std::map<std::pair<short, short>, short> _pairColorIndex;
 
     };
 
@@ -89,6 +97,8 @@ namespace arc {
         YELLOW_BLUE,
         WHITE_WHITE,
         GREEN_WHITE,
+        CYAN_WHITE,
+        WHITE_CYAN,
     };
 }
 

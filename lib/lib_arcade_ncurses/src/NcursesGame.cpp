@@ -133,5 +133,27 @@ void NcursesGame::displayGameInfo()
 
 void NcursesGame::displayEntities()
 {
+    for (std::shared_ptr<Entity> &entitie : *_entities) {
+        changeCustomColor(entitie->backgroundColor.r, entitie->backgroundColor.g, entitie->backgroundColor.b);
+        if (supportColor())
+            wattron(_windows["Map"], COLOR_PAIR(WHITE_CYAN));
+        mvwprintw(_windows["Map"], entitie->y, entitie->x, " ");
+        wattroff(_windows["Map"], COLOR_PAIR(WHITE_CYAN));
+    }
+}
 
+void NcursesGame::updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap)
+{
+    _entities = gameMap;
+}
+
+void NcursesGame::changeCustomColor(unsigned char r, unsigned char g, unsigned char b)
+{
+    short rFinal = r * 4;
+    short gFinal = g * 4;
+    short bFinal = b * 4;
+    if (rFinal > 1000) rFinal = 1000;
+    if (gFinal > 1000) gFinal = 1000;
+    if (bFinal > 1000) bFinal = 1000;
+    init_color(COLOR_CYAN, rFinal, gFinal, bFinal);
 }

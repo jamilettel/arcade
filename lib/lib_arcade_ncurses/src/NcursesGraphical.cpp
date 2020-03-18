@@ -88,7 +88,7 @@ NcursesGraphical::NcursesGraphical() : _eventType(Event::NO_EVENT), _keyPressed(
     _termColor = has_colors();
     if (supportColor()) {
         start_color();
-        initColor();
+        //initColor();
     }
     _sceneList[MAIN_MENU] = std::shared_ptr<IScene>(new NcursesMainMenu(*this));
     _sceneList[GAME] = std::shared_ptr<IScene>(new NcursesGame(*this));
@@ -225,7 +225,7 @@ void NcursesGraphical::setVisualAssets(const std::map<char, std::pair<std::strin
 
 void NcursesGraphical::updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap)
 {
-
+    dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->updateGameInfo(gameMap);
 }
 
 void NcursesGraphical::setMusic(const std::string &music)
@@ -260,4 +260,44 @@ void NcursesGraphical::initColor() const
     init_pair(YELLOW_BLUE, COLOR_YELLOW, COLOR_BLUE);
     init_pair(WHITE_WHITE, COLOR_WHITE, COLOR_WHITE);
     init_pair(GREEN_WHITE, COLOR_GREEN, COLOR_WHITE);
+    init_pair(CYAN_WHITE, COLOR_CYAN, COLOR_WHITE);
+    init_pair(WHITE_CYAN, COLOR_WHITE, COLOR_CYAN);
+}
+
+void NcursesGraphical::addColor(Color color)
+{
+    static short id = 0;
+    if (_colorIndex.find(color) != _colorIndex.end())
+        return;
+    if (id > COLORS - 1)
+        id = 0;
+    short rFinal = color.r * 4;
+    short gFinal = color.g * 4;
+    short bFinal = color.b * 4;
+    if (rFinal > 1000) rFinal = 1000;
+    if (gFinal > 1000) gFinal = 1000;
+    if (bFinal > 1000) bFinal = 1000;
+    init_color(id, rFinal, gFinal, bFinal);
+    _colorIndex[color] = id;
+    id++;
+}
+
+short NcursesGraphical::getColor(Color color)
+{
+    return _colorIndex[color];
+}
+
+void NcursesGraphical::initPairColor(short color1, short color2)
+{
+    static short id = 0;
+    if (_pairColorIndex.find(std::pair<short, short>(color1, color2)) != _pairColorIndex.end())
+        return;
+    init_pair(id, color1, color2);
+    _pairColorIndex[std::pair<short, short>(color1, color2)] = id;
+    id++;
+}
+
+short NcursesGraphical::getPairColor(short color1, short color2)
+{
+    return _pairColorIndex[std::pair<short, short>(color1, color2)];
 }
