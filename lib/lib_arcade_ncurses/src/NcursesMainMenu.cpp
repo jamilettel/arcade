@@ -17,8 +17,8 @@ NcursesMainMenu::NcursesMainMenu(NcursesGraphical &mainLib) : _lib(mainLib), _ac
     if (supportColor()) {
         _lib.addColor({7, 29, 27, 1});
         _lib.addColor({0, 0, 0, 1});
-        _lib.initPairColor(_lib.getColor({3, 111, 252, 1}), _lib.getColor({0, 0, 0, 1}));
-        wbkgd(stdscr, COLOR_PAIR(_lib.getPairColor(_lib.getColor({3, 111, 252, 1}), _lib.getColor({0, 0, 0, 1}))));
+        _lib.initPairColor(_lib.getColor({0, 0, 0, 1}), _lib.getColor({7, 29, 27, 1}));
+        wbkgd(stdscr, COLOR_PAIR(_lib.getPairColor(_lib.getColor({0, 0, 0, 1}), _lib.getColor({7, 29, 27, 1}))));
     }
 }
 

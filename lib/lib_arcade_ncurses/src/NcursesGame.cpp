@@ -13,7 +13,10 @@ NcursesGame::NcursesGame(NcursesGraphical &mainLib) : _lib(mainLib), _mapSize(st
 {
     _termColor = has_colors();
     if (supportColor()) {
-        wbkgd(stdscr, COLOR_PAIR(BLACK_BLUE));
+        _lib.addColor({7, 29, 27, 1});
+        _lib.addColor({0, 0, 0, 1});
+        _lib.initPairColor(_lib.getColor({0, 0, 0, 1}), _lib.getColor({7, 29, 27, 1}));
+        wbkgd(stdscr, COLOR_PAIR(_lib.getPairColor(_lib.getColor({0, 0, 0, 1}), _lib.getColor({7, 29, 27, 1}))));
     }
 }
 
@@ -72,12 +75,16 @@ void NcursesGame::displayTitleGame()
 {
     delwin(_windows["Title"]);
     _windows["Title"] = subwin(stdscr, 5, 30, 2, COLS / 2 - 30 / 2);
-    if (supportColor())
-        wattron(_windows["Title"], COLOR_PAIR(RED_WHITE));
-    wbkgd(_windows["Title"], COLOR_PAIR(RED_WHITE));
+    if (supportColor()) {
+        _lib.addColor({250, 233, 77, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["Title"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+        wbkgd(_windows["Title"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
+    box(_windows["Title"], 0, 0);
     mvwprintw(_windows["Title"], 2, 30 / 2 - _gameTitle.length() / 2, _gameTitle.c_str());
-
-    wattroff(_windows["Title"], COLOR_PAIR(RED_WHITE));
+    wattroff(_windows["Title"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
 }
 
 void NcursesGame::setMapSize(size_t height, size_t width)
@@ -90,70 +97,83 @@ void NcursesGame::displayMap()
 {
     delwin(_windows["Map"]);
     _windows["Map"] = subwin(stdscr, _mapSize.first, _mapSize.second, LINES / 2 - _mapSize.first / 2, COLS / 2 - _mapSize.second / 2);
-    if (supportColor())
-        wattron(_windows["Map"], COLOR_PAIR(WHITE_WHITE));
-    wbkgd(_windows["Map"], COLOR_PAIR(WHITE_WHITE));
-    wattroff(_windows["Map"], COLOR_PAIR(WHITE_WHITE));
-}
-
-void NcursesGame::displayCommands()
-{
-    delwin(_windows["Commands"]);
-    _windows["Commands"] = subwin(stdscr, 8, 60, LINES - 10, 10);
-    if (supportColor())
-        wattron(_windows["Commands"], COLOR_PAIR(WHITE_WHITE));
-    wbkgd(_windows["Commands"], COLOR_PAIR(WHITE_WHITE));
-    wattroff(_windows["Commands"], COLOR_PAIR(WHITE_WHITE));
+    if (supportColor()) {
+        _lib.addColor({234, 234, 234, 1});
+        _lib.initPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({234, 234, 234, 1}));
+        wattron(_windows["Map"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({234, 234, 234, 1}))));
+        wbkgd(_windows["Map"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({234, 234, 234, 1}))));
+    }
+    wbkgd(_windows["Map"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({234, 234, 234, 1}))));
+    wattroff(_windows["Map"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({234, 234, 234, 1}))));
 }
 
 void NcursesGame::displayGameInfo()
 {
+    delwin(_windows["Infos"]);
+    _windows["Infos"] = subwin(stdscr, 8, 60, LINES - 10, 10);
+
+    if (supportColor()) {
+        _lib.addColor({250, 233, 77, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["Infos"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+        wbkgd(_windows["Infos"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
+    box(_windows["Infos"], 0, 0);
+    wattroff(_windows["Infos"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+}
+
+void NcursesGame::displayCommands()
+{
     int i = 1;
     int j = 0;
-    delwin(_windows["Infos"]);
-    _windows["Infos"] = subwin(stdscr, 8, 60, LINES - 10, COLS - 70);
-    if (supportColor())
-        wattron(_windows["Infos"], COLOR_PAIR(WHITE_WHITE));
-    wbkgd(_windows["Infos"], COLOR_PAIR(WHITE_WHITE));
-    wattroff(_windows["Infos"], COLOR_PAIR(WHITE_WHITE));
-    if (supportColor())
-        wattron(_windows["Infos"], COLOR_PAIR(GREEN_WHITE));
+    delwin(_windows["Commands"]);
+    _windows["Commands"] = subwin(stdscr, 8, 60, LINES - 10, COLS - 70);
+
+    if (supportColor()) {
+        _lib.addColor({250, 233, 77, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["Commands"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+        wbkgd(_windows["Commands"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
+    box(_windows["Commands"], 0, 0);
+    wattroff(_windows["Commands"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+
+    if (supportColor()) {
+        _lib.addColor({234, 234, 234, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["Commands"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
+
     for (const std::pair<std::string, std::string> &control : *_controls) {
         if (i == 7) {
             j = 30;
             i = 1;
         }
-        mvwprintw(_windows["Infos"], i, 1 + j, control.first.c_str());
-        mvwprintw(_windows["Infos"], i, control.first.length() + 2 + j, ":");
-        mvwprintw(_windows["Infos"], i, control.first.length() + 4 + j, control.second.c_str());
+        mvwprintw(_windows["Commands"], i, 1 + j, control.first.c_str());
+        mvwprintw(_windows["Commands"], i, control.first.length() + 2 + j, ":");
+        mvwprintw(_windows["Commands"], i, control.first.length() + 4 + j, control.second.c_str());
         i++;
     }
-    wattroff(_windows["Infos"], COLOR_PAIR(GREEN_BLUE));
+    wattroff(_windows["Commands"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
 }
 
 void NcursesGame::displayEntities()
 {
     for (std::shared_ptr<Entity> &entitie : *_entities) {
-        changeCustomColor(entitie->backgroundColor.r, entitie->backgroundColor.g, entitie->backgroundColor.b);
-        if (supportColor())
-            wattron(_windows["Map"], COLOR_PAIR(WHITE_CYAN));
+        if (supportColor()) {
+            _lib.addColor({entitie->backgroundColor.r, entitie->backgroundColor.g, entitie->backgroundColor.b, entitie->backgroundColor.a});
+            _lib.initPairColor(_lib.getColor({entitie->backgroundColor.r, entitie->backgroundColor.g, entitie->backgroundColor.b, entitie->backgroundColor.a}), _lib.getColor({entitie->backgroundColor.r, entitie->backgroundColor.g, entitie->backgroundColor.b, entitie->backgroundColor.a}));
+            wattron(_windows["Map"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({entitie->backgroundColor.r, entitie->backgroundColor.g, entitie->backgroundColor.b, entitie->backgroundColor.a}), _lib.getColor({entitie->backgroundColor.r, entitie->backgroundColor.g, entitie->backgroundColor.b, entitie->backgroundColor.a}))));
+        }
         mvwprintw(_windows["Map"], entitie->y, entitie->x, " ");
-        wattroff(_windows["Map"], COLOR_PAIR(WHITE_CYAN));
+        wattroff(_windows["Map"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({entitie->backgroundColor.r, entitie->backgroundColor.g, entitie->backgroundColor.b, entitie->backgroundColor.a}), _lib.getColor({entitie->backgroundColor.r, entitie->backgroundColor.g, entitie->backgroundColor.b, entitie->backgroundColor.a}))));
     }
 }
 
 void NcursesGame::updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap)
 {
     _entities = gameMap;
-}
-
-void NcursesGame::changeCustomColor(unsigned char r, unsigned char g, unsigned char b)
-{
-    short rFinal = r * 4;
-    short gFinal = g * 4;
-    short bFinal = b * 4;
-    if (rFinal > 1000) rFinal = 1000;
-    if (gFinal > 1000) gFinal = 1000;
-    if (bFinal > 1000) bFinal = 1000;
-    init_color(COLOR_CYAN, rFinal, gFinal, bFinal);
 }

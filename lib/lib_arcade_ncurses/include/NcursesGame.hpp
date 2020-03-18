@@ -49,13 +49,11 @@ namespace arc {
             void displayEntities();
             void displayCommands();
             void displayGameInfo();
-            void changeCustomColor(unsigned char r, unsigned char g, unsigned char b);
 
         private:
             std::pair<size_t, size_t> _mapSize;
             std::optional<std::vector<std::pair<std::string, std::string>>> &_controls;
             std::optional<std::vector<std::shared_ptr<Entity>>> _entities;
-            std::map<Color, short> _colorIndex;
     };
 }
 
