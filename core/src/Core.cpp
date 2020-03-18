@@ -9,6 +9,7 @@
 #include "DLLoader.hpp"
 #include <filesystem>
 #include <algorithm>
+#include <asm-generic/errno-base.h>
 
 using namespace arc;
 
@@ -47,13 +48,13 @@ std::vector<std::pair<std::string, std::string>> Core::getControls() const
 {
     std::vector<std::pair<std::string, std::string>> controls;
 
-    controls.push_back(std::pair<std::string, std::string>("Previous library", "9"));
-    controls.push_back(std::pair<std::string, std::string>("Next library", "0"));
-    controls.push_back(std::pair<std::string, std::string>("Previous game", "7"));
-    controls.push_back(std::pair<std::string, std::string>("Next game", "8"));
-    controls.push_back(std::pair<std::string, std::string>("Restart game", "R"));
-    controls.push_back(std::pair<std::string, std::string>("Quit Arcade", "Escape"));
-    controls.push_back(std::pair<std::string, std::string>("Return to Menu", "M"));
+    controls.emplace_back("Previous library", "9");
+    controls.emplace_back("Next library", "0");
+    controls.emplace_back("Previous game", "7");
+    controls.emplace_back("Next game", "8");
+    controls.emplace_back("Restart game", "R");
+    controls.emplace_back("Quit Arcade", "Escape");
+    controls.emplace_back("Return to Menu", "M");
     if (_game != nullptr) {
         controls.insert(controls.end(), _game->getGameControlsFormatString().begin(),
                         _game->getGameControlsFormatString().end());
@@ -67,9 +68,7 @@ void Core::loadGraphicalLibrary(const std::string &libPath)
         return;
     if (!_graphicalLoaders.count(libPath))
         throw CoreError("Graphical libraries should be located in ./lib");
-
     std::unique_ptr<IGraphical> newLib(_graphicalLoaders[libPath]->getInstance());
-
     _graphical.swap(newLib);
     _oldGraphical.swap(newLib);
     _currentGraphicalLib = libPath;
@@ -92,7 +91,6 @@ void Core::sendListsToGraphicalLib()
             currentLib = i;
             break;
         }
-
     for (size_t i = 0; i < _gameList.size(); i++)
         if (_currentGame == _gameList[i]) {
             currentGame = i;
@@ -207,9 +205,9 @@ void Core::run()
         if (_scene == IGraphical::GAME && _game != nullptr) {
             _game->updateGame();
             _graphical->updateGameInfo(_game->getEntities());
-            if (_generalControls.count(_graphical->getKeyPressed())) {
-                _generalControls.at(_graphical->getKeyPressed())();
-            }
+        }
+        if (_generalControls.count(std::pair<Event::Type, Event::Key>(_graphical->getEventType(), _graphical->getKeyPressed()))) {
+            _generalControls.at(std::pair<Event::Type, Event::Key>(_graphical->getEventType(), _graphical->getKeyPressed()))();
         }
     } while (_graphical->getEventType() != Event::QUIT && !_quitGame);
 }
@@ -231,10 +229,28 @@ std::string Core::getDynamicLibraryName(const std::string &path)
 
 void Core::initGeneralControl()
 {
-    _generalControls[Event::Key::R] = [this](){_game->restart();};
-    _generalControls[Event::Key::ESCAPE] = [this](){_quitGame = true;};
-    _generalControls[Event::Key::M] = [this](){_scene = IGraphical::MAIN_MENU;
-                                                    _graphical->setScene(_scene);
-                                                    _game.release();
-                                                    _game = nullptr;};
+    _generalControls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::R)] = [this](){if (_game != nullptr) _game->restart();};
+    _generalControls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::ESCAPE)] = [this](){_quitGame = true;};
+    _generalControls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::M)] = [this](){
+        if (_scene == IGraphical::MAIN_MENU) return;
+        _scene = IGraphical::MAIN_MENU;
+        _graphical->setScene(_scene);
+        _game.release();
+        _game = nullptr;
+        _graphical->setHowToPlay(getControls());
+    };
+    _generalControls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::NUM9)] = [this](){
+        auto it = std::find(_graphicalList.begin(), _graphicalList.end(), _currentGraphicalLib);
+        if (it == _graphicalList.begin())
+            return;
+        auto prevLib = std::prev(it);
+        setCurrentLib(*prevLib);
+    };
+    _generalControls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::NUM0)] = [this](){
+        auto it = std::find(_graphicalList.begin(), _graphicalList.end(), _currentGraphicalLib);
+        auto nextLib = std::next(it);
+        if (nextLib == _graphicalList.end())
+            return;
+        setCurrentLib(*nextLib);
+    };
 }

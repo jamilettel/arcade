@@ -170,12 +170,12 @@ void NcursesGraphical::setGameTitle(const std::string &game)
 
 void NcursesGraphical::setListGames(const std::vector<std::string> &games, const std::function<void(const std::string &)> &fct, int chosen)
 {
-    dynamic_cast<NcursesMainMenu *>(_sceneList[getScene()].get())->setListGames(games, fct, chosen);
+    dynamic_cast<NcursesMainMenu *>(_sceneList[MAIN_MENU].get())->setListGames(games, fct, chosen);
 }
 
 void NcursesGraphical::setListLibraries(const std::vector<std::string> &libraries, const std::function<void(const std::string &)> &fct, int chosen)
 {
-    dynamic_cast<NcursesMainMenu *>(_sceneList[getScene()].get())->setListGraphics(libraries, fct, chosen);
+    dynamic_cast<NcursesMainMenu *>(_sceneList[MAIN_MENU].get())->setListGraphics(libraries, fct, chosen);
 }
 
 void NcursesGraphical::setFunctionPlay(const std::function<void()> &function)
