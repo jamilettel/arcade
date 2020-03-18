@@ -1,3 +1,4 @@
+
 /*
 ** EPITECH PROJECT, 2020
 ** Arcade
@@ -81,7 +82,8 @@ const std::map<sf::Keyboard::Key, Event::Key> SfmlGraphical::_equivalentKeys = {
 };
 
 SfmlGraphical::SfmlGraphical():
-    _window(sf::VideoMode(1600, 900), "Arcade", sf::Style::Close)
+    _window(sf::VideoMode(1600, 900), "Arcade", sf::Style::Close), _eventType(Event::NO_EVENT),
+    _keyPressed(Event::NONE), _scene(MAIN_MENU)
 {
     _window.setFramerateLimit(60);
     _scenes[MAIN_MENU] = std::make_unique<MainMenuScene>(_window, _font, *this);
