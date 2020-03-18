@@ -17,7 +17,7 @@ InputZone::InputZone(sf::RenderWindow &window,
     _placeHolder(placeHolder), _font(font), _cursorPos(0), _hasFocus(false),
     _window(window), _pos(pos), _size(size), _colorText(sf::Color(0x0a0a0aff)),
     _colorBackground(sf::Color(0xefefefff)), _colorOutline(sf::Color(0x1c1c1cff)),
-    _colorPlaceHolder(sf::Color(0xaaaaaaff)), _focusOutline(0x1c67f7ff), _unfocusedOutline(0x3c3c3cff),
+    _colorPlaceHolder(sf::Color(0xaaaaaaff)), _focusOutline(0x0a5eeeff), _unfocusedOutline(0x3c3c3cff),
     _isFull(false)
 {
     applySizeAndPos();
