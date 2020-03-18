@@ -77,8 +77,12 @@ void Core::loadGraphicalLibrary(const std::string &libPath)
     setGraphicalLibFunctions();
     _graphical->setHowToPlay(getControls());
 
-    if (_game != nullptr)
+    if (_game != nullptr) {
         _graphical->setControls(_game->getControls());
+        _graphical->setMapSize(_game->getMapHeight(), _game->getMapWidth());
+        _graphical->setGameTitle(_game->getTitle());
+        _graphical->setHowToPlay(getControls());
+    }
     sendListsToGraphicalLib();
 }
 
