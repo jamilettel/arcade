@@ -1,10 +1,18 @@
-<map id="graphics/lib_arcade_sfml/include/Color/AColor.hpp" name="graphics/lib_arcade_sfml/include/Color/AColor.hpp">
-<area shape="rect" id="node2" href="$_smooth_shifting_8hpp.html" title="graphics/lib_arcade\l_sfml/include/Color\l/SmoothShifting.hpp" alt="" coords="257,109,412,165"/>
-<area shape="rect" id="node9" href="$_a_color_8cpp.html" title="graphics/lib_arcade\l_sfml/src/Color/AColor.cpp" alt="" coords="436,117,628,158"/>
-<area shape="rect" id="node3" href="$_basic_button_8hpp.html" title="graphics/lib_arcade\l_sfml/include/Button\l/BasicButton.hpp" alt="" coords="149,213,305,269"/>
-<area shape="rect" id="node4" href="$_basic_button_outline_8hpp.html" title="graphics/lib_arcade\l_sfml/include/Button\l/BasicButtonOutline.hpp" alt="" coords="21,317,200,373"/>
-<area shape="rect" id="node7" href="$_rect_button_8cpp.html" title="graphics/lib_arcade\l_sfml/src/Button/RectButton.cpp" alt="" coords="329,221,559,262"/>
-<area shape="rect" id="node8" href="$_smooth_shifting_8cpp.html" title="graphics/lib_arcade\l_sfml/src/Color/SmoothShifting.cpp" alt="" coords="584,221,835,262"/>
-<area shape="rect" id="node6" href="$_basic_button_8cpp.html" title="graphics/lib_arcade\l_sfml/src/Button/BasicButton.cpp" alt="" coords="224,325,461,366"/>
-<area shape="rect" id="node5" href="$_basic_button_outline_8cpp.html" title="graphics/lib_arcade\l_sfml/src/Button/BasicButton\lOutline.cpp" alt="" coords="5,421,216,477"/>
+<map id="lib/lib_arcade_sfml/include/Color/AColor.hpp" name="lib/lib_arcade_sfml/include/Color/AColor.hpp">
+<area shape="rect" id="node2" href="$_smooth_shifting_8hpp.html" title="lib/lib_arcade_sfml\l/include/Color/SmoothShifting.hpp" alt="" coords="459,95,701,136"/>
+<area shape="rect" id="node17" href="$_a_color_8cpp.html" title="lib/lib_arcade_sfml\l/src/Color/AColor.cpp" alt="" coords="726,95,882,136"/>
+<area shape="rect" id="node3" href="$_basic_button_8hpp.html" title="lib/lib_arcade_sfml\l/include/Button/BasicButton.hpp" alt="" coords="239,184,470,225"/>
+<area shape="rect" id="node4" href="$_basic_button_outline_8hpp.html" title="lib/lib_arcade_sfml\l/include/Button/BasicButton\lOutline.hpp" alt="" coords="28,273,231,329"/>
+<area shape="rect" id="node7" href="$_input_zone_8hpp.html" title="lib/lib_arcade_sfml\l/include/InputZone.hpp" alt="" coords="495,184,665,225"/>
+<area shape="rect" id="node15" href="$_rect_button_8cpp.html" title="lib/lib_arcade_sfml\l/src/Button/RectButton.cpp" alt="" coords="689,184,884,225"/>
+<area shape="rect" id="node16" href="$_smooth_shifting_8cpp.html" title="lib/lib_arcade_sfml\l/src/Color/SmoothShifting.cpp" alt="" coords="909,184,1123,225"/>
+<area shape="rect" id="node6" href="$_basic_button_8cpp.html" title="lib/lib_arcade_sfml\l/src/Button/BasicButton.cpp" alt="" coords="255,281,457,322"/>
+<area shape="rect" id="node5" href="$_basic_button_outline_8cpp.html" title="lib/lib_arcade_sfml\l/src/Button/BasicButtonOutline.cpp" alt="" coords="5,377,253,419"/>
+<area shape="rect" id="node8" href="$_sfml_graphical_8hpp.html" title="lib/lib_arcade_sfml\l/include/SfmlGraphical.hpp" alt="" coords="481,281,679,322"/>
+<area shape="rect" id="node14" href="$_input_zone_8cpp.html" title="lib/lib_arcade_sfml\l/src/InputZone.cpp" alt="" coords="703,281,849,322"/>
+<area shape="rect" id="node9" href="$_game_scene_8hpp.html" title="lib/lib_arcade_sfml\l/include/Scene/GameScene.hpp" alt="" coords="316,377,543,419"/>
+<area shape="rect" id="node11" href="$_sfml_graphical_8cpp.html" title="lib/lib_arcade_sfml\l/src/SfmlGraphical.cpp" alt="" coords="496,467,664,508"/>
+<area shape="rect" id="node12" href="$_main_menu_scene_8hpp.html" title="lib/lib_arcade_sfml\l/include/Scene/MainMenuScene.hpp" alt="" coords="617,377,871,419"/>
+<area shape="rect" id="node10" href="$_game_scene_8cpp.html" title="lib/lib_arcade_sfml\l/src/Scene/GameScene.cpp" alt="" coords="275,467,472,508"/>
+<area shape="rect" id="node13" href="$_main_menu_scene_8cpp.html" title="lib/lib_arcade_sfml\l/src/Scene/MainMenuScene.cpp" alt="" coords="688,467,912,508"/>
 </map>

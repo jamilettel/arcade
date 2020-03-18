@@ -115,14 +115,14 @@ Collaboration diagram for MySf::Button::AButton:</div>
 <div class="center"><img src="class_my_sf_1_1_button_1_1_a_button__coll__graph.png" border="0" usemap="#_my_sf_1_1_button_1_1_a_button_coll__map" alt="Collaboration graph"/></div>
 <map name="_my_sf_1_1_button_1_1_a_button_coll__map" id="_my_sf_1_1_button_1_1_a_button_coll__map">
 <area shape="rect" id="node2" href="class_my_sf_1_1_button_1_1_i_button.html" title="MySf::Button::IButton" alt="" coords="5,5,165,32"/>
-<area shape="rect" id="node3" href="struct_my_sf_1_1_button_1_1_tri_color.html" title="MySf::Button::TriColor" alt="" coords="189,5,352,32"/>
+<area shape="rect" id="node3" href="struct_my_sf_1_1_button_1_1_button_color.html" title="MySf::Button::ButtonColor" alt="" coords="190,5,381,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a48291071bfb2c8b1cec4d51ab5c8ce5b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#a48291071bfb2c8b1cec4d51ab5c8ce5b">AButton</a> (sf::RenderWindow &amp;w, sf::Vector2f pos, sf::Vector2f size, const sf::Font &amp;f, const <a class="el" href="struct_my_sf_1_1_button_1_1_tri_color.html">TriColor</a> &amp;button, const <a class="el" href="struct_my_sf_1_1_button_1_1_tri_color.html">TriColor</a> &amp;text, const std::function&lt; void()&gt; &amp;fct)</td></tr>
-<tr class="separator:a48291071bfb2c8b1cec4d51ab5c8ce5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf98eb873139225273da4a3263557859"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#aaf98eb873139225273da4a3263557859">AButton</a> (sf::RenderWindow &amp;w, sf::Vector2f pos, sf::Vector2f size, sf::Font &amp;f, const <a class="el" href="struct_my_sf_1_1_button_1_1_button_color.html">ButtonColor</a> &amp;button, const <a class="el" href="struct_my_sf_1_1_button_1_1_button_color.html">ButtonColor</a> &amp;text, const std::function&lt; void()&gt; &amp;fct)</td></tr>
+<tr class="separator:aaf98eb873139225273da4a3263557859"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b0e63ca2c6a5acb1c17c61ce48c4fd3"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#a9b0e63ca2c6a5acb1c17c61ce48c4fd3">~AButton</a> ()=default</td></tr>
 <tr class="separator:a9b0e63ca2c6a5acb1c17c61ce48c4fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c84541a67448a19970dd965ee16c1ce"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#a4c84541a67448a19970dd965ee16c1ce">draw</a> ()=0</td></tr>
@@ -133,6 +133,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1ad36966d01e41dcfed52a121b974875"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68f2d950457867423eb87f4f8932f41b"><td class="memItemLeft" align="right" valign="top">virtual const sf::Vector2f &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#a68f2d950457867423eb87f4f8932f41b">getPosition</a> () const</td></tr>
 <tr class="separator:a68f2d950457867423eb87f4f8932f41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6513ae1ad16cd691d0ced14a5f7a4e13"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#a6513ae1ad16cd691d0ced14a5f7a4e13">setSize</a> (float x, float y)</td></tr>
+<tr class="separator:a6513ae1ad16cd691d0ced14a5f7a4e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1899383099ff7fe8a93f1450b743935e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#a1899383099ff7fe8a93f1450b743935e">setSize</a> (const sf::Vector2f &amp;size)</td></tr>
+<tr class="separator:a1899383099ff7fe8a93f1450b743935e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a933664ae9cf743c7e318d6006b66d7dc"><td class="memItemLeft" align="right" valign="top">virtual const sf::Vector2f &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#a933664ae9cf743c7e318d6006b66d7dc">getSize</a> () const</td></tr>
+<tr class="separator:a933664ae9cf743c7e318d6006b66d7dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0490e8a043da7e29b27b2b02ac542415"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="class_my_sf_1_1_color_1_1_i_color.html">Color::IColor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#a0490e8a043da7e29b27b2b02ac542415">getColor</a> () const</td></tr>
 <tr class="separator:a0490e8a043da7e29b27b2b02ac542415"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac06b4a0114e6b876b5a464e4d82203bd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#ac06b4a0114e6b876b5a464e4d82203bd">setLabel</a> (const std::string &amp;str)</td></tr>
@@ -145,6 +151,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5b637afb19d89f01036ffb9eee047941"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5d70cc7efd7b3813c9fba6014ad2a31"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#af5d70cc7efd7b3813c9fba6014ad2a31">setButton</a> (sf::Mouse::Button b)</td></tr>
 <tr class="separator:af5d70cc7efd7b3813c9fba6014ad2a31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90fb4a98f62a1114eaa121dc0e3ccaf1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#a90fb4a98f62a1114eaa121dc0e3ccaf1">setActivation</a> (bool actif)</td></tr>
+<tr class="separator:a90fb4a98f62a1114eaa121dc0e3ccaf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add5df82d38d75397ff2d99aa38b5bf86"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#add5df82d38d75397ff2d99aa38b5bf86">isActif</a> () const</td></tr>
+<tr class="separator:add5df82d38d75397ff2d99aa38b5bf86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_my_sf_1_1_button_1_1_i_button"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_my_sf_1_1_button_1_1_i_button')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_my_sf_1_1_button_1_1_i_button.html">MySf::Button::IButton</a></td></tr>
 <tr class="memitem:af913ad04c83195cc795e6920ac8597b7 inherit pub_methods_class_my_sf_1_1_button_1_1_i_button"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_i_button.html#af913ad04c83195cc795e6920ac8597b7">~IButton</a> ()=default</td></tr>
 <tr class="separator:af913ad04c83195cc795e6920ac8597b7 inherit pub_methods_class_my_sf_1_1_button_1_1_i_button"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -168,14 +178,14 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a1ba9fca7559effe81138929171b5ff88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a166657df9396955815e31855a316bd3e"><td class="memItemLeft" align="right" valign="top">sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#a166657df9396955815e31855a316bd3e">_size</a></td></tr>
 <tr class="separator:a166657df9396955815e31855a316bd3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae63a71f4e4d84195518b65e29be60261"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_my_sf_1_1_button_1_1_tri_color.html">TriColor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#ae63a71f4e4d84195518b65e29be60261">_bColor</a></td></tr>
-<tr class="separator:ae63a71f4e4d84195518b65e29be60261"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a146ffba76d7ee0b99654a8cd11d392fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_my_sf_1_1_button_1_1_button_color.html">ButtonColor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#a146ffba76d7ee0b99654a8cd11d392fd">_bColor</a></td></tr>
+<tr class="separator:a146ffba76d7ee0b99654a8cd11d392fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2898fe92a25dc0db7e95d7049b432a93"><td class="memItemLeft" align="right" valign="top">sf::Color&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#a2898fe92a25dc0db7e95d7049b432a93">_bCurrentColor</a></td></tr>
 <tr class="separator:a2898fe92a25dc0db7e95d7049b432a93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc1363c2ca8d0690502fd0472152aac6"><td class="memItemLeft" align="right" valign="top">sf::Color&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#adc1363c2ca8d0690502fd0472152aac6">_tCurrentColor</a></td></tr>
 <tr class="separator:adc1363c2ca8d0690502fd0472152aac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7e63278d03da2a0cdddcda088f3ca5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_my_sf_1_1_button_1_1_tri_color.html">TriColor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#ab7e63278d03da2a0cdddcda088f3ca5e">_tColor</a></td></tr>
-<tr class="separator:ab7e63278d03da2a0cdddcda088f3ca5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5237293085a48ed3c1a2f8c1701c9597"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_my_sf_1_1_button_1_1_button_color.html">ButtonColor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#a5237293085a48ed3c1a2f8c1701c9597">_tColor</a></td></tr>
+<tr class="separator:a5237293085a48ed3c1a2f8c1701c9597"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bf5201083742bc5566615e9eba97280"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_my_sf_1_1_color_1_1_i_color.html">Color::IColor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#a9bf5201083742bc5566615e9eba97280">_buttonColor</a></td></tr>
 <tr class="separator:a9bf5201083742bc5566615e9eba97280"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19147c51f7ef30e5c60695a8d390cf24"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_my_sf_1_1_color_1_1_i_color.html">Color::IColor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#a19147c51f7ef30e5c60695a8d390cf24">_textColor</a></td></tr>
@@ -186,17 +196,19 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a303f7700f9e504629525777b66cebad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b9b073498990ebe9195ad24510c0060"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#a4b9b073498990ebe9195ad24510c0060">_label</a></td></tr>
 <tr class="separator:a4b9b073498990ebe9195ad24510c0060"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3edff5853cc04cb90925a33d5b642b2"><td class="memItemLeft" align="right" valign="top">sf::Font&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#af3edff5853cc04cb90925a33d5b642b2">_f</a></td></tr>
-<tr class="separator:af3edff5853cc04cb90925a33d5b642b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd300059547be6bde67ac6a2146ce210"><td class="memItemLeft" align="right" valign="top">sf::Font &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#afd300059547be6bde67ac6a2146ce210">_f</a></td></tr>
+<tr class="separator:afd300059547be6bde67ac6a2146ce210"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8a003d0dc8d0848610a60a73998ff99"><td class="memItemLeft" align="right" valign="top">sf::Text&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#af8a003d0dc8d0848610a60a73998ff99">_t</a></td></tr>
 <tr class="separator:af8a003d0dc8d0848610a60a73998ff99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa455a379b995aa33aa38ac35bd312319"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sf_1_1_button_1_1_a_button.html#aa455a379b995aa33aa38ac35bd312319">_actif</a></td></tr>
+<tr class="separator:aa455a379b995aa33aa38ac35bd312319"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00019">19</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a48291071bfb2c8b1cec4d51ab5c8ce5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48291071bfb2c8b1cec4d51ab5c8ce5b">&#9670;&nbsp;</a></span>AButton()</h2>
+<a id="aaf98eb873139225273da4a3263557859"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf98eb873139225273da4a3263557859">&#9670;&nbsp;</a></span>AButton()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -222,19 +234,19 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const sf::Font &amp;&#160;</td>
+          <td class="paramtype">sf::Font &amp;&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="struct_my_sf_1_1_button_1_1_tri_color.html">TriColor</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_my_sf_1_1_button_1_1_button_color.html">ButtonColor</a> &amp;&#160;</td>
           <td class="paramname"><em>button</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="struct_my_sf_1_1_button_1_1_tri_color.html">TriColor</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_my_sf_1_1_button_1_1_button_color.html">ButtonColor</a> &amp;&#160;</td>
           <td class="paramname"><em>text</em>, </td>
         </tr>
         <tr>
@@ -335,7 +347,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_my_sf_1_1_button_1_1_i_button.html#ae87786876634ab4ee7d48fbc5d1a6033">MySf::Button::IButton</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00033">33</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00048">48</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
 
 </div>
 </div>
@@ -364,7 +376,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_my_sf_1_1_button_1_1_i_button.html#af27f76432c8eb14127352fbeaa948976">MySf::Button::IButton</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00043">43</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00058">58</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
 
 </div>
 </div>
@@ -397,6 +409,35 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a933664ae9cf743c7e318d6006b66d7dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a933664ae9cf743c7e318d6006b66d7dc">&#9670;&nbsp;</a></span>getSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const sf::Vector2f &amp; AButton::getSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_my_sf_1_1_button_1_1_i_button.html#a07cd8b6ee1b37ce02b831104a7993b4a">MySf::Button::IButton</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00043">43</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a5b637afb19d89f01036ffb9eee047941"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5b637afb19d89f01036ffb9eee047941">&#9670;&nbsp;</a></span>getText()</h2>
 
@@ -422,7 +463,36 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_my_sf_1_1_button_1_1_i_button.html#ad425d744a608d67292ee161aac86f34e">MySf::Button::IButton</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00053">53</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00068">68</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
+
+</div>
+</div>
+<a id="add5df82d38d75397ff2d99aa38b5bf86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add5df82d38d75397ff2d99aa38b5bf86">&#9670;&nbsp;</a></span>isActif()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AButton::isActif </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_my_sf_1_1_button_1_1_i_button.html#a8fab6051c971507752dfca37bc15dd0b">MySf::Button::IButton</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00144">144</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
 
 </div>
 </div>
@@ -451,7 +521,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_my_sf_1_1_button_1_1_i_button.html#a72f95d83a1ad21998580ed1ce89046c1">MySf::Button::IButton</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00089">89</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00104">104</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -498,7 +568,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="class_my_sf_1_1_button_1_1_i_button.html#a55c1dec8b864d06c6d3fe0b878ce1737">MySf::Button::IButton</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00063">63</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00078">78</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -510,6 +580,36 @@ Here is the caller graph for this function:</div>
 <area shape="rect" id="node4" href="class_my_sf_1_1_button_1_1_basic_button_outline.html#a71047d104cd3aba78250f0a9e0ce121e" title="MySf::Button::BasicButton\lOutline::draw" alt="" coords="671,5,861,47"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="a90fb4a98f62a1114eaa121dc0e3ccaf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90fb4a98f62a1114eaa121dc0e3ccaf1">&#9670;&nbsp;</a></span>setActivation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AButton::setActivation </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>actif</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_my_sf_1_1_button_1_1_i_button.html#afe4f7131b6f1451cdcb1a827454f136e">MySf::Button::IButton</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00139">139</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
 
 </div>
 </div>
@@ -539,7 +639,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="class_my_sf_1_1_button_1_1_i_button.html#a8a8a06430d2f7e347a7e96c88f0d8753">MySf::Button::IButton</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00058">58</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00073">73</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
 
 </div>
 </div>
@@ -569,7 +669,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="class_my_sf_1_1_button_1_1_i_button.html#ad01f590f4657c7042e2867e2cda37670">MySf::Button::IButton</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00048">48</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00063">63</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
 
 </div>
 </div>
@@ -599,7 +699,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="class_my_sf_1_1_button_1_1_i_button.html#a70056b495a01f0f4b253bf7d03c3820e">MySf::Button::IButton</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00038">38</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00053">53</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
 
 </div>
 </div>
@@ -673,9 +773,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ae63a71f4e4d84195518b65e29be60261"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae63a71f4e4d84195518b65e29be60261">&#9670;&nbsp;</a></span>_bColor</h2>
+<a id="a6513ae1ad16cd691d0ced14a5f7a4e13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6513ae1ad16cd691d0ced14a5f7a4e13">&#9670;&nbsp;</a></span>setSize() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -684,7 +783,78 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_my_sf_1_1_button_1_1_tri_color.html">TriColor</a> MySf::Button::AButton::_bColor</td>
+          <td class="memname">void AButton::setSize </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_my_sf_1_1_button_1_1_i_button.html#a1249c08603ed4acce52d813996bdffd2">MySf::Button::IButton</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00033">33</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1899383099ff7fe8a93f1450b743935e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1899383099ff7fe8a93f1450b743935e">&#9670;&nbsp;</a></span>setSize() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AButton::setSize </td>
+          <td>(</td>
+          <td class="paramtype">const sf::Vector2f &amp;&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_my_sf_1_1_button_1_1_i_button.html#a8fc9c05174c2f7d6e87c727e431def34">MySf::Button::IButton</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_a_button_8cpp_source.html#l00038">38</a> of file <a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa455a379b995aa33aa38ac35bd312319"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa455a379b995aa33aa38ac35bd312319">&#9670;&nbsp;</a></span>_actif</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MySf::Button::AButton::_actif</td>
         </tr>
       </table>
   </td>
@@ -694,7 +864,31 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00047">47</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00064">64</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a146ffba76d7ee0b99654a8cd11d392fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a146ffba76d7ee0b99654a8cd11d392fd">&#9670;&nbsp;</a></span>_bColor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_my_sf_1_1_button_1_1_button_color.html">ButtonColor</a> MySf::Button::AButton::_bColor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00053">53</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -718,7 +912,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00048">48</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00054">54</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -742,7 +936,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00044">44</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00050">50</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -766,12 +960,12 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00051">51</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00057">57</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
 
 </div>
 </div>
-<a id="af3edff5853cc04cb90925a33d5b642b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3edff5853cc04cb90925a33d5b642b2">&#9670;&nbsp;</a></span>_f</h2>
+<a id="afd300059547be6bde67ac6a2146ce210"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd300059547be6bde67ac6a2146ce210">&#9670;&nbsp;</a></span>_f</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -780,7 +974,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">sf::Font MySf::Button::AButton::_f</td>
+          <td class="memname">sf::Font&amp; MySf::Button::AButton::_f</td>
         </tr>
       </table>
   </td>
@@ -790,7 +984,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00056">56</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00062">62</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -814,7 +1008,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00054">54</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00060">60</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -838,7 +1032,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00055">55</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00061">61</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -862,7 +1056,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00042">42</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00048">48</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -886,7 +1080,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00045">45</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00051">51</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -910,7 +1104,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00046">46</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00052">52</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -934,7 +1128,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00053">53</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00059">59</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -958,12 +1152,12 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00057">57</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00063">63</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ab7e63278d03da2a0cdddcda088f3ca5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7e63278d03da2a0cdddcda088f3ca5e">&#9670;&nbsp;</a></span>_tColor</h2>
+<a id="a5237293085a48ed3c1a2f8c1701c9597"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5237293085a48ed3c1a2f8c1701c9597">&#9670;&nbsp;</a></span>_tColor</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -972,7 +1166,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_my_sf_1_1_button_1_1_tri_color.html">TriColor</a> MySf::Button::AButton::_tColor</td>
+          <td class="memname"><a class="el" href="struct_my_sf_1_1_button_1_1_button_color.html">ButtonColor</a> MySf::Button::AButton::_tColor</td>
         </tr>
       </table>
   </td>
@@ -982,7 +1176,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00050">50</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00056">56</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -1006,7 +1200,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00049">49</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00055">55</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -1030,7 +1224,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00052">52</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00058">58</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -1054,13 +1248,13 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00043">43</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_button_8hpp_source.html#l00049">49</a> of file <a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>graphics/lib_arcade_sfml/include/Button/<a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a></li>
-<li>graphics/lib_arcade_sfml/src/Button/<a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a></li>
+<li>lib/lib_arcade_sfml/include/Button/<a class="el" href="_a_button_8hpp_source.html">AButton.hpp</a></li>
+<li>lib/lib_arcade_sfml/src/Button/<a class="el" href="_a_button_8cpp_source.html">AButton.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

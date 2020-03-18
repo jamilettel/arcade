@@ -1,4 +1,4 @@
-<map id="graphics/lib_arcade_sfml/src/Button/RectButton.cpp" name="graphics/lib_arcade_sfml/src/Button/RectButton.cpp">
+<map id="lib/lib_arcade_sfml/src/Button/RectButton.cpp" name="lib/lib_arcade_sfml/src/Button/RectButton.cpp">
 <area shape="rect" id="node2" href="$_rect_button_8hpp.html" title="Button/RectButton.hpp" alt="" coords="112,95,280,121"/>
 <area shape="rect" id="node10" href="$_smooth_shifting_8hpp.html" title="Color/SmoothShifting.hpp" alt="" coords="305,95,493,121"/>
 <area shape="rect" id="node3" href="$_a_button_8hpp.html" title="Button/AButton.hpp" alt="" coords="127,169,276,196"/>

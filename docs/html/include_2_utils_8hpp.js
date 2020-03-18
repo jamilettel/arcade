@@ -2,6 +2,13 @@ var include_2_utils_8hpp =
 [
     [ "Color", "structarc_1_1_color.html", "structarc_1_1_color" ],
     [ "Entity", "structarc_1_1_entity.html", "structarc_1_1_entity" ],
+    [ "EntityType", "include_2_utils_8hpp.html#a522a1db2387463e368d680e3b1fe392c", [
+      [ "PLAYER", "include_2_utils_8hpp.html#a522a1db2387463e368d680e3b1fe392ca040e22e4aa8fd7d5446b62a4413d83c0", null ],
+      [ "ENEMY", "include_2_utils_8hpp.html#a522a1db2387463e368d680e3b1fe392ca6a9c0e4057c21a7100e7acd01abc40e2", null ],
+      [ "OBSTACLE", "include_2_utils_8hpp.html#a522a1db2387463e368d680e3b1fe392ca73ac9438150148ed68d2af8529aed4e2", null ],
+      [ "CONSUMABLE", "include_2_utils_8hpp.html#a522a1db2387463e368d680e3b1fe392ca668485c87fea9b6dbbfd907e4aed041c", null ],
+      [ "OTHER", "include_2_utils_8hpp.html#a522a1db2387463e368d680e3b1fe392cae3fc08e59818e30796fcc967a2517679", null ]
+    ] ],
     [ "Key", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5", [
       [ "NONE", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5ab996832d2f665bd7f8344add89c23e28", null ],
       [ "UNKNOWN", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5af9b99a20526ca32f9721d201bc6799aa", null ],
@@ -36,6 +43,7 @@ var include_2_utils_8hpp =
       [ "BACKSPACE", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5a210f2ef962a78b948eb9187930e93cfe", null ],
       [ "TAB", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5a7218d89fa62f734c183c16d0d9ca6de6", null ],
       [ "ESCAPE", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5ae689d2544198ff7692be9ab69937c46a", null ],
+      [ "ENTER", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5a4caf2ce13742fa507745d993f373aa56", null ],
       [ "DELETE", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5af4fae3956f0602ac3e2bb95ef9e6c13e", null ],
       [ "UP", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5af94bbcecb4bce28cd018e5ba2439aab7", null ],
       [ "DOWN", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5a660c0181c9edda8d1c0bf6edb27331d1", null ],
@@ -63,7 +71,17 @@ var include_2_utils_8hpp =
       [ "F15", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5abaf16382427a6b8606e54077297d009d", null ],
       [ "MOUSE_1", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5a6e633255ce8b6753b5e18a9d79820598", null ],
       [ "MOUSE_2", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5a4b682f5fd5b91629949f116774eff46d", null ],
-      [ "MOUSE_3", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5a7462adacf7e7456d98e44622f0c7ccef", null ]
+      [ "MOUSE_3", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5a7462adacf7e7456d98e44622f0c7ccef", null ],
+      [ "NUM1", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5a6ad43394f4b4aa79a379a950a2c3326c", null ],
+      [ "NUM2", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5a498fa98f4b8cad08bf1bbefee4f2330f", null ],
+      [ "NUM3", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5a9d231a6014f2a6b2ff2869beef2255ff", null ],
+      [ "NUM4", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5a025474b9a7c3bfceed3ad07212bd07fd", null ],
+      [ "NUM5", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5ae6824d746cc7c283347e8f27f94ab40a", null ],
+      [ "NUM6", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5a20b425110d5eb612f048bcdb929bc81c", null ],
+      [ "NUM7", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5a7f040c36cd62558ff1f9dafa9da83fbb", null ],
+      [ "NUM8", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5a2f0270d9cf8ef576c0c55932c11c9168", null ],
+      [ "NUM9", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5abece3bd78f0fc94d00471c43891e8608", null ],
+      [ "NUM0", "include_2_utils_8hpp.html#aceaacfd1cbd37ca2b1b57e31068c30e5ad87b79fc21a6dd8f7c513e1f475a1786", null ]
     ] ],
     [ "Orientation", "include_2_utils_8hpp.html#a1759394e274827127f1f9a8b1eead526", [
       [ "UP", "include_2_utils_8hpp.html#a1759394e274827127f1f9a8b1eead526a3c4aa7136c9f455b812fd25c6773d1ac", null ],

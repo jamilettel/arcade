@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['nibbler_2ecpp',['Nibbler.cpp',['../_nibbler_8cpp.html',1,'']]],
-  ['nibbler_2ehpp',['Nibbler.hpp',['../_nibbler_8hpp.html',1,'']]]
+  ['list_2ecpp',['List.cpp',['../_list_8cpp.html',1,'']]],
+  ['list_2ehpp',['List.hpp',['../_list_8hpp.html',1,'']]]
 ];

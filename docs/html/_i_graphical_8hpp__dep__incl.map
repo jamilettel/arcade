@@ -1,7 +1,17 @@
 <map id="include/IGraphical.hpp" name="include/IGraphical.hpp">
-<area shape="rect" id="node2" href="$_core_8hpp.html" title="core/include/Core.hpp" alt="" coords="137,87,299,114"/>
-<area shape="rect" id="node5" href="$_sfml_graphical_8hpp.html" title="graphics/lib_arcade\l_sfml/include/SfmlGraphical.hpp" alt="" coords="324,80,557,121"/>
+<area shape="rect" id="node2" href="$_core_8hpp.html" title="core/include/Core.hpp" alt="" coords="151,87,314,114"/>
+<area shape="rect" id="node5" href="$_ncurses_graphical_8hpp.html" title="lib/lib_arcade_ncurses\l/include/NcursesGraphical.hpp" alt="" coords="450,80,669,121"/>
+<area shape="rect" id="node11" href="$_sfml_graphical_8hpp.html" title="lib/lib_arcade_sfml\l/include/SfmlGraphical.hpp" alt="" coords="966,80,1163,121"/>
 <area shape="rect" id="node3" href="$_core_8cpp.html" title="core/src/Core.cpp" alt="" coords="5,177,140,203"/>
 <area shape="rect" id="node4" href="$core_2src_2main_8cpp.html" title="core/src/main.cpp" alt="" coords="164,177,301,203"/>
-<area shape="rect" id="node6" href="$_sfml_graphical_8cpp.html" title="graphics/lib_arcade\l_sfml/src/SfmlGraphical.cpp" alt="" coords="339,169,543,211"/>
+<area shape="rect" id="node6" href="$_ncurses_game_8hpp.html" title="lib/lib_arcade_ncurses\l/include/NcursesGame.hpp" alt="" coords="325,169,521,211"/>
+<area shape="rect" id="node8" href="$_ncurses_graphical_8cpp.html" title="lib/lib_arcade_ncurses\l/src/NcursesGraphical.cpp" alt="" coords="429,259,620,300"/>
+<area shape="rect" id="node9" href="$_ncurses_main_menu_8hpp.html" title="lib/lib_arcade_ncurses\l/include/NcursesMainMenu.hpp" alt="" coords="597,169,820,211"/>
+<area shape="rect" id="node7" href="$_ncurses_game_8cpp.html" title="lib/lib_arcade_ncurses\l/src/NcursesGame.cpp" alt="" coords="239,259,405,300"/>
+<area shape="rect" id="node10" href="$_ncurses_main_menu_8cpp.html" title="lib/lib_arcade_ncurses\l/src/NcursesMainMenu.cpp" alt="" coords="645,259,839,300"/>
+<area shape="rect" id="node12" href="$_game_scene_8hpp.html" title="lib/lib_arcade_sfml\l/include/Scene/GameScene.hpp" alt="" coords="877,169,1103,211"/>
+<area shape="rect" id="node14" href="$_sfml_graphical_8cpp.html" title="lib/lib_arcade_sfml\l/src/SfmlGraphical.cpp" alt="" coords="1085,259,1253,300"/>
+<area shape="rect" id="node15" href="$_main_menu_scene_8hpp.html" title="lib/lib_arcade_sfml\l/include/Scene/MainMenuScene.hpp" alt="" coords="1178,169,1431,211"/>
+<area shape="rect" id="node13" href="$_game_scene_8cpp.html" title="lib/lib_arcade_sfml\l/src/Scene/GameScene.cpp" alt="" coords="863,259,1061,300"/>
+<area shape="rect" id="node16" href="$_main_menu_scene_8cpp.html" title="lib/lib_arcade_sfml\l/src/Scene/MainMenuScene.cpp" alt="" coords="1277,259,1501,300"/>
 </map>

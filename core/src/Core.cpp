@@ -262,17 +262,27 @@ void Core::initGeneralControl()
         setCurrentLib(*nextLib);
     };
     _generalControls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::NUM8)] = [this](){
+        if (_currentGame.empty()) {
+            setCurrentGame(_gameList.front());
+            startGame();
+        }
         auto it = std::find(_gameList.begin(), _gameList.end(), _currentGame);
         auto nextGame = std::next(it);
         if (nextGame == _gameList.end())
             return;
         setCurrentGame(*nextGame);
+        startGame();
     };
     _generalControls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::NUM7)] = [this](){
+        if (_currentGame.empty()) {
+            setCurrentGame(_gameList.front());
+            startGame();
+        }
         auto it = std::find(_gameList.begin(), _gameList.end(), _currentGame);
         if (it == _gameList.begin())
             return;
         auto prevGame = std::prev(it);
         setCurrentGame(*prevGame);
+        startGame();
     };
 }

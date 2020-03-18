@@ -99,12 +99,12 @@ $(document).ready(function(){initNavTree('classarc_1_1_d_l_loader.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a019e3c64ffb3a06b440d1c340012d5d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_d_l_loader.html#a019e3c64ffb3a06b440d1c340012d5d9">DLLoader</a> (const std::string &amp;libpath)</td></tr>
-<tr class="separator:a019e3c64ffb3a06b440d1c340012d5d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9f57385029d82363115b9a530e7669f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_d_l_loader.html#aa9f57385029d82363115b9a530e7669f">DLLoader</a> (const std::string &amp;libpath, const std::string &amp;constructor=<a class="el" href="_d_l_loader_8hpp.html#a5facd426173a400e33c57d48617b3a66">CONSTRUCTOR</a>)</td></tr>
+<tr class="separator:aa9f57385029d82363115b9a530e7669f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad017b92dd370233fffcceea9c3e96a25"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_d_l_loader.html#ad017b92dd370233fffcceea9c3e96a25">~DLLoader</a> ()</td></tr>
 <tr class="separator:ad017b92dd370233fffcceea9c3e96a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a944ed4c4bb969f5def7c026c7c00606d"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_d_l_loader.html#a944ed4c4bb969f5def7c026c7c00606d">getInstance</a> (const std::string &amp;constructor=<a class="el" href="_d_l_loader_8hpp.html#a5facd426173a400e33c57d48617b3a66">CONSTRUCTOR</a>)</td></tr>
-<tr class="separator:a944ed4c4bb969f5def7c026c7c00606d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7150fc8e27a1c5f52da2863b69848923"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_d_l_loader.html#a7150fc8e27a1c5f52da2863b69848923">getInstance</a> ()</td></tr>
+<tr class="separator:a7150fc8e27a1c5f52da2863b69848923"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
@@ -113,13 +113,13 @@ class arc::DLLoader&lt; T &gt;</h3>
 
 <p class="definition">Definition at line <a class="el" href="_d_l_loader_8hpp_source.html#l00021">21</a> of file <a class="el" href="_d_l_loader_8hpp_source.html">DLLoader.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a019e3c64ffb3a06b440d1c340012d5d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a019e3c64ffb3a06b440d1c340012d5d9">&#9670;&nbsp;</a></span>DLLoader()</h2>
+<a id="aa9f57385029d82363115b9a530e7669f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9f57385029d82363115b9a530e7669f">&#9670;&nbsp;</a></span>DLLoader()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -128,8 +128,18 @@ template&lt;typename T&gt; </div>
           <td class="memname"><a class="el" href="classarc_1_1_d_l_loader.html">arc::DLLoader</a>&lt; T &gt;::<a class="el" href="classarc_1_1_d_l_loader.html">DLLoader</a> </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>libpath</em></td><td>)</td>
+          <td class="paramname"><em>libpath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>constructor</em> = <code><a class="el" href="_d_l_loader_8hpp.html#a5facd426173a400e33c57d48617b3a66">CONSTRUCTOR</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -149,7 +159,7 @@ template&lt;typename T&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -168,18 +178,18 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_d_l_loader_8hpp_source.html#l00037">37</a> of file <a class="el" href="_d_l_loader_8hpp_source.html">DLLoader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_d_l_loader_8hpp_source.html#l00041">41</a> of file <a class="el" href="_d_l_loader_8hpp_source.html">DLLoader.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a944ed4c4bb969f5def7c026c7c00606d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a944ed4c4bb969f5def7c026c7c00606d">&#9670;&nbsp;</a></span>getInstance()</h2>
+<a id="a7150fc8e27a1c5f52da2863b69848923"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7150fc8e27a1c5f52da2863b69848923">&#9670;&nbsp;</a></span>getInstance()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -187,8 +197,7 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname">T* <a class="el" href="classarc_1_1_d_l_loader.html">arc::DLLoader</a>&lt; T &gt;::getInstance </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>constructor</em> = <code><a class="el" href="_d_l_loader_8hpp.html#a5facd426173a400e33c57d48617b3a66">CONSTRUCTOR</a></code></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -199,17 +208,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_d_l_loader_8hpp_source.html#l00042">42</a> of file <a class="el" href="_d_l_loader_8hpp_source.html">DLLoader.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classarc_1_1_d_l_loader_a944ed4c4bb969f5def7c026c7c00606d_icgraph.png" border="0" usemap="#classarc_1_1_d_l_loader_a944ed4c4bb969f5def7c026c7c00606d_icgraph" alt=""/></div>
-<map name="classarc_1_1_d_l_loader_a944ed4c4bb969f5def7c026c7c00606d_icgraph" id="classarc_1_1_d_l_loader_a944ed4c4bb969f5def7c026c7c00606d_icgraph">
-<area shape="rect" id="node2" href="classarc_1_1_core.html#aaf86e0be7cad4b241111cd6ecd32093a" title="arc::Core::loadGameLibrary" alt="" coords="248,5,448,32"/>
-<area shape="rect" id="node3" href="classarc_1_1_core.html#a4f9d1082c29a1835f95cfb0d760433d4" title="arc::Core::loadGraphical\lLibrary" alt="" coords="259,57,437,98"/>
-<area shape="rect" id="node4" href="classarc_1_1_core.html#a54d1e43290e34a55dfcd062ad4bb6618" title="arc::Core::Core" alt="" coords="496,64,615,91"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="_d_l_loader_8hpp_source.html#l00046">46</a> of file <a class="el" href="_d_l_loader_8hpp_source.html">DLLoader.hpp</a>.</p>
 
 </div>
 </div>

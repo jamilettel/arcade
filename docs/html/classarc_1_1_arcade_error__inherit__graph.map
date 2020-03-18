@@ -1,5 +1,6 @@
 <map id="arc::ArcadeError" name="arc::ArcadeError">
 <area shape="rect" id="node3" href="$classarc_1_1_core_error.html" title="arc::CoreError" alt="" coords="5,155,116,181"/>
 <area shape="rect" id="node4" href="$classarc_1_1_d_l_loader_error.html" title="arc::DLLoaderError" alt="" coords="140,155,283,181"/>
-<area shape="rect" id="node5" href="$classarc_1_1_sfml_error.html" title="arc::SfmlError" alt="" coords="307,155,417,181"/>
+<area shape="rect" id="node5" href="$classarc_1_1_ncurses_error.html" title="arc::NcursesError" alt="" coords="307,155,441,181"/>
+<area shape="rect" id="node6" href="$classarc_1_1_sfml_error.html" title="arc::SfmlError" alt="" coords="465,155,576,181"/>
 </map>

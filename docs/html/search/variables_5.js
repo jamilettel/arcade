@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['h',['h',['../struct_my_sf_1_1_button_1_1_tri_color.html#ae81b97782999eee73fb4d868da731069',1,'MySf::Button::TriColor']]]
+  ['g',['g',['../structarc_1_1_color.html#adfc8193f910adc67343a571a57a22070',1,'arc::Color']]]
 ];

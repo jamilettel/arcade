@@ -8,6 +8,13 @@ var searchData=
   ['_7eicolor',['~IColor',['../class_my_sf_1_1_color_1_1_i_color.html#a451b94e508f55d284c45e7b9f16f502f',1,'MySf::Color::IColor']]],
   ['_7eigame',['~IGame',['../classarc_1_1_i_game.html#a35b0c983ceff303b26a5d15a5b66963b',1,'arc::IGame']]],
   ['_7eigraphical',['~IGraphical',['../classarc_1_1_i_graphical.html#a92029fdce722f907481ec99c3833f852',1,'arc::IGraphical']]],
+  ['_7einputzone',['~InputZone',['../class_my_sf_1_1_input_zone.html#ae8fe5591dd501284d868f8157b6e7590',1,'MySf::InputZone']]],
+  ['_7eiscene',['~IScene',['../classarc_1_1_i_scene.html#a2a8839ffd26d8c0d3752ce33915e081d',1,'arc::IScene::~IScene()=default'],['../classarc_1_1_i_scene.html#a2a8839ffd26d8c0d3752ce33915e081d',1,'arc::IScene::~IScene()=default']]],
+  ['_7elist',['~List',['../class_my_sf_1_1_list.html#a38ceb65c79bc0e193bcb953d323d6d08',1,'MySf::List']]],
+  ['_7emainmenuscene',['~MainMenuScene',['../classarc_1_1_main_menu_scene.html#a7de636537d6bc931b2731172215c763f',1,'arc::MainMenuScene']]],
+  ['_7encursesgame',['~NcursesGame',['../classarc_1_1_ncurses_game.html#acd04804bc2979a8b74d252507f6309f5',1,'arc::NcursesGame']]],
+  ['_7encursesgraphical',['~NcursesGraphical',['../classarc_1_1_ncurses_graphical.html#a0ff4391901c2677bf76845da070bd63f',1,'arc::NcursesGraphical']]],
+  ['_7encursesmainmenu',['~NcursesMainMenu',['../classarc_1_1_ncurses_main_menu.html#aca11d6884d8fda3a4fd83db0e6807e99',1,'arc::NcursesMainMenu']]],
   ['_7enibbler',['~Nibbler',['../classarc_1_1_nibbler.html#a846208db2d40786b9b33903486d48bd2',1,'arc::Nibbler']]],
   ['_7esfmlgraphical',['~SfmlGraphical',['../classarc_1_1_sfml_graphical.html#abdac8ae43eb49440f771fa87081bafb3',1,'arc::SfmlGraphical']]],
   ['_7esmoothshifting',['~SmoothShifting',['../class_my_sf_1_1_color_1_1_smooth_shifting.html#ade4ecd0595ca0c541115da591bd319a7',1,'MySf::Color::SmoothShifting']]]
