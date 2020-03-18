@@ -33,13 +33,6 @@ namespace arc {
             bool _termColor;
             std::string _gameTitle;
             std::optional<std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>>> _controlsFt;
-            //std::optional<std::vector<std::string>> _listGames;
-            //unsigned int _chosenGame;
-            //std::optional<std::function<void (const std::string&)>> _ftGames;
-            //std::optional<std::vector<std::string>> _listGraphics;
-            //unsigned int _chosenGraphics;
-            //std::optional<std::function<void (const std::string&)>> _ftGraphics;
-            //std::optional<std::vector<std::pair<std::string, std::string>>> &_controls;
 
         public:
             void updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap);
