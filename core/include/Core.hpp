@@ -66,7 +66,7 @@ namespace arc {
 
         IGraphical::Scene _scene;
 
-        std::map<Event::Key, std::function<void ()>> _generalControls;
+        std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _generalControls;
 
     };
 
