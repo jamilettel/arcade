@@ -1,0 +1,4 @@
+<map id="arc::GameScene::update" name="arc::GameScene::update">
+<area shape="rect" id="node2" href="$classarc_1_1_sfml_graphical.html#a4c3ca5d1b3c29e03919aebd678035f61" title="arc::SfmlGraphical\l::getEventType" alt="" coords="235,5,377,47"/>
+<area shape="rect" id="node3" href="$classarc_1_1_sfml_graphical.html#a325227aa3127a7827696b3993b9168c2" title="arc::SfmlGraphical\l::getKeyPressed" alt="" coords="235,71,377,112"/>
+</map>

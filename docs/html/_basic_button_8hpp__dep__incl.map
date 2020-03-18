@@ -1,5 +1,5 @@
-<map id="graphics/lib_arcade_sfml/include/Button/BasicButton.hpp" name="graphics/lib_arcade_sfml/include/Button/BasicButton.hpp">
-<area shape="rect" id="node2" href="$_basic_button_outline_8hpp.html" title="graphics/lib_arcade\l_sfml/include/Button\l/BasicButtonOutline.hpp" alt="" coords="21,109,200,165"/>
-<area shape="rect" id="node4" href="$_basic_button_8cpp.html" title="graphics/lib_arcade\l_sfml/src/Button/BasicButton.cpp" alt="" coords="224,117,461,158"/>
-<area shape="rect" id="node3" href="$_basic_button_outline_8cpp.html" title="graphics/lib_arcade\l_sfml/src/Button/BasicButton\lOutline.cpp" alt="" coords="5,213,216,269"/>
+<map id="lib/lib_arcade_sfml/include/Button/BasicButton.hpp" name="lib/lib_arcade_sfml/include/Button/BasicButton.hpp">
+<area shape="rect" id="node2" href="$_basic_button_outline_8hpp.html" title="lib/lib_arcade_sfml\l/include/Button/BasicButton\lOutline.hpp" alt="" coords="28,95,231,151"/>
+<area shape="rect" id="node4" href="$_basic_button_8cpp.html" title="lib/lib_arcade_sfml\l/src/Button/BasicButton.cpp" alt="" coords="255,102,457,143"/>
+<area shape="rect" id="node3" href="$_basic_button_outline_8cpp.html" title="lib/lib_arcade_sfml\l/src/Button/BasicButtonOutline.cpp" alt="" coords="5,199,253,240"/>
 </map>

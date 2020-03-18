@@ -1,5 +1,5 @@
-<map id="graphics/lib_arcade_sfml/include/Button/RectButton.hpp" name="graphics/lib_arcade_sfml/include/Button/RectButton.hpp">
-<area shape="rect" id="node2" href="$_a_button_8hpp.html" title="Button/AButton.hpp" alt="" coords="188,109,337,136"/>
-<area shape="rect" id="node3" href="$_i_button_8hpp.html" title="Button/IButton.hpp" alt="" coords="56,184,200,211"/>
-<area shape="rect" id="node5" href="$_i_color_8hpp.html" title="Color/IColor.hpp" alt="" coords="65,259,191,285"/>
+<map id="lib/lib_arcade_sfml/include/Button/RectButton.hpp" name="lib/lib_arcade_sfml/include/Button/RectButton.hpp">
+<area shape="rect" id="node2" href="$_a_button_8hpp.html" title="Button/AButton.hpp" alt="" coords="188,95,337,121"/>
+<area shape="rect" id="node3" href="$_i_button_8hpp.html" title="Button/IButton.hpp" alt="" coords="56,169,200,196"/>
+<area shape="rect" id="node5" href="$_i_color_8hpp.html" title="Color/IColor.hpp" alt="" coords="65,244,191,271"/>
 </map>

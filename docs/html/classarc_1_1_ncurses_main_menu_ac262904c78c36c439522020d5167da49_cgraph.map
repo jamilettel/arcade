@@ -1,0 +1,6 @@
+<map id="arc::NcursesMainMenu::NcursesMainMenu" name="arc::NcursesMainMenu::NcursesMainMenu">
+<area shape="rect" id="node2" href="$classarc_1_1_ncurses_graphical.html#ab4daec81c2e00062cb217b6af73d3526" title="arc::NcursesGraphical\l::addColor" alt="" coords="221,5,385,47"/>
+<area shape="rect" id="node3" href="$classarc_1_1_ncurses_graphical.html#a0d76c8f24926bcabcc2f9588d4d1deb0" title="arc::NcursesGraphical\l::initPairColor" alt="" coords="221,71,385,112"/>
+<area shape="rect" id="node4" href="$classarc_1_1_ncurses_graphical.html#a8360d5c28dde01e3b896d6b601d5ce20" title="arc::NcursesGraphical\l::getColor" alt="" coords="221,136,385,177"/>
+<area shape="rect" id="node5" href="$classarc_1_1_ncurses_graphical.html#aa390f21b6ee669caf7f4e48e49920eaa" title="arc::NcursesGraphical\l::getPairColor" alt="" coords="221,201,385,243"/>
+</map>

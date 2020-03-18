@@ -1,4 +1,4 @@
-<map id="graphics/lib_arcade_sfml/include/Button/BasicButtonOutline.hpp" name="graphics/lib_arcade_sfml/include/Button/BasicButtonOutline.hpp">
+<map id="lib/lib_arcade_sfml/include/Button/BasicButtonOutline.hpp" name="lib/lib_arcade_sfml/include/Button/BasicButtonOutline.hpp">
 <area shape="rect" id="node2" href="$_basic_button_8hpp.html" title="Button/BasicButton.hpp" alt="" coords="245,109,419,136"/>
 <area shape="rect" id="node10" href="$_smooth_shifting_8hpp.html" title="Color/SmoothShifting.hpp" alt="" coords="45,184,233,211"/>
 <area shape="rect" id="node3" href="$_a_button_8hpp.html" title="Button/AButton.hpp" alt="" coords="257,184,407,211"/>

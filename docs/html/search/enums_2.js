@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['orientation',['Orientation',['../namespacearc.html#a1759394e274827127f1f9a8b1eead526',1,'arc']]]
+  ['entitytype',['EntityType',['../namespacearc.html#a522a1db2387463e368d680e3b1fe392c',1,'arc']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['type',['Type',['../namespacearc_1_1_event.html#a93c5eedc3af4e1e09d2e44c4985cd15d',1,'arc::Event']]]
+  ['orientation',['Orientation',['../namespacearc.html#a1759394e274827127f1f9a8b1eead526',1,'arc']]]
 ];

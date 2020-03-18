@@ -1,4 +1,4 @@
 <map id="MySf::Button::AButton" name="MySf::Button::AButton">
 <area shape="rect" id="node2" href="$class_my_sf_1_1_button_1_1_i_button.html" title="MySf::Button::IButton" alt="" coords="5,5,165,32"/>
-<area shape="rect" id="node3" href="$struct_my_sf_1_1_button_1_1_tri_color.html" title="MySf::Button::TriColor" alt="" coords="189,5,352,32"/>
+<area shape="rect" id="node3" href="$struct_my_sf_1_1_button_1_1_button_color.html" title="MySf::Button::ButtonColor" alt="" coords="190,5,381,32"/>
 </map>

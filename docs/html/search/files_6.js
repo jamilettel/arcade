@@ -1,4 +1,10 @@
 var searchData=
 [
-  ['main_2ecpp',['main.cpp',['../core_2src_2main_8cpp.html',1,'(Global Namespace)'],['../games_2lib__arcade__centipede_2src_2main_8cpp.html',1,'(Global Namespace)'],['../graphics_2lib__arcade__libcaca_2src_2main_8cpp.html',1,'(Global Namespace)']]]
+  ['ibutton_2ehpp',['IButton.hpp',['../_i_button_8hpp.html',1,'']]],
+  ['icolor_2ehpp',['IColor.hpp',['../_i_color_8hpp.html',1,'']]],
+  ['igame_2ehpp',['IGame.hpp',['../_i_game_8hpp.html',1,'']]],
+  ['igraphical_2ehpp',['IGraphical.hpp',['../_i_graphical_8hpp.html',1,'']]],
+  ['inputzone_2ecpp',['InputZone.cpp',['../_input_zone_8cpp.html',1,'']]],
+  ['inputzone_2ehpp',['InputZone.hpp',['../_input_zone_8hpp.html',1,'']]],
+  ['iscene_2ehpp',['IScene.hpp',['../lib__arcade__ncurses_2include_2_i_scene_8hpp.html',1,'(Global Namespace)'],['../lib__arcade__sfml_2include_2_scene_2_i_scene_8hpp.html',1,'(Global Namespace)']]]
 ];

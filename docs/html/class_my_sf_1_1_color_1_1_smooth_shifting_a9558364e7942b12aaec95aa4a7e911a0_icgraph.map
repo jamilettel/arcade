@@ -1,0 +1,7 @@
+<map id="MySf::Color::SmoothShifting::setColor" name="MySf::Color::SmoothShifting::setColor">
+<area shape="rect" id="node2" href="$class_my_sf_1_1_input_zone.html#af840a705630a255159754cf69bca0898" title="MySf::InputZone::setText\lColor" alt="" coords="283,5,465,47"/>
+<area shape="rect" id="node3" href="$class_my_sf_1_1_input_zone.html#af249e37670dab5ebf8cfa0538885dd5c" title="MySf::InputZone::setBackground\lColor" alt="" coords="257,71,491,112"/>
+<area shape="rect" id="node4" href="$class_my_sf_1_1_input_zone.html#aa6dd665538830408248abd8c34c59b40" title="MySf::InputZone::setPlace\lHolderColor" alt="" coords="279,136,469,177"/>
+<area shape="rect" id="node5" href="$class_my_sf_1_1_input_zone.html#ac767868bb0a1f08754eaef2259947bde" title="MySf::InputZone::draw" alt="" coords="290,202,458,229"/>
+<area shape="rect" id="node6" href="$classarc_1_1_main_menu_scene.html#ab12f8f4b33a270da7b99bfa146509f79" title="arc::MainMenuScene\l::draw" alt="" coords="539,195,693,236"/>
+</map>
