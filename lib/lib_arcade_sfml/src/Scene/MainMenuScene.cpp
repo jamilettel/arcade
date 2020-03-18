@@ -106,6 +106,11 @@ void MainMenuScene::setListGames(const std::vector<std::string> &games,
     _gamesList->setSize(sf::Vector2f(500, 0));
 }
 
+void MainMenuScene::setUsername(const std::string &username)
+{
+    _usernameInputZone.setInput(username);
+}
+
 const std::string &MainMenuScene::getUsername()
 {
     return (_usernameInputZone.getAnsiInput());

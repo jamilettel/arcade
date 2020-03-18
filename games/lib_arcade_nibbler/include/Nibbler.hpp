@@ -25,7 +25,6 @@ namespace arc {
 
         size_t getMapHeight() const override;
         size_t getMapWidth() const override;
-        const std::string &getFont() const override ;
         const std::string &getMusic() const override ;
         const std::string &getSound() const override ;
         const std::string &getScore() override ;
@@ -50,7 +49,6 @@ namespace arc {
         std::vector<std::pair<std::string, std::string>> _gameControlsFormat;
         std::vector<std::shared_ptr<Entity>> _entities;
         std::vector<std::string> _gameStatsFormat;
-        std::string _font;
         std::string _music;
         std::string _sound;
         std::string _scoreString;

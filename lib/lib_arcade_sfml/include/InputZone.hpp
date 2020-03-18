@@ -45,6 +45,7 @@ namespace MySf {
         void setOutlineColor(const sf::Color &focused, const sf::Color &unfocused);
 
         const std::string &getAnsiInput();
+        void setInput(const std::string &input);
 
     private:
         void addChar(sf::Uint32 c);

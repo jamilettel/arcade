@@ -52,6 +52,8 @@ namespace arc {
         void setFunctionTogglePause(const std::function<void()> &function) override;
 
         const std::string &getUsername() override;
+        void setUsername(const std::string &name) override;
+
         Scene getScene() const override;
         void setScene(Scene scene) override;
 
@@ -60,8 +62,6 @@ namespace arc {
         void setFont(const std::string &font) override;
         void setVisualAssets(const std::map<char, std::pair<std::string, Color>> &sprites) override;
         void updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap) override;
-        void setMusic(const std::string &music) override;
-        void playSound(const std::string &sound) override;
 
         void setMapSize(size_t height, size_t width) override;
         void setGameTitle(const std::string &game) override;

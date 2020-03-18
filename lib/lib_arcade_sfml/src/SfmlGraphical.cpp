@@ -257,6 +257,11 @@ const std::string &SfmlGraphical::getUsername()
     return (static_cast<MainMenuScene *>(_scenes.at(MAIN_MENU).get())->getUsername());
 }
 
+void SfmlGraphical::setUsername(const std::string &name)
+{
+    static_cast<MainMenuScene *>(_scenes.at(MAIN_MENU).get())->setUsername(name);
+}
+
 void SfmlGraphical::setHowToPlay(const std::vector<std::pair<std::string,std::string>> &info)
 {
 }
@@ -268,18 +273,6 @@ void SfmlGraphical::setGameStatsFormatString(const std::vector<std::string> &inf
 void SfmlGraphical::updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap)
 {
     static_cast<GameScene *>(_scenes.at(GAME).get())->updateGameInfo(gameMap);
-}
-
-void SfmlGraphical::setMusic(const std::string &music)
-{
-    if (_music.openFromFile(music)) {
-        _music.setLoop(true);
-        _music.play();
-    }
-}
-
-void SfmlGraphical::playSound(const std::string &)
-{
 }
 
 void SfmlGraphical::setListGames(const std::vector<std::string> &games,

@@ -38,6 +38,7 @@ namespace arc {
         void setScores(const std::vector<std::pair<std::string, std::string>> &scores);
 
         const std::string &getUsername();
+        void setUsername(const std::string &username);
 
     private:
         SfmlGraphical &_lib;

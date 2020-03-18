@@ -308,11 +308,6 @@ const std::string &arc::Nibbler::getMusic() const
     return _music;
 }
 
-const std::string &arc::Nibbler::getFont() const
-{
-    return _font;
-}
-
 const std::string &arc::Nibbler::getSound() const
 {
     return _sound;

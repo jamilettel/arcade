@@ -44,6 +44,8 @@ namespace arc {
             virtual void setFunctionTogglePause(const std::function<void()> &function) = 0;
 
             virtual const std::string &getUsername() = 0;
+            virtual void setUsername(const std::string &username) = 0;
+
             virtual Scene getScene() const = 0;
             virtual void setScene(Scene scene) = 0;
 
@@ -52,8 +54,6 @@ namespace arc {
             virtual void setFont(const std::string &font) = 0;
             virtual void setVisualAssets(const std::map<char, std::pair<std::string, Color>> &sprites) = 0;
             virtual void updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap) = 0;
-            virtual void setMusic(const std::string &music) = 0;
-            virtual void playSound(const std::string &sound) = 0;
 
             virtual void setMapSize(size_t height, size_t width) = 0;
             virtual void setGameTitle(const std::string &game) = 0;

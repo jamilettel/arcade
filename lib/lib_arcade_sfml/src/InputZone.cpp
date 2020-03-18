@@ -200,3 +200,8 @@ const std::string &InputZone::getAnsiInput()
     _stringContent = _content.toAnsiString();
     return (_stringContent);
 }
+
+void InputZone::setInput(const std::string &input)
+{
+    _content = input;
+}
