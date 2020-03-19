@@ -5,7 +5,7 @@
 ## Makefile
 ##
 
-NAME	=	libMySf.so
+NAME	=	libMySf.a
 
 SRC	=\
 		src/Error.cpp	\
