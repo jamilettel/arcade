@@ -130,13 +130,15 @@ void NcursesGame::displayGameInfo()
         _lib.initPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}));
         wattron(_windows["Infos"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
     }
-    for (const std::string &stat : *_gameStats) {
-        if (i == 7) {
-            j += 30;
-            i = 1;
+    if (_gameStats.has_value()) {
+        for (const std::string &stat : *_gameStats) {
+            if (i == 7) {
+                j += 30;
+                i = 1;
+            }
+            mvwprintw(_windows["Infos"], i, 1 + j, stat.c_str());
+            i++;
         }
-        mvwprintw(_windows["Infos"], i, 1 + j, stat.c_str());
-        i++;
     }
     wattroff(_windows["Infos"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
 }
@@ -165,16 +167,19 @@ void NcursesGame::displayCommands()
         _lib.initPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}));
         wattron(_windows["Commands"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
     }
-
-    for (const std::pair<std::string, std::string> &control : *_controls) {
-        if (i == 7) {
-            j += 30;
-            i = 1;
+    if (_controls.has_value()) {
+        for (const std::pair<std::string, std::string> &control : *_controls) {
+            if (i == 7) {
+                j += 30;
+                i = 1;
+            }
+            mvwprintw(_windows["Commands"], i, 1 + j, control.first.c_str());
+            mvwprintw(_windows["Commands"], i, control.first.length() + 2 + j,
+                      ":");
+            mvwprintw(_windows["Commands"], i, control.first.length() + 4 + j,
+                      control.second.c_str());
+            i++;
         }
-        mvwprintw(_windows["Commands"], i, 1 + j, control.first.c_str());
-        mvwprintw(_windows["Commands"], i, control.first.length() + 2 + j, ":");
-        mvwprintw(_windows["Commands"], i, control.first.length() + 4 + j, control.second.c_str());
-        i++;
     }
     wattroff(_windows["Commands"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
 }
