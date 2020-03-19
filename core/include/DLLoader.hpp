@@ -31,6 +31,7 @@ namespace arc {
             }
             if (!_handle) {
                 errorMessage = "Could not load dynamic library '" + libpath + "'" + errorMessage;
+                std::cerr << errorMessage << std::endl;
                 throw DLLoaderError(errorMessage);
             }
             _ctor = reinterpret_cast<T *(*)()>(dlsym(_handle, constructor.c_str()));

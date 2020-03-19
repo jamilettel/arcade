@@ -8,7 +8,7 @@
 #ifndef ACOLOR_HPP_
 #define ACOLOR_HPP_
 
-#include "Color/IColor.hpp"
+#include "MySf/Color/IColor.hpp"
 
 namespace MySf {
 

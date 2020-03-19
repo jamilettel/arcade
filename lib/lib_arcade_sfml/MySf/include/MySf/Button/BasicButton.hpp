@@ -8,8 +8,8 @@
 #ifndef BASICBUTTON_HPP_
 #define BASICBUTTON_HPP_
 
-#include "Button/AButton.hpp"
-#include "Color/SmoothShifting.hpp"
+#include "MySf/Button/AButton.hpp"
+#include "MySf/Color/SmoothShifting.hpp"
 #include <iostream>
 
 namespace MySf {

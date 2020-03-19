@@ -5,7 +5,7 @@
 ** Color utils
 */
 
-#include "Color/Utils.hpp"
+#include "MySf/Color/Utils.hpp"
 
 using namespace MySf::Color;
 

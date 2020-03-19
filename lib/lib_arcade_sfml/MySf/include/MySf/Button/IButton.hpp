@@ -10,7 +10,7 @@
 #define IBUTTON_HPP_
 
 #include <SFML/Graphics.hpp>
-#include "Color/IColor.hpp"
+#include "MySf/Color/IColor.hpp"
 #include <functional>
 
 namespace MySf {

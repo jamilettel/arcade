@@ -9,10 +9,10 @@
 #define SFML_GRAPHICAL_HPP_
 
 #include "Scene/IScene.hpp"
-#include "InputZone.hpp"
+#include "MySf/InputZone.hpp"
 #include "IGraphical.hpp"
 #include <SFML/Graphics.hpp>
-#include "Button/RectButton.hpp"
+#include "MySf/Button/RectButton.hpp"
 #include <SFML/Audio.hpp>
 
 #define BUTTON_COLOR MySf::Button::ButtonColor(sf::Color(0x0a0a0aff),\

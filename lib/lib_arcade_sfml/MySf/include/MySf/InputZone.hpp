@@ -8,7 +8,7 @@
 #ifndef INPUT_ZONE_HPP_
 #define INPUT_ZONE_HPP_
 
-#include "Color/SmoothShifting.hpp"
+#include "MySf/Color/SmoothShifting.hpp"
 #include <SFML/Graphics.hpp>
 #include <memory>
 
