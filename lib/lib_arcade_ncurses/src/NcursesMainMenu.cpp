@@ -241,9 +241,9 @@ void NcursesMainMenu::promptUsername()
     int ch;
     _userField[0] = new_field(1, 20, LINES / 2, COLS / 2 - 10, 0, 0);
     _userField[1] = nullptr;
-
-    set_field_back(_userField[0], A_UNDERLINE);
-    field_opts_off(_userField[0], O_AUTOSKIP);
+    
+    set_field_opts(_userField[1], O_VISIBLE | O_PUBLIC | O_EDIT | O_ACTIVE);
+    set_field_back(_userField[1], A_UNDERLINE);
 
     _userForm = new_form(_userField);
     post_form(_userForm);
@@ -271,6 +271,8 @@ void NcursesMainMenu::promptUsername()
 
     while((ch = getch()) != 27) {
         if (ch == 10) {
+            form_driver(_userForm, REQ_NEXT_FIELD);
+            form_driver(_userForm, REQ_PREV_FIELD);
             std::string username(field_buffer(_userField[0], 0));
             username.erase(std::remove_if(username.begin(), username.end(), isspace), username.end());
             _lib.setUsername(username);

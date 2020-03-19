@@ -43,6 +43,7 @@ namespace arc {
             void displayEntities();
             void displayCommands();
             void displayGameInfo();
+            void displayUserName();
 
         private:
             std::pair<size_t, size_t> _mapSize;

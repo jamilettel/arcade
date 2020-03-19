@@ -37,6 +37,7 @@ void NcursesGame::display()
 {
     erase();
     this->displayTitleGame();
+    this->displayUserName();
     this->displayMap();
     this->displayCommands();
     this->displayGameInfo();
@@ -176,8 +177,7 @@ void NcursesGame::displayCommands()
                 i = 1;
             }
             mvwprintw(_windows["Commands"], i, 1 + j, control.first.c_str());
-            mvwprintw(_windows["Commands"], i, control.first.length() + 2 + j,
-                      ":");
+            mvwprintw(_windows["Commands"], i, control.first.length() + 2 + j, ":");
             mvwprintw(_windows["Commands"], i, control.first.length() + 4 + j,
                       control.second.c_str());
             i++;
@@ -209,4 +209,21 @@ void NcursesGame::updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gam
 void NcursesGame::setGameStatsFormatString(const std::vector<std::pair<std::string, std::string>> &gameStats)
 {
     _gameStats = gameStats;
+}
+
+void NcursesGame::displayUserName()
+{
+    delwin(_windows["Username"]);
+    _windows["Username"] = subwin(stdscr, 5, 30, 2, 20);
+    if (supportColor()) {
+        _lib.addColor({250, 233, 77, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["Username"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+        wbkgd(_windows["Username"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
+    box(_windows["Username"], 0, 0);
+    mvwprintw(_windows["Username"], 0, 0, "Username");
+    mvwprintw(_windows["Username"], 2, 30 / 2 - _lib.getUsername().length() / 2, _lib.getUsername().c_str());
+    wattroff(_windows["Username"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
 }
