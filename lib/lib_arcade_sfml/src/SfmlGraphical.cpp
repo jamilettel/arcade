@@ -113,17 +113,6 @@ void SfmlGraphical::loadSprite(const std::string &spritePath, const Color &color
         _sprites[spritePath].setTexture(_textures[spritePath]);
 }
 
-sf::Sprite &SfmlGraphical::getSprite(char sprite, const sf::Vector2f &size)
-{
-    if (_spriteMap.count(sprite))
-        return (getSprite(_spriteMap.at(sprite).first, size, Color()));
-
-    std::string errorMessage = "could not find sprite associated with char '";
-    errorMessage += sprite;
-    errorMessage += "'";
-    throw SfmlError(errorMessage);
-}
-
 sf::Sprite &SfmlGraphical::getSprite(const std::string &sprite,
                                      const sf::Vector2f &size,
                                      const Color &color)
@@ -207,17 +196,6 @@ SfmlGraphical::Scene SfmlGraphical::getScene() const
     return (_scene);
 }
 
-void SfmlGraphical::setVisualAssets(const std::map<char, std::pair<std::string, Color>> &assets)
-{
-    _spriteMap = assets;
-    std::for_each(assets.begin(), assets.end(),
-                  [this] (const std::pair<char, std::pair<std::string, Color>> &it) {
-                      if (!_textures[it.second.first].loadFromFile(it.second.first))
-                          throw SfmlError("could not load texture '" + it.second.first + "'");
-                      _sprites[it.second.first].setTexture(_textures[it.second.first]);
-                  });
-}
-
 void SfmlGraphical::setFont(const std::string &font)
 {
     sf::FloatRect gameTitleBounds;
@@ -266,7 +244,7 @@ void SfmlGraphical::setHowToPlay(const std::vector<std::pair<std::string,std::st
 {
 }
 
-void SfmlGraphical::setGameStatsFormatString(const std::vector<std::string> &info)
+void SfmlGraphical::setGameStats(const std::vector<std::string> &info)
 {
 }
 

@@ -28,13 +28,12 @@ namespace arc {
         [[nodiscard]] const std::string &getMusic() const override ;
         [[nodiscard]] const std::string &getSound() const override ;
         const std::string &getScore() override ;
-        [[nodiscard]] const std::map<char, std::pair<std::string, Color>> &getVisualAssets() const override ;
         [[nodiscard]] const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &getControls() const override;
 
         [[nodiscard]] const std::vector<std::shared_ptr<Entity>> &getEntities() const override ;
 
-        [[nodiscard]] const std::vector<std::pair<std::string, std::string>> &getGameControlsFormatString() const override;
-        [[nodiscard]] const std::vector<std::string> &getGameStatsFormatString() const override;
+        [[nodiscard]] const std::vector<std::pair<std::string, std::string>> &getGameControls() const override;
+        [[nodiscard]] const std::vector<std::string> &getGameStats() const override;
 
         void restart() override;
         void updateGame() override;

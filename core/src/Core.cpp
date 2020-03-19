@@ -39,7 +39,7 @@ void Core::loadGameLibrary(const std::string &gamePath)
     _currentGame = gamePath;
     _graphical->setControls(_game->getControls());
     _graphical->setHowToPlay(getControls());
-    _graphical->setGameStatsFormatString(_game->getGameStatsFormatString());
+    _graphical->setGameStats(_game->getGameStats());
     _game->getEntities();
     _graphical->setMapSize(_game->getMapHeight(), _game->getMapWidth());
     _graphical->setGameTitle(_game->getTitle());
@@ -57,8 +57,8 @@ std::vector<std::pair<std::string, std::string>> Core::getControls() const
     controls.emplace_back("Quit Arcade", "Escape");
     controls.emplace_back("Return to Menu", "M");
     if (_game != nullptr) {
-        controls.insert(controls.end(), _game->getGameControlsFormatString().begin(),
-                        _game->getGameControlsFormatString().end());
+        controls.insert(controls.end(), _game->getGameControls().begin(),
+                        _game->getGameControls().end());
     }
     return (controls);
 }
@@ -83,7 +83,7 @@ void Core::loadGraphicalLibrary(const std::string &libPath)
         _graphical->setMapSize(_game->getMapHeight(), _game->getMapWidth());
         _graphical->setGameTitle(_game->getTitle());
         _graphical->setHowToPlay(getControls());
-        _graphical->setGameStatsFormatString(_game->getGameStatsFormatString());
+        _graphical->setGameStats(_game->getGameStats());
     }
     sendListsToGraphicalLib();
 }
@@ -216,7 +216,7 @@ void Core::run()
         if (_scene == IGraphical::GAME && _game != nullptr) {
             _game->updateGame();
             _graphical->updateGameInfo(_game->getEntities());
-            _graphical->setGameStatsFormatString(_game->getGameStatsFormatString());
+            _graphical->setGameStats(_game->getGameStats());
         }
         if (_generalControls.count(std::pair<Event::Type, Event::Key>(_graphical->getEventType(), _graphical->getKeyPressed()))) {
             _generalControls.at(std::pair<Event::Type, Event::Key>(_graphical->getEventType(), _graphical->getKeyPressed()))();

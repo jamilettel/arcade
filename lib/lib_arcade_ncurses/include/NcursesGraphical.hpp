@@ -40,9 +40,8 @@ namespace arc {
         void setScene(Scene scene) override;
 
         void setHowToPlay(const std::vector<std::pair<std::string, std::string>> &info) override;
-        void setGameStatsFormatString(const std::vector<std::string> &info) override;
+        void setGameStats(const std::vector<std::string> &info) override;
         void setFont(const std::string &font) override;
-        void setVisualAssets(const std::map<char, std::pair<std::string, Color>> &sprites) override;
         void updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap) override;
 
         void setMapSize(size_t height, size_t width) override;

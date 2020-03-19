@@ -206,7 +206,7 @@ std::optional<std::vector<std::pair<std::string, std::string>>>& NcursesGraphica
     return _controlsString;
 }
 
-void NcursesGraphical::setGameStatsFormatString(const std::vector<std::string> &info)
+void NcursesGraphical::setGameStats(const std::vector<std::string> &info)
 {
     dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->setGameStatsFormatString(info);
 }
@@ -214,11 +214,6 @@ void NcursesGraphical::setGameStatsFormatString(const std::vector<std::string> &
 void NcursesGraphical::setFont(const std::string &font)
 {
     (void)font;
-}
-
-void NcursesGraphical::setVisualAssets(const std::map<char, std::pair<std::string, Color> > &sprites)
-{
-
 }
 
 void NcursesGraphical::updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap)

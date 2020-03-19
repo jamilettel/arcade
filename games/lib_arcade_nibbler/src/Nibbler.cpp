@@ -326,19 +326,14 @@ void arc::Nibbler::updateStats()
     _gameStats.emplace_back(std::string("Fruits on the map : " + std::to_string(_fruits.size())));
 }
 
-const std::vector<std::string> & arc::Nibbler::getGameStatsFormatString() const
+const std::vector<std::string> & arc::Nibbler::getGameStats() const
 {
     return _gameStats;
 }
 
-const std::vector<std::pair<std::string, std::string> > & arc::Nibbler::getGameControlsFormatString() const
+const std::vector<std::pair<std::string, std::string> > & arc::Nibbler::getGameControls() const
 {
     return _gameControlsFormat;
-}
-
-const std::map<char, std::pair<std::string, arc::Color>> &arc::Nibbler::getVisualAssets() const
-{
-    return _visualAssets;
 }
 
 const std::string &arc::Nibbler::getTitle() const
