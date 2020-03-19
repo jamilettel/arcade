@@ -40,6 +40,8 @@ namespace arc {
         const std::string &getUsername();
         void setUsername(const std::string &username);
 
+        void setHowToPlay(const std::vector<std::pair<std::string,std::string>> &info);
+
     private:
         SfmlGraphical &_lib;
         sf::RenderWindow &_window;
@@ -56,6 +58,11 @@ namespace arc {
         std::vector<std::unique_ptr<MySf::Button::IButton>> _gameLibs;
 
         sf::Text _title;
+
+        std::vector<std::string> _howToPlayDesc;
+        std::vector<std::string> _howToPlayKey;
+
+        MySf::BasicList _howToPlayList;
 
     };
 

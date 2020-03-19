@@ -82,7 +82,8 @@ const std::map<sf::Keyboard::Key, Event::Key> SfmlGraphical::_equivalentKeys = {
 };
 
 SfmlGraphical::SfmlGraphical():
-    _window(sf::VideoMode(1600, 900), "Arcade", sf::Style::Close), _eventType(Event::NO_EVENT),
+    _window(sf::VideoMode(1600, 900), "Arcade", sf::Style::Close),
+    _eventType(Event::NO_EVENT),
     _keyPressed(Event::NONE), _scene(MAIN_MENU)
 {
     _window.setFramerateLimit(60);
@@ -242,6 +243,7 @@ void SfmlGraphical::setUsername(const std::string &name)
 
 void SfmlGraphical::setHowToPlay(const std::vector<std::pair<std::string,std::string>> &info)
 {
+    static_cast<MainMenuScene *>(_scenes.at(MAIN_MENU).get())->setHowToPlay(info);
 }
 
 void SfmlGraphical::setGameStats(const std::vector<std::pair<std::string, std::string>> &info)

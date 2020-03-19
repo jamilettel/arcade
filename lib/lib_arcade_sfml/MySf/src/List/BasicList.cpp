@@ -61,6 +61,7 @@ BasicList::BasicList(sf::RenderWindow &window,
     rect = _buttonUp.getText().getGlobalBounds();
     _buttonUp.getText().setRotation(90);
     _buttonDown.getText().setRotation(90);
+    setListPosition(0);
 }
 
 void BasicList::scroll(int to)
@@ -178,7 +179,6 @@ void BasicList::setDrawableObjects()
     sf::Vector2f wantedPosition(_pos.x + _elementSize.x/2 - textBounds.width / 2,
                                 _pos.y + _elementSize.y/2 - size / 2.5);
     _title.move(wantedPosition.x - textBounds.left, wantedPosition.y - textBounds.top);
-    // _title.setPosition(wantedPosition);
 
     _elementBackground.setSize(sf::Vector2f(_size.x, 50));
     _elementText.setFillColor(_textColor);
@@ -220,7 +220,7 @@ float BasicList::getWidth() const
 void BasicList::setList(const std::vector<std::string> &list)
 {
     AList::setList(list);
-    _position = 0;
+    setListPosition(0);
 }
 
 int BasicList::getNbDisplayed() const

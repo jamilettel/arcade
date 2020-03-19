@@ -14,20 +14,29 @@ MainMenuScene::MainMenuScene(sf::RenderWindow &window,
                              SfmlGraphical &lib):
     _lib(lib), _window(window), _font(font),
     _usernameInputZone(_window,
-                       sf::Vector2f(1050, 25),
+                       sf::Vector2f(1050, 50),
                        sf::Vector2f(500, 50),
                        _font,
-                       "Username")
+                       "Username"),
+    _title("Arcade", font),
+    _howToPlayList(window, _howToPlayDesc, "Action", _font, 5)
 {
     _exitButton = std::make_unique<MySf::Button::RectButton>(
         _window,
-        sf::Vector2f(100, 160),
-        sf::Vector2f(200, 50),
+        sf::Vector2f(100, 250),
+        sf::Vector2f(250, 60),
         _font,
         BUTTON_COLOR,
         TEXT_COLOR,
         "Exit",
         [this] () {_window.close();});
+    _title.setPosition(550, 0);
+    _title.setCharacterSize(128);
+    _title.setOutlineThickness(3);
+    _title.setOutlineColor(sf::Color::Black);
+    _howToPlayList.addColumn<MySf::BasicList>(window, _howToPlayKey, "Key", _font, 5);
+    _howToPlayList.setPos(sf::Vector2f(100, 400));
+    _howToPlayList.setSize(sf::Vector2f(300, 0));
 }
 
 void MainMenuScene::draw()
@@ -40,19 +49,22 @@ void MainMenuScene::draw()
         _gamesList->draw();
     if (_graphicalList != nullptr)
         _graphicalList->draw();
+    _window.draw(_title);
+    _howToPlayList.draw();
 }
 
 void MainMenuScene::update(const sf::Event &event)
 {
     _usernameInputZone.update(event);
+    _howToPlayList.update(event);
 }
 
 void MainMenuScene::setFunctionPlay(const std::function<void ()> &function)
 {
     _playButton = std::make_unique<MySf::Button::RectButton>(
         _window,
-        sf::Vector2f(100, 100),
-        sf::Vector2f(200, 50),
+        sf::Vector2f(100, 180),
+        sf::Vector2f(250, 60),
         _font,
         BUTTON_COLOR,
         TEXT_COLOR,
@@ -65,7 +77,7 @@ void MainMenuScene::setListLibraries(const std::vector<std::string> &libraries,
                                      const std::function<void (const std::string &)> &fct,
                                      int chosen)
 {
-    sf::Vector2f pos(1050, 100);
+    sf::Vector2f pos(1050, 125);
 
     _graphicalList.release();
     _graphicalList = std::make_unique<MySf::ButtonList>(
@@ -86,7 +98,7 @@ void MainMenuScene::setListGames(const std::vector<std::string> &games,
                                  const std::function<void (const std::string &)> &fct,
                                  int chosen)
 {
-    sf::Vector2f pos(500, 100);
+    sf::Vector2f pos(500, 175);
 
     _gamesList.release();
     _gamesList = std::make_unique<MySf::ButtonList>(
@@ -98,7 +110,7 @@ void MainMenuScene::setListGames(const std::vector<std::string> &games,
         },
         "Games",
         _font,
-        3,
+        2,
         chosen);
     if (chosen >= 0 && chosen < static_cast<int>(games.size()))
         _playButton->setActivation(true);
@@ -114,4 +126,21 @@ void MainMenuScene::setUsername(const std::string &username)
 const std::string &MainMenuScene::getUsername()
 {
     return (_usernameInputZone.getAnsiInput());
+}
+
+void MainMenuScene::setHowToPlay(const std::vector<std::pair<std::string,std::string>> &info)
+{
+    _howToPlayDesc.clear();
+    _howToPlayKey.clear();
+    _howToPlayDesc.reserve(info.size());
+    _howToPlayKey.reserve(info.size());
+    std::for_each(info.begin(), info.end(),
+                  [this] (const std::pair<std::string, std::string> &pair) {
+                      _howToPlayDesc.emplace_back(pair.first);
+                      _howToPlayKey.emplace_back(pair.second);
+                  });
+    _howToPlayList.setPos(sf::Vector2f(100, 400));
+    _howToPlayList.setSize(sf::Vector2f(300, 0));
+    _howToPlayList.getColumn(0).setList(_howToPlayDesc);
+    _howToPlayList.getColumn(1).setList(_howToPlayKey);
 }
