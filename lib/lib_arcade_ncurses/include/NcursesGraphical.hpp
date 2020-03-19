@@ -54,10 +54,8 @@ namespace arc {
         Event::Type _eventType;
         Event::Key _keyPressed;
         std::vector<std::pair<std::string,std::string>> _scores;
-        std::optional<const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>>> _controlsMap;
         Scene _scene;
         std::string _username;
-        std::string _gameTitle;
         std::optional<std::vector<std::pair<std::string, std::string>>> _controlsString;
     public:
         std::optional<std::function<void()>> _playFct;
