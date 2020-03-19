@@ -8,6 +8,7 @@
 #ifndef OOP_ARCADE_2019_NCURSESMAINMENU_HPP
 #define OOP_ARCADE_2019_NCURSESMAINMENU_HPP
 
+#include <form.h>
 #include "IScene.hpp"
 #include "NcursesGraphical.hpp"
 
@@ -31,6 +32,8 @@ namespace arc
             void displayMenuGames();
             void displayMenuGraphics();
             void displayInfo();
+            void displayCommandUsername();
+            void promptUsername();
 
 
         private:
@@ -38,6 +41,8 @@ namespace arc
             std::map<std::string, WINDOW*> _windows;
             bool _termColor;
             int _activeMenu;
+            FIELD *_userField[2];
+            FORM *_userForm;
             std::optional<std::vector<std::string>> _listGames;
             unsigned int _chosenGame;
             std::optional<std::function<void (const std::string&)>> _ftGames;

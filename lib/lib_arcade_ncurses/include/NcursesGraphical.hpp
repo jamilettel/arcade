@@ -75,7 +75,6 @@ namespace arc {
     private:
         /* COLORS */
         bool supportColor() const;
-        void initColor() const;
     private:
         std::map<Scene, std::shared_ptr<IScene>> _sceneList;
         bool _termColor;
@@ -83,21 +82,6 @@ namespace arc {
         std::map<Color, short> _colorIndex;
         std::map<std::pair<short, short>, short> _pairColorIndex;
 
-    };
-
-    enum COLOR_PAIR
-    {
-        GREEN_BLACK = 1,
-        RED_BLACK,
-        BLACK_BLUE,
-        GREEN_BLUE,
-        RED_BLUE,
-        RED_WHITE,
-        YELLOW_BLUE,
-        WHITE_WHITE,
-        GREEN_WHITE,
-        CYAN_WHITE,
-        WHITE_CYAN,
     };
 }
 

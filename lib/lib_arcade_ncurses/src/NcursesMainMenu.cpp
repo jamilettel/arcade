@@ -34,6 +34,7 @@ void NcursesMainMenu::display()
 {
     erase();
     this->displayMainTitle();
+    this->displayCommandUsername();
     this->displayMenuGames();
     this->displayMenuGraphics();
     this->displayInfo();
@@ -67,6 +68,9 @@ void NcursesMainMenu::update()
     }
     if (event.second == Event::Key::ENTER && _activeMenu == 2) {
         _ftGraphics.value()(_listGraphics->at(_chosenGraphics));
+    }
+    if (event.second == Event::Key::U) {
+        this->promptUsername();
     }
 }
 
@@ -216,4 +220,69 @@ void NcursesMainMenu::displayInfo()
         i++;
     }
     wattroff(_windows["InfoBox"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
+}
+
+void NcursesMainMenu::displayCommandUsername()
+{
+    if (supportColor()) {
+        _lib.addColor({234, 234, 234, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(stdscr, COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
+    wattron(stdscr, A_REVERSE);
+    mvwprintw(stdscr, 15, COLS / 2 - 29 / 2, "Press U to choose a username.");
+    wattroff(stdscr, A_REVERSE);
+    wattroff(stdscr, COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
+}
+
+void NcursesMainMenu::promptUsername()
+{
+    int ch;
+    _userField[0] = new_field(1, 20, LINES / 2, COLS / 2 - 10, 0, 0);
+    _userField[1] = nullptr;
+
+    set_field_back(_userField[0], A_UNDERLINE);
+    field_opts_off(_userField[0], O_AUTOSKIP);
+
+    _userForm = new_form(_userField);
+    post_form(_userForm);
+    refresh();
+    mvprintw(LINES / 2, COLS / 2 - 20, "Username:");
+
+    if (supportColor()) {
+        _lib.addColor({250, 233, 77, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}));
+        attron(COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
+    mvprintw(3, COLS / 2 - 153 / 2, " ________           __                                                                                                                                  ");
+    mvprintw(4, COLS / 2 - 153 / 2, "|        \\         |  \\                                                                                                                                 ");
+    mvprintw(5, COLS / 2 - 153 / 2, "| $$$$$$$$_______ _| $$_    ______    ______          ______         __    __   _______   ______    ______   _______    ______   ______ ____    ______  ");
+    mvprintw(6, COLS / 2 - 153 / 2, "| $$__   |       \\   $$ \\  /      \\  /      \\        |      \\       |  \\  |  \\ /       \\ /      \\  /      \\ |       \\  |      \\ |      \\    \\  /      \\ ");
+    mvprintw(7, COLS / 2 - 153 / 2, "| $$  \\  | $$$$$$$\\$$$$$$ |  $$$$$$\\|  $$$$$$\\        \\$$$$$$\\      | $$  | $$|  $$$$$$$|  $$$$$$\\|  $$$$$$\\| $$$$$$$\\  \\$$$$$$\\| $$$$$$\\$$$$\\|  $$$$$$\\");
+    mvprintw(8, COLS / 2 - 153 / 2, "| $$$$$  | $$  | $$| $$ __| $$    $$| $$   \\$$       /      $$      | $$  | $$ \\$$    \\ | $$    $$| $$   \\$$| $$  | $$ /      $$| $$ | $$ | $$| $$    $$");
+    mvprintw(9, COLS / 2 - 153 / 2, "| $$_____| $$  | $$| $$|  \\ $$$$$$$$| $$            |  $$$$$$$      | $$__/ $$ _\\$$$$$$\\| $$$$$$$$| $$      | $$  | $$|  $$$$$$$| $$ | $$ | $$| $$$$$$$$");
+    mvprintw(10, COLS / 2 - 153 / 2, "| $$     \\ $$  | $$ \\$$  $$\\$$     \\| $$             \\$$    $$       \\$$    $$|       $$ \\$$     \\| $$      | $$  | $$ \\$$    $$| $$ | $$ | $$ \\$$     \\");
+    mvprintw(11, COLS / 2 - 153 / 2, " \\$$$$$$$$\\$$   \\$$  \\$$$$  \\$$$$$$$ \\$$              \\$$$$$$$        \\$$$$$$  \\$$$$$$$   \\$$$$$$$ \\$$       \\$$   \\$$  \\$$$$$$$ \\$$  \\$$  \\$$  \\$$$$$$$");
+    mvprintw(40, COLS / 2 - 26 / 2, "Enter to validate");
+    mvprintw(42, COLS / 2 - 28 / 2, "Escape : Go back to Menu");
+    attroff(COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+
+    while((ch = getch()) != 27) {
+        if (ch == 10) {
+            std::string username(field_buffer(_userField[0], 0));
+            username.erase(std::remove_if(username.begin(), username.end(), isspace), username.end());
+            _lib.setUsername(username);
+            break;
+        } else if (ch == 127 || ch == KEY_BACKSPACE) {
+            form_driver(_userForm, REQ_DEL_PREV);
+        } else {
+            form_driver(_userForm, ch);
+        }
+    }
+
+    unpost_form(_userForm);
+    free_form(_userForm);
+    free_field(_userField[0]);
 }

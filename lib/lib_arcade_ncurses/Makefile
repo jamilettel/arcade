@@ -28,7 +28,7 @@ RM	=	@rm -f
 
 CXX	=	g++
 
-LDFLAGS	=	-ldl -lstdc++fs -lncurses -lmenu -lpanel -shared
+LDFLAGS	=	-ldl -lstdc++fs -lncurses -lform -shared
 
 TEST_LDFLAGS	=	-lcriterion --coverage
 

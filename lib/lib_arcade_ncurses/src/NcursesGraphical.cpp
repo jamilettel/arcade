@@ -86,10 +86,8 @@ NcursesGraphical::NcursesGraphical() : _eventType(Event::NO_EVENT), _keyPressed(
     keypad(stdscr, true);
     nodelay(stdscr, true);
     _termColor = has_colors();
-    if (supportColor()) {
+    if (supportColor())
         start_color();
-        //initColor();
-    }
     _sceneList[MAIN_MENU] = std::shared_ptr<IScene>(new NcursesMainMenu(*this));
     _sceneList[GAME] = std::shared_ptr<IScene>(new NcursesGame(*this));
 }
@@ -237,21 +235,6 @@ void NcursesGraphical::setMapSize(size_t height, size_t width)
 bool NcursesGraphical::supportColor() const
 {
     return _termColor;
-}
-
-void NcursesGraphical::initColor() const
-{
-    init_pair(GREEN_BLACK, COLOR_GREEN, COLOR_BLACK);
-    init_pair(RED_BLACK, COLOR_RED, COLOR_BLACK);
-    init_pair(BLACK_BLUE, COLOR_BLACK, COLOR_BLUE);
-    init_pair(GREEN_BLUE, COLOR_GREEN, COLOR_BLUE);
-    init_pair(RED_BLUE, COLOR_RED, COLOR_BLUE);
-    init_pair(RED_WHITE, COLOR_RED, COLOR_WHITE);
-    init_pair(YELLOW_BLUE, COLOR_YELLOW, COLOR_BLUE);
-    init_pair(WHITE_WHITE, COLOR_WHITE, COLOR_WHITE);
-    init_pair(GREEN_WHITE, COLOR_GREEN, COLOR_WHITE);
-    init_pair(CYAN_WHITE, COLOR_CYAN, COLOR_WHITE);
-    init_pair(WHITE_CYAN, COLOR_WHITE, COLOR_CYAN);
 }
 
 void NcursesGraphical::addColor(Color color)
