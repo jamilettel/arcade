@@ -96,7 +96,7 @@ void NcursesGame::setMapSize(size_t height, size_t width)
 void NcursesGame::displayMap()
 {
     delwin(_windows["Map"]);
-    _windows["Map"] = subwin(stdscr, _mapSize.first, _mapSize.second, LINES / 2 - _mapSize.first / 2, COLS / 2 - _mapSize.second / 2);
+    _windows["Map"] = subwin(stdscr, _mapSize.first, _mapSize.second, LINES / 2 - _mapSize.first / 1.5, COLS / 2 - _mapSize.second / 2);
     if (supportColor()) {
         _lib.addColor({234, 234, 234, 1});
         _lib.initPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({234, 234, 234, 1}));
@@ -109,8 +109,10 @@ void NcursesGame::displayMap()
 
 void NcursesGame::displayGameInfo()
 {
+    int i = 1;
+    int j = 0;
     delwin(_windows["Infos"]);
-    _windows["Infos"] = subwin(stdscr, 8, 60, LINES - 10, 10);
+    _windows["Infos"] = subwin(stdscr, 8, 90, LINES - 10, 10);
 
     if (supportColor()) {
         _lib.addColor({250, 233, 77, 1});
@@ -120,7 +122,23 @@ void NcursesGame::displayGameInfo()
         wbkgd(_windows["Infos"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
     }
     box(_windows["Infos"], 0, 0);
+    mvwprintw(_windows["Infos"], 0, 0, "Game stats");
     wattroff(_windows["Infos"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+    if (supportColor()) {
+        _lib.addColor({234, 234, 234, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["Infos"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
+    for (const std::string &stat : *_gameStats) {
+        if (i == 7) {
+            j += 30;
+            i = 1;
+        }
+        mvwprintw(_windows["Infos"], i, 1 + j, stat.c_str());
+        i++;
+    }
+    wattroff(_windows["Infos"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
 }
 
 void NcursesGame::displayCommands()
@@ -128,7 +146,7 @@ void NcursesGame::displayCommands()
     int i = 1;
     int j = 0;
     delwin(_windows["Commands"]);
-    _windows["Commands"] = subwin(stdscr, 8, 60, LINES - 10, COLS - 70);
+    _windows["Commands"] = subwin(stdscr, 8, 90, LINES - 10, COLS - 100);
 
     if (supportColor()) {
         _lib.addColor({250, 233, 77, 1});
@@ -138,6 +156,7 @@ void NcursesGame::displayCommands()
         wbkgd(_windows["Commands"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
     }
     box(_windows["Commands"], 0, 0);
+    mvwprintw(_windows["Commands"], 0, 0, "Commands");
     wattroff(_windows["Commands"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
 
     if (supportColor()) {
@@ -149,7 +168,7 @@ void NcursesGame::displayCommands()
 
     for (const std::pair<std::string, std::string> &control : *_controls) {
         if (i == 7) {
-            j = 30;
+            j += 30;
             i = 1;
         }
         mvwprintw(_windows["Commands"], i, 1 + j, control.first.c_str());
@@ -178,4 +197,9 @@ void NcursesGame::displayEntities()
 void NcursesGame::updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap)
 {
     _entities = gameMap;
+}
+
+void NcursesGame::setGameStatsFormatString(const std::vector<std::string> &gameStats)
+{
+    _gameStats = gameStats;
 }

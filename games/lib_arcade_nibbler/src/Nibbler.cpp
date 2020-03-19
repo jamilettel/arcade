@@ -126,6 +126,7 @@ void arc::Nibbler::updateGame()
         this->restart();
     }
     this->eatFruit();
+    this->updateStats();
 }
 
 void arc::Nibbler::restart()
@@ -262,6 +263,19 @@ bool arc::Nibbler::invalidCoordonate(float x, float y)
     return elemF == _entities.end();
 }
 
+bool arc::Nibbler::moveDelay()
+{
+    _endTime = std::chrono::system_clock::now();
+    int elapsed_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>
+        (_endTime - _startTime).count();
+
+    if (elapsed_milliseconds > MOVE_DELAY) {
+        _startTime = std::chrono::system_clock::now();
+        return true;
+    }
+    return false;
+}
+
 size_t arc::Nibbler::getMapWidth() const
 {
     return COLS_SNAKE;
@@ -272,11 +286,6 @@ size_t arc::Nibbler::getMapHeight() const
     return ROWS_SNAKE;
 }
 
-const std::vector<std::pair<std::string, std::string> > & arc::Nibbler::getGameControlsFormatString() const
-{
-    return _gameControlsFormat;
-}
-
 const std::map<std::pair<arc::Event::Type, arc::Event::Key>, std::function<void ()> > & arc::Nibbler::getControls() const
 {
     return _controls;
@@ -285,11 +294,6 @@ const std::map<std::pair<arc::Event::Type, arc::Event::Key>, std::function<void 
 const std::vector<std::shared_ptr<arc::Entity>> & arc::Nibbler::getEntities() const
 {
     return _entities;
-}
-
-const std::vector<std::string> & arc::Nibbler::getGameStatsFormatString() const
-{
-    return _gameStatsFormat;
 }
 
 bool arc::Nibbler::isGameOver() const
@@ -313,25 +317,31 @@ const std::string &arc::Nibbler::getSound() const
     return _sound;
 }
 
+void arc::Nibbler::updateStats()
+{
+    _gameStats.clear();
+
+    _gameStats.emplace_back(std::string("Score : " + getScore()));
+    _gameStats.emplace_back(std::string("Size of the snake : " + std::to_string(_snake.size() + 1)));
+    _gameStats.emplace_back(std::string("Fruits on the map : " + std::to_string(_fruits.size())));
+}
+
+const std::vector<std::string> & arc::Nibbler::getGameStatsFormatString() const
+{
+    return _gameStats;
+}
+
+const std::vector<std::pair<std::string, std::string> > & arc::Nibbler::getGameControlsFormatString() const
+{
+    return _gameControlsFormat;
+}
+
 const std::map<char, std::pair<std::string, arc::Color>> &arc::Nibbler::getVisualAssets() const
 {
     return _visualAssets;
 }
 
-bool arc::Nibbler::moveDelay()
-{
-    _endTime = std::chrono::system_clock::now();
-    int elapsed_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>
-        (_endTime - _startTime).count();
-
-    if (elapsed_milliseconds > MOVE_DELAY) {
-        _startTime = std::chrono::system_clock::now();
-        return true;
-    }
-    return false;
-}
-
 const std::string &arc::Nibbler::getTitle() const
 {
-    return (_title);
+    return _title;
 }

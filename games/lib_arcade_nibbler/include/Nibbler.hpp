@@ -12,8 +12,8 @@
 #include <iostream>
 #include <chrono>
 
-#define ROWS_SNAKE 27
-#define COLS_SNAKE 36
+#define ROWS_SNAKE 30
+#define COLS_SNAKE 50
 #define MOVE_DELAY 150
 
 namespace arc {
@@ -23,32 +23,32 @@ namespace arc {
         Nibbler();
         ~Nibbler() = default;
 
-        size_t getMapHeight() const override;
-        size_t getMapWidth() const override;
-        const std::string &getMusic() const override ;
-        const std::string &getSound() const override ;
+        [[nodiscard]] size_t getMapHeight() const override;
+        [[nodiscard]] size_t getMapWidth() const override;
+        [[nodiscard]] const std::string &getMusic() const override ;
+        [[nodiscard]] const std::string &getSound() const override ;
         const std::string &getScore() override ;
-        const std::map<char, std::pair<std::string, Color>> &getVisualAssets() const override ;
-        const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &getControls() const override;
+        [[nodiscard]] const std::map<char, std::pair<std::string, Color>> &getVisualAssets() const override ;
+        [[nodiscard]] const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &getControls() const override;
 
-        const std::vector<std::shared_ptr<Entity>> &getEntities() const override ;
+        [[nodiscard]] const std::vector<std::shared_ptr<Entity>> &getEntities() const override ;
 
-        const std::vector<std::pair<std::string, std::string>> &getGameControlsFormatString() const override;
-        const std::vector<std::string> &getGameStatsFormatString() const override;
+        [[nodiscard]] const std::vector<std::pair<std::string, std::string>> &getGameControlsFormatString() const override;
+        [[nodiscard]] const std::vector<std::string> &getGameStatsFormatString() const override;
 
         void restart() override;
         void updateGame() override;
 
-        bool isGameOver() const override;
+        [[nodiscard]] bool isGameOver() const override;
 
-        const std::string &getTitle() const override;
+        [[nodiscard]] const std::string &getTitle() const override;
 
     private:
         bool _gameOver;
         std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _controls;
         std::vector<std::pair<std::string, std::string>> _gameControlsFormat;
         std::vector<std::shared_ptr<Entity>> _entities;
-        std::vector<std::string> _gameStatsFormat;
+        std::vector<std::string> _gameStats;
         std::string _music;
         std::string _sound;
         std::string _scoreString;
@@ -76,6 +76,8 @@ namespace arc {
         void moveSnake();
         bool collisionSnake();
         bool moveDelay();
+
+        void updateStats();
 
         std::shared_ptr<Entity> _snakeHead;
         std::vector<std::shared_ptr<Entity>> _snake;

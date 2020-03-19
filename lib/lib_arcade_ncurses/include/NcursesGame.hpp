@@ -24,6 +24,7 @@ namespace arc {
             void setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()> > &controls);
             void setGameTitle(std::string gameTitle);
             void setMapSize(size_t height, size_t width);
+            void setGameStatsFormatString(const std::vector<std::string> &gameStats);
 
         private:
             NcursesGraphical &_lib;
@@ -46,6 +47,7 @@ namespace arc {
         private:
             std::pair<size_t, size_t> _mapSize;
             std::optional<std::vector<std::pair<std::string, std::string>>> &_controls;
+            std::optional<std::vector<std::string>> _gameStats;
             std::optional<std::vector<std::shared_ptr<Entity>>> _entities;
     };
 }

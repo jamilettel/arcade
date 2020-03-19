@@ -208,7 +208,7 @@ std::optional<std::vector<std::pair<std::string, std::string>>>& NcursesGraphica
 
 void NcursesGraphical::setGameStatsFormatString(const std::vector<std::string> &info)
 {
-
+    dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->setGameStatsFormatString(info);
 }
 
 void NcursesGraphical::setFont(const std::string &font)
