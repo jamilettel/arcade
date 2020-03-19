@@ -36,8 +36,6 @@ void MainMenuScene::draw()
     if (_playButton.get())
         _playButton->draw();
     _exitButton->draw();
-    // for (std::unique_ptr<MySf::Button::IButton> &button: _gameLibs)
-    //     button->draw();
     if (_gamesList != nullptr)
         _gamesList->draw();
     if (_graphicalList != nullptr)
@@ -70,7 +68,7 @@ void MainMenuScene::setListLibraries(const std::vector<std::string> &libraries,
     sf::Vector2f pos(1050, 100);
 
     _graphicalList.release();
-    _graphicalList = std::make_unique<MySf::List>(
+    _graphicalList = std::make_unique<MySf::ButtonList>(
         _window,
         libraries,
         [fct] (const std::string &str) {
@@ -78,6 +76,7 @@ void MainMenuScene::setListLibraries(const std::vector<std::string> &libraries,
         },
         "Libraries",
         _font,
+        3,
         chosen);
     _graphicalList->setPos(pos);
     _graphicalList->setSize(sf::Vector2f(500, 0));
@@ -90,7 +89,7 @@ void MainMenuScene::setListGames(const std::vector<std::string> &games,
     sf::Vector2f pos(500, 100);
 
     _gamesList.release();
-    _gamesList = std::make_unique<MySf::List>(
+    _gamesList = std::make_unique<MySf::ButtonList>(
         _window,
         games,
         [fct, this] (const std::string &str) {
@@ -99,6 +98,7 @@ void MainMenuScene::setListGames(const std::vector<std::string> &games,
         },
         "Games",
         _font,
+        3,
         chosen);
     if (chosen >= 0 && chosen < static_cast<int>(games.size()))
         _playButton->setActivation(true);

@@ -5,8 +5,8 @@
 ** RectButton
 */
 
-#include "Button/RectButton.hpp"
-#include "Color/SmoothShifting.hpp"
+#include "MySf/Button/RectButton.hpp"
+#include "MySf/Color/SmoothShifting.hpp"
 
 using namespace MySf::Button;
 
@@ -29,6 +29,8 @@ void RectButton::draw()
 {
     sf::FloatRect textBounds = _t.getGlobalBounds();
     size_t size = _t.getCharacterSize();
+    sf::Vector2f wantedPosition(_pos.x + _size.x/2 - textBounds.width / 2,
+                                _pos.y + _size.y/2 - size / 2.5);
 
     manageCurrentColor();
     _rectangle.setFillColor(_buttonColor->getColor());
@@ -38,7 +40,6 @@ void RectButton::draw()
     _t.setString(_label);
     _t.setFont(_f);
     _t.setFillColor(_textColor->getColor());
-    _t.setPosition(_pos.x + _size.x/2 - textBounds.width / 2,
-                   _pos.y + _size.y/2 - size / 1.5f);
+    _t.move(wantedPosition.x - textBounds.left, wantedPosition.y - textBounds.top);
     _window.draw(_t);
 }

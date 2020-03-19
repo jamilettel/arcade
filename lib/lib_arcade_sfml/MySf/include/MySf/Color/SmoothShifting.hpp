@@ -8,7 +8,7 @@
 #ifndef SMOOTHSHIFTING_HPP_
 #define SMOOTHSHIFTING_HPP_
 
-#include "Color/AColor.hpp"
+#include "MySf/Color/AColor.hpp"
 
 namespace MySf {
     namespace Color {

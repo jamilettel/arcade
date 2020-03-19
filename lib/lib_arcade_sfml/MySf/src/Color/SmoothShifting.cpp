@@ -5,8 +5,8 @@
 ** color that shifts smoothly
 */
 
-#include "Color/SmoothShifting.hpp"
-#include "Color/Utils.hpp"
+#include "MySf/Color/SmoothShifting.hpp"
+#include "MySf/Color/Utils.hpp"
 #include <cmath>
 #include <iostream>
 

@@ -13,17 +13,8 @@ MAIN	=	\
 
 SRC	=	src/SfmlGraphical.cpp				\
 		src/SfmlError.cpp					\
-		src/Color/Utils.cpp					\
-		src/Color/SmoothShifting.cpp		\
-		src/Color/AColor.cpp				\
-		src/Button/BasicButton.cpp			\
-		src/Button/BasicButtonOutline.cpp	\
-		src/Button/AButton.cpp				\
-		src/Button/RectButton.cpp			\
-		src/InputZone.cpp					\
 		src/Scene/MainMenuScene.cpp			\
 		src/Scene/GameScene.cpp				\
-		src/List.cpp						\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 
@@ -37,7 +28,8 @@ RM	=	@rm -f
 
 CXX	=	g++
 
-LDFLAGS	=	-ldl -lstdc++fs -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -shared
+LDFLAGS	=	-ldl -lstdc++fs -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -shared	\
+			-LMySf -lMySf -Wl,-rpath=./MySf/
 
 TEST_LDFLAGS	=	-lcriterion --coverage
 
@@ -48,15 +40,18 @@ TEST_NAME	=	unit_tests
 all: $(NAME)
 
 $(NAME): $(OBJ) $(OBJ_MAIN)
+		@make -C MySf --no-print-directory
 		$(CXX) -o $(NAME) $(OBJ) $(OBJ_MAIN) $(LDFLAGS)
 
 clean_coverage:
 		$(RM) $(COV_TMP)
 
 clean: clean_coverage
+		@make -C MySf clean --no-print-directory
 		$(RM) $(OBJ) $(OBJ_TEST) $(OBJ_MAIN)
 
 fclean: clean
+		@make -C MySf fclean --no-print-directory
 		$(RM) $(NAME) $(TEST_NAME)
 
 re: fclean all

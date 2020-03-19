@@ -8,7 +8,7 @@
 #ifndef RECTBUTTON_HPP_
 #define RECTBUTTON_HPP_
 
-#include "Button/AButton.hpp"
+#include "MySf/Button/AButton.hpp"
 
 namespace MySf {
 

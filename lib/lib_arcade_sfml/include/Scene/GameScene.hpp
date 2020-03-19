@@ -9,7 +9,7 @@
 #define GAMESCENE_SCENE_HPP_
 
 #include "Scene/IScene.hpp"
-#include "Button/RectButton.hpp"
+#include "MySf/Button/RectButton.hpp"
 #include "Utils.hpp"
 #include "SfmlGraphical.hpp"
 

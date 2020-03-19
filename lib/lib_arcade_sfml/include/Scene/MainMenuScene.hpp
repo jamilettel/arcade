@@ -9,10 +9,10 @@
 #define MAINMENUSCENE_SFML_HPP_
 
 #include "Scene/IScene.hpp"
-#include "Button/RectButton.hpp"
+#include "MySf/Button/RectButton.hpp"
 #include "Utils.hpp"
 #include "SfmlGraphical.hpp"
-#include "List.hpp"
+#include "MySf/List/ButtonList.hpp"
 
 namespace arc {
 
@@ -50,8 +50,8 @@ namespace arc {
 
         MySf::InputZone _usernameInputZone;
 
-        std::unique_ptr<MySf::List> _gamesList;
-        std::unique_ptr<MySf::List> _graphicalList;
+        std::unique_ptr<MySf::ButtonList> _gamesList;
+        std::unique_ptr<MySf::ButtonList> _graphicalList;
         std::vector<std::unique_ptr<MySf::Button::IButton>> _graphicalLibs;
         std::vector<std::unique_ptr<MySf::Button::IButton>> _gameLibs;
 

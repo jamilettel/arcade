@@ -5,7 +5,7 @@
 ** InputZone
 */
 
-#include "InputZone.hpp"
+#include "MySf/InputZone.hpp"
 
 using namespace MySf;
 
