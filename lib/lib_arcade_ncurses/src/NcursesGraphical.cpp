@@ -228,16 +228,6 @@ void NcursesGraphical::updateGameInfo(const std::vector<std::shared_ptr<Entity>>
     dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->updateGameInfo(gameMap);
 }
 
-void NcursesGraphical::setMusic(const std::string &music)
-{
-    (void)music;
-}
-
-void NcursesGraphical::playSound(const std::string &sound)
-{
-    (void)sound;
-}
-
 void NcursesGraphical::setMapSize(size_t height, size_t width)
 {
     dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->setMapSize(height, width);
@@ -300,4 +290,9 @@ void NcursesGraphical::initPairColor(short color1, short color2)
 short NcursesGraphical::getPairColor(short color1, short color2)
 {
     return _pairColorIndex[std::pair<short, short>(color1, color2)];
+}
+
+void NcursesGraphical::setUsername(const std::string &username)
+{
+    _username = username;
 }

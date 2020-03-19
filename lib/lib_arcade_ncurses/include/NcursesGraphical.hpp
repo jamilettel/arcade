@@ -20,8 +20,8 @@ namespace arc {
         ~NcursesGraphical() override;
 
         void display() override;
-        Event::Type getEventType() const override;
-        Event::Key getKeyPressed() const override;
+        [[nodiscard]] Event::Type getEventType() const override;
+        [[nodiscard]] Event::Key getKeyPressed() const override;
 
         void setListGames(const std::vector<std::string> &games, const std::function<void (const std::string &)> &fct, int chosen = -1) override;
         void setListLibraries(const std::vector<std::string> &libraries, const std::function<void (const std::string &)> &fct, int chosen = -1) override;
@@ -35,7 +35,8 @@ namespace arc {
         void setFunctionTogglePause(const std::function<void()> &function) override;
 
         const std::string &getUsername() override;
-        Scene getScene() const override;
+        void setUsername(const std::string &username) override;
+        [[nodiscard]] Scene getScene() const override;
         void setScene(Scene scene) override;
 
         void setHowToPlay(const std::vector<std::pair<std::string, std::string>> &info) override;
@@ -43,8 +44,6 @@ namespace arc {
         void setFont(const std::string &font) override;
         void setVisualAssets(const std::map<char, std::pair<std::string, Color>> &sprites) override;
         void updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap) override;
-        void setMusic(const std::string &music) override;
-        void playSound(const std::string &sound) override;
 
         void setMapSize(size_t height, size_t width) override;
         void setGameTitle(const std::string &game) override;
