@@ -10,7 +10,7 @@
 using namespace MySf;
 
 const float BasicList::_buttonHeight = 30;
-sf::Vector2f BasicList::_elementSize(0, 50);
+// sf::Vector2f BasicList::_elementSize(0, 50);
 
 sf::Color BasicList::defaultColor(0x131313ff);
 sf::Color BasicList::defaultAltColor(0x0a0a0aff);
@@ -32,7 +32,8 @@ BasicList::BasicList(sf::RenderWindow &window,
                      const std::string &title,
                      sf::Font &font,
                      int nbDisplayed):
-    AList(window, font, list, title), _nbDisplayed(nbDisplayed), _position(0),
+    AList(window, font, list, title), _elementSize(0, 50),
+    _nbDisplayed(nbDisplayed), _position(0),
     _frameColor(defaultFrameColor), _textColor(defaultTextColor),
     _normalColor(defaultColor), _altColor(defaultAltColor),
     _buttonColor(defaultButtonColor), _buttonTextColor(defaultTextButtonColor),
@@ -68,6 +69,10 @@ void BasicList::scroll(int to)
 {
     int dest = _position;
 
+    if (_prev.has_value()) {
+        (*_prev)->scroll(to);
+        return;
+    }
     if (((to > 0 && _position < static_cast<int>(_list.size()) - _nbDisplayed) ||
          (to < 0 && _position)))
         dest += to;
@@ -179,7 +184,6 @@ void BasicList::setDrawableObjects()
     sf::Vector2f wantedPosition(_pos.x + _elementSize.x/2 - textBounds.width / 2,
                                 _pos.y + _elementSize.y/2 - size / 2.5);
     _title.move(wantedPosition.x - textBounds.left, wantedPosition.y - textBounds.top);
-
     _elementBackground.setSize(sf::Vector2f(_size.x, 50));
     _elementText.setFillColor(_textColor);
     _buttonUp.setSize(getWidth(), _buttonHeight);
@@ -190,20 +194,26 @@ void BasicList::setDrawableObjects()
 
 void BasicList::setPos(const sf::Vector2f &pos)
 {
-    if (_next.has_value())
-        (*_next)->setPos(sf::Vector2f(_pos.x + _size.x, _pos.y));
     AList::setPos(pos);
+    if (_next.has_value())
+        (*_next)->setPos(sf::Vector2f(pos.x + _size.x, pos.y));
     setDrawableObjects();
 }
 
 void BasicList::setSize(const sf::Vector2f &size)
 {
-    AList::setSize(size);
-    _elementSize.x = size.x;
-    if (_next.has_value()) {
-        (*_next)->setPos(sf::Vector2f(_pos.x + _size.x, _pos.y));
-        if ((*_next)->getSize().x == 0)
-            (*_next)->setSize(size);
+    if (size != _size) {
+        AList::setSize(size);
+
+        _elementSize.x = size.x;
+        if (_next.has_value()) {
+            (*_next)->setPos(sf::Vector2f(_pos.x + _size.x, _pos.y));
+            if ((*_next)->getSize().x == 0)
+                (*_next)->setSize(size);
+        }
+        if (_prev.has_value()) {
+            (*_prev)->setSize((*_prev)->getSize()); // refresh first
+        }
     }
     setDrawableObjects();
 }
@@ -220,7 +230,7 @@ float BasicList::getWidth() const
 void BasicList::setList(const std::vector<std::string> &list)
 {
     AList::setList(list);
-    setListPosition(0);
+    scroll(0);
 }
 
 int BasicList::getNbDisplayed() const

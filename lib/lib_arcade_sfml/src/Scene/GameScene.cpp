@@ -12,7 +12,8 @@ using namespace arc;
 const sf::IntRect GameScene::_gameArea(50, 50, 1060, 795);
 
 GameScene::GameScene(sf::RenderWindow &window, sf::Font &font, SfmlGraphical &lib):
-    _lib(lib), _window(window), _font(font)
+    _lib(lib), _window(window), _font(font),
+    _gameStats(_window, _gameStatList, "Stats", _font, 12)
 {
     _gameBackground.setPosition(_gameArea.left, _gameArea.top);
     _gameBackground.setSize(sf::Vector2f(_gameArea.width, _gameArea.height));
@@ -34,9 +35,10 @@ void GameScene::draw()
             _window.draw(sprite);
         }
     }
+    _gameStats.draw();
 }
 
-void GameScene::update(const sf::Event &)
+void GameScene::update(const sf::Event &e)
 {
     std::pair<Event::Type, Event::Key> event;
 
@@ -44,6 +46,7 @@ void GameScene::update(const sf::Event &)
     event.second = _lib.getKeyPressed();
     if (_controlsMap.has_value() && _controlsMap->count(event))
         _controlsMap->at(event)();
+    _gameStats.update(e);
 }
 
 void GameScene::setMapSize(size_t height, size_t width)
@@ -74,4 +77,17 @@ void GameScene::updateGameInfo(const std::vector<std::shared_ptr<Entity> > &game
 void GameScene::setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &controls)
 {
     _controlsMap.emplace(controls);
+}
+
+void GameScene::setGameStats(const std::vector<std::pair<std::string, std::string> > &stats)
+{
+    _gameStatList.clear();
+    _gameStatList.reserve(stats.size());
+    std::for_each(stats.begin(),
+                  stats.end(), [this] (const std::pair<std::string, std::string> &pair) {
+                                   _gameStatList.emplace_back(pair.first + ": " + pair.second);
+                               });
+    _gameStats.setList(_gameStatList);
+    _gameStats.setPos(sf::Vector2f(_gameArea.left + _gameArea.width + 10, 135));
+    _gameStats.setSize(sf::Vector2f(_window.getSize().x - (_gameArea.left + _gameArea.width + 20), 0));
 }

@@ -78,7 +78,7 @@ namespace MySf {
 
     protected:
         static const float _buttonHeight;
-        static sf::Vector2f _elementSize;
+        sf::Vector2f _elementSize;
 
     private:
 

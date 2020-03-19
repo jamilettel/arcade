@@ -19,11 +19,12 @@ MainMenuScene::MainMenuScene(sf::RenderWindow &window,
                        _font,
                        "Username"),
     _title("Arcade", font),
-    _howToPlayList(window, _howToPlayDesc, "Action", _font, 5)
+    _howToPlayList(window, _howToPlayDesc, "Controls", _font, 5),
+    _scoresList(window, _scoreUsers, "User", _font, 5)
 {
     _exitButton = std::make_unique<MySf::Button::RectButton>(
         _window,
-        sf::Vector2f(100, 250),
+        sf::Vector2f(125, 290),
         sf::Vector2f(250, 60),
         _font,
         BUTTON_COLOR,
@@ -32,11 +33,8 @@ MainMenuScene::MainMenuScene(sf::RenderWindow &window,
         [this] () {_window.close();});
     _title.setPosition(550, 0);
     _title.setCharacterSize(128);
-    _title.setOutlineThickness(3);
-    _title.setOutlineColor(sf::Color::Black);
     _howToPlayList.addColumn<MySf::BasicList>(window, _howToPlayKey, "Key", _font, 5);
-    _howToPlayList.setPos(sf::Vector2f(100, 400));
-    _howToPlayList.setSize(sf::Vector2f(300, 0));
+    _scoresList.addColumn<MySf::BasicList>(window, _scoreValues, "Score", _font, 5);
 }
 
 void MainMenuScene::draw()
@@ -50,20 +48,24 @@ void MainMenuScene::draw()
     if (_graphicalList != nullptr)
         _graphicalList->draw();
     _window.draw(_title);
-    _howToPlayList.draw();
+    if (_howToPlayList.getList().size())
+        _howToPlayList.draw();
+    if (_scoresList.getList().size())
+        _scoresList.draw();
 }
 
 void MainMenuScene::update(const sf::Event &event)
 {
     _usernameInputZone.update(event);
     _howToPlayList.update(event);
+    _scoresList.update(event);
 }
 
 void MainMenuScene::setFunctionPlay(const std::function<void ()> &function)
 {
     _playButton = std::make_unique<MySf::Button::RectButton>(
         _window,
-        sf::Vector2f(100, 180),
+        sf::Vector2f(125, 220),
         sf::Vector2f(250, 60),
         _font,
         BUTTON_COLOR,
@@ -139,8 +141,26 @@ void MainMenuScene::setHowToPlay(const std::vector<std::pair<std::string,std::st
                       _howToPlayDesc.emplace_back(pair.first);
                       _howToPlayKey.emplace_back(pair.second);
                   });
-    _howToPlayList.setPos(sf::Vector2f(100, 400));
-    _howToPlayList.setSize(sf::Vector2f(300, 0));
+    _howToPlayList.setPos(sf::Vector2f(50, 425));
+    _howToPlayList.setSize(sf::Vector2f(350, 0));
     _howToPlayList.getColumn(0).setList(_howToPlayDesc);
     _howToPlayList.getColumn(1).setList(_howToPlayKey);
+}
+
+void MainMenuScene::setScores(const std::vector<std::pair<std::string, std::string>> &scores)
+{
+    _scoreUsers.clear();
+    _scoreValues.clear();
+    _scoreUsers.reserve(scores.size());
+    _scoreValues.reserve(scores.size());
+    std::for_each(scores.begin(), scores.end(),
+                  [this] (const std::pair<std::string, std::string> &pair) {
+                      _scoreUsers.emplace_back(pair.first);
+                      _scoreValues.emplace_back(pair.second);
+                  });
+    _scoresList.setPos(sf::Vector2f(825, 425));
+    _scoresList.setSize(sf::Vector2f(500, 0));
+    _scoresList.getColumn(1).setSize(sf::Vector2f(225, 0));
+    _scoresList.getColumn(0).setList(_scoreUsers);
+    _scoresList.getColumn(1).setList(_scoreValues);
 }

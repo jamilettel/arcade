@@ -35,12 +35,11 @@ namespace arc {
         void setListLibraries(const std::vector<std::string> &libraries,
                               const std::function<void (const std::string &)> &fct,
                               int chosen = -1);
-        void setScores(const std::vector<std::pair<std::string, std::string>> &scores);
-
         const std::string &getUsername();
         void setUsername(const std::string &username);
 
         void setHowToPlay(const std::vector<std::pair<std::string,std::string>> &info);
+        void setScores(const std::vector<std::pair<std::string, std::string>> &scores);
 
     private:
         SfmlGraphical &_lib;
@@ -63,6 +62,11 @@ namespace arc {
         std::vector<std::string> _howToPlayKey;
 
         MySf::BasicList _howToPlayList;
+
+        std::vector<std::string> _scoreUsers;
+        std::vector<std::string> _scoreValues;
+
+        MySf::BasicList _scoresList;
 
     };
 

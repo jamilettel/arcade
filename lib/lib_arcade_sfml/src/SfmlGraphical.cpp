@@ -212,6 +212,7 @@ Event::Type SfmlGraphical::getEventType() const
 
 void SfmlGraphical::setScores(const std::vector<std::pair<std::string,std::string>> &scores)
 {
+    static_cast<MainMenuScene *>(_scenes.at(MAIN_MENU).get())->setScores(scores);
 }
 
 void SfmlGraphical::setFunctionPlay(const std::function<void()> &function)
@@ -248,6 +249,7 @@ void SfmlGraphical::setHowToPlay(const std::vector<std::pair<std::string,std::st
 
 void SfmlGraphical::setGameStats(const std::vector<std::pair<std::string, std::string>> &info)
 {
+    static_cast<GameScene *>(_scenes.at(GAME).get())->setGameStats(info);
 }
 
 void SfmlGraphical::updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap)

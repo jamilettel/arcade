@@ -12,6 +12,7 @@
 #include "MySf/Button/RectButton.hpp"
 #include "Utils.hpp"
 #include "SfmlGraphical.hpp"
+#include "MySf/List/BasicList.hpp"
 
 namespace arc {
 
@@ -30,6 +31,8 @@ namespace arc {
 
         void setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &controls);
 
+        void setGameStats(const std::vector<std::pair<std::string, std::string>> &stats);
+
     private:
         SfmlGraphical &_lib;
         sf::RenderWindow &_window;
@@ -45,6 +48,9 @@ namespace arc {
         sf::Vector2f _cellSize;
 
         std::optional<const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>>> _controlsMap;
+
+        std::vector<std::string> _gameStatList;
+        MySf::BasicList _gameStats;
 
     };
 
