@@ -128,6 +128,7 @@ void Core::refreshLibrarieLists()
                     std::string libname = getDynamicLibraryName(file.path());
 
                     _gameLoaders[libname] = std::make_unique<DLLoader<IGame>>(file.path());
+
                     _gameList.push_back(libname);
                 } catch (DLLoaderError &) {}
             }
@@ -153,7 +154,7 @@ void Core::refreshLibrarieLists()
 void Core::setCurrentGame(const std::string &game)
 {
     try {
-        loadGameLibrary(game);
+        _currentGame = game;
     } catch (ArcadeError &e) {
         std::cerr << e.what() << std::endl;
     }

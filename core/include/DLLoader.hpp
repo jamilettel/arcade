@@ -25,13 +25,12 @@ namespace arc {
             std::string errorMessage;
 
             if (libpath != "") {
-                _handle = dlopen(libpath.c_str(), RTLD_NOW | RTLD_GLOBAL | RTLD_NODELETE);
+                _handle = dlopen(libpath.c_str(), RTLD_LAZY | RTLD_LOCAL | RTLD_NODELETE);
                 if (!_handle)
                     errorMessage = ": " + std::string(dlerror());
             }
             if (!_handle) {
                 errorMessage = "Could not load dynamic library '" + libpath + "'" + errorMessage;
-                std::cerr << errorMessage << std::endl;
                 throw DLLoaderError(errorMessage);
             }
             _ctor = reinterpret_cast<T *(*)()>(dlsym(_handle, constructor.c_str()));
