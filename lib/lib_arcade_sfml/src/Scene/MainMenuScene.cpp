@@ -14,7 +14,7 @@ MainMenuScene::MainMenuScene(sf::RenderWindow &window,
                              SfmlGraphical &lib):
     _lib(lib), _window(window), _font(font),
     _usernameInputZone(_window,
-                       sf::Vector2f(1600 - 510, 10),
+                       sf::Vector2f(1050, 25),
                        sf::Vector2f(500, 50),
                        _font,
                        "Username")

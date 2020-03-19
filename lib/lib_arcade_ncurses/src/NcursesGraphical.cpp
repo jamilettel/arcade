@@ -206,7 +206,7 @@ std::optional<std::vector<std::pair<std::string, std::string>>>& NcursesGraphica
     return _controlsString;
 }
 
-void NcursesGraphical::setGameStats(const std::vector<std::string> &info)
+void NcursesGraphical::setGameStats(const std::vector<std::pair<std::string, std::string>> &info)
 {
     dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->setGameStatsFormatString(info);
 }

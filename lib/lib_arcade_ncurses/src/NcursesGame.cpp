@@ -131,12 +131,14 @@ void NcursesGame::displayGameInfo()
         wattron(_windows["Infos"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
     }
     if (_gameStats.has_value()) {
-        for (const std::string &stat : *_gameStats) {
+        for (const std::pair<std::string, std::string> &stat : *_gameStats) {
             if (i == 7) {
                 j += 30;
                 i = 1;
             }
-            mvwprintw(_windows["Infos"], i, 1 + j, stat.c_str());
+            mvwprintw(_windows["Infos"], i, 1 + j, stat.first.c_str());
+            mvwprintw(_windows["Infos"], i, 1 + j + stat.first.size(), " : ");
+            mvwprintw(_windows["Infos"], i, 1 + j + stat.first.size() + 3, stat.second.c_str());
             i++;
         }
     }
@@ -204,7 +206,7 @@ void NcursesGame::updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gam
     _entities = gameMap;
 }
 
-void NcursesGame::setGameStatsFormatString(const std::vector<std::string> &gameStats)
+void NcursesGame::setGameStatsFormatString(const std::vector<std::pair<std::string, std::string>> &gameStats)
 {
     _gameStats = gameStats;
 }

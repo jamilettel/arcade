@@ -33,7 +33,7 @@ namespace arc {
         [[nodiscard]] const std::vector<std::shared_ptr<Entity>> &getEntities() const override ;
 
         [[nodiscard]] const std::vector<std::pair<std::string, std::string>> &getGameControls() const override;
-        [[nodiscard]] const std::vector<std::string> &getGameStats() const override;
+        [[nodiscard]] const std::vector<std::pair<std::string, std::string>> &getGameStats() const override;
 
         void restart() override;
         void updateGame() override;
@@ -47,7 +47,7 @@ namespace arc {
         std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _controls;
         std::vector<std::pair<std::string, std::string>> _gameControlsFormat;
         std::vector<std::shared_ptr<Entity>> _entities;
-        std::vector<std::string> _gameStats;
+        std::vector<std::pair<std::string, std::string>> _gameStats;
         std::string _music;
         std::string _sound;
         std::string _scoreString;

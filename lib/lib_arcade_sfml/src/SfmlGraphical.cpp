@@ -244,7 +244,7 @@ void SfmlGraphical::setHowToPlay(const std::vector<std::pair<std::string,std::st
 {
 }
 
-void SfmlGraphical::setGameStats(const std::vector<std::string> &info)
+void SfmlGraphical::setGameStats(const std::vector<std::pair<std::string, std::string>> &info)
 {
 }
 

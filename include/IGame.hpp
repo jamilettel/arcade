@@ -30,7 +30,7 @@ namespace arc {
         virtual const std::vector<std::shared_ptr<Entity>> &getEntities() const = 0;
 
         virtual const std::vector<std::pair<std::string, std::string>> &getGameControls() const = 0;
-        virtual const std::vector<std::string> &getGameStats() const = 0;
+        virtual const std::vector<std::pair<std::string, std::string>> &getGameStats() const = 0;
 
         virtual void restart() = 0;
         virtual void updateGame() = 0;

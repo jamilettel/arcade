@@ -321,12 +321,12 @@ void arc::Nibbler::updateStats()
 {
     _gameStats.clear();
 
-    _gameStats.emplace_back(std::string("Score : " + getScore()));
-    _gameStats.emplace_back(std::string("Size of the snake : " + std::to_string(_snake.size() + 1)));
-    _gameStats.emplace_back(std::string("Fruits on the map : " + std::to_string(_fruits.size())));
+    _gameStats.emplace_back("Score", getScore());
+    _gameStats.emplace_back("Size of the snake", std::to_string(_snake.size() + 1));
+    _gameStats.emplace_back("Fruits on the map", std::to_string(_fruits.size()));
 }
 
-const std::vector<std::string> & arc::Nibbler::getGameStats() const
+const std::vector<std::pair<std::string, std::string>> &arc::Nibbler::getGameStats() const
 {
     return _gameStats;
 }
