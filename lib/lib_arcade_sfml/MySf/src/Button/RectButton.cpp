@@ -20,8 +20,8 @@ RectButton::RectButton(sf::RenderWindow &w,
                        const std::function<void()> &fct):
     AButton(w, pos, size, f, button, text, fct)
 {
-    _buttonColor = std::unique_ptr<Color::IColor>(new Color::SmoothShifting(button.c, 150));
-    _textColor = std::unique_ptr<Color::IColor>(new Color::SmoothShifting(text.c, 150));
+    _buttonColor = std::unique_ptr<Color::IColor>(new Color::SmoothShifting(button.c, 300));
+    _textColor = std::unique_ptr<Color::IColor>(new Color::SmoothShifting(text.c, 300));
     _label = label;
 }
 

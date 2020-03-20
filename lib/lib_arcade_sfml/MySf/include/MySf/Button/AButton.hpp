@@ -41,6 +41,9 @@ namespace MySf {
             virtual void setActivation(bool actif);
             virtual bool isActif() const;
 
+            virtual void setUpdateState(bool status);
+            virtual bool getUpdateState() const;
+
         protected:
             virtual void manageState();
             virtual void manageCurrentColor();
@@ -62,6 +65,7 @@ namespace MySf {
             sf::Font &_f;
             sf::Text _t;
             bool _actif;
+            bool _updateState;
         };
 
     }

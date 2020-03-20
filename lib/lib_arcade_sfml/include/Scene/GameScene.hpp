@@ -21,6 +21,7 @@ namespace arc {
         GameScene(sf::RenderWindow &window, sf::Font &font, SfmlGraphical &lib);
 
         void draw() override;
+        void drawPaused();
         void update(const sf::Event &event) override;
 
         void setMapSize(size_t height, size_t width);
@@ -33,7 +34,15 @@ namespace arc {
 
         void setGameStats(const std::vector<std::pair<std::string, std::string>> &stats);
 
+        void setFunctionTogglePause(const std::function<void()> &function);
+        void setFunctionMenu(const std::function<void()> &function);
+        void setFunctionRestart(const std::function<void()> &function);
+
+        void setHowToPlay(const std::vector<std::pair<std::string,std::string>> &info);
+        void setPause(bool status);
+
     private:
+
         SfmlGraphical &_lib;
         sf::RenderWindow &_window;
         sf::Font &_font;
@@ -42,7 +51,10 @@ namespace arc {
         sf::RectangleShape _gameBackground;
         sf::Text _gameTitle;
 
-        std::vector<MySf::Button::RectButton> _buttons;
+        std::optional<MySf::Button::RectButton> _pause;
+        std::optional<MySf::Button::RectButton> _resume;
+        std::optional<MySf::Button::RectButton> _menu;
+        std::optional<MySf::Button::RectButton> _restart;
         std::optional<std::vector<std::shared_ptr<Entity>>> _gameMap;
 
         sf::Vector2f _cellSize;
@@ -51,6 +63,16 @@ namespace arc {
 
         std::vector<std::string> _gameStatList;
         MySf::BasicList _gameStats;
+
+        bool _paused;
+
+        sf::RectangleShape _pauseRect;
+        sf::Color _pauseColorTarget;
+        MySf::Color::SmoothShifting _pauseRectColor;
+
+        std::optional<MySf::BasicList> _howToPlay;
+        std::vector<std::string> _howToPlayDesc;
+        std::vector<std::string> _howToPlayKeys;
 
     };
 

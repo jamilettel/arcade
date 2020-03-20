@@ -64,6 +64,9 @@ namespace MySf {
             virtual void setActivation(bool actif) = 0;
             virtual bool isActif() const = 0;
 
+            virtual void setUpdateState(bool status) = 0;
+            virtual bool getUpdateState() const = 0;
+
         protected:
             virtual void manageState() = 0;
             virtual void manageCurrentColor() = 0;

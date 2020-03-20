@@ -21,6 +21,7 @@ SmoothShifting::SmoothShifting(const sf::Color &color, sf::Int32 duration):
 
 void SmoothShifting::setColor(const sf::Color &color)
 {
+    getColor();
     _target = color;
     _color = _current;
     _rDiff = _color.r - _target.r;

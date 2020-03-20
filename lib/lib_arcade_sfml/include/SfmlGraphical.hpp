@@ -59,7 +59,6 @@ namespace arc {
 
         void setHowToPlay(const std::vector<std::pair<std::string, std::string>> &info) override;
         void setGameStats(const std::vector<std::pair<std::string, std::string>> &info) override;
-        void setFont(const std::string &font) override;
         void updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap) override;
 
         void setMapSize(size_t height, size_t width) override;
@@ -67,6 +66,8 @@ namespace arc {
 
         sf::Sprite &getSprite(const std::string &sprite, const sf::Vector2f &size,
                               const Color &color);
+
+        void setGamePause(bool pause) override;
 
     private:
         void checkEvents();
