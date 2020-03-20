@@ -76,6 +76,8 @@ namespace arc {
 
         std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _generalControls;
 
+        std::string _username;
+
     };
 
 }

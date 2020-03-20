@@ -77,6 +77,7 @@ void Core::loadGraphicalLibrary(const std::string &libPath)
     setGraphicalLibFunctions();
     _graphical->setHowToPlay(getControls());
     _graphical->setGamePause(_isPaused);
+    _graphical->setUsername(_username);
 
     if (_game != nullptr) {
         _graphical->setControls(_game->getControls());
@@ -215,6 +216,8 @@ void Core::run()
         if (_generalControls.count(std::pair<Event::Type, Event::Key>(_graphical->getEventType(), _graphical->getKeyPressed()))) {
             _generalControls.at(std::pair<Event::Type, Event::Key>(_graphical->getEventType(), _graphical->getKeyPressed()))();
         }
+        if (_graphical->getUsername() != _username)
+            _username = _graphical->getUsername();
     } while (_graphical->getEventType() != Event::QUIT && !_quitGame);
 }
 
