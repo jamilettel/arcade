@@ -24,6 +24,7 @@
 #define NEXT_LIB_KEY Event::NUM0
 #define PREV_GAME_KEY Event::NUM7
 #define NEXT_GAME_KEY Event::NUM8
+#define PAUSE_GAME_KEY Event::P
 
 namespace arc {
 

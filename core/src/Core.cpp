@@ -191,7 +191,7 @@ void Core::setGraphicalLibFunctions()
     _graphical->setFunctionPlay([this] () {startGame();});
     _graphical->setFunctionMenu(_generalControls[std::pair(Event::KEY_PRESSED, MENU_KEY)]);
     _graphical->setFunctionRestart(_generalControls[std::pair(Event::KEY_PRESSED, RESTART_KEY)]);
-    _graphical->setFunctionTogglePause([this] () {_isPaused = !_isPaused; _graphical->setGamePause(_isPaused);});
+    _graphical->setFunctionTogglePause(_generalControls[std::pair(Event::KEY_PRESSED, PAUSE_GAME_KEY)]);
 }
 
 const std::vector<std::string> &Core::getGameList() const
@@ -306,6 +306,13 @@ void Core::initGeneralControl()
             setCurrentGame(*prevGame);
             startGame();
         };
+    _generalControls[std::pair(Event::KEY_PRESSED, PAUSE_GAME_KEY)] =
+        [this](){
+            if (_scene != IGraphical::GAME)
+                return;
+            _isPaused = !_isPaused;
+            _graphical->setGamePause(_isPaused);
+    };
 }
 
 void Core::getBestScoresGame()

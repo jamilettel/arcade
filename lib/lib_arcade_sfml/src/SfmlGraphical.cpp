@@ -31,6 +31,8 @@ const std::map<sf::Keyboard::Key, Event::Key> SfmlGraphical::_equivalentKeys = {
     {sf::Keyboard::L, Event::L},
     {sf::Keyboard::M, Event::M},
     {sf::Keyboard::N, Event::N},
+    {sf::Keyboard::O, Event::O},
+    {sf::Keyboard::P, Event::P},
     {sf::Keyboard::Q, Event::Q},
     {sf::Keyboard::R, Event::R},
     {sf::Keyboard::S, Event::S},
