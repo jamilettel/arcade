@@ -44,6 +44,7 @@ namespace arc {
             void displayCommands();
             void displayGameInfo();
             void displayUserName();
+            void displayBestScore();
 
         private:
             std::pair<size_t, size_t> _mapSize;

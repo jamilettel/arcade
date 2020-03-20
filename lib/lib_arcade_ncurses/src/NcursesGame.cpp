@@ -42,6 +42,7 @@ void NcursesGame::display()
     this->displayCommands();
     this->displayGameInfo();
     this->displayEntities();
+    this->displayBestScore();
 }
 
 void NcursesGame::refresh()
@@ -234,4 +235,27 @@ void NcursesGame::displayUserName()
     mvwprintw(_windows["Username"], 2, 30 / 2 - _lib.getUsername().length() / 2, _lib.getUsername().c_str());
     wattroff(_windows["Username"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
 
+}
+
+void NcursesGame::displayBestScore()
+{
+    delwin(_windows["BScores"]);
+    _windows["BScores"] = subwin(stdscr, 7, 60, 2, COLS - 70);
+    if (supportColor()) {
+        _lib.addColor({250, 233, 77, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["BScores"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+        wbkgd(_windows["BScores"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
+    box(_windows["BScores"], 0, 0);
+    mvwprintw(_windows["BScores"], 0, 0, "Best Scores");
+    wattroff(_windows["BScores"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+    if (supportColor()) {
+        _lib.addColor({234, 234, 234, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["BScores"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
+    wattroff(_windows["BScores"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
 }
