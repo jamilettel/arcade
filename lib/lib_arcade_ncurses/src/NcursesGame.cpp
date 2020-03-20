@@ -259,7 +259,7 @@ void NcursesGame::displayBestScore()
         _lib.initPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}));
         wattron(_windows["BScores"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
     }
-    if (_bestScores.has_value()) {
+    if (_bestScores.has_value() && !_bestScores->empty()) {
         for (const std::pair<std::string, std::string> &score : *_bestScores) {
             if (i == 6) {
                 j += 30;
@@ -274,4 +274,9 @@ void NcursesGame::displayBestScore()
         mvwprintw(_windows["BScores"], 3, 60 / 2 - 28 / 2, "No Best scores on this game");
     }
     wattroff(_windows["BScores"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
+}
+
+void NcursesGame::setScores(const std::vector<std::pair<std::string, std::string>> &scores)
+{
+    _bestScores = scores;
 }

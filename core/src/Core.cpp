@@ -10,6 +10,7 @@
 #include <filesystem>
 #include <algorithm>
 #include <asm-generic/errno-base.h>
+#include <fstream>
 
 using namespace arc;
 
@@ -38,6 +39,7 @@ void Core::loadGameLibrary(const std::string &gamePath)
     _oldGame.swap(newGame);
     _currentGame = gamePath;
     _graphical->setControls(_game->getControls());
+    _graphical->setScores(_bestScoresGame);
     _graphical->setHowToPlay(getControls());
     _graphical->setGameStats(_game->getGameStats());
     _game->getEntities();
@@ -84,6 +86,7 @@ void Core::loadGraphicalLibrary(const std::string &libPath)
         _graphical->setGameTitle(_game->getTitle());
         _graphical->setHowToPlay(getControls());
         _graphical->setGameStats(_game->getGameStats());
+        _graphical->setScores(_bestScoresGame);
     }
     sendListsToGraphicalLib();
 }
@@ -289,4 +292,14 @@ void Core::initGeneralControl()
         setCurrentGame(*prevGame);
         startGame();
     };
+}
+
+void Core::getBestScoresGame()
+{
+    std::string dirBestScores(".scores/");
+    std::string path(dirBestScores + _currentGame);
+    std::ifstream fileScores(path);
+    _bestScoresGame.clear();
+    if (!fileScores.good())
+        return;
 }

@@ -53,7 +53,6 @@ namespace arc {
     private:
         Event::Type _eventType;
         Event::Key _keyPressed;
-        std::vector<std::pair<std::string,std::string>> _scores;
         Scene _scene;
         std::string _username;
         std::optional<std::vector<std::pair<std::string, std::string>>> _controlsString;

@@ -35,6 +35,7 @@ namespace arc {
 
         public:
             void updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap);
+            void setScores(const std::vector<std::pair<std::string, std::string>> &scores);
 
         private:
             bool supportColor() const;

@@ -48,6 +48,8 @@ namespace arc {
 
         void initGeneralControl();
 
+        void getBestScoresGame();
+
         std::unique_ptr<IGraphical> _graphical;
         std::unique_ptr<IGraphical> _oldGraphical;
         std::unique_ptr<IGame> _game;
@@ -67,6 +69,8 @@ namespace arc {
         IGraphical::Scene _scene;
 
         std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _generalControls;
+
+        std::vector<std::pair<std::string, std::string>> _bestScoresGame;
 
     };
 

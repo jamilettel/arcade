@@ -138,12 +138,12 @@ Event::Key NcursesGraphical::getKeyPressed() const
 
 void NcursesGraphical::setScores(const std::vector<std::pair<std::string, std::string> > &scores)
 {
-    _scores = scores;
+    dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->setScores(scores);
 }
 
 void NcursesGraphical::setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()> > &controls)
 {
-    static_cast<NcursesGame *>(_sceneList.at(GAME).get())->setControls(controls);
+    dynamic_cast<NcursesGame *>(_sceneList.at(GAME).get())->setControls(controls);
 }
 
 const std::string & NcursesGraphical::getUsername()
