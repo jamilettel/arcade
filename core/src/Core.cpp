@@ -38,6 +38,7 @@ void Core::loadGameLibrary(const std::string &gamePath)
     _game.swap(newGame);
     _oldGame.swap(newGame);
     _currentGame = gamePath;
+    getBestScoresGame();
     _graphical->setControls(_game->getControls());
     _graphical->setScores(_bestScoresGame);
     _graphical->setHowToPlay(getControls());
@@ -82,6 +83,7 @@ void Core::loadGraphicalLibrary(const std::string &libPath)
     _graphical->setUsername(_username);
 
     if (_game != nullptr) {
+        getBestScoresGame();
         _graphical->setControls(_game->getControls());
         _graphical->setMapSize(_game->getMapHeight(), _game->getMapWidth());
         _graphical->setGameTitle(_game->getTitle());
@@ -311,7 +313,16 @@ void Core::getBestScoresGame()
     std::string dirBestScores(".scores/");
     std::string path(dirBestScores + _currentGame);
     std::ifstream fileScores(path);
+    std::string line;
     _bestScoresGame.clear();
     if (!fileScores.good())
         return;
+    while (std::getline(fileScores, line)) {
+        std::istringstream lineParse(line);
+        std::pair<std::string, std::string> score;
+        lineParse >> score.first;
+        lineParse >> score.second;
+        _bestScoresGame.emplace_back(score);
+    }
+    fileScores.close();
 }
