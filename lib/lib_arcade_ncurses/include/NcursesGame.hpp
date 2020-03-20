@@ -44,12 +44,14 @@ namespace arc {
             void displayCommands();
             void displayGameInfo();
             void displayUserName();
+            void displayBestScore();
 
         private:
             std::pair<size_t, size_t> _mapSize;
             std::optional<std::vector<std::pair<std::string, std::string>>> &_controls;
             std::optional<std::vector<std::pair<std::string, std::string>>> _gameStats;
             std::optional<std::vector<std::shared_ptr<Entity>>> _entities;
+            std::optional<std::vector<std::pair<std::string, std::string>>> _bestScores;
     };
 }
 
