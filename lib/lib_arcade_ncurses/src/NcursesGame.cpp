@@ -224,6 +224,14 @@ void NcursesGame::displayUserName()
     }
     box(_windows["Username"], 0, 0);
     mvwprintw(_windows["Username"], 0, 0, "Username");
-    mvwprintw(_windows["Username"], 2, 30 / 2 - _lib.getUsername().length() / 2, _lib.getUsername().c_str());
     wattroff(_windows["Username"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+    if (supportColor()) {
+        _lib.addColor({234, 234, 234, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["Username"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
+    mvwprintw(_windows["Username"], 2, 30 / 2 - _lib.getUsername().length() / 2, _lib.getUsername().c_str());
+    wattroff(_windows["Username"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
+
 }
