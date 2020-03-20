@@ -17,9 +17,9 @@ Core::Core(const std::string &graphicalLib):
     _graphical(nullptr), _game(nullptr), _quitGame(false), _isPaused(false),
     _scene(IGraphical::Scene::MAIN_MENU)
 {
+    initGeneralControl();
     refreshLibrarieLists();
     loadGraphicalLibrary(getDynamicLibraryName(graphicalLib));
-    initGeneralControl();
 }
 
 Core::~Core()
@@ -185,19 +185,8 @@ void Core::startGame()
 void Core::setGraphicalLibFunctions()
 {
     _graphical->setFunctionPlay([this] () {startGame();});
-    _graphical->setFunctionMenu([this] () {
-                                    _scene = IGraphical::MAIN_MENU;
-                                    _graphical->setScene(_scene);
-                                    _game.release();
-                                    _game = nullptr;
-                                });
-    _graphical->setFunctionRestart([this] () {
-                                       _game->restart();
-                                       _scene = IGraphical::GAME;
-                                       _graphical->setScene(_scene);
-                                       _graphical->setGamePause(false);
-                                       _isPaused = false;
-                                   });
+    _graphical->setFunctionMenu(_generalControls[std::pair(Event::KEY_PRESSED, MENU_KEY)]);
+    _graphical->setFunctionRestart(_generalControls[std::pair(Event::KEY_PRESSED, RESTART_KEY)]);
     _graphical->setFunctionTogglePause([this] () {_isPaused = !_isPaused; _graphical->setGamePause(_isPaused);});
 }
 
@@ -246,18 +235,18 @@ std::string Core::getDynamicLibraryName(const std::string &path)
 
 void Core::initGeneralControl()
 {
-    _generalControls[std::pair(Event::KEY_PRESSED, Event::R)] = // restart
+    _generalControls[std::pair(Event::KEY_PRESSED, RESTART_KEY)] = // restart
         [this](){
             if (_game != nullptr)
                 _game->restart();
             _graphical->setGamePause(false);
             _isPaused = false;
         };
-    _generalControls[std::pair(Event::KEY_PRESSED, Event::ESCAPE)] = // quit
+    _generalControls[std::pair(Event::KEY_PRESSED, QUIT_KEY)] = // quit
         [this](){
             _quitGame = true;
         };
-    _generalControls[std::pair(Event::KEY_PRESSED, Event::M)] = // return to menu
+    _generalControls[std::pair(Event::KEY_PRESSED, MENU_KEY)] = // return to menu
         [this](){
             if (_scene == IGraphical::MAIN_MENU)
                 return;
@@ -267,7 +256,7 @@ void Core::initGeneralControl()
             _game = nullptr;
             _graphical->setHowToPlay(getControls());
         };
-    _generalControls[std::pair(Event::KEY_PRESSED, Event::NUM9)] = // previous lib
+    _generalControls[std::pair(Event::KEY_PRESSED, PREV_LIB_KEY)] = // previous lib
         [this](){
             auto it = std::find(_graphicalList.begin(), _graphicalList.end(), _currentGraphicalLib);
             if (it == _graphicalList.begin())
@@ -275,7 +264,7 @@ void Core::initGeneralControl()
             auto prevLib = std::prev(it);
             setCurrentLib(*prevLib);
         };
-    _generalControls[std::pair(Event::KEY_PRESSED, Event::NUM0)] = // next lib
+    _generalControls[std::pair(Event::KEY_PRESSED, NEXT_LIB_KEY)] = // next lib
         [this](){
             auto it = std::find(_graphicalList.begin(), _graphicalList.end(), _currentGraphicalLib);
             auto nextLib = std::next(it);
@@ -283,7 +272,7 @@ void Core::initGeneralControl()
                 return;
             setCurrentLib(*nextLib);
         };
-    _generalControls[std::pair(Event::KEY_PRESSED, Event::NUM8)] = // next game
+    _generalControls[std::pair(Event::KEY_PRESSED, NEXT_GAME_KEY)] = // next game
         [this](){
             if (_currentGame.empty()) {
                 setCurrentGame(_gameList.front());
@@ -296,7 +285,7 @@ void Core::initGeneralControl()
             setCurrentGame(*nextGame);
             startGame();
         };
-    _generalControls[std::pair(Event::KEY_PRESSED, Event::NUM7)] = // prev game
+    _generalControls[std::pair(Event::KEY_PRESSED, PREV_GAME_KEY)] = // prev game
         [this](){
             if (_currentGame.empty()) {
                 setCurrentGame(_gameList.front());

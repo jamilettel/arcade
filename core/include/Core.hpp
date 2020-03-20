@@ -17,6 +17,14 @@
 
 #define GRAPHICAL_DIR "lib/"
 
+#define RESTART_KEY Event::R
+#define QUIT_KEY Event::ESCAPE
+#define MENU_KEY Event::M
+#define PREV_LIB_KEY Event::NUM9
+#define NEXT_LIB_KEY Event::NUM0
+#define PREV_GAME_KEY Event::NUM7
+#define NEXT_GAME_KEY Event::NUM8
+
 namespace arc {
 
     class Core {
