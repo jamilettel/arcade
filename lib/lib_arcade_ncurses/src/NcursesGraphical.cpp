@@ -211,11 +211,6 @@ void NcursesGraphical::setGameStats(const std::vector<std::pair<std::string, std
     dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->setGameStatsFormatString(info);
 }
 
-void NcursesGraphical::setFont(const std::string &font)
-{
-    (void)font;
-}
-
 void NcursesGraphical::updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap)
 {
     dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->updateGameInfo(gameMap);
@@ -273,4 +268,7 @@ short NcursesGraphical::getPairColor(short color1, short color2)
 void NcursesGraphical::setUsername(const std::string &username)
 {
     _username = username;
+}
+void NcursesGraphical::setGamePause(bool pause)
+{
 }

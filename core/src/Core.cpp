@@ -18,9 +18,9 @@ Core::Core(const std::string &graphicalLib):
     _graphical(nullptr), _game(nullptr), _quitGame(false), _isPaused(false),
     _scene(IGraphical::Scene::MAIN_MENU)
 {
+    initGeneralControl();
     refreshLibrarieLists();
     loadGraphicalLibrary(getDynamicLibraryName(graphicalLib));
-    initGeneralControl();
 }
 
 Core::~Core()
@@ -75,10 +75,11 @@ void Core::loadGraphicalLibrary(const std::string &libPath)
     _graphical.swap(newLib);
     _oldGraphical.swap(newLib);
     _currentGraphicalLib = libPath;
-    _graphical->setFont("assets/font.ttf");
     _graphical->setScene(_scene);
     setGraphicalLibFunctions();
     _graphical->setHowToPlay(getControls());
+    _graphical->setGamePause(_isPaused);
+    _graphical->setUsername(_username);
 
     if (_game != nullptr) {
         _graphical->setControls(_game->getControls());
@@ -178,6 +179,8 @@ void Core::startGame()
         loadGameLibrary(_currentGame);
         _scene = IGraphical::GAME;
         _graphical->setScene(_scene);
+        _graphical->setGamePause(false);
+        _isPaused = false;
     } catch (ArcadeError &e) {
         std::cerr << e.getComponent() << ": " << e.what() << std::endl;
     }
@@ -186,18 +189,9 @@ void Core::startGame()
 void Core::setGraphicalLibFunctions()
 {
     _graphical->setFunctionPlay([this] () {startGame();});
-    _graphical->setFunctionMenu([this] () {
-                                    _scene = IGraphical::MAIN_MENU;
-                                    _graphical->setScene(_scene);
-                                    _game.release();
-                                    _game = nullptr;
-                                });
-    _graphical->setFunctionRestart([this] () {
-                                       _game->restart();
-                                       _scene = IGraphical::GAME;
-                                       _graphical->setScene(_scene);
-                                   });
-    _graphical->setFunctionTogglePause([this] () {_isPaused = !_isPaused;});
+    _graphical->setFunctionMenu(_generalControls[std::pair(Event::KEY_PRESSED, MENU_KEY)]);
+    _graphical->setFunctionRestart(_generalControls[std::pair(Event::KEY_PRESSED, RESTART_KEY)]);
+    _graphical->setFunctionTogglePause([this] () {_isPaused = !_isPaused; _graphical->setGamePause(_isPaused);});
 }
 
 const std::vector<std::string> &Core::getGameList() const
@@ -217,13 +211,16 @@ void Core::run()
             _oldGraphical.reset();
         _graphical->display();
         if (_scene == IGraphical::GAME && _game != nullptr) {
-            _game->updateGame();
+            if (!_isPaused)
+                _game->updateGame();
             _graphical->updateGameInfo(_game->getEntities());
             _graphical->setGameStats(_game->getGameStats());
         }
         if (_generalControls.count(std::pair<Event::Type, Event::Key>(_graphical->getEventType(), _graphical->getKeyPressed()))) {
             _generalControls.at(std::pair<Event::Type, Event::Key>(_graphical->getEventType(), _graphical->getKeyPressed()))();
         }
+        if (_graphical->getUsername() != _username)
+            _username = _graphical->getUsername();
     } while (_graphical->getEventType() != Event::QUIT && !_quitGame);
 }
 
@@ -244,54 +241,69 @@ std::string Core::getDynamicLibraryName(const std::string &path)
 
 void Core::initGeneralControl()
 {
-    _generalControls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::R)] = [this](){if (_game != nullptr) _game->restart();};
-    _generalControls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::ESCAPE)] = [this](){_quitGame = true;};
-    _generalControls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::M)] = [this](){
-        if (_scene == IGraphical::MAIN_MENU) return;
-        _scene = IGraphical::MAIN_MENU;
-        _graphical->setScene(_scene);
-        _game.release();
-        _game = nullptr;
-        _graphical->setHowToPlay(getControls());
-    };
-    _generalControls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::NUM9)] = [this](){
-        auto it = std::find(_graphicalList.begin(), _graphicalList.end(), _currentGraphicalLib);
-        if (it == _graphicalList.begin())
-            return;
-        auto prevLib = std::prev(it);
-        setCurrentLib(*prevLib);
-    };
-    _generalControls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::NUM0)] = [this](){
-        auto it = std::find(_graphicalList.begin(), _graphicalList.end(), _currentGraphicalLib);
-        auto nextLib = std::next(it);
-        if (nextLib == _graphicalList.end())
-            return;
-        setCurrentLib(*nextLib);
-    };
-    _generalControls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::NUM8)] = [this](){
-        if (_currentGame.empty()) {
-            setCurrentGame(_gameList.front());
+    _generalControls[std::pair(Event::KEY_PRESSED, RESTART_KEY)] = // restart
+        [this](){
+            if (_game != nullptr)
+                _game->restart();
+            _graphical->setGamePause(false);
+            _isPaused = false;
+        };
+    _generalControls[std::pair(Event::KEY_PRESSED, QUIT_KEY)] = // quit
+        [this](){
+            _quitGame = true;
+        };
+    _generalControls[std::pair(Event::KEY_PRESSED, MENU_KEY)] = // return to menu
+        [this](){
+            if (_scene == IGraphical::MAIN_MENU)
+                return;
+            _scene = IGraphical::MAIN_MENU;
+            _graphical->setScene(_scene);
+            _game.release();
+            _game = nullptr;
+            _graphical->setHowToPlay(getControls());
+        };
+    _generalControls[std::pair(Event::KEY_PRESSED, PREV_LIB_KEY)] = // previous lib
+        [this](){
+            auto it = std::find(_graphicalList.begin(), _graphicalList.end(), _currentGraphicalLib);
+            if (it == _graphicalList.begin())
+                return;
+            auto prevLib = std::prev(it);
+            setCurrentLib(*prevLib);
+        };
+    _generalControls[std::pair(Event::KEY_PRESSED, NEXT_LIB_KEY)] = // next lib
+        [this](){
+            auto it = std::find(_graphicalList.begin(), _graphicalList.end(), _currentGraphicalLib);
+            auto nextLib = std::next(it);
+            if (nextLib == _graphicalList.end())
+                return;
+            setCurrentLib(*nextLib);
+        };
+    _generalControls[std::pair(Event::KEY_PRESSED, NEXT_GAME_KEY)] = // next game
+        [this](){
+            if (_currentGame.empty()) {
+                setCurrentGame(_gameList.front());
+                startGame();
+            }
+            auto it = std::find(_gameList.begin(), _gameList.end(), _currentGame);
+            auto nextGame = std::next(it);
+            if (nextGame == _gameList.end())
+                return;
+            setCurrentGame(*nextGame);
             startGame();
-        }
-        auto it = std::find(_gameList.begin(), _gameList.end(), _currentGame);
-        auto nextGame = std::next(it);
-        if (nextGame == _gameList.end())
-            return;
-        setCurrentGame(*nextGame);
-        startGame();
-    };
-    _generalControls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::NUM7)] = [this](){
-        if (_currentGame.empty()) {
-            setCurrentGame(_gameList.front());
+        };
+    _generalControls[std::pair(Event::KEY_PRESSED, PREV_GAME_KEY)] = // prev game
+        [this](){
+            if (_currentGame.empty()) {
+                setCurrentGame(_gameList.front());
+                startGame();
+            }
+            auto it = std::find(_gameList.begin(), _gameList.end(), _currentGame);
+            if (it == _gameList.begin())
+                return;
+            auto prevGame = std::prev(it);
+            setCurrentGame(*prevGame);
             startGame();
-        }
-        auto it = std::find(_gameList.begin(), _gameList.end(), _currentGame);
-        if (it == _gameList.begin())
-            return;
-        auto prevGame = std::prev(it);
-        setCurrentGame(*prevGame);
-        startGame();
-    };
+        };
 }
 
 void Core::getBestScoresGame()

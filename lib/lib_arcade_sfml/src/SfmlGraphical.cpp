@@ -1,4 +1,3 @@
-
 /*
 ** EPITECH PROJECT, 2020
 ** Arcade
@@ -86,6 +85,8 @@ SfmlGraphical::SfmlGraphical():
     _eventType(Event::NO_EVENT),
     _keyPressed(Event::NONE), _scene(MAIN_MENU)
 {
+    if (!_font.loadFromFile("assets/font.ttf"))
+        throw SfmlError("could not load font: \"assets/font.ttf\"");
     _window.setFramerateLimit(60);
     _scenes[MAIN_MENU] = std::make_unique<MainMenuScene>(_window, _font, *this);
     _scenes[GAME] = std::make_unique<GameScene>(_window, _font, *this);
@@ -197,13 +198,13 @@ SfmlGraphical::Scene SfmlGraphical::getScene() const
     return (_scene);
 }
 
-void SfmlGraphical::setFont(const std::string &font)
-{
-    sf::FloatRect gameTitleBounds;
+// void SfmlGraphical::setFont(const std::string &font)
+// {
+//     sf::FloatRect gameTitleBounds;
 
-    if (!_font.loadFromFile(font))
-        throw SfmlError("could not load font '" + font + "'");
-}
+//     if (!_font.loadFromFile(font))
+//         throw SfmlError("could not load font '" + font + "'");
+// }
 
 Event::Type SfmlGraphical::getEventType() const
 {
@@ -222,14 +223,17 @@ void SfmlGraphical::setFunctionPlay(const std::function<void()> &function)
 
 void SfmlGraphical::setFunctionRestart(const std::function<void()> &function)
 {
+    static_cast<GameScene *>(_scenes.at(GAME).get())->setFunctionRestart(function);
 }
 
 void SfmlGraphical::setFunctionMenu(const std::function<void()> &function)
 {
+    static_cast<GameScene *>(_scenes.at(GAME).get())->setFunctionMenu(function);
 }
 
-void SfmlGraphical::setFunctionTogglePause(const std::function<void()> &function)
+void SfmlGraphical::setFunctionTogglePause(const std::function<void()> &fct)
 {
+    static_cast<GameScene *>(_scenes.at(GAME).get())->setFunctionTogglePause(fct);
 }
 
 const std::string &SfmlGraphical::getUsername()
@@ -245,6 +249,7 @@ void SfmlGraphical::setUsername(const std::string &name)
 void SfmlGraphical::setHowToPlay(const std::vector<std::pair<std::string,std::string>> &info)
 {
     static_cast<MainMenuScene *>(_scenes.at(MAIN_MENU).get())->setHowToPlay(info);
+    static_cast<GameScene *>(_scenes.at(GAME).get())->setHowToPlay(info);
 }
 
 void SfmlGraphical::setGameStats(const std::vector<std::pair<std::string, std::string>> &info)
@@ -296,4 +301,9 @@ void SfmlGraphical::setSpriteSize(sf::Sprite &sprite, const sf::Vector2f &size)
 void SfmlGraphical::setGameTitle(const std::string &game)
 {
     static_cast<GameScene *>(_scenes.at(GAME).get())->setGameTitle(game);
+}
+
+void SfmlGraphical::setGamePause(bool pause)
+{
+    static_cast<GameScene *>(_scenes.at(GAME).get())->setPause(pause);
 }

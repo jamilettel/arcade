@@ -13,7 +13,8 @@ AButton::AButton(sf::RenderWindow &w, sf::Vector2f pos, sf::Vector2f size, sf::F
                  const ButtonColor &button, const ButtonColor &text, const std::function<void()> &fct):
     _window(w), _button(sf::Mouse::Button::Left), _pos(pos),
     _size(size), _bColor(button), _tColor(text), _state(NONE),
-    _func(fct), _f(f), _actif(true) {}
+    _func(fct), _f(f), _actif(true), _updateState(true)
+{}
 
 void AButton::setPosition(float x, float y)
 {
@@ -80,6 +81,10 @@ void AButton::manageState()
     sf::Vector2i pos = _mouse.getPosition(_window);
     bool hovering = false;
 
+    if (!_updateState) {
+        _state = NONE;
+        return;
+    }
     if (pos.x >= _pos.x && pos.x < _pos.x + _size.x &&
         pos.y >= _pos.y && pos.y < _pos.y + _size.y)
         hovering = true;
@@ -144,4 +149,14 @@ void AButton::setActivation(bool actif)
 bool AButton::isActif() const
 {
     return (_actif);
+}
+
+void AButton::setUpdateState(bool status)
+{
+    _updateState = status;
+}
+
+bool AButton::getUpdateState() const
+{
+    return (_updateState);
 }
