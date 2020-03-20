@@ -38,9 +38,7 @@ void Core::loadGameLibrary(const std::string &gamePath)
     _game.swap(newGame);
     _oldGame.swap(newGame);
     _currentGame = gamePath;
-    getBestScoresGame();
     _graphical->setControls(_game->getControls());
-    _graphical->setScores(_bestScoresGame);
     _graphical->setHowToPlay(getControls());
     _graphical->setGameStats(_game->getGameStats());
     _game->getEntities();
@@ -83,13 +81,11 @@ void Core::loadGraphicalLibrary(const std::string &libPath)
     _graphical->setUsername(_username);
 
     if (_game != nullptr) {
-        getBestScoresGame();
         _graphical->setControls(_game->getControls());
         _graphical->setMapSize(_game->getMapHeight(), _game->getMapWidth());
         _graphical->setGameTitle(_game->getTitle());
         _graphical->setHowToPlay(getControls());
         _graphical->setGameStats(_game->getGameStats());
-        _graphical->setScores(_bestScoresGame);
     }
     sendListsToGraphicalLib();
 }
@@ -161,6 +157,8 @@ void Core::setCurrentGame(const std::string &game)
 {
     try {
         _currentGame = game;
+        getBestScoresGame();
+        _graphical->setScores(_bestScoresGame);
     } catch (ArcadeError &e) {
         std::cerr << e.what() << std::endl;
     }
@@ -213,6 +211,8 @@ void Core::run()
             _oldGraphical.reset();
         _graphical->display();
         if (_scene == IGraphical::GAME && _game != nullptr) {
+            if (endGame())
+                continue;
             if (!_isPaused)
                 _game->updateGame();
             _graphical->updateGameInfo(_game->getEntities());
@@ -324,5 +324,36 @@ void Core::getBestScoresGame()
         lineParse >> score.second;
         _bestScoresGame.emplace_back(score);
     }
+    fileScores.close();
+}
+
+bool Core::endGame()
+{
+    if (_graphical->getScene() != IGraphical::GAME)
+        return false;
+    if (!_game->isGameOver())
+        return false;
+    _graphical->setScene(IGraphical::END_GAME);
+    saveBestScore();
+    _graphical->setScores(_bestScoresGame);
+    return true;
+}
+
+void Core::saveBestScore()
+{
+    _bestScoresGame.emplace_back(std::pair<std::string, std::string>((_username.empty() ? "Unknown" : _username), _game->getScore()));
+    std::sort(_bestScoresGame.begin(), _bestScoresGame.end(), [](const auto &a, const auto &b){
+        return std::stoi(a.second.c_str()) >= std::stoi(b.second.c_str());
+    });
+    if (_bestScoresGame.size() > 10)
+        _bestScoresGame.erase(_bestScoresGame.begin() + 10, _bestScoresGame.end());
+
+    std::string dirBestScores(".scores/");
+    std::string path(dirBestScores + _currentGame);
+    std::ofstream fileScores(path);
+    if (!fileScores.good())
+        return;
+    for (const auto &score : _bestScoresGame)
+        fileScores << (score.first.empty() ? "Unknown" : score.first) << " " << score.second << std::endl;
     fileScores.close();
 }

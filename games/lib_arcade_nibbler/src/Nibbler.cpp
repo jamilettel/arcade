@@ -123,7 +123,6 @@ void arc::Nibbler::updateGame()
     this->moveSnake();
     if (this->collisionSnake()) {
         _gameOver = true;
-        this->restart();
     }
     this->eatFruit();
     this->updateStats();

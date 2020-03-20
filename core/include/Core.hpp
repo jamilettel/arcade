@@ -57,6 +57,9 @@ namespace arc {
         void initGeneralControl();
 
         void getBestScoresGame();
+        void saveBestScore();
+
+        bool endGame();
 
         std::unique_ptr<IGraphical> _graphical;
         std::unique_ptr<IGraphical> _oldGraphical;
