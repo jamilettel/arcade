@@ -51,6 +51,7 @@ namespace arc {
             std::optional<std::vector<std::pair<std::string, std::string>>> &_controls;
             std::optional<std::vector<std::pair<std::string, std::string>>> _gameStats;
             std::optional<std::vector<std::shared_ptr<Entity>>> _entities;
+            std::optional<std::vector<std::pair<std::string, std::string>>> _bestScores;
     };
 }
 
