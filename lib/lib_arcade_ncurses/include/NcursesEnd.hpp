@@ -32,6 +32,7 @@ namespace arc {
             void displayTitle();
             void displayScoreUsername();
             void displayBestScores();
+            void displayCommands();
 
         private:
             NcursesGraphical &_lib;

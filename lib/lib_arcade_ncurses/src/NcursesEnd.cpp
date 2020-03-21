@@ -34,6 +34,7 @@ void NcursesEnd::display()
     this->displayTitle();
     this->displayScoreUsername();
     this->displayBestScores();
+    this->displayCommands();
 }
 
 void NcursesEnd::update()
@@ -130,7 +131,7 @@ void NcursesEnd::displayScoreUsername()
 void NcursesEnd::displayBestScores()
 {
     delwin(_windows["BestScores"]);
-    _windows["BestScores"] = subwin(stdscr, 14, 30, LINES / 2, COLS - 50);
+    _windows["BestScores"] = subwin(stdscr, 14, 30, LINES / 4, COLS - 50);
     if (supportColor()) {
         _lib.addColor({250, 233, 77, 1});
         _lib.addColor({7, 29, 27, 1});
@@ -161,4 +162,39 @@ void NcursesEnd::displayBestScores()
         mvwprintw(_windows["BestScores"], 2, 2, "No Best scores on this game");
     }
     wattroff(_windows["BestScores"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
+}
+
+void NcursesEnd::displayCommands()
+{
+    delwin(_windows["Controls"]);
+    _windows["Controls"] = subwin(stdscr, 30, 40, LINES / 4, 10);
+    if (supportColor()) {
+        _lib.addColor({250, 233, 77, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["Controls"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+        wbkgd(_windows["Controls"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
+    box(_windows["Controls"], 0, 0);
+    mvwprintw(_windows["Controls"], 0, 0, "Controls");
+    wattroff(_windows["Controls"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+
+    if (supportColor()) {
+        _lib.addColor({234, 234, 234, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["Controls"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
+    int i = 2;
+    if (_lib.getHowToPlay().has_value() && !_lib.getHowToPlay()->empty()) {
+        for (const std::pair<std::string, std::string> &control : *_lib.getHowToPlay()) {
+            mvwprintw(_windows["Controls"], i, 2, control.first.c_str());
+            mvwprintw(_windows["Controls"], i, control.first.length() + 2, ":");
+            mvwprintw(_windows["Controls"], i, control.first.length() + 4, control.second.c_str());
+            i++;
+        }
+    } else {
+        mvwprintw(_windows["Controls"], 2, 2, "No commands on this game");
+    }
+    wattroff(_windows["Controls"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
 }
