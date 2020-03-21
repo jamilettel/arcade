@@ -140,7 +140,10 @@ Event::Key NcursesGraphical::getKeyPressed() const
 
 void NcursesGraphical::setScores(const std::vector<std::pair<std::string, std::string> > &scores)
 {
-    dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->setScores(scores);
+    if (getScene() == IGraphical::END_GAME)
+        dynamic_cast<NcursesEnd *>(_sceneList[END_GAME].get())->setScores(scores);
+    else
+        dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->setScores(scores);
 }
 
 void NcursesGraphical::setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()> > &controls)
@@ -210,10 +213,10 @@ std::optional<std::vector<std::pair<std::string, std::string>>>& NcursesGraphica
 
 void NcursesGraphical::setGameStats(const std::vector<std::pair<std::string, std::string>> &info)
 {
-    if (getScene() == IGraphical::GAME)
-        dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->setGameStatsFormatString(info);
-    else
+    if (getScene() == IGraphical::END_GAME)
         dynamic_cast<NcursesEnd *>(_sceneList[END_GAME].get())->setGameStatsFormatString(info);
+    else
+        dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->setGameStatsFormatString(info);
 }
 
 void NcursesGraphical::updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap)

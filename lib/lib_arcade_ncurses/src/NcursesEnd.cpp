@@ -33,6 +33,7 @@ void NcursesEnd::display()
     erase();
     this->displayTitle();
     this->displayScoreUsername();
+    this->displayBestScores();
 }
 
 void NcursesEnd::update()
@@ -55,6 +56,11 @@ bool NcursesEnd::supportColor() const
 void NcursesEnd::setGameStatsFormatString(const std::vector<std::pair<std::string, std::string>> &gameStats)
 {
     _gameStats = gameStats;
+}
+
+void NcursesEnd::setScores(const std::vector<std::pair<std::string, std::string>> &scores)
+{
+    _bestScores = scores;
 }
 
 void NcursesEnd::displayTitle()
@@ -96,6 +102,7 @@ void NcursesEnd::displayScoreUsername()
         wbkgd(_windows["UserInfos"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
     }
     box(_windows["UserInfos"], 0, 0);
+    mvwprintw(_windows["UserInfos"], 0, 0, "Your session");
     mvwprintw(_windows["UserInfos"], 2, 2, "Username : ");
     i = 3;
     for (const std::pair<std::string, std::string> &stat : *_gameStats) {
@@ -118,4 +125,40 @@ void NcursesEnd::displayScoreUsername()
         i++;
     }
     wattroff(_windows["UserInfos"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
+}
+
+void NcursesEnd::displayBestScores()
+{
+    delwin(_windows["BestScores"]);
+    _windows["BestScores"] = subwin(stdscr, 14, 30, LINES / 2, COLS - 50);
+    if (supportColor()) {
+        _lib.addColor({250, 233, 77, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["BestScores"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+        wbkgd(_windows["BestScores"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
+    box(_windows["BestScores"], 0, 0);
+    mvwprintw(_windows["BestScores"], 0, 0, "Best Scores on this game");
+    wattroff(_windows["BestScores"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+
+    if (supportColor()) {
+        _lib.addColor({234, 234, 234, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["BestScores"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
+    int i = 2;
+    if (_bestScores.has_value() && !_bestScores->empty()) {
+        for (const std::pair<std::string, std::string> &score : *_bestScores) {
+            mvwprintw(_windows["BestScores"], i, 2, score.first.c_str());
+            mvwprintw(_windows["BestScores"], i, score.first.length() + 2, ":");
+            mvwprintw(_windows["BestScores"], i, score.first.length() + 4,
+                      score.second.c_str());
+            i++;
+        }
+    } else {
+        mvwprintw(_windows["BestScores"], 2, 2, "No Best scores on this game");
+    }
+    wattroff(_windows["BestScores"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
 }

@@ -26,15 +26,19 @@ namespace arc {
 
             void setGameStatsFormatString(const std::vector<std::pair<std::string, std::string>> &gameStats);
 
+            void setScores(const std::vector<std::pair<std::string, std::string>> &scores);
+
         private:
             void displayTitle();
             void displayScoreUsername();
+            void displayBestScores();
 
         private:
             NcursesGraphical &_lib;
             std::map<std::string, WINDOW*> _windows;
             bool _termColor;
             std::optional<std::vector<std::pair<std::string, std::string>>> _gameStats;
+            std::optional<std::vector<std::pair<std::string, std::string>>> _bestScores;
     };
 }
 
