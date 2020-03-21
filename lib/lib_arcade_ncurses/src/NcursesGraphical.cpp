@@ -271,4 +271,5 @@ void NcursesGraphical::setUsername(const std::string &username)
 }
 void NcursesGraphical::setGamePause(bool pause)
 {
+    dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->setGamePause(pause);
 }

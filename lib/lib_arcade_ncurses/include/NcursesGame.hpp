@@ -36,6 +36,7 @@ namespace arc {
         public:
             void updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap);
             void setScores(const std::vector<std::pair<std::string, std::string>> &scores);
+            void setGamePause(bool pause);
 
         private:
             bool supportColor() const;
@@ -46,6 +47,7 @@ namespace arc {
             void displayGameInfo();
             void displayUserName();
             void displayBestScore();
+            void displayPause();
 
         private:
             std::pair<size_t, size_t> _mapSize;
@@ -53,6 +55,7 @@ namespace arc {
             std::optional<std::vector<std::pair<std::string, std::string>>> _gameStats;
             std::optional<std::vector<std::shared_ptr<Entity>>> _entities;
             std::optional<std::vector<std::pair<std::string, std::string>>> _bestScores;
+            bool _paused;
     };
 }
 

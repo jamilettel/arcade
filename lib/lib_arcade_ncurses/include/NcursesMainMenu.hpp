@@ -35,7 +35,6 @@ namespace arc
             void displayCommandUsername();
             void promptUsername();
 
-
         private:
             NcursesGraphical &_lib;
             std::map<std::string, WINDOW*> _windows;

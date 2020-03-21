@@ -9,7 +9,7 @@
 
 using namespace arc;
 
-NcursesGame::NcursesGame(NcursesGraphical &mainLib) : _lib(mainLib), _mapSize(std::pair<size_t, size_t>(0, 0)), _controls(_lib.getHowToPlay())
+NcursesGame::NcursesGame(NcursesGraphical &mainLib) : _lib(mainLib), _mapSize(std::pair<size_t, size_t>(0, 0)), _controls(_lib.getHowToPlay()), _paused(false)
 {
     _termColor = has_colors();
     if (supportColor()) {
@@ -43,6 +43,7 @@ void NcursesGame::display()
     this->displayGameInfo();
     this->displayEntities();
     this->displayBestScore();
+    this->displayPause();
 }
 
 void NcursesGame::refresh()
@@ -279,4 +280,37 @@ void NcursesGame::displayBestScore()
 void NcursesGame::setScores(const std::vector<std::pair<std::string, std::string>> &scores)
 {
     _bestScores = scores;
+}
+
+void NcursesGame::displayPause()
+{
+    if (!_paused)
+        return;
+    delwin(_windows["Pause"]);
+    _windows["Pause"] = subwin(stdscr, 15, 104, LINES / 2 - 15 / 2, COLS / 2 - 104 / 2);
+    if (supportColor()) {
+        _lib.addColor({250, 233, 77, 1});
+        _lib.addColor({7, 29, 27, 1});
+        _lib.initPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}));
+        wattron(_windows["Pause"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+        wbkgd(_windows["Pause"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+    }
+    box(_windows["Pause"], 0, 0);
+    mvwprintw(_windows["Pause"], 2, 2, ".----------------.  .----------------.  .----------------.  .----------------.  .----------------.");
+    mvwprintw(_windows["Pause"], 3, 2, "| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |");
+    mvwprintw(_windows["Pause"], 4, 2, "| |   ______     | || |      __      | || | _____  _____ | || |    _______   | || |  _________   | |");
+    mvwprintw(_windows["Pause"], 5, 2, "| |  |_   __ \\   | || |     /  \\     | || ||_   _||_   _|| || |   /  ___  |  | || | |_   ___  |  | |");
+    mvwprintw(_windows["Pause"], 6, 2, "| |    | |__) |  | || |    / /\\ \\    | || |  | |    | |  | || |  |  (__ \\_|  | || |   | |_  \\_|  | |");
+    mvwprintw(_windows["Pause"], 7, 2, "| |    |  ___/   | || |   / ____ \\   | || |  | '    ' |  | || |   '.___`-.   | || |   |  _|  _   | |");
+    mvwprintw(_windows["Pause"], 8, 2, "| |   _| |_      | || | _/ /    \\ \\_ | || |   \\ `--' /   | || |  |`\\____) |  | || |  _| |___/ |  | |");
+    mvwprintw(_windows["Pause"], 9, 2, "| |  |_____|     | || ||____|  |____|| || |    `.__.'    | || |  |_______.'  | || | |_________|  | |");
+    mvwprintw(_windows["Pause"], 10, 2, "| |              | || |              | || |              | || |              | || |              | |");
+    mvwprintw(_windows["Pause"], 11, 2, "| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |");
+    mvwprintw(_windows["Pause"], 12, 2, "'----------------'  '----------------'  '----------------'  '----------------'  '----------------'");
+    wattroff(_windows["Pause"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
+}
+
+void NcursesGame::setGamePause(bool pause)
+{
+    _paused = pause;
 }
