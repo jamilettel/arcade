@@ -331,6 +331,11 @@ void Core::getBestScoresGame()
         lineParse >> score.second;
         _bestScoresGame.emplace_back(score);
     }
+    std::sort(_bestScoresGame.begin(), _bestScoresGame.end(), [](const auto &a, const auto &b){
+        return std::stoi(a.second.c_str()) >= std::stoi(b.second.c_str());
+    });
+    if (_bestScoresGame.size() > 10)
+        _bestScoresGame.erase(_bestScoresGame.begin() + 10, _bestScoresGame.end());
     fileScores.close();
 }
 
