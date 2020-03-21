@@ -55,6 +55,7 @@ std::vector<std::pair<std::string, std::string>> Core::getControls() const
     controls.emplace_back("Previous game", "7");
     controls.emplace_back("Next game", "8");
     controls.emplace_back("Restart game", "R");
+    controls.emplace_back("Pause game", "P");
     controls.emplace_back("Quit Arcade", "Escape");
     controls.emplace_back("Return to Menu", "M");
     if (_game != nullptr) {
@@ -348,6 +349,7 @@ bool Core::endGame()
     _graphical->setScene(IGraphical::END_GAME);
     saveBestScore();
     _graphical->setScores(_bestScoresGame);
+    _graphical->setGameStats(_game->getGameStats());
     return true;
 }
 

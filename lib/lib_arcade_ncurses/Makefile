@@ -15,6 +15,7 @@ SRC	=	src/NcursesError.cpp\
 		src/NcursesGraphical.cpp	\
 		src/NcursesMainMenu.cpp	\
 		src/NcursesGame.cpp	\
+		src/NcursesEnd.cpp	\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 

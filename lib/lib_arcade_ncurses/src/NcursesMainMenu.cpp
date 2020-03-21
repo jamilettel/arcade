@@ -196,7 +196,7 @@ void NcursesMainMenu::displayInfo()
 {
     int i = 2;
     delwin(_windows["InfoBox"]);
-    _windows["InfoBox"] = subwin(stdscr, 10, 30, LINES / 2 + 12, COLS / 3 + 18);
+    _windows["InfoBox"] = subwin(stdscr, 15, 30, LINES / 2 + 12, COLS / 3 + 18);
     if (supportColor()) {
         _lib.addColor({250, 233, 77, 1});
         _lib.addColor({7, 29, 27, 1});

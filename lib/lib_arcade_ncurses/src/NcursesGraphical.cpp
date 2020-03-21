@@ -9,6 +9,7 @@
 #include "NcursesGraphical.hpp"
 #include "NcursesMainMenu.hpp"
 #include "NcursesGame.hpp"
+#include "NcursesEnd.hpp"
 
 using namespace arc;
 
@@ -90,6 +91,7 @@ NcursesGraphical::NcursesGraphical() : _eventType(Event::NO_EVENT), _keyPressed(
         start_color();
     _sceneList[MAIN_MENU] = std::shared_ptr<IScene>(new NcursesMainMenu(*this));
     _sceneList[GAME] = std::shared_ptr<IScene>(new NcursesGame(*this));
+    _sceneList[END_GAME] = std::shared_ptr<IScene>(new NcursesEnd(*this));
 }
 
 NcursesGraphical::~NcursesGraphical()
@@ -208,7 +210,10 @@ std::optional<std::vector<std::pair<std::string, std::string>>>& NcursesGraphica
 
 void NcursesGraphical::setGameStats(const std::vector<std::pair<std::string, std::string>> &info)
 {
-    dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->setGameStatsFormatString(info);
+    if (getScene() == IGraphical::GAME)
+        dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->setGameStatsFormatString(info);
+    else
+        dynamic_cast<NcursesEnd *>(_sceneList[END_GAME].get())->setGameStatsFormatString(info);
 }
 
 void NcursesGraphical::updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap)
