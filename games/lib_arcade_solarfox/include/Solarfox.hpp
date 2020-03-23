@@ -9,9 +9,11 @@
 #define OOP_ARCADE_2019_SOLARFOX_HPP
 
 #include "IGame.hpp"
+#include "SolarfoxError.hpp"
 
 #define ROWS_SNAKE 30
 #define COLS_SNAKE 50
+#define DIR_MAPS "../maps/"
 
 namespace arc
 {
@@ -42,16 +44,25 @@ namespace arc
             bool _gameOver;
             std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _controls;
             std::vector<std::pair<std::string, std::string>> _gameControlsFormat;
+
             std::vector<std::shared_ptr<Entity>> _entities;
+
             std::vector<std::pair<std::string, std::string>> _gameStats;
+
             std::string _music;
             std::string _sound;
+
             std::string _scoreString;
             int _score;
+
             const std::string _title;
 
+            std::vector<std::string> _mapFiles;
         private:
             void initControlFormat();
+            void getMapFiles();
+
+        private:
     };
 }
 

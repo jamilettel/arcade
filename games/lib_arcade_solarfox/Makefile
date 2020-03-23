@@ -12,6 +12,7 @@ SRC_TEST	=	\
 MAIN	=	\
 
 SRC	=	src/Solarfox.cpp	\
+		src/SolarfoxError.cpp	\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 

@@ -6,6 +6,7 @@
 */
 
 #include "Solarfox.hpp"
+#include <filesystem>
 
 using namespace arc;
 
@@ -17,6 +18,7 @@ Solarfox::Solarfox() : _gameOver(false), _scoreString(std::string("0")), _score(
 {
     srand(time(nullptr));
     this->initControlFormat();
+    //this->getMapFiles();
 }
 
 size_t Solarfox::getMapHeight() const
@@ -92,4 +94,17 @@ void Solarfox::initControlFormat()
     _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MOVE RIGHT"), std::string("ARROW KEY RIGHT")));
     _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MOVE LEFT"), std::string("ARROW KEY LEFT")));
     _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("FIRE"), std::string("SPACE BAR")));
+}
+
+void Solarfox::getMapFiles()
+{
+    try {
+        std::filesystem::directory_iterator mapDir(DIR_MAPS);
+
+        for (auto &file: mapDir)
+            if (file.path().filename().extension() == ".solarfox")
+                _mapFiles.emplace_back(file.path().filename());
+    } catch (std::exception &error) {
+        throw SolarfoxError(error.what());
+    }
 }
