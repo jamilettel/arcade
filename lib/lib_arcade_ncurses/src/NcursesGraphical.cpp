@@ -142,8 +142,10 @@ void NcursesGraphical::setScores(const std::vector<std::pair<std::string, std::s
 {
     if (getScene() == IGraphical::END_GAME)
         dynamic_cast<NcursesEnd *>(_sceneList[END_GAME].get())->setScores(scores);
-    else
+    else if (getScene() == IGraphical::GAME)
         dynamic_cast<NcursesGame *>(_sceneList[GAME].get())->setScores(scores);
+    else
+        dynamic_cast<NcursesMainMenu *>(_sceneList[MAIN_MENU].get())->setScores(scores);
 }
 
 void NcursesGraphical::setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()> > &controls)
