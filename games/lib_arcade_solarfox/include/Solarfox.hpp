@@ -44,6 +44,9 @@ namespace arc
             std::vector<std::pair<std::string, std::string>> _gameControlsFormat;
 
             std::vector<std::shared_ptr<Entity>> _entities;
+            std::vector<std::shared_ptr<Entity>> _loots;
+            std::vector<std::shared_ptr<Entity>> _enemies;
+            std::shared_ptr<Entity> _player;
 
             std::vector<std::pair<std::string, std::string>> _gameStats;
 
@@ -62,10 +65,19 @@ namespace arc
 
             unsigned int _level;
 
+            bool _started;
+
         private:
             void initControlFormat();
+
             void getMapFiles();
             void loadMap(const std::string &filepath);
+            bool invalidCoordinates(size_t x, size_t y);
+
+            void createPlayer();
+            void createEnemies();
+
+            void updateStats();
 
         private:
     };

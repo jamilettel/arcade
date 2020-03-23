@@ -99,7 +99,7 @@ void NcursesGame::setMapSize(size_t height, size_t width)
 void NcursesGame::displayMap()
 {
     delwin(_windows["Map"]);
-    _windows["Map"] = subwin(stdscr, _mapSize.first, _mapSize.second, LINES / 2 - _mapSize.first / 1.5, COLS / 2 - _mapSize.second / 2);
+    _windows["Map"] = subwin(stdscr, _mapSize.first, _mapSize.second, LINES / 2 - _mapSize.first / 1.8, COLS / 2 - _mapSize.second / 2);
     if (supportColor()) {
         _lib.addColor({234, 234, 234, 1});
         _lib.initPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({234, 234, 234, 1}));
