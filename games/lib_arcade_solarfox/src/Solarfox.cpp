@@ -7,6 +7,7 @@
 
 #include "Solarfox.hpp"
 #include <filesystem>
+#include <fstream>
 
 using namespace arc;
 
@@ -14,21 +15,26 @@ extern "C" IGame *instance_ctor() {
     return (new Solarfox);
 };
 
-Solarfox::Solarfox() : _gameOver(false), _scoreString(std::string("0")), _score(0), _title("Solarfox")
+Solarfox::Solarfox() try : _gameOver(false), _scoreString(std::string("0")), _score(0), _title("Solarfox"), _mapWidth(0), _mapHeight(0), _level(0)
 {
     srand(time(nullptr));
     this->initControlFormat();
-    //this->getMapFiles();
+    this->getMapFiles();
+    this->loadMap(_mapFiles.at(_level));
+} catch (const ArcadeError &e) {
+    throw e;
 }
+
+#include <iostream>
 
 size_t Solarfox::getMapHeight() const
 {
-    return ROWS_SNAKE;
+    return _mapHeight;
 }
 
 size_t Solarfox::getMapWidth() const
 {
-    return COLS_SNAKE;
+    return _mapWidth;
 }
 
 const std::string &Solarfox::getMusic() const
@@ -103,8 +109,28 @@ void Solarfox::getMapFiles()
 
         for (auto &file: mapDir)
             if (file.path().filename().extension() == ".solarfox")
-                _mapFiles.emplace_back(file.path().filename());
+                _mapFiles.emplace_back(file.path());
     } catch (std::exception &error) {
         throw SolarfoxError(error.what());
     }
+}
+
+void Solarfox::loadMap(const std::string &filepath)
+{
+    std::ifstream file(filepath);
+    std::string line;
+    std::istringstream lineTransform;
+
+    if (!file.good())
+        throw ArcadeError("loadMap", "Unable to open file");
+
+    getline(file, line);
+    lineTransform.str(line);
+    lineTransform >> _mapHeight;
+
+    getline(file, line);
+    lineTransform.clear();
+    lineTransform.str(line);
+    lineTransform >> _mapWidth;
+
 }

@@ -11,9 +11,7 @@
 #include "IGame.hpp"
 #include "SolarfoxError.hpp"
 
-#define ROWS_SNAKE 30
-#define COLS_SNAKE 50
-#define DIR_MAPS "../maps/"
+#define DIR_MAPS "games/lib_arcade_solarfox/maps/"
 
 namespace arc
 {
@@ -58,9 +56,16 @@ namespace arc
             const std::string _title;
 
             std::vector<std::string> _mapFiles;
+
+            int _mapWidth;
+            int _mapHeight;
+
+            unsigned int _level;
+
         private:
             void initControlFormat();
             void getMapFiles();
+            void loadMap(const std::string &filepath);
 
         private:
     };
