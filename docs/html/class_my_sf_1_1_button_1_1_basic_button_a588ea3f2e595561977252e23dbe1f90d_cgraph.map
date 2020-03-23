@@ -1,5 +1,4 @@
 <map id="MySf::Button::BasicButton::draw" name="MySf::Button::BasicButton::draw">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,197,47"/>
-<area shape="rect" id="node2" href="$class_my_sf_1_1_button_1_1_a_button.html#aec7a711aef2bdaf9d0efe19bf9e03627" title=" " alt="" coords="245,5,412,47"/>
-<area shape="rect" id="node3" href="$class_my_sf_1_1_button_1_1_a_button.html#af374bdbc23788c4ea777176fd884e6d7" title=" " alt="" coords="460,5,627,47"/>
+<area shape="rect" id="node2" href="$class_my_sf_1_1_button_1_1_a_button.html#aec7a711aef2bdaf9d0efe19bf9e03627" title="MySf::Button::AButton\l::manageCurrentColor" alt="" coords="244,5,409,47"/>
+<area shape="rect" id="node3" href="$class_my_sf_1_1_button_1_1_a_button.html#af374bdbc23788c4ea777176fd884e6d7" title="MySf::Button::AButton\l::manageState" alt="" coords="457,5,623,47"/>
 </map>

@@ -1,7 +1,12 @@
 <map id="arc::MainMenuScene::draw" name="arc::MainMenuScene::draw">
-<area shape="rect" id="node1" title=" " alt="" coords="5,39,163,80"/>
-<area shape="rect" id="node2" href="$class_my_sf_1_1_input_zone.html#ac767868bb0a1f08754eaef2259947bde" title=" " alt="" coords="211,46,380,73"/>
-<area shape="rect" id="node3" href="$class_my_sf_1_1_color_1_1_smooth_shifting.html#a9558364e7942b12aaec95aa4a7e911a0" title=" " alt="" coords="428,5,633,47"/>
-<area shape="rect" id="node4" href="$class_my_sf_1_1_color_1_1_smooth_shifting.html#a47f9691852d525bee499999b4b56796e" title=" " alt="" coords="428,71,633,112"/>
-<area shape="rect" id="node5" href="$class_my_sf_1_1_color_1_1_utils.html#a29e3fd78740382bbad82e1f0478cf184" title=" " alt="" coords="681,71,816,112"/>
+<area shape="rect" id="node2" href="$class_my_sf_1_1_input_zone.html#ac767868bb0a1f08754eaef2259947bde" title="MySf::InputZone::draw" alt="" coords="208,59,376,86"/>
+<area shape="rect" id="node6" href="$class_my_sf_1_1_a_list.html#a7928248bf34531659fe9834a91ff8cdf" title="MySf::AList::getList" alt="" coords="219,110,365,137"/>
+<area shape="rect" id="node7" href="$class_my_sf_1_1_basic_list.html#aaed502df5a5579a3ebf8d945074da5bb" title="MySf::BasicList::draw" alt="" coords="212,161,372,187"/>
+<area shape="rect" id="node3" href="$class_my_sf_1_1_color_1_1_smooth_shifting.html#a9558364e7942b12aaec95aa4a7e911a0" title="MySf::Color::SmoothShifting\l::setColor" alt="" coords="429,5,633,47"/>
+<area shape="rect" id="node4" href="$class_my_sf_1_1_color_1_1_smooth_shifting.html#a47f9691852d525bee499999b4b56796e" title="MySf::Color::SmoothShifting\l::getColor" alt="" coords="687,35,891,76"/>
+<area shape="rect" id="node5" href="$class_my_sf_1_1_color_1_1_utils.html#a29e3fd78740382bbad82e1f0478cf184" title="MySf::Color::Utils\l::addToColor" alt="" coords="954,35,1089,76"/>
+<area shape="rect" id="node8" href="$class_my_sf_1_1_basic_list.html#a2a4c133f49f01be04d1d54eb866c9735" title="MySf::BasicList::drawElement" alt="" coords="424,147,639,174"/>
+<area shape="rect" id="node9" href="$class_my_sf_1_1_button_1_1_rect_button.html#ac4b93a11a3251b2c8f8fc5727724baa3" title="MySf::Button::RectButton\l::draw" alt="" coords="439,199,623,240"/>
+<area shape="rect" id="node10" href="$class_my_sf_1_1_button_1_1_a_button.html#aec7a711aef2bdaf9d0efe19bf9e03627" title="MySf::Button::AButton\l::manageCurrentColor" alt="" coords="706,199,871,240"/>
+<area shape="rect" id="node11" href="$class_my_sf_1_1_button_1_1_a_button.html#af374bdbc23788c4ea777176fd884e6d7" title="MySf::Button::AButton\l::manageState" alt="" coords="939,199,1104,240"/>
 </map>

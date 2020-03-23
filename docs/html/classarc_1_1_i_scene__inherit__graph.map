@@ -1,7 +1,7 @@
 <map id="arc::IScene" name="arc::IScene">
-<area shape="rect" id="node1" title=" " alt="" coords="276,5,369,32"/>
-<area shape="rect" id="node2" href="$classarc_1_1_game_scene.html" title=" " alt="" coords="5,80,133,107"/>
-<area shape="rect" id="node3" href="$classarc_1_1_main_menu_scene.html" title=" " alt="" coords="157,80,315,107"/>
-<area shape="rect" id="node4" href="$classarc_1_1_ncurses_game.html" title=" " alt="" coords="339,80,480,107"/>
-<area shape="rect" id="node5" href="$classarc_1_1_ncurses_main_menu.html" title=" " alt="" coords="504,80,675,107"/>
+<area shape="rect" id="node2" href="$classarc_1_1_game_scene.html" title="arc::GameScene" alt="" coords="167,5,295,32"/>
+<area shape="rect" id="node3" href="$classarc_1_1_main_menu_scene.html" title="arc::MainMenuScene" alt="" coords="153,56,308,83"/>
+<area shape="rect" id="node4" href="$classarc_1_1_ncurses_end.html" title="arc::NcursesEnd" alt="" coords="167,107,294,133"/>
+<area shape="rect" id="node5" href="$classarc_1_1_ncurses_game.html" title="arc::NcursesGame" alt="" coords="160,157,301,184"/>
+<area shape="rect" id="node6" href="$classarc_1_1_ncurses_main_menu.html" title="arc::NcursesMainMenu" alt="" coords="147,208,315,235"/>
 </map>

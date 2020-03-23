@@ -17,7 +17,7 @@ namespace arc
     class NcursesMainMenu : public IScene
     {
         public:
-            NcursesMainMenu(NcursesGraphical &mainLib);
+            explicit NcursesMainMenu(NcursesGraphical &mainLib);
             ~NcursesMainMenu() override;
 
             void display() override;
@@ -25,15 +25,17 @@ namespace arc
             void refresh() override;
             void setListGames(const std::vector<std::string> &name, const std::function<void (const std::string &)> &fct, int chosen);
             void setListGraphics(const std::vector<std::string> &name, const std::function<void (const std::string &)> &fct, int chosen);
+            void setScores(const std::vector<std::pair<std::string, std::string>> &scores);
 
         private:
-            bool supportColor() const;
+            [[nodiscard]] bool supportColor() const;
             void displayMainTitle() const;
             void displayMenuGames();
             void displayMenuGraphics();
             void displayInfo();
             void displayCommandUsername();
             void promptUsername();
+            void displayBestScores();
 
         private:
             NcursesGraphical &_lib;
@@ -49,7 +51,7 @@ namespace arc
             unsigned int _chosenGraphics;
             std::optional<std::function<void (const std::string&)>> _ftGraphics;
             std::optional<std::vector<std::pair<std::string, std::string>>> &_controls;
-
+            std::optional<std::vector<std::pair<std::string, std::string>>> _bestScores;
     };
 }
 

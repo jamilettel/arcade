@@ -4,6 +4,7 @@ var searchData=
   ['icolor',['IColor',['../class_my_sf_1_1_color_1_1_i_color.html',1,'MySf::Color']]],
   ['igame',['IGame',['../classarc_1_1_i_game.html',1,'arc']]],
   ['igraphical',['IGraphical',['../classarc_1_1_i_graphical.html',1,'arc']]],
+  ['ilist',['IList',['../class_my_sf_1_1_i_list.html',1,'MySf']]],
   ['inputzone',['InputZone',['../class_my_sf_1_1_input_zone.html',1,'MySf']]],
   ['iscene',['IScene',['../classarc_1_1_i_scene.html',1,'arc']]]
 ];

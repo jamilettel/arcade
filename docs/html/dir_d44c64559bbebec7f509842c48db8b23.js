@@ -1,6 +1,6 @@
 var dir_d44c64559bbebec7f509842c48db8b23 =
 [
-    [ "Error.hpp", "_error_8hpp.html", [
+    [ "Error.hpp", "include_2_error_8hpp.html", [
       [ "ArcadeError", "classarc_1_1_arcade_error.html", "classarc_1_1_arcade_error" ]
     ] ],
     [ "IGame.hpp", "_i_game_8hpp.html", [

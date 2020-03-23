@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['scene',['Scene',['../classarc_1_1_i_graphical.html#a6cc5d1012f52742130149a1af0044315',1,'arc::IGraphical']]]
+  ['type',['Type',['../namespacearc_1_1_event.html#a93c5eedc3af4e1e09d2e44c4985cd15d',1,'arc::Event']]]
 ];

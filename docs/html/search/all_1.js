@@ -8,8 +8,13 @@ var searchData=
   ['acolor_2ecpp',['AColor.cpp',['../_a_color_8cpp.html',1,'']]],
   ['acolor_2ehpp',['AColor.hpp',['../_a_color_8hpp.html',1,'']]],
   ['addcolor',['addColor',['../classarc_1_1_ncurses_graphical.html#ab4daec81c2e00062cb217b6af73d3526',1,'arc::NcursesGraphical']]],
+  ['addcolumn',['addColumn',['../class_my_sf_1_1_basic_list.html#aca13fbea77272219c0fb7cac196c19ff',1,'MySf::BasicList']]],
   ['addtocolor',['addToColor',['../class_my_sf_1_1_color_1_1_utils.html#a29e3fd78740382bbad82e1f0478cf184',1,'MySf::Color::Utils']]],
+  ['alist',['AList',['../class_my_sf_1_1_a_list.html',1,'MySf::AList'],['../class_my_sf_1_1_a_list.html#a3bb01e44d6f3e320c3f270de28bcd64d',1,'MySf::AList::AList()']]],
+  ['alist_2ecpp',['AList.cpp',['../_a_list_8cpp.html',1,'']]],
+  ['alist_2ehpp',['AList.hpp',['../_a_list_8hpp.html',1,'']]],
   ['arc',['arc',['../namespacearc.html',1,'']]],
   ['arcadeerror',['ArcadeError',['../classarc_1_1_arcade_error.html',1,'arc::ArcadeError'],['../classarc_1_1_arcade_error.html#a8681b2142a0e0779325fe8f00b20c2d6',1,'arc::ArcadeError::ArcadeError()']]],
+  ['architecture_5fid',['ARCHITECTURE_ID',['../_c_make_c_compiler_id_8c.html#aba35d0d200deaeb06aee95ca297acb28',1,'ARCHITECTURE_ID():&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#aba35d0d200deaeb06aee95ca297acb28',1,'ARCHITECTURE_ID():&#160;CMakeCXXCompilerId.cpp']]],
   ['event',['Event',['../namespacearc_1_1_event.html',1,'arc']]]
 ];

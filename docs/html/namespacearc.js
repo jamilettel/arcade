@@ -12,6 +12,7 @@ var namespacearc =
     [ "IGraphical", "classarc_1_1_i_graphical.html", "classarc_1_1_i_graphical" ],
     [ "IScene", "classarc_1_1_i_scene.html", "classarc_1_1_i_scene" ],
     [ "MainMenuScene", "classarc_1_1_main_menu_scene.html", "classarc_1_1_main_menu_scene" ],
+    [ "NcursesEnd", "classarc_1_1_ncurses_end.html", "classarc_1_1_ncurses_end" ],
     [ "NcursesError", "classarc_1_1_ncurses_error.html", "classarc_1_1_ncurses_error" ],
     [ "NcursesGame", "classarc_1_1_ncurses_game.html", "classarc_1_1_ncurses_game" ],
     [ "NcursesGraphical", "classarc_1_1_ncurses_graphical.html", "classarc_1_1_ncurses_graphical" ],

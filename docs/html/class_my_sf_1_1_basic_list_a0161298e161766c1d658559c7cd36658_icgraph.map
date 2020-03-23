@@ -1,0 +1,5 @@
+<map id="MySf::BasicList::setList" name="MySf::BasicList::setList">
+<area shape="rect" id="node2" href="$classarc_1_1_game_scene.html#a1164c254b7a6449e5c4a03aca26607c5" title="arc::GameScene::setGameStats" alt="" coords="224,5,452,32"/>
+<area shape="rect" id="node3" href="$classarc_1_1_main_menu_scene.html#adb1981846801e80409d7c1a1ee5017e1" title="arc::MainMenuScene\l::setHowToPlay" alt="" coords="261,57,415,98"/>
+<area shape="rect" id="node4" href="$classarc_1_1_main_menu_scene.html#a8a8c85287ee70320958aefc98097f4ee" title="arc::MainMenuScene\l::setScores" alt="" coords="261,122,415,163"/>
+</map>

@@ -21,7 +21,7 @@ namespace arc {
     class Nibbler : public IGame {
     public:
         Nibbler();
-        ~Nibbler() = default;
+        ~Nibbler() override = default;
 
         [[nodiscard]] size_t getMapHeight() const override;
         [[nodiscard]] size_t getMapWidth() const override;
@@ -52,7 +52,7 @@ namespace arc {
         std::string _sound;
         std::string _scoreString;
         int _score;
-        std::map<char, std::pair<std::string, Color>> _visualAssets;
+        const std::string _title;
 
     private:
         void initControlFormat();
@@ -85,8 +85,6 @@ namespace arc {
         std::pair<float, float> _moveCoordonnate;
         std::chrono::system_clock::time_point _startTime;
         std::chrono::system_clock::time_point _endTime;
-
-        const std::string _title;
     public:
     };
 }

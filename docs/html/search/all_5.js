@@ -7,7 +7,8 @@ var searchData=
   ['enter',['ENTER',['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5a4caf2ce13742fa507745d993f373aa56',1,'arc::Event']]],
   ['entity',['Entity',['../structarc_1_1_entity.html',1,'arc::Entity'],['../structarc_1_1_entity.html#a24883efb28123d9f828275658b1bc85a',1,'arc::Entity::Entity()']]],
   ['entitytype',['EntityType',['../namespacearc.html#a522a1db2387463e368d680e3b1fe392c',1,'arc']]],
-  ['error_2ecpp',['Error.cpp',['../_error_8cpp.html',1,'']]],
-  ['error_2ehpp',['Error.hpp',['../_error_8hpp.html',1,'']]],
+  ['error',['Error',['../class_my_sf_1_1_error.html',1,'MySf::Error'],['../class_my_sf_1_1_error.html#a06809be4f826e09e2b6c0bac31af6b67',1,'MySf::Error::Error()']]],
+  ['error_2ecpp',['Error.cpp',['../core_2src_2_error_8cpp.html',1,'(Global Namespace)'],['../lib_2lib__arcade__sfml_2_my_sf_2src_2_error_8cpp.html',1,'(Global Namespace)']]],
+  ['error_2ehpp',['Error.hpp',['../include_2_error_8hpp.html',1,'(Global Namespace)'],['../lib_2lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_error_8hpp.html',1,'(Global Namespace)']]],
   ['escape',['ESCAPE',['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5ae689d2544198ff7692be9ab69937c46a',1,'arc::Event']]]
 ];

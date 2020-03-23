@@ -1,6 +1,9 @@
 var searchData=
 [
   ['n',['N',['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5a32748351e204fe66f5c42f94a1e907da',1,'arc::Event']]],
+  ['ncursesend',['NcursesEnd',['../classarc_1_1_ncurses_end.html',1,'arc::NcursesEnd'],['../classarc_1_1_ncurses_end.html#a408e7ad8841c34dcf7540e49f25ccbf1',1,'arc::NcursesEnd::NcursesEnd()']]],
+  ['ncursesend_2ecpp',['NcursesEnd.cpp',['../_ncurses_end_8cpp.html',1,'']]],
+  ['ncursesend_2ehpp',['NcursesEnd.hpp',['../_ncurses_end_8hpp.html',1,'']]],
   ['ncurseserror',['NcursesError',['../classarc_1_1_ncurses_error.html',1,'arc::NcursesError'],['../classarc_1_1_ncurses_error.html#a5ae11a6ac3e983e55470534d33dfc75d',1,'arc::NcursesError::NcursesError()']]],
   ['ncurseserror_2ecpp',['NcursesError.cpp',['../_ncurses_error_8cpp.html',1,'']]],
   ['ncurseserror_2ehpp',['NcursesError.hpp',['../_ncurses_error_8hpp.html',1,'']]],
@@ -13,6 +16,8 @@ var searchData=
   ['ncursesmainmenu',['NcursesMainMenu',['../classarc_1_1_ncurses_main_menu.html',1,'arc::NcursesMainMenu'],['../classarc_1_1_ncurses_main_menu.html#ac262904c78c36c439522020d5167da49',1,'arc::NcursesMainMenu::NcursesMainMenu()']]],
   ['ncursesmainmenu_2ecpp',['NcursesMainMenu.cpp',['../_ncurses_main_menu_8cpp.html',1,'']]],
   ['ncursesmainmenu_2ehpp',['NcursesMainMenu.hpp',['../_ncurses_main_menu_8hpp.html',1,'']]],
+  ['next_5fgame_5fkey',['NEXT_GAME_KEY',['../_core_8hpp.html#ab8589dd5a1450ec988edcb28a8613d9b',1,'Core.hpp']]],
+  ['next_5flib_5fkey',['NEXT_LIB_KEY',['../_core_8hpp.html#a292984b6508829f897b483f4e6a4b27f',1,'Core.hpp']]],
   ['nibbler',['Nibbler',['../classarc_1_1_nibbler.html',1,'arc::Nibbler'],['../classarc_1_1_nibbler.html#afd631c2925f7b63e7c6672e244265c42',1,'arc::Nibbler::Nibbler()']]],
   ['nibbler_2ecpp',['Nibbler.cpp',['../_nibbler_8cpp.html',1,'']]],
   ['nibbler_2ehpp',['Nibbler.hpp',['../_nibbler_8hpp.html',1,'']]],
