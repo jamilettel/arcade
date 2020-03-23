@@ -170,3 +170,8 @@ void GameScene::setFunctionRestart(const std::function<void()> &function)
     _restart.emplace(_window, sf::Vector2f(125, 290), sf::Vector2f(250, 60), _font,
                      BUTTON_COLOR, TEXT_COLOR, "Restart", function);
 }
+
+const std::vector<std::string> &GameScene::getGameStats() const
+{
+    return (_gameStatList);
+}
