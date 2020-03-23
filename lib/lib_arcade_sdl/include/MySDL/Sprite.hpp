@@ -19,7 +19,7 @@ namespace MySDL {
 
     class Sprite {
     public:
-        Sprite(const std::string &filepath);
+        Sprite(const std::string &filepath, Window &window);
         ~Sprite();
 
         SDL_Texture *getTexture();
@@ -30,11 +30,10 @@ namespace MySDL {
 
         const Vector &getPosition() const;
         const Vector &getSize() const;
-        const SDL_Rect getRect() const;
+        const SDL_Rect &getRect() const;
 
     protected:
     private:
-        SDL_Surface *_surface;
         SDL_Texture *_texture;
 
         Vector _pos;

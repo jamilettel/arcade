@@ -5,13 +5,19 @@
 ## Makefile
 ##
 
-NAME	=	../lib_arcade_sdl.so
+#NAME	=	../lib_arcade_sdl.so
+NAME	=	tmp
 
 SRC_TEST	=	\
 
 MAIN	=	src/main.cpp
 
-SRC	=	\
+SRC	=\
+		src/SDLError.cpp	\
+		src/MySDL/Text.cpp	\
+		src/MySDL/Font.cpp	\
+		src/MySDL/Window.cpp	\
+		src/MySDL/Sprite.cpp	\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 
@@ -25,7 +31,7 @@ RM	=	@rm -f
 
 CXX	=	g++
 
-LDFLAGS	=	-ldl -lstdc++fs -shared
+LDFLAGS	=	-ldl -lstdc++fs -l SDL2 -l SDL2_image -l SDL2_ttf
 
 TEST_LDFLAGS	=	-lcriterion --coverage
 
