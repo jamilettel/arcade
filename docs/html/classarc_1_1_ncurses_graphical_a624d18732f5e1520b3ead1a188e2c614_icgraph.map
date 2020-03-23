@@ -1,4 +1,5 @@
 <map id="arc::NcursesGraphical::getScene" name="arc::NcursesGraphical::getScene">
-<area shape="rect" id="node1" title=" " alt="" coords="217,5,381,47"/>
-<area shape="rect" id="node2" href="$classarc_1_1_ncurses_graphical.html#a6bfbee298fff06f9d0603c29c6733113" title=" " alt="" coords="5,5,169,47"/>
+<area shape="rect" id="node2" href="$classarc_1_1_ncurses_graphical.html#a6bfbee298fff06f9d0603c29c6733113" title="arc::NcursesGraphical\l::display" alt="" coords="217,5,381,47"/>
+<area shape="rect" id="node3" href="$classarc_1_1_ncurses_graphical.html#a0fc8cda0a1501eb337dfb5926ab2e0cf" title="arc::NcursesGraphical\l::setScores" alt="" coords="217,71,381,112"/>
+<area shape="rect" id="node4" href="$classarc_1_1_ncurses_graphical.html#a8a1abb31121823f71abe574874b551b5" title="arc::NcursesGraphical\l::setGameStats" alt="" coords="217,136,381,177"/>
 </map>

@@ -1,6 +1,5 @@
 <map id="arc::Core::getControls" name="arc::Core::getControls">
-<area shape="rect" id="node1" title=" " alt="" coords="420,35,583,61"/>
-<area shape="rect" id="node2" href="$classarc_1_1_core.html#aaf86e0be7cad4b241111cd6ecd32093a" title=" " alt="" coords="172,5,372,32"/>
-<area shape="rect" id="node3" href="$classarc_1_1_core.html#a4f9d1082c29a1835f95cfb0d760433d4" title=" " alt="" coords="183,57,361,98"/>
-<area shape="rect" id="node4" href="$classarc_1_1_core.html#a54d1e43290e34a55dfcd062ad4bb6618" title=" " alt="" coords="5,64,124,91"/>
+<area shape="rect" id="node2" href="$classarc_1_1_core.html#aaf86e0be7cad4b241111cd6ecd32093a" title="arc::Core::loadGameLibrary" alt="" coords="216,5,416,32"/>
+<area shape="rect" id="node3" href="$classarc_1_1_core.html#a4f9d1082c29a1835f95cfb0d760433d4" title="arc::Core::loadGraphical\lLibrary" alt="" coords="227,57,405,98"/>
+<area shape="rect" id="node4" href="$classarc_1_1_core.html#a54d1e43290e34a55dfcd062ad4bb6618" title="arc::Core::Core" alt="" coords="464,64,583,91"/>
 </map>

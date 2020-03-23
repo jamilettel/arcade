@@ -1,4 +1,23 @@
 var searchData=
 [
-  ['what',['what',['../classarc_1_1_arcade_error.html#aff17875b3725b57e657899b33829e17d',1,'arc::ArcadeError']]]
+  ['_7eabutton',['~AButton',['../class_my_sf_1_1_button_1_1_a_button.html#a9b0e63ca2c6a5acb1c17c61ce48c4fd3',1,'MySf::Button::AButton']]],
+  ['_7eacolor',['~AColor',['../class_my_sf_1_1_color_1_1_a_color.html#abd16bde42c223739eb2e31482fb08598',1,'MySf::Color::AColor']]],
+  ['_7ebuttonlist',['~ButtonList',['../class_my_sf_1_1_button_list.html#ae7306c13d42a2ee0b52491440b802f77',1,'MySf::ButtonList']]],
+  ['_7ecore',['~Core',['../classarc_1_1_core.html#a776f8c46504b14183883c6273f93eaed',1,'arc::Core']]],
+  ['_7edlloader',['~DLLoader',['../classarc_1_1_d_l_loader.html#ad017b92dd370233fffcceea9c3e96a25',1,'arc::DLLoader']]],
+  ['_7eibutton',['~IButton',['../class_my_sf_1_1_button_1_1_i_button.html#af913ad04c83195cc795e6920ac8597b7',1,'MySf::Button::IButton']]],
+  ['_7eicolor',['~IColor',['../class_my_sf_1_1_color_1_1_i_color.html#a451b94e508f55d284c45e7b9f16f502f',1,'MySf::Color::IColor']]],
+  ['_7eigame',['~IGame',['../classarc_1_1_i_game.html#a35b0c983ceff303b26a5d15a5b66963b',1,'arc::IGame']]],
+  ['_7eigraphical',['~IGraphical',['../classarc_1_1_i_graphical.html#a92029fdce722f907481ec99c3833f852',1,'arc::IGraphical']]],
+  ['_7eilist',['~IList',['../class_my_sf_1_1_i_list.html#a89d0cdb9d9599e8ef5bc81fc9bbe3b97',1,'MySf::IList']]],
+  ['_7einputzone',['~InputZone',['../class_my_sf_1_1_input_zone.html#ae8fe5591dd501284d868f8157b6e7590',1,'MySf::InputZone']]],
+  ['_7eiscene',['~IScene',['../classarc_1_1_i_scene.html#a2a8839ffd26d8c0d3752ce33915e081d',1,'arc::IScene::~IScene()=default'],['../classarc_1_1_i_scene.html#a2a8839ffd26d8c0d3752ce33915e081d',1,'arc::IScene::~IScene()=default']]],
+  ['_7emainmenuscene',['~MainMenuScene',['../classarc_1_1_main_menu_scene.html#a7de636537d6bc931b2731172215c763f',1,'arc::MainMenuScene']]],
+  ['_7encursesend',['~NcursesEnd',['../classarc_1_1_ncurses_end.html#a87477c6a02db4898c4703528f4930be1',1,'arc::NcursesEnd']]],
+  ['_7encursesgame',['~NcursesGame',['../classarc_1_1_ncurses_game.html#acd04804bc2979a8b74d252507f6309f5',1,'arc::NcursesGame']]],
+  ['_7encursesgraphical',['~NcursesGraphical',['../classarc_1_1_ncurses_graphical.html#a0ff4391901c2677bf76845da070bd63f',1,'arc::NcursesGraphical']]],
+  ['_7encursesmainmenu',['~NcursesMainMenu',['../classarc_1_1_ncurses_main_menu.html#aca11d6884d8fda3a4fd83db0e6807e99',1,'arc::NcursesMainMenu']]],
+  ['_7enibbler',['~Nibbler',['../classarc_1_1_nibbler.html#a846208db2d40786b9b33903486d48bd2',1,'arc::Nibbler']]],
+  ['_7esfmlgraphical',['~SfmlGraphical',['../classarc_1_1_sfml_graphical.html#abdac8ae43eb49440f771fa87081bafb3',1,'arc::SfmlGraphical']]],
+  ['_7esmoothshifting',['~SmoothShifting',['../class_my_sf_1_1_color_1_1_smooth_shifting.html#ade4ecd0595ca0c541115da591bd319a7',1,'MySf::Color::SmoothShifting']]]
 ];

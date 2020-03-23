@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['platform_5fid',['PLATFORM_ID',['../_c_make_c_compiler_id_8c.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCXXCompilerId.cpp']]]
+  ['next_5fgame_5fkey',['NEXT_GAME_KEY',['../_core_8hpp.html#ab8589dd5a1450ec988edcb28a8613d9b',1,'Core.hpp']]],
+  ['next_5flib_5fkey',['NEXT_LIB_KEY',['../_core_8hpp.html#a292984b6508829f897b483f4e6a4b27f',1,'Core.hpp']]]
 ];

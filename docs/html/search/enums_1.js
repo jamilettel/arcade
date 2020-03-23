@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['color_5fpair',['COLOR_PAIR',['../namespacearc.html#adfe3739522995b045397071066685ace',1,'arc']]]
+  ['entitytype',['EntityType',['../namespacearc.html#a522a1db2387463e368d680e3b1fe392c',1,'arc']]]
 ];

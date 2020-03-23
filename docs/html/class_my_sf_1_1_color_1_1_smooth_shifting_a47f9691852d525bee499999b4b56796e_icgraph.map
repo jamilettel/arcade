@@ -1,5 +1,11 @@
 <map id="MySf::Color::SmoothShifting::getColor" name="MySf::Color::SmoothShifting::getColor">
-<area shape="rect" id="node1" title=" " alt="" coords="428,5,633,47"/>
-<area shape="rect" id="node2" href="$class_my_sf_1_1_input_zone.html#ac767868bb0a1f08754eaef2259947bde" title=" " alt="" coords="211,13,380,39"/>
-<area shape="rect" id="node3" href="$classarc_1_1_main_menu_scene.html#ab12f8f4b33a270da7b99bfa146509f79" title=" " alt="" coords="5,5,163,47"/>
+<area shape="rect" id="node2" href="$class_my_sf_1_1_color_1_1_smooth_shifting.html#a9558364e7942b12aaec95aa4a7e911a0" title="MySf::Color::SmoothShifting\l::setColor" alt="" coords="257,195,461,236"/>
+<area shape="rect" id="node6" href="$class_my_sf_1_1_input_zone.html#ac767868bb0a1f08754eaef2259947bde" title="MySf::InputZone::draw" alt="" coords="542,303,710,330"/>
+<area shape="rect" id="node10" href="$classarc_1_1_game_scene.html#a153a91652690799750f744263e12840a" title="arc::GameScene::draw" alt="" coords="275,333,443,359"/>
+<area shape="rect" id="node3" href="$class_my_sf_1_1_input_zone.html#af840a705630a255159754cf69bca0898" title="MySf::InputZone::setText\lColor" alt="" coords="535,5,717,47"/>
+<area shape="rect" id="node4" href="$class_my_sf_1_1_input_zone.html#af249e37670dab5ebf8cfa0538885dd5c" title="MySf::InputZone::setBackground\lColor" alt="" coords="509,71,743,112"/>
+<area shape="rect" id="node5" href="$class_my_sf_1_1_input_zone.html#aa6dd665538830408248abd8c34c59b40" title="MySf::InputZone::setPlace\lHolderColor" alt="" coords="531,136,721,177"/>
+<area shape="rect" id="node8" href="$classarc_1_1_game_scene.html#a39affaf92c09a7d15f8e6809b547d533" title="arc::GameScene::GameScene" alt="" coords="519,202,733,229"/>
+<area shape="rect" id="node9" href="$classarc_1_1_game_scene.html#a20809db11c85e199854f079046b2a608" title="arc::GameScene::setPause" alt="" coords="529,253,723,279"/>
+<area shape="rect" id="node7" href="$classarc_1_1_main_menu_scene.html#ab12f8f4b33a270da7b99bfa146509f79" title="arc::MainMenuScene\l::draw" alt="" coords="791,296,945,337"/>
 </map>

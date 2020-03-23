@@ -1,5 +1,4 @@
 <map id="MySf::Color::AColor::operator=" name="MySf::Color::AColor::operator=">
-<area shape="rect" id="node1" title=" " alt="" coords="5,39,153,80"/>
-<area shape="rect" id="node2" href="$class_my_sf_1_1_color_1_1_a_color.html#a271aed5e5a95092cb93dff9cf875852c" title=" " alt="" coords="201,5,349,47"/>
-<area shape="rect" id="node3" href="$class_my_sf_1_1_color_1_1_i_color.html#a03feae6e5b856bc3eacabefbe0ae86cd" title=" " alt="" coords="204,71,347,112"/>
+<area shape="rect" id="node2" href="$class_my_sf_1_1_color_1_1_a_color.html#a271aed5e5a95092cb93dff9cf875852c" title="MySf::Color::AColor\l::setColor" alt="" coords="200,5,347,47"/>
+<area shape="rect" id="node3" href="$class_my_sf_1_1_color_1_1_i_color.html#a03feae6e5b856bc3eacabefbe0ae86cd" title="MySf::Color::IColor\l::getColor" alt="" coords="202,71,345,112"/>
 </map>

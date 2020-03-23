@@ -7,7 +7,7 @@
 
 all:
 	$(MAKE) -C core/ --no-print-directory
-	$(MAKE) -C games/lib_arcade_centipede/ --no-print-directory
+	$(MAKE) -C games/lib_arcade_solarfox/ --no-print-directory
 	$(MAKE) -C games/lib_arcade_nibbler/ --no-print-directory
 	$(MAKE) -C lib/lib_arcade_libcaca/ --no-print-directory
 	$(MAKE) -C lib/lib_arcade_sfml/ --no-print-directory
@@ -15,7 +15,7 @@ all:
 
 clean_coverage:
 	@$(MAKE) -C core/ clean_coverage --no-print-directory
-	@$(MAKE) -C games/lib_arcade_centipede/ clean_coverage --no-print-directory
+	@$(MAKE) -C games/lib_arcade_solarfox/ clean_coverage --no-print-directory
 	@$(MAKE) -C games/lib_arcade_nibbler/ clean_coverage --no-print-directory
 	@$(MAKE) -C lib/lib_arcade_libcaca/ clean_coverage --no-print-directory
 	@$(MAKE) -C lib/lib_arcade_sfml/ clean_coverage --no-print-directory
@@ -23,7 +23,7 @@ clean_coverage:
 
 clean: clean_coverage
 	@$(MAKE) -C core/ clean --no-print-directory
-	@$(MAKE) -C games/lib_arcade_centipede/ clean --no-print-directory
+	@$(MAKE) -C games/lib_arcade_solarfox/ clean --no-print-directory
 	@$(MAKE) -C games/lib_arcade_nibbler/ clean --no-print-directory
 	@$(MAKE) -C lib/lib_arcade_libcaca/ clean --no-print-directory
 	@$(MAKE) -C lib/lib_arcade_sfml/ clean --no-print-directory
@@ -31,7 +31,7 @@ clean: clean_coverage
 
 fclean: clean
 	@$(MAKE) -C core/ fclean --no-print-directory
-	@$(MAKE) -C games/lib_arcade_centipede/ fclean --no-print-directory
+	@$(MAKE) -C games/lib_arcade_solarfox/ fclean --no-print-directory
 	@$(MAKE) -C games/lib_arcade_nibbler/ fclean --no-print-directory
 	@$(MAKE) -C lib/lib_arcade_libcaca/ fclean --no-print-directory
 	@$(MAKE) -C lib/lib_arcade_sfml/ fclean --no-print-directory
@@ -41,7 +41,7 @@ re: fclean all
 
 tests_run:
 	$(MAKE) -C core/ tests_run
-	$(MAKE) -C games/lib_arcade_centipede/ tests_run
+	$(MAKE) -C games/lib_arcade_solarfox/ tests_run
 	$(MAKE) -C games/lib_arcade_nibbler/ tests_run
 	$(MAKE) -C lib/lib_arcade_libcaca/ tests_run
 	$(MAKE) -C lib/lib_arcade_sfml/ tests_run
@@ -49,7 +49,7 @@ tests_run:
 
 debug:
 	$(MAKE) -C core/ debug
-	$(MAKE) -C games/lib_arcade_centipede/ debug
+	$(MAKE) -C games/lib_arcade_solarfox/ debug
 	$(MAKE) -C games/lib_arcade_nibbler/ debug
 	$(MAKE) -C lib/lib_arcade_libcaca/ debug
 	$(MAKE) -C lib/lib_arcade_sfml/ debug
@@ -59,7 +59,7 @@ core:
 	$(MAKE) -C core/ --no-print-directory
 
 games:
-	$(MAKE) -C games/lib_arcade_centipede/
+	$(MAKE) -C games/lib_arcade_solarfox/
 	$(MAKE) -C games/lib_arcade_nibbler/
 
 graphicals:

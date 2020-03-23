@@ -1,8 +1,9 @@
 <map id="MySf::Color::SmoothShifting::setColor" name="MySf::Color::SmoothShifting::setColor">
-<area shape="rect" id="node1" title=" " alt="" coords="493,104,699,145"/>
-<area shape="rect" id="node2" href="$class_my_sf_1_1_input_zone.html#af840a705630a255159754cf69bca0898" title=" " alt="" coords="236,5,420,47"/>
-<area shape="rect" id="node3" href="$class_my_sf_1_1_input_zone.html#af249e37670dab5ebf8cfa0538885dd5c" title=" " alt="" coords="211,71,445,112"/>
-<area shape="rect" id="node4" href="$class_my_sf_1_1_input_zone.html#aa6dd665538830408248abd8c34c59b40" title=" " alt="" coords="232,136,424,177"/>
-<area shape="rect" id="node5" href="$class_my_sf_1_1_input_zone.html#ac767868bb0a1f08754eaef2259947bde" title=" " alt="" coords="243,202,413,229"/>
-<area shape="rect" id="node6" href="$classarc_1_1_main_menu_scene.html#ab12f8f4b33a270da7b99bfa146509f79" title=" " alt="" coords="5,195,163,236"/>
+<area shape="rect" id="node2" href="$class_my_sf_1_1_input_zone.html#af840a705630a255159754cf69bca0898" title="MySf::InputZone::setText\lColor" alt="" coords="283,5,465,47"/>
+<area shape="rect" id="node3" href="$class_my_sf_1_1_input_zone.html#af249e37670dab5ebf8cfa0538885dd5c" title="MySf::InputZone::setBackground\lColor" alt="" coords="257,71,491,112"/>
+<area shape="rect" id="node4" href="$class_my_sf_1_1_input_zone.html#aa6dd665538830408248abd8c34c59b40" title="MySf::InputZone::setPlace\lHolderColor" alt="" coords="279,136,469,177"/>
+<area shape="rect" id="node5" href="$class_my_sf_1_1_input_zone.html#ac767868bb0a1f08754eaef2259947bde" title="MySf::InputZone::draw" alt="" coords="290,202,458,229"/>
+<area shape="rect" id="node7" href="$classarc_1_1_game_scene.html#a39affaf92c09a7d15f8e6809b547d533" title="arc::GameScene::GameScene" alt="" coords="267,253,481,279"/>
+<area shape="rect" id="node8" href="$classarc_1_1_game_scene.html#a20809db11c85e199854f079046b2a608" title="arc::GameScene::setPause" alt="" coords="277,303,471,330"/>
+<area shape="rect" id="node6" href="$classarc_1_1_main_menu_scene.html#ab12f8f4b33a270da7b99bfa146509f79" title="arc::MainMenuScene\l::draw" alt="" coords="539,195,693,236"/>
 </map>

@@ -1,7 +1,11 @@
 var searchData=
 [
-  ['defaultaltcolors',['defaultAltColors',['../class_my_sf_1_1_list.html#ad2cd61eb9f219775c5e305fbfdf4a419',1,'MySf::List']]],
-  ['defaultcolors',['defaultColors',['../class_my_sf_1_1_list.html#a9e18aa1d036188f59eda399ceadcb137',1,'MySf::List']]],
-  ['defaultframecolor',['defaultFrameColor',['../class_my_sf_1_1_list.html#ad0efeeb99238f04b612daacabd5c84a6',1,'MySf::List']]],
-  ['defaulttextcolor',['defaultTextColor',['../class_my_sf_1_1_list.html#aed0243f8f8f71d3afccccc0015aa33d8',1,'MySf::List']]]
+  ['defaultaltcolor',['defaultAltColor',['../class_my_sf_1_1_basic_list.html#a91b101dca72ea2edc348f050e204e49d',1,'MySf::BasicList']]],
+  ['defaultaltcolors',['defaultAltColors',['../class_my_sf_1_1_button_list.html#ae65a16206d778fe8dc8b28447341ff62',1,'MySf::ButtonList']]],
+  ['defaultbuttoncolor',['defaultButtonColor',['../class_my_sf_1_1_basic_list.html#a486d3d985278ecf62b8168683067664b',1,'MySf::BasicList']]],
+  ['defaultcolor',['defaultColor',['../class_my_sf_1_1_basic_list.html#ab7bb9a93c59fe97efc7d9e21356d5123',1,'MySf::BasicList']]],
+  ['defaultcolors',['defaultColors',['../class_my_sf_1_1_button_list.html#aad67c44cb86078d4a6d11d7df0932428',1,'MySf::ButtonList']]],
+  ['defaultframecolor',['defaultFrameColor',['../class_my_sf_1_1_basic_list.html#affa1a0b1f398d32f5a7e5a408d39cab6',1,'MySf::BasicList']]],
+  ['defaulttextbuttoncolor',['defaultTextButtonColor',['../class_my_sf_1_1_basic_list.html#a615e4eca6a6629aed95949678eeff039',1,'MySf::BasicList']]],
+  ['defaulttextcolor',['defaultTextColor',['../class_my_sf_1_1_basic_list.html#aac4b512dee5ee6056b55457b7993f817',1,'MySf::BasicList']]]
 ];

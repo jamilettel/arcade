@@ -1,9 +1,4 @@
-<map id="lib/lib_arcade_sfml/include/Button/AButton.hpp" name="lib/lib_arcade_sfml/include/Button/AButton.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="162,5,366,47"/>
-<area shape="rect" id="node2" href="$_i_button_8hpp.html" title=" " alt="" coords="57,95,201,121"/>
-<area shape="rect" id="node6" title=" " alt="" coords="225,95,303,121"/>
-<area shape="rect" id="node7" title=" " alt="" coords="327,95,407,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,244,152,271"/>
-<area shape="rect" id="node4" href="$_i_color_8hpp.html" title=" " alt="" coords="67,169,192,196"/>
-<area shape="rect" id="node5" title=" " alt="" coords="217,169,303,196"/>
+<map id="lib/lib_arcade_sfml/MySf/include/MySf/Button/AButton.hpp" name="lib/lib_arcade_sfml/MySf/include/MySf/Button/AButton.hpp">
+<area shape="rect" id="node2" href="$_i_button_8hpp.html" title="MySf/Button/IButton.hpp" alt="" coords="47,109,227,136"/>
+<area shape="rect" id="node4" href="$_i_color_8hpp.html" title="MySf/Color/IColor.hpp" alt="" coords="57,184,218,211"/>
 </map>

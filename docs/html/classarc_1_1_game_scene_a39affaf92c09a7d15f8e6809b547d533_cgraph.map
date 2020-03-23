@@ -1,0 +1,5 @@
+<map id="arc::GameScene::GameScene" name="arc::GameScene::GameScene">
+<area shape="rect" id="node2" href="$class_my_sf_1_1_color_1_1_smooth_shifting.html#a9558364e7942b12aaec95aa4a7e911a0" title="MySf::Color::SmoothShifting\l::setColor" alt="" coords="268,5,472,47"/>
+<area shape="rect" id="node3" href="$class_my_sf_1_1_color_1_1_smooth_shifting.html#a47f9691852d525bee499999b4b56796e" title="MySf::Color::SmoothShifting\l::getColor" alt="" coords="520,5,724,47"/>
+<area shape="rect" id="node4" href="$class_my_sf_1_1_color_1_1_utils.html#a29e3fd78740382bbad82e1f0478cf184" title="MySf::Color::Utils\l::addToColor" alt="" coords="772,5,907,47"/>
+</map>

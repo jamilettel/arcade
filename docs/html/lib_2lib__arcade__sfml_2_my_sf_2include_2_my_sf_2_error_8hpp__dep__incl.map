@@ -1,0 +1,23 @@
+<map id="lib/lib_arcade_sfml/MySf/include/MySf/Error.hpp" name="lib/lib_arcade_sfml/MySf/include/MySf/Error.hpp">
+<area shape="rect" id="node2" href="$_core_error_8hpp.html" title="core/include/CoreError.hpp" alt="" coords="319,109,512,136"/>
+<area shape="rect" id="node7" href="$core_2src_2_error_8cpp.html" title="core/src/Error.cpp" alt="" coords="5,310,140,337"/>
+<area shape="rect" id="node8" href="$_ncurses_error_8hpp.html" title="lib/lib_arcade_ncurses\l/include/NcursesError.hpp" alt="" coords="646,102,833,143"/>
+<area shape="rect" id="node11" href="$_basic_list_8hpp.html" title="lib/lib_arcade_sfml\l/MySf/include/MySf/List\l/BasicList.hpp" alt="" coords="976,95,1148,151"/>
+<area shape="rect" id="node20" href="$_sfml_error_8hpp.html" title="lib/lib_arcade_sfml\l/include/SfmlError.hpp" alt="" coords="1367,102,1533,143"/>
+<area shape="rect" id="node22" href="$lib_2lib__arcade__sfml_2_my_sf_2src_2_error_8cpp.html" title="lib/lib_arcade_sfml\l/MySf/src/Error.cpp" alt="" coords="1557,102,1703,143"/>
+<area shape="rect" id="node3" href="$_d_l_loader_8hpp.html" title="core/include/DLLoader.hpp" alt="" coords="165,213,359,240"/>
+<area shape="rect" id="node6" href="$core_2src_2main_8cpp.html" title="core/src/main.cpp" alt="" coords="308,399,445,426"/>
+<area shape="rect" id="node4" href="$_core_8hpp.html" title="core/include/Core.hpp" alt="" coords="215,310,378,337"/>
+<area shape="rect" id="node5" href="$_core_8cpp.html" title="core/src/Core.cpp" alt="" coords="131,399,265,426"/>
+<area shape="rect" id="node9" href="$_ncurses_error_8cpp.html" title="lib/lib_arcade_ncurses\l/src/NcursesError.cpp" alt="" coords="453,206,620,247"/>
+<area shape="rect" id="node10" href="$_ncurses_graphical_8cpp.html" title="lib/lib_arcade_ncurses\l/src/NcursesGraphical.cpp" alt="" coords="644,206,835,247"/>
+<area shape="rect" id="node12" href="$_button_list_8hpp.html" title="lib/lib_arcade_sfml\l/MySf/include/MySf/List\l/ButtonList.hpp" alt="" coords="1081,199,1253,255"/>
+<area shape="rect" id="node17" href="$_game_scene_8hpp.html" title="lib/lib_arcade_sfml\l/include/Scene/GameScene.hpp" alt="" coords="1278,206,1505,247"/>
+<area shape="rect" id="node19" href="$_basic_list_8cpp.html" title="lib/lib_arcade_sfml\l/MySf/src/List/BasicList.cpp" alt="" coords="859,206,1057,247"/>
+<area shape="rect" id="node13" href="$_main_menu_scene_8hpp.html" title="lib/lib_arcade_sfml\l/include/Scene/MainMenuScene.hpp" alt="" coords="767,303,1021,344"/>
+<area shape="rect" id="node16" href="$_button_list_8cpp.html" title="lib/lib_arcade_sfml\l/MySf/src/List/ButtonList.cpp" alt="" coords="1045,303,1250,344"/>
+<area shape="rect" id="node14" href="$_main_menu_scene_8cpp.html" title="lib/lib_arcade_sfml\l/src/Scene/MainMenuScene.cpp" alt="" coords="782,392,1006,433"/>
+<area shape="rect" id="node15" href="$_sfml_graphical_8cpp.html" title="lib/lib_arcade_sfml\l/src/SfmlGraphical.cpp" alt="" coords="1425,392,1593,433"/>
+<area shape="rect" id="node18" href="$_game_scene_8cpp.html" title="lib/lib_arcade_sfml\l/src/Scene/GameScene.cpp" alt="" coords="1274,303,1471,344"/>
+<area shape="rect" id="node21" href="$_sfml_error_8cpp.html" title="lib/lib_arcade_sfml\l/src/SfmlError.cpp" alt="" coords="1597,206,1743,247"/>
+</map>

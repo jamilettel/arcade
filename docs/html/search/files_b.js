@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['sfmlerror_2ecpp',['SfmlError.cpp',['../_sfml_error_8cpp.html',1,'']]],
-  ['sfmlerror_2ehpp',['SfmlError.hpp',['../_sfml_error_8hpp.html',1,'']]],
-  ['sfmlgraphical_2ecpp',['SfmlGraphical.cpp',['../_sfml_graphical_8cpp.html',1,'']]],
-  ['sfmlgraphical_2ehpp',['SfmlGraphical.hpp',['../_sfml_graphical_8hpp.html',1,'']]],
-  ['smoothshifting_2ecpp',['SmoothShifting.cpp',['../_smooth_shifting_8cpp.html',1,'']]],
-  ['smoothshifting_2ehpp',['SmoothShifting.hpp',['../_smooth_shifting_8hpp.html',1,'']]]
+  ['utils_2ecpp',['Utils.cpp',['../_utils_8cpp.html',1,'']]],
+  ['utils_2ehpp',['Utils.hpp',['../include_2_utils_8hpp.html',1,'(Global Namespace)'],['../lib_2lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_color_2_utils_8hpp.html',1,'(Global Namespace)']]]
 ];

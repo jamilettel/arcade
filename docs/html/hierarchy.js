@@ -11,7 +11,8 @@ var hierarchy =
         [ "arc::DLLoaderError", "classarc_1_1_d_l_loader_error.html", null ],
         [ "arc::NcursesError", "classarc_1_1_ncurses_error.html", null ],
         [ "arc::SfmlError", "classarc_1_1_sfml_error.html", null ]
-      ] ]
+      ] ],
+      [ "MySf::Error", "class_my_sf_1_1_error.html", null ]
     ] ],
     [ "MySf::Button::IButton", "class_my_sf_1_1_button_1_1_i_button.html", [
       [ "MySf::Button::AButton", "class_my_sf_1_1_button_1_1_a_button.html", [
@@ -33,13 +34,20 @@ var hierarchy =
       [ "arc::NcursesGraphical", "classarc_1_1_ncurses_graphical.html", null ],
       [ "arc::SfmlGraphical", "classarc_1_1_sfml_graphical.html", null ]
     ] ],
+    [ "MySf::IList", "class_my_sf_1_1_i_list.html", [
+      [ "MySf::AList", "class_my_sf_1_1_a_list.html", [
+        [ "MySf::BasicList", "class_my_sf_1_1_basic_list.html", [
+          [ "MySf::ButtonList", "class_my_sf_1_1_button_list.html", null ]
+        ] ]
+      ] ]
+    ] ],
     [ "MySf::InputZone", "class_my_sf_1_1_input_zone.html", null ],
     [ "arc::IScene", "classarc_1_1_i_scene.html", [
       [ "arc::GameScene", "classarc_1_1_game_scene.html", null ],
       [ "arc::MainMenuScene", "classarc_1_1_main_menu_scene.html", null ],
+      [ "arc::NcursesEnd", "classarc_1_1_ncurses_end.html", null ],
       [ "arc::NcursesGame", "classarc_1_1_ncurses_game.html", null ],
       [ "arc::NcursesMainMenu", "classarc_1_1_ncurses_main_menu.html", null ]
     ] ],
-    [ "MySf::List", "class_my_sf_1_1_list.html", null ],
     [ "MySf::Color::Utils", "class_my_sf_1_1_color_1_1_utils.html", null ]
 ];
