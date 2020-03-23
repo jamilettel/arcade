@@ -89,6 +89,11 @@ void Core::loadGraphicalLibrary(const std::string &libPath)
         _graphical->setGameStats(_game->getGameStats());
     }
     sendListsToGraphicalLib();
+
+    if (_currentGame != "") {
+        getBestScoresGame();
+        _graphical->setScores(_bestScoresGame);
+    }
 }
 
 void Core::sendListsToGraphicalLib()
@@ -330,7 +335,8 @@ void Core::getBestScoresGame()
         std::pair<std::string, std::string> score;
         lineParse >> score.first;
         lineParse >> score.second;
-        _bestScoresGame.emplace_back(score);
+        if (score.first != "" && score.second != "")
+            _bestScoresGame.emplace_back(score);
     }
     std::sort(_bestScoresGame.begin(), _bestScoresGame.end(), [](const auto &a, const auto &b){
         return std::stoi(a.second.c_str()) >= std::stoi(b.second.c_str());

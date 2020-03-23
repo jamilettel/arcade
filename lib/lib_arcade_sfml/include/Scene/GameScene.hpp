@@ -33,6 +33,7 @@ namespace arc {
         void setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &controls);
 
         void setGameStats(const std::vector<std::pair<std::string, std::string>> &stats);
+        const std::vector<std::string> &getGameStats() const;
 
         void setFunctionTogglePause(const std::function<void()> &function);
         void setFunctionMenu(const std::function<void()> &function);

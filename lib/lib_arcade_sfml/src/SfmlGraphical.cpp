@@ -9,6 +9,7 @@
 #include "SfmlError.hpp"
 #include "Scene/MainMenuScene.hpp"
 #include "Scene/GameScene.hpp"
+#include "Scene/GameOverScene.hpp"
 
 using namespace arc;
 
@@ -92,6 +93,7 @@ SfmlGraphical::SfmlGraphical():
     _window.setFramerateLimit(60);
     _scenes[MAIN_MENU] = std::make_unique<MainMenuScene>(_window, _font, *this);
     _scenes[GAME] = std::make_unique<GameScene>(_window, _font, *this);
+    _scenes[END_GAME] = std::make_unique<GameOverScene>(_window, _font, *this);
 }
 
 void SfmlGraphical::display()
@@ -216,6 +218,7 @@ Event::Type SfmlGraphical::getEventType() const
 void SfmlGraphical::setScores(const std::vector<std::pair<std::string,std::string>> &scores)
 {
     static_cast<MainMenuScene *>(_scenes.at(MAIN_MENU).get())->setScores(scores);
+    static_cast<GameOverScene *>(_scenes.at(END_GAME).get())->setScores(scores);
 }
 
 void SfmlGraphical::setFunctionPlay(const std::function<void()> &function)
@@ -226,11 +229,13 @@ void SfmlGraphical::setFunctionPlay(const std::function<void()> &function)
 void SfmlGraphical::setFunctionRestart(const std::function<void()> &function)
 {
     static_cast<GameScene *>(_scenes.at(GAME).get())->setFunctionRestart(function);
+    static_cast<GameOverScene *>(_scenes.at(END_GAME).get())->setFunctionRestart(function);
 }
 
 void SfmlGraphical::setFunctionMenu(const std::function<void()> &function)
 {
     static_cast<GameScene *>(_scenes.at(GAME).get())->setFunctionMenu(function);
+    static_cast<GameOverScene *>(_scenes.at(END_GAME).get())->setFunctionMenu(function);
 }
 
 void SfmlGraphical::setFunctionTogglePause(const std::function<void()> &fct)
@@ -257,6 +262,8 @@ void SfmlGraphical::setHowToPlay(const std::vector<std::pair<std::string,std::st
 void SfmlGraphical::setGameStats(const std::vector<std::pair<std::string, std::string>> &info)
 {
     static_cast<GameScene *>(_scenes.at(GAME).get())->setGameStats(info);
+    static_cast<GameOverScene *>(_scenes.at(END_GAME).get())->setCurrentStats(
+        static_cast<GameScene *>(_scenes.at(GAME).get())->getGameStats());
 }
 
 void SfmlGraphical::updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap)

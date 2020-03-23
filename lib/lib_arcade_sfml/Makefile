@@ -15,6 +15,7 @@ SRC	=	src/SfmlGraphical.cpp				\
 		src/SfmlError.cpp					\
 		src/Scene/MainMenuScene.cpp			\
 		src/Scene/GameScene.cpp				\
+		src/Scene/GameOverScene.cpp			\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 
