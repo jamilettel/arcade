@@ -32,7 +32,7 @@ _started(false)
     this->initControlFormat();
     this->initControls();
     this->getMapFiles();
-    this->loadMap(_mapFiles.at(_level));
+    this->loadMap(_mapFiles.at(0));
     this->createEnemies();
     this->createPlayer();
 } catch (const ArcadeError &e) {
@@ -111,7 +111,7 @@ void Solarfox::updateGame()
     this->movePlayer();
     this->moveShootsPlayer();
     this->moveShootsEnemy();
-    //this->detectAttackEnemies();
+    this->detectAttackEnemies();
     //this->detectCounterAttack();
     //this->detectFirePowerups();
     //this->detectPlayerDeath();
@@ -243,6 +243,8 @@ void Solarfox::createEnemies()
 void Solarfox::moveEnemies()
 {
     /* HAUT, BAS, GAUCHE, DROITE */
+    if (_enemies.empty())
+        return;
     for (int i = 0; i < 2; i++) {
         if ((_enemies.at(i).first->x + _enemies.at(i).second.first >
              _mapWidth && _enemies.at(i).second.first > 0) ||
@@ -338,6 +340,8 @@ void Solarfox::movePlayer()
 {
     _player.first->x += _player.second.first;
     _player.first->y += _player.second.second;
+    if (_player.first->x < 0 || _player.first->x > _mapWidth - 1 || _player.first->y < 0 || _player.first->y > _mapHeight - 1)
+        _gameOver = true;
 }
 
 void Solarfox::createShootPlayer()
@@ -362,22 +366,25 @@ void Solarfox::createShootPlayer()
 
 void Solarfox::createShootEnemy()
 {
+    /* HAUT BAS GAUCHE DROITE */
     int random = 0;
-    for (const std::pair<std::shared_ptr<Entity>, std::pair<float, float>> &enemy : _enemies) {
-        random = rand() % 200;
+    std::vector<float> moveCorsX = {MOVE_VALUE, -MOVE_VALUE, 0, 0};
+    std::vector<float> moveCorsY = {0, 0, MOVE_VALUE, -MOVE_VALUE};
+    for (int i = 0; i < 4; i++) {
+        random = rand() % 400;
         if (random) continue;
         std::shared_ptr<Shoot> newShoot(new Shoot);
         newShoot->_shoot = std::make_shared<Entity>();
         newShoot->_shoot->spritePath = "assets/solarfox/FireEnemy.png";
-        newShoot->_shoot->orientation = enemy.first->orientation;
+        newShoot->_shoot->orientation = _enemies.at(i).first->orientation;
         newShoot->_shoot->backgroundColor = {255, 182, 0, 1};
         newShoot->_shoot->type = OTHER;
-        newShoot->_shoot->x = std::round(enemy.first->x);
-        newShoot->_shoot->y = std::round(enemy.first->y);
-        newShoot->_move.first = enemy.second.second;
-        newShoot->_move.second = enemy.second.first;
-        newShoot->_origin.first = std::round(enemy.first->x);
-        newShoot->_origin.second = std::round(enemy.first->y);
+        newShoot->_shoot->x = std::round(_enemies.at(i).first->x);
+        newShoot->_shoot->y = std::round(_enemies.at(i).first->y);
+        newShoot->_move.first = moveCorsY.at(i);
+        newShoot->_move.second = moveCorsX.at(i);
+        newShoot->_origin.first = std::round(_enemies.at(i).first->x);
+        newShoot->_origin.second = std::round(_enemies.at(i).first->y);
         _shootsEnemies.emplace_back(newShoot);
         _entities.emplace_back(newShoot->_shoot);
     }
@@ -403,20 +410,52 @@ void Solarfox::moveShootsEnemy()
         sh->_shoot->x += sh->_move.first;
         sh->_shoot->y += sh->_move.second;
         /*
-        if (sh->_shoot->x > _mapWidth || sh->_shoot->x < 0 || sh->_shoot->y > _mapHeight || sh->_shoot->y < 0) {
-            _entities.erase(std::remove(_entities.begin(), _entities.end(), sh->_shoot));
-            _shootsPlayer.erase(std::remove(_shootsPlayer.begin(), _shootsPlayer.end(), sh));
-        }
-        if (sh->_shoot->x == _shootsPlayer.at(0)->_shoot->x && sh->_shoot->y == _shootsPlayer.at(0)->_shoot->y) {
-            _entities.erase(std::remove(_entities.begin(), _entities.end(), sh->_shoot));
-            _shootsPlayer.erase(std::remove(_shootsPlayer.begin(), _shootsPlayer.end(), sh));
-        }
         if (sh->_shoot->x == _player.first->x && sh->_shoot->y == _player.first->y) {
             _gameOver = true;
             return;
         }
          */
     }
+}
+
+void Solarfox::detectAttackEnemies()
+{
+    if (_shootsEnemies.empty())
+        return;
+    _shootsEnemies.erase(std::remove_if(_shootsEnemies.begin(), _shootsEnemies.end(), [this](const std::shared_ptr<Shoot> &elem) {
+        if (elem->_shoot->x > _mapWidth - 1 || elem->_shoot->x < 0 || elem->_shoot->y > _mapHeight - 1 || elem->_shoot->y < 0 ) {
+            _entities.erase(std::remove(_entities.begin(), _entities.end(), elem->_shoot), _entities.end());
+            return true;
+        }
+        if (!_shootsPlayer.empty()) {
+            if (elem->_shoot->x == _shootsPlayer.front()->_shoot->x &&
+                elem->_shoot->y == _shootsPlayer.front()->_shoot->y) {
+                _entities.erase(std::remove(_entities.begin(), _entities.end(),
+                                            elem->_shoot), _entities.end());
+                return true;
+            }
+        }
+        return false;
+    }), _shootsEnemies.end());
+    std::for_each(_shootsEnemies.begin(), _shootsEnemies.end(), [this](const std::shared_ptr<Shoot> &elem){
+        if (std::round(_player.first->x) == std::round(elem->_shoot->x) && std::round(_player.first->y) == std::round(elem->_shoot->y))
+            _gameOver = true;
+    });
+}
+
+void Solarfox::detectCounterAttack()
+{
+
+}
+
+void Solarfox::detectFirePowerups()
+{
+
+}
+
+void Solarfox::detectPlayerDeath()
+{
+
 }
 
 bool Shoot::operator==(const Shoot &rhs) const {
