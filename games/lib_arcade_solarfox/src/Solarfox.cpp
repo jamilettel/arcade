@@ -15,7 +15,7 @@ extern "C" IGame *instance_ctor() {
     return (new Solarfox);
 };
 
-Solarfox::Solarfox() try : _gameOver(false), _scoreString(std::string("0")), _score(0), _title("Solarfox"), _mapWidth(60), _mapHeight(30), _level(0), _started(false)
+Solarfox::Solarfox() try : _gameOver(false), _moveCoordonnatePlayer(std::pair<float, float>(0, 0)), _scoreString(std::string("0")), _score(0), _title("Solarfox"), _mapWidth(60), _mapHeight(30), _level(0), _started(false)
 {
     srand(time(nullptr));
     this->initControlFormat();
@@ -26,9 +26,6 @@ Solarfox::Solarfox() try : _gameOver(false), _scoreString(std::string("0")), _sc
 } catch (const ArcadeError &e) {
     throw e;
 }
-
-#include <iostream>
-#include <memory>
 
 size_t Solarfox::getMapHeight() const
 {
@@ -83,6 +80,8 @@ void Solarfox::restart()
     _entities.clear();
     _enemies.clear();
     _loots.clear();
+    _moveCoordonnatesEnemies.clear();
+    _moveCoordonnatePlayer = std::pair<float, float>(0, 0);
     _scoreString = std::string("0");
     _score = 0;
     _level = 0;
@@ -93,6 +92,7 @@ void Solarfox::restart()
 
 void Solarfox::updateGame()
 {
+    this->moveEnemies();
     this->updateStats();
 }
 
@@ -197,9 +197,11 @@ void Solarfox::createPlayer()
 
 void Solarfox::createEnemies()
 {
+    /* HAUT, BAS, GAUCHE, DROITE */
     std::vector<size_t> height = {0, static_cast<size_t >(_mapHeight - 1), static_cast<size_t >(rand() % _mapHeight), static_cast<size_t >(rand() % _mapHeight)};
     std::vector<size_t> width = {static_cast<size_t >(rand() % _mapWidth), static_cast<size_t >(rand() % _mapWidth), 0, static_cast<size_t >(_mapWidth - 1)};
     std::vector<Orientation> orientation = {DOWN, UP, RIGHT, LEFT};
+    std::vector<std::pair<float, float>> moveCoor = {std::pair<float, float>(0.15, 0), std::pair<float, float>(-0.15, 0), std::pair<float, float>(0, 0.15), std::pair<float, float>(0, -0.15)};
 
     for (int i = 0; i < 4; i++) {
         std::shared_ptr<Entity> newEnemy(new Entity);
@@ -209,7 +211,31 @@ void Solarfox::createEnemies()
         newEnemy->orientation = orientation.at(i);
         newEnemy->backgroundColor = {29, 0, 255, 1};
         newEnemy->type = ENEMY;
+        _moveCoordonnatesEnemies.emplace_back(moveCoor.at(i));
         _enemies.emplace_back(newEnemy);
         _entities.emplace_back(newEnemy);
     }
-};
+}
+
+#include <iostream>
+
+void Solarfox::moveEnemies()
+{
+    /* HAUT, BAS, GAUCHE, DROITE */
+    for (int i = 0; i < 2; i++) {
+        if ((_enemies.at(i)->x + _moveCoordonnatesEnemies.at(i).first >
+             _mapWidth - 1 && _moveCoordonnatesEnemies.at(i).first > 0) ||
+            (_enemies.at(i)->x - _moveCoordonnatesEnemies.at(i).first < 0 &&
+             _moveCoordonnatesEnemies.at(i).first < 0))
+            _moveCoordonnatesEnemies.at(i).first = -(_moveCoordonnatesEnemies.at(i).first);
+        _enemies.at(i)->x += _moveCoordonnatesEnemies.at(i).first;
+    }
+    for (int i = 2; i < 4; i++) {
+        if ((_enemies.at(i)->y + _moveCoordonnatesEnemies.at(i).second >
+             _mapHeight - 1 && _moveCoordonnatesEnemies.at(i).second > 0) ||
+            (_enemies.at(i)->y - _moveCoordonnatesEnemies.at(i).second < 0 &&
+             _moveCoordonnatesEnemies.at(i).second < 0))
+            _moveCoordonnatesEnemies.at(i).second = -(_moveCoordonnatesEnemies.at(i).second);
+        _enemies.at(i)->y += _moveCoordonnatesEnemies.at(i).second;
+    }
+}

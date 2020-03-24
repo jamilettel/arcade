@@ -38,6 +38,8 @@ namespace arc
 
             [[nodiscard]] const std::string &getTitle() const override;
 
+            void moveEnemies();
+
         private:
             bool _gameOver;
             std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _controls;
@@ -46,7 +48,10 @@ namespace arc
             std::vector<std::shared_ptr<Entity>> _entities;
             std::vector<std::shared_ptr<Entity>> _loots;
             std::vector<std::shared_ptr<Entity>> _enemies;
+            std::vector<std::pair<float, float>> _moveCoordonnatesEnemies;
             std::shared_ptr<Entity> _player;
+            std::pair<float, float> _moveCoordonnatePlayer;
+
 
             std::vector<std::pair<std::string, std::string>> _gameStats;
 
