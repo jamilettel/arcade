@@ -13,11 +13,12 @@ SRC_TEST	=	\
 MAIN	=	src/main.cpp
 
 SRC	=\
-		src/SDLError.cpp	\
-		src/MySDL/Text.cpp	\
-		src/MySDL/Font.cpp	\
+		src/SDLError.cpp		\
+		src/MySDL/Text.cpp		\
+		src/MySDL/Font.cpp		\
 		src/MySDL/Window.cpp	\
 		src/MySDL/Sprite.cpp	\
+		src/MySDL/Rectangle.cpp	\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 

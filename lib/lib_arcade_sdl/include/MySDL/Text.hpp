@@ -18,6 +18,9 @@ namespace MySDL {
         Text(Font &font, const std::string &text, int ptsize, Window &window);
         ~Text();
 
+        Text(const Text &rhs) = delete;
+        Text &operator=(const Text &rhs) = delete;
+
         SDL_Texture *getTexture();
 
         void setPosition(const Vector &pos);
@@ -29,6 +32,8 @@ namespace MySDL {
         const SDL_Rect &getRect() const;
 
         const SDL_Color &getColor() const;
+
+        void setString(const std::string &str);
 
     private:
         void loadTexture();

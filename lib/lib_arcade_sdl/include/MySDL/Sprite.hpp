@@ -22,6 +22,9 @@ namespace MySDL {
         Sprite(const std::string &filepath, Window &window);
         ~Sprite();
 
+        Sprite(const Sprite &rhs) = delete;
+        Sprite &operator=(const Sprite &rhs) = delete;
+
         SDL_Texture *getTexture();
 
         void setPosition(const Vector &pos);

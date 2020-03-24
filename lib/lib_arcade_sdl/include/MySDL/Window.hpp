@@ -33,12 +33,15 @@ namespace MySDL {
                Uint32 windiwFlags = 0, Uint32 rendererFlags = 0);
         ~Window();
 
+        Window(const Window &rhs) = delete;
+        Window &operator=(const Window &rhs) = delete;
+
         void setFramerateLimit(int limit);
         void clear(SDL_Color color = {0, 0, 0, 255});
 
         void draw(Sprite &sprite);
         void draw(Text &font);
-        // void draw(const Rectangle &rect);
+        void draw(const Rectangle &rect);
 
         void display();
 

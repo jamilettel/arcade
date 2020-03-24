@@ -9,6 +9,7 @@
 #include "SDLError.hpp"
 #include "MySDL/Sprite.hpp"
 #include "MySDL/Text.hpp"
+#include "MySDL/Rectangle.hpp"
 
 using namespace MySDL;
 
@@ -58,6 +59,14 @@ void Window::clear(SDL_Color color)
 {
     SDL_SetRenderDrawColor(_renderer, color.r, color.g, color.b, color.a);
     SDL_RenderClear(_renderer);
+}
+
+void Window::draw(const Rectangle &rect)
+{
+    SDL_Color color = rect.getColor();
+
+    SDL_SetRenderDrawColor(_renderer, color.r, color.g, color.b, color.a);
+    SDL_RenderFillRect(_renderer, &rect.getRect());
 }
 
 void Window::draw(Sprite &sprite)

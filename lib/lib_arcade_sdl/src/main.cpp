@@ -8,6 +8,7 @@
 #include "MySDL/Window.hpp"
 #include "MySDL/Sprite.hpp"
 #include "MySDL/Text.hpp"
+#include "MySDL/Rectangle.hpp"
 
 int main(void)
 {
@@ -15,6 +16,7 @@ int main(void)
     MySDL::Sprite sprite("../../assets/nibbler/snake_head.png", window);
     MySDL::Font font("../../assets/font.ttf");
     MySDL::Text text(font, "Bonsoir BENJAMIN", 32, window);
+    MySDL::Rectangle rect(SDL_Rect{200, 50, 260, 60}, SDL_Color{10, 10, 10, 255});
     SDL_Event event;
 
     text.setPosition(MySDL::Vector(100, 100));
@@ -27,9 +29,10 @@ int main(void)
                 return (0);
         }
         window.draw(sprite);
+        window.draw(rect);
         window.draw(text);
         window.display();
-        window.clear();
+        window.clear(SDL_Color{28, 28, 28, 255});
     }
     return (0);
 }

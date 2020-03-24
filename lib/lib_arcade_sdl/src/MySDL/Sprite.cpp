@@ -48,6 +48,10 @@ void Sprite::setSize(const Vector &size)
 void Sprite::setRect(const SDL_Rect &rect)
 {
     _rect = rect;
+    _pos.x = _rect.x;
+    _pos.y = _rect.y;
+    _size.x = _rect.w;
+    _size.y = _rect.h;
 }
 
 const Vector &Sprite::getPosition() const

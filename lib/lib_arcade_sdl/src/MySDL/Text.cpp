@@ -87,3 +87,9 @@ const SDL_Color &Text::getColor() const
 {
     return (_color);
 }
+
+void Text::setString(const std::string &str)
+{
+    _text = str;
+    _loadTexture = true;
+}

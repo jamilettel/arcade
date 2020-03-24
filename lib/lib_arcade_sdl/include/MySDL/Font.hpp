@@ -19,6 +19,9 @@ namespace MySDL {
         Font(const std::string &filepath, int ptsize = 32);
         ~Font();
 
+        Font(const Font &rhs) = delete;
+        Font &operator=(const Font &rhs) = delete;
+
         TTF_Font *getFont(int ptsize);
         SDL_Surface *renderText(const std::string &string, int ptsize,
                                 const SDL_Color &color = {255, 255, 255, 255});
