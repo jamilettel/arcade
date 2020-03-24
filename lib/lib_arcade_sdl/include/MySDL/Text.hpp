@@ -35,6 +35,8 @@ namespace MySDL {
 
         void setString(const std::string &str);
 
+        int getCharacterSize() const;
+
     private:
         void loadTexture();
 

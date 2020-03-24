@@ -58,4 +58,7 @@ namespace MySDL {
 
 }
 
+bool operator==(const SDL_Color &lhs, const SDL_Color &rhs);
+bool operator!=(const SDL_Color &lhs, const SDL_Color &rhs);
+
 #endif /* SDL_WINDOW_HPP_ */

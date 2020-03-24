@@ -95,3 +95,13 @@ SDL_Renderer* Window::getRenderer()
 {
     return (_renderer);
 }
+
+bool operator==(const SDL_Color &lhs, const SDL_Color &rhs)
+{
+    return (lhs.r == rhs.r && lhs.g == rhs.g && lhs.b == rhs.b && lhs.a == rhs.b);
+}
+
+bool operator!=(const SDL_Color &lhs, const SDL_Color &rhs)
+{
+    return !(lhs == rhs);
+}

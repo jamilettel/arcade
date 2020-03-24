@@ -9,6 +9,17 @@
 #include "MySDL/Sprite.hpp"
 #include "MySDL/Text.hpp"
 #include "MySDL/Rectangle.hpp"
+#include "Button/RectButton.hpp"
+
+#define BUTTON_COLOR MySf::Button::ButtonColor(SDL_Color{0x0a, 0x0a, 0x0a, 0xff}, \
+                                               SDL_Color{0x13, 0x13, 0x13, 0xff}, \
+                                               SDL_Color{0x5f, 0x5f, 0x5f, 0xff}, \
+                                               SDL_Color{0x34, 0x34, 0x34, 0xff})
+
+#define TEXT_COLOR MySf::Button::ButtonColor(SDL_Color{0xff, 0xff, 0xff, 0xff}, \
+                                             SDL_Color{0xff, 0xff, 0xff, 0xff}, \
+                                             SDL_Color{0xff, 0xff, 0xff, 0xff}, \
+                                             SDL_Color{0x77, 0x77, 0x77, 0xff})
 
 int main(void)
 {
@@ -17,6 +28,8 @@ int main(void)
     MySDL::Font font("../../assets/font.ttf");
     MySDL::Text text(font, "Bonsoir BENJAMIN", 32, window);
     MySDL::Rectangle rect(SDL_Rect{200, 50, 260, 60}, SDL_Color{10, 10, 10, 255});
+
+    MySf::Button::RectButton button(window, MySDL::Vector(500, 500), MySDL::Vector(260, 50), font, BUTTON_COLOR, TEXT_COLOR, "bonsoir", [] () {std::cout << "Bonsoir" << std::endl;});
     SDL_Event event;
 
     text.setPosition(MySDL::Vector(100, 100));
@@ -27,10 +40,12 @@ int main(void)
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT)
                 return (0);
+            button.update(event);
         }
         window.draw(sprite);
         window.draw(rect);
         window.draw(text);
+        button.draw();
         window.display();
         window.clear(SDL_Color{28, 28, 28, 255});
     }

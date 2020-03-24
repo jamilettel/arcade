@@ -62,6 +62,11 @@ void Text::setCharacterSize(int size)
     _loadTexture = true;
 }
 
+int Text::getCharacterSize() const
+{
+    return (_characterSize);
+}
+
 const Vector &Text::getPosition() const
 {
     return (_pos);

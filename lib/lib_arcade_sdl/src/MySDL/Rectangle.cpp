@@ -68,3 +68,8 @@ const SDL_Color &Rectangle::getColor() const
 {
     return (_color);
 }
+
+void Rectangle::setColor(const SDL_Color &color)
+{
+    _color = color;
+}
