@@ -17,7 +17,6 @@ extern "C" IGame *instance_ctor() {
 };
 
 Solarfox::Solarfox() try : _gameOver(false),
-_moveCoordonnatePlayer(std::pair<float, float>(0, 0)),
 _startTime(std::chrono::system_clock::now()),
 _endTime(std::chrono::system_clock::now()),
 _scoreString(std::string("0")),
@@ -92,8 +91,8 @@ void Solarfox::restart()
     _entities.clear();
     _enemies.clear();
     _loots.clear();
-    _moveCoordonnatesEnemies.clear();
-    _moveCoordonnatePlayer = std::pair<float, float>(0, 0);
+    _shootsPlayer.clear();
+    _shootsEnemies.clear();
     _scoreString = std::string("0");
     _score = 0;
     _level = 0;
@@ -107,6 +106,7 @@ void Solarfox::updateGame()
     if (moveDelay()) {
         this->moveEnemies();
         this->movePlayer();
+        this->moveShootsPlayer();
     }
     this->updateStats();
 }
@@ -127,7 +127,7 @@ void Solarfox::initControlFormat()
     _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MOVE DOWN"), std::string("ARROW KEY DOWN")));
     _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MOVE RIGHT"), std::string("ARROW KEY RIGHT")));
     _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("MOVE LEFT"), std::string("ARROW KEY LEFT")));
-    _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("FIRE"), std::string("SPACE BAR")));
+    _gameControlsFormat.emplace_back(std::pair <std::string, std::string>(std::string("FIRE"), std::string("S")));
 }
 
 void Solarfox::getMapFiles()
@@ -162,7 +162,7 @@ void Solarfox::loadMap(const std::string &filepath)
         std::shared_ptr<Entity> newEntity(new Entity);
         newEntity->x = x;
         newEntity->y = y;
-        newEntity->spritePath = std::string("assets/solarfox/loot.png");
+        newEntity->spritePath = std::string("assets/solarfox/Loot.png");
         newEntity->orientation = UP;
         newEntity->backgroundColor = {246, 255, 0, 1};
         newEntity->type = ENEMY;
@@ -193,7 +193,8 @@ bool Solarfox::invalidCoordinates(size_t x, size_t y)
 
 void Solarfox::createPlayer()
 {
-    _player = std::make_shared<Entity> ();
+    _player.first = std::make_shared<Entity> ();
+    _player.second = std::pair<float, float>(0, 0);
     size_t x;
     size_t y;
 
@@ -201,13 +202,13 @@ void Solarfox::createPlayer()
         x = rand() % _mapWidth;
         y = rand() % _mapHeight;
     } while (!invalidCoordinates(x, y));
-    _player->x = x;
-    _player->y = y;
-    _player->spritePath = std::string("assets/solarfox/player.png");
-    _player->orientation = UP;
-    _player->backgroundColor = {42, 255, 0, 1};
-    _player->type = PLAYER;
-    _entities.emplace_back(_player);
+    _player.first->x = x;
+    _player.first->y = y;
+    _player.first->spritePath = std::string("assets/solarfox/Player.png");
+    _player.first->orientation = UP;
+    _player.first->backgroundColor = {42, 255, 0, 1};
+    _player.first->type = PLAYER;
+    _entities.emplace_back(_player.first);
 }
 
 void Solarfox::createEnemies()
@@ -216,18 +217,17 @@ void Solarfox::createEnemies()
     std::vector<size_t> height = {0, static_cast<size_t >(_mapHeight - 1), static_cast<size_t >(rand() % _mapHeight), static_cast<size_t >(rand() % _mapHeight)};
     std::vector<size_t> width = {static_cast<size_t >(rand() % _mapWidth), static_cast<size_t >(rand() % _mapWidth), 0, static_cast<size_t >(_mapWidth - 1)};
     std::vector<Orientation> orientation = {DOWN, UP, RIGHT, LEFT};
-    std::vector<std::pair<float, float>> moveCoor = {std::pair<float, float>(0.2, 0), std::pair<float, float>(-0.2, 0), std::pair<float, float>(0, 0.2), std::pair<float, float>(0, -0.2)};
+    std::vector<std::pair<float, float>> moveCoor = {std::pair<float, float>(MOVE_VALUE, 0), std::pair<float, float>(-MOVE_VALUE, 0), std::pair<float, float>(0, MOVE_VALUE), std::pair<float, float>(0, -MOVE_VALUE)};
 
     for (int i = 0; i < 4; i++) {
         std::shared_ptr<Entity> newEnemy(new Entity);
         newEnemy->x = width.at(i);
         newEnemy->y = height.at(i);
-        newEnemy->spritePath = std::string("assets/solarfox/opponent.png");
+        newEnemy->spritePath = std::string("assets/solarfox/Opponent.png");
         newEnemy->orientation = orientation.at(i);
         newEnemy->backgroundColor = {29, 0, 255, 1};
         newEnemy->type = ENEMY;
-        _moveCoordonnatesEnemies.emplace_back(moveCoor.at(i));
-        _enemies.emplace_back(newEnemy);
+        _enemies.emplace_back(newEnemy, moveCoor.at(i));
         _entities.emplace_back(newEnemy);
     }
 }
@@ -236,20 +236,20 @@ void Solarfox::moveEnemies()
 {
     /* HAUT, BAS, GAUCHE, DROITE */
     for (int i = 0; i < 2; i++) {
-        if ((_enemies.at(i)->x + _moveCoordonnatesEnemies.at(i).first >
-             _mapWidth && _moveCoordonnatesEnemies.at(i).first > 0) ||
-            (_enemies.at(i)->x - _moveCoordonnatesEnemies.at(i).first < 0 &&
-             _moveCoordonnatesEnemies.at(i).first < 0))
-            _moveCoordonnatesEnemies.at(i).first = -(_moveCoordonnatesEnemies.at(i).first);
-        _enemies.at(i)->x += _moveCoordonnatesEnemies.at(i).first;
+        if ((_enemies.at(i).first->x + _enemies.at(i).second.first >
+             _mapWidth && _enemies.at(i).second.first > 0) ||
+            (_enemies.at(i).first->x - _enemies.at(i).second.first < 0 &&
+                _enemies.at(i).second.first < 0))
+            _enemies.at(i).second.first = -(_enemies.at(i).second.first);
+        _enemies.at(i).first->x += _enemies.at(i).second.first;
     }
     for (int i = 2; i < 4; i++) {
-        if ((_enemies.at(i)->y + _moveCoordonnatesEnemies.at(i).second >
-             _mapHeight && _moveCoordonnatesEnemies.at(i).second > 0) ||
-            (_enemies.at(i)->y - _moveCoordonnatesEnemies.at(i).second < 0 &&
-             _moveCoordonnatesEnemies.at(i).second < 0))
-            _moveCoordonnatesEnemies.at(i).second = -(_moveCoordonnatesEnemies.at(i).second);
-        _enemies.at(i)->y += _moveCoordonnatesEnemies.at(i).second;
+        if ((_enemies.at(i).first->y + _enemies.at(i).second.second >
+             _mapHeight && _enemies.at(i).second.second > 0) ||
+            (_enemies.at(i).first->y - _enemies.at(i).second.second < 0 &&
+                _enemies.at(i).second.second < 0))
+            _enemies.at(i).second.second = -(_enemies.at(i).second.second);
+        _enemies.at(i).first->y += _enemies.at(i).second.second;
     }
 }
 
@@ -280,52 +280,103 @@ void Solarfox::initControls()
     _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::LEFT)] = [this](){
         Solarfox::moveLeft();
     };
+    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::S)] = [this](){
+        Solarfox::createShootPlayer();
+    };
 }
 
 void Solarfox::moveDown()
 {
-    if (_moveCoordonnatePlayer.second == -0.1)
+    if (_player.second.second == -MOVE_VALUE)
         return;
     _started = true;
-    _player->x = std::round(_player->x);
-    _moveCoordonnatePlayer.first = 0;
-    _moveCoordonnatePlayer.second = 0.1;
+    _player.first->x = std::round(_player.first->x);
+    _player.second.first = 0;
+    _player.second.second = MOVE_VALUE;
 }
 
 void Solarfox::moveUp()
 {
-    if (_moveCoordonnatePlayer.second == 0.1)
+    if (_player.second.second == MOVE_VALUE)
         return;
     _started = true;
-    _player->x = std::round(_player->x);
-    _moveCoordonnatePlayer.first = 0;
-    _moveCoordonnatePlayer.second = -0.1;
+    _player.first->x = std::round(_player.first->x);
+    _player.second.first = 0;
+    _player.second.second = -MOVE_VALUE;
 }
 
 void Solarfox::moveRight()
 {
-    if (_moveCoordonnatePlayer.first == -0.1)
+    if (_player.second.first == -MOVE_VALUE)
         return;
     _started = true;
-    _player->y = std::round(_player->y);
-    _moveCoordonnatePlayer.first = 0.1;
-    _moveCoordonnatePlayer.second = 0;
+    _player.first->y = std::round(_player.first->y);
+    _player.second.first = MOVE_VALUE;
+    _player.second.second = 0;
 }
 
 void Solarfox::moveLeft()
 {
-    if (!_started)
-        return;
-    if (_moveCoordonnatePlayer.first == 0.1)
+    if (_player.second.first == MOVE_VALUE)
         return;
     _started = true;
-    _player->y = std::round(_player->y);
-    _moveCoordonnatePlayer.first = -0.1;
-    _moveCoordonnatePlayer.second = 0;
+    _player.first->y = std::round(_player.first->y);
+    _player.second.first = -MOVE_VALUE;
+    _player.second.second = 0;
 }
 
 void Solarfox::movePlayer()
 {
-    _player->x += _moveCoordonnatePlayer.first;
-    _player->y += _moveCoordonnatePlayer.second;
+    _player.first->x += _player.second.first;
+    _player.first->y += _player.second.second;
+}
+
+void Solarfox::createShootPlayer()
+{
+    if (!_shootsPlayer.empty())
+        return;
+    std::shared_ptr<Shoot> newShoot(new Shoot);
+    newShoot->_shoot = std::make_shared<Entity>();
+    newShoot->_shoot->spritePath = "assets/solarfox/FirePlayer.png";
+    newShoot->_shoot->orientation = _player.first->orientation;
+    newShoot->_shoot->backgroundColor = {95, 218, 222, 1};
+    newShoot->_shoot->type = OTHER;
+    newShoot->_shoot->x = _player.first->x + _player.second.first;
+    newShoot->_shoot->y = _player.first->y + _player.second.second;
+    newShoot->_move.first = _player.second.first * 2;
+    newShoot->_move.second = _player.second.second * 2;
+    newShoot->_origin.first = _player.first->x;
+    newShoot->_origin.second = _player.first->y;
+    _shootsPlayer.emplace_back(newShoot);
+    _entities.emplace_back(newShoot->_shoot);
+}
+
+void Solarfox::createShootEnemy()
+{
+
+}
+
+void Solarfox::moveShootsPlayer()
+{
+    for (const std::shared_ptr<Shoot> &sh : _shootsPlayer) {
+        sh->_shoot->x += sh->_move.first;
+        sh->_shoot->y += sh->_move.second;
+        if (sh->_shoot->x > sh->_origin.first + 5 || sh->_shoot->x < sh->_origin.first - 5 || sh->_shoot->y > sh->_origin.second + 5 || sh->_shoot->y < sh->_origin.second - 5) {
+            _entities.erase(std::remove(_entities.begin(), _entities.end(), sh->_shoot));
+            _shootsPlayer.erase(std::remove(_shootsPlayer.begin(), _shootsPlayer.end(), sh));
+        }
+    }
+}
+
+void Solarfox::moveShootsEnemy()
+{
+
+}
+
+bool Shoot::operator==(const Shoot &rhs) const {
+    return _shoot == rhs._shoot;
+}
+
+bool Shoot::operator!=(const Shoot &rhs) const {
+    return !(rhs == *this);
 }

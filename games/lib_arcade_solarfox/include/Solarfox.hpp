@@ -14,9 +14,21 @@
 
 #define DIR_MAPS "games/lib_arcade_solarfox/maps/"
 #define MOVE_DELAY 15
+#define MOVE_VALUE 0.15
 
 namespace arc
 {
+    struct Shoot {
+        Shoot() = default;
+        std::shared_ptr<Entity> _shoot;
+
+        std::pair<float, float> _origin;
+        std::pair<float, float> _move;
+
+        bool operator==(const Shoot &rhs) const;
+        bool operator!=(const Shoot &rhs) const;
+    };
+
     class Solarfox : public IGame {
         public:
             Solarfox();
@@ -49,10 +61,10 @@ namespace arc
 
             std::vector<std::shared_ptr<Entity>> _entities;
             std::vector<std::shared_ptr<Entity>> _loots;
-            std::vector<std::shared_ptr<Entity>> _enemies;
-            std::vector<std::pair<float, float>> _moveCoordonnatesEnemies;
-            std::shared_ptr<Entity> _player;
-            std::pair<float, float> _moveCoordonnatePlayer;
+            std::vector<std::pair<std::shared_ptr<Entity>, std::pair<float, float>>> _enemies;
+            std::pair<std::shared_ptr<Entity>, std::pair<float, float>> _player;
+            std::vector<std::shared_ptr<Shoot>> _shootsPlayer;
+            std::vector<std::shared_ptr<Shoot>> _shootsEnemies;
 
             std::chrono::system_clock::time_point _startTime;
             std::chrono::system_clock::time_point _endTime;
@@ -96,6 +108,11 @@ namespace arc
             void moveLeft();
             void moveRight();
             void movePlayer();
+
+            void createShootPlayer();
+            void createShootEnemy();
+            void moveShootsPlayer();
+            void moveShootsEnemy();
 
         private:
     };
