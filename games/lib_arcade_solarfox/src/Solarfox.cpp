@@ -362,22 +362,25 @@ void Solarfox::createShootPlayer()
 
 void Solarfox::createShootEnemy()
 {
+    /* HAUT BAS GAUCHE DROITE */
     int random = 0;
-    for (const std::pair<std::shared_ptr<Entity>, std::pair<float, float>> &enemy : _enemies) {
-        random = rand() % 200;
+    std::vector<float> moveCorsX = {MOVE_VALUE, -MOVE_VALUE, 0, 0};
+    std::vector<float> moveCorsY = {0, 0, MOVE_VALUE, -MOVE_VALUE};
+    for (int i = 0; i < 4; i++) {
+        random = rand() % 400;
         if (random) continue;
         std::shared_ptr<Shoot> newShoot(new Shoot);
         newShoot->_shoot = std::make_shared<Entity>();
         newShoot->_shoot->spritePath = "assets/solarfox/FireEnemy.png";
-        newShoot->_shoot->orientation = enemy.first->orientation;
+        newShoot->_shoot->orientation = _enemies.at(i).first->orientation;
         newShoot->_shoot->backgroundColor = {255, 182, 0, 1};
         newShoot->_shoot->type = OTHER;
-        newShoot->_shoot->x = std::round(enemy.first->x);
-        newShoot->_shoot->y = std::round(enemy.first->y);
-        newShoot->_move.first = enemy.second.second;
-        newShoot->_move.second = enemy.second.first;
-        newShoot->_origin.first = std::round(enemy.first->x);
-        newShoot->_origin.second = std::round(enemy.first->y);
+        newShoot->_shoot->x = std::round(_enemies.at(i).first->x);
+        newShoot->_shoot->y = std::round(_enemies.at(i).first->y);
+        newShoot->_move.first = moveCorsY.at(i);
+        newShoot->_move.second = moveCorsX.at(i);
+        newShoot->_origin.first = std::round(_enemies.at(i).first->x);
+        newShoot->_origin.second = std::round(_enemies.at(i).first->y);
         _shootsEnemies.emplace_back(newShoot);
         _entities.emplace_back(newShoot->_shoot);
     }
