@@ -8,10 +8,12 @@
 #ifndef OOP_ARCADE_2019_SOLARFOX_HPP
 #define OOP_ARCADE_2019_SOLARFOX_HPP
 
+#include <chrono>
 #include "IGame.hpp"
 #include "SolarfoxError.hpp"
 
 #define DIR_MAPS "games/lib_arcade_solarfox/maps/"
+#define MOVE_DELAY 15
 
 namespace arc
 {
@@ -52,6 +54,8 @@ namespace arc
             std::shared_ptr<Entity> _player;
             std::pair<float, float> _moveCoordonnatePlayer;
 
+            std::chrono::system_clock::time_point _startTime;
+            std::chrono::system_clock::time_point _endTime;
 
             std::vector<std::pair<std::string, std::string>> _gameStats;
 
@@ -83,6 +87,8 @@ namespace arc
             void createEnemies();
 
             void updateStats();
+
+            bool moveDelay();
 
         private:
     };
