@@ -13,6 +13,7 @@ SRC_TEST	=	\
 MAIN	=	src/main.cpp
 
 SRC	=\
+		src/SDLError.cpp	\
 		src/Color/Utils.cpp	\
 		src/Color/SmoothShifting.cpp	\
 		src/Color/AColor.cpp	\
@@ -21,9 +22,11 @@ SRC	=\
 		src/MySDL/Rectangle.cpp	\
 		src/MySDL/Window.cpp	\
 		src/MySDL/Sprite.cpp	\
+		src/List/BasicList.cpp	\
+		src/List/ButtonList.cpp	\
+		src/List/AList.cpp	\
 		src/Button/RectButton.cpp	\
 		src/Button/AButton.cpp	\
-		src/SDLError.cpp		\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 

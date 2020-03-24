@@ -12,7 +12,7 @@ using namespace MySDL;
 
 Text::Text(Font &font, const std::string &text, int ptsize, Window &window):
     _window(window), _font(font), _texture(nullptr), _characterSize(ptsize),
-    _color({255, 255, 255, 255}), _text(text), _loadTexture(false)
+    _color({255, 255, 255, 255}), _text(text), _loadTexture(false), _rotation(0)
 {
     loadTexture();
 }
@@ -32,6 +32,17 @@ SDL_Texture *Text::getTexture()
 
 void Text::loadTexture()
 {
+    _loadTexture = false;
+    if (_text == "") {
+        if (_texture)
+            SDL_DestroyTexture(_texture);
+        _texture = nullptr;
+        _rect.h = 0;
+        _rect.w = 0;
+        _size.x = 0;
+        _size.y = 0;
+        return;
+    }
     SDL_Surface *surface = _font.renderText(_text, _characterSize, _color);
     SDL_Rect surfaceSize;
 
@@ -46,7 +57,6 @@ void Text::loadTexture()
     _size.x = _rect.w;
     _size.y = _rect.h;
     SDL_FreeSurface(surface);
-    _loadTexture = false;
 }
 
 void Text::setPosition(const Vector &pos)
@@ -96,5 +106,20 @@ const SDL_Color &Text::getColor() const
 void Text::setString(const std::string &str)
 {
     _text = str;
-    _loadTexture = true;
+    loadTexture();
+}
+
+const std::string &Text::getString() const
+{
+    return (_text);
+}
+
+void Text::setRotation(double rotation)
+{
+    _rotation = rotation;
+}
+
+double Text::getRotation() const
+{
+    return (_rotation);
 }

@@ -12,10 +12,12 @@ using namespace MySDL::Button;
 AButton::AButton(MySDL::Window &w, MySDL::Vector pos, MySDL::Vector size,
                  MySDL::Font &f, const ButtonColor &button,
                  const ButtonColor &text, const std::function<void()> &fct):
-    _window(w), _pos(pos), _size(size), _bColor(button), _tColor(text), _state(NONE),
-    _func(fct), _f(f), _t(f, "Button", 32, _window), _actif(true), _updateState(true),
+    _window(w), _pos(pos), _size(size), _bColor(button), _bCurrentColor{0, 0, 0, 0},
+    _tCurrentColor{0, 0, 0, 0}, _tColor(text), _state(NONE), _func(fct), _f(f),
+    _t(f, "", 32, _window), _actif(true), _updateState(true),
     _buttonPressed(false)
-{}
+{
+}
 
 void AButton::setPosition(float x, float y)
 {

@@ -35,6 +35,9 @@ namespace MySDL {
         const Vector &getSize() const;
         const SDL_Rect &getRect() const;
 
+        void setRotation(double rotation);
+        double getRotation() const;
+
     protected:
     private:
         SDL_Texture *_texture;
@@ -42,6 +45,8 @@ namespace MySDL {
         Vector _pos;
         Vector _size;
         SDL_Rect _rect;
+
+        double _rotation;
     };
 
 }

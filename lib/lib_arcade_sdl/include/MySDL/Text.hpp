@@ -34,8 +34,12 @@ namespace MySDL {
         const SDL_Color &getColor() const;
 
         void setString(const std::string &str);
+        const std::string &getString() const;
 
         int getCharacterSize() const;
+
+        void setRotation(double rotation);
+        double getRotation() const;
 
     private:
         void loadTexture();
@@ -55,6 +59,8 @@ namespace MySDL {
         std::string _text;
 
         bool _loadTexture;
+
+        double _rotation;
     };
 
 }

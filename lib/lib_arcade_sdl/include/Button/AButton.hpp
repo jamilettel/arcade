@@ -24,8 +24,6 @@ namespace MySDL {
 
             virtual ~AButton() = default;
 
-            // virtual void draw() = 0;
-
             virtual void setPosition(float x, float y) override;
             virtual void setPosition(const MySDL::Vector &pos) override;
             virtual const MySDL::Vector &getPosition() const override;
