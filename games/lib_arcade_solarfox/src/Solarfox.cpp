@@ -15,7 +15,17 @@ extern "C" IGame *instance_ctor() {
     return (new Solarfox);
 };
 
-Solarfox::Solarfox() try : _gameOver(false), _moveCoordonnatePlayer(std::pair<float, float>(0, 0)), _scoreString(std::string("0")), _score(0), _title("Solarfox"), _mapWidth(60), _mapHeight(30), _level(0), _started(false)
+Solarfox::Solarfox() try : _gameOver(false),
+_moveCoordonnatePlayer(std::pair<float, float>(0, 0)),
+_startTime(std::chrono::system_clock::now()),
+_endTime(std::chrono::system_clock::now()),
+_scoreString(std::string("0")),
+_score(0),
+_title("Solarfox"),
+_mapWidth(60),
+_mapHeight(30),
+_level(0),
+_started(false)
 {
     srand(time(nullptr));
     this->initControlFormat();
@@ -92,7 +102,9 @@ void Solarfox::restart()
 
 void Solarfox::updateGame()
 {
-    this->moveEnemies();
+    if (moveDelay()) {
+        this->moveEnemies();
+    }
     this->updateStats();
 }
 
@@ -201,7 +213,7 @@ void Solarfox::createEnemies()
     std::vector<size_t> height = {0, static_cast<size_t >(_mapHeight - 1), static_cast<size_t >(rand() % _mapHeight), static_cast<size_t >(rand() % _mapHeight)};
     std::vector<size_t> width = {static_cast<size_t >(rand() % _mapWidth), static_cast<size_t >(rand() % _mapWidth), 0, static_cast<size_t >(_mapWidth - 1)};
     std::vector<Orientation> orientation = {DOWN, UP, RIGHT, LEFT};
-    std::vector<std::pair<float, float>> moveCoor = {std::pair<float, float>(0.15, 0), std::pair<float, float>(-0.15, 0), std::pair<float, float>(0, 0.15), std::pair<float, float>(0, -0.15)};
+    std::vector<std::pair<float, float>> moveCoor = {std::pair<float, float>(0.2, 0), std::pair<float, float>(-0.2, 0), std::pair<float, float>(0, 0.2), std::pair<float, float>(0, -0.2)};
 
     for (int i = 0; i < 4; i++) {
         std::shared_ptr<Entity> newEnemy(new Entity);
@@ -224,7 +236,7 @@ void Solarfox::moveEnemies()
     /* HAUT, BAS, GAUCHE, DROITE */
     for (int i = 0; i < 2; i++) {
         if ((_enemies.at(i)->x + _moveCoordonnatesEnemies.at(i).first >
-             _mapWidth - 1 && _moveCoordonnatesEnemies.at(i).first > 0) ||
+             _mapWidth && _moveCoordonnatesEnemies.at(i).first > 0) ||
             (_enemies.at(i)->x - _moveCoordonnatesEnemies.at(i).first < 0 &&
              _moveCoordonnatesEnemies.at(i).first < 0))
             _moveCoordonnatesEnemies.at(i).first = -(_moveCoordonnatesEnemies.at(i).first);
@@ -232,10 +244,23 @@ void Solarfox::moveEnemies()
     }
     for (int i = 2; i < 4; i++) {
         if ((_enemies.at(i)->y + _moveCoordonnatesEnemies.at(i).second >
-             _mapHeight - 1 && _moveCoordonnatesEnemies.at(i).second > 0) ||
+             _mapHeight && _moveCoordonnatesEnemies.at(i).second > 0) ||
             (_enemies.at(i)->y - _moveCoordonnatesEnemies.at(i).second < 0 &&
              _moveCoordonnatesEnemies.at(i).second < 0))
             _moveCoordonnatesEnemies.at(i).second = -(_moveCoordonnatesEnemies.at(i).second);
         _enemies.at(i)->y += _moveCoordonnatesEnemies.at(i).second;
     }
+}
+
+bool Solarfox::moveDelay()
+{
+    _endTime = std::chrono::system_clock::now();
+    int elapsed_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>
+        (_endTime - _startTime).count();
+
+    if (elapsed_milliseconds > MOVE_DELAY) {
+        _startTime = std::chrono::system_clock::now();
+        return true;
+    }
+    return false;
 }
