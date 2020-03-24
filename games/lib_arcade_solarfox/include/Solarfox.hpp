@@ -78,6 +78,7 @@ namespace arc
 
         private:
             void initControlFormat();
+            void initControls();
 
             void getMapFiles();
             void loadMap(const std::string &filepath);
@@ -89,6 +90,12 @@ namespace arc
             void updateStats();
 
             bool moveDelay();
+
+            void moveUp();
+            void moveDown();
+            void moveLeft();
+            void moveRight();
+            void movePlayer();
 
         private:
     };

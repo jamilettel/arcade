@@ -8,6 +8,7 @@
 #include "Solarfox.hpp"
 #include <filesystem>
 #include <fstream>
+#include <cmath>
 
 using namespace arc;
 
@@ -29,6 +30,7 @@ _started(false)
 {
     srand(time(nullptr));
     this->initControlFormat();
+    this->initControls();
     this->getMapFiles();
     this->loadMap(_mapFiles.at(_level));
     this->createEnemies();
@@ -104,6 +106,7 @@ void Solarfox::updateGame()
 {
     if (moveDelay()) {
         this->moveEnemies();
+        this->movePlayer();
     }
     this->updateStats();
 }
@@ -229,8 +232,6 @@ void Solarfox::createEnemies()
     }
 }
 
-#include <iostream>
-
 void Solarfox::moveEnemies()
 {
     /* HAUT, BAS, GAUCHE, DROITE */
@@ -263,4 +264,68 @@ bool Solarfox::moveDelay()
         return true;
     }
     return false;
+}
+
+void Solarfox::initControls()
+{
+    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::DOWN)] = [this](){
+        Solarfox::moveDown();
+    };
+    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::UP)] = [this](){
+        Solarfox::moveUp();
+    };
+    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::RIGHT)] = [this](){
+        Solarfox::moveRight();
+    };
+    _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::LEFT)] = [this](){
+        Solarfox::moveLeft();
+    };
+}
+
+void Solarfox::moveDown()
+{
+    if (_moveCoordonnatePlayer.second == -0.1)
+        return;
+    _started = true;
+    _player->x = std::round(_player->x);
+    _moveCoordonnatePlayer.first = 0;
+    _moveCoordonnatePlayer.second = 0.1;
+}
+
+void Solarfox::moveUp()
+{
+    if (_moveCoordonnatePlayer.second == 0.1)
+        return;
+    _started = true;
+    _player->x = std::round(_player->x);
+    _moveCoordonnatePlayer.first = 0;
+    _moveCoordonnatePlayer.second = -0.1;
+}
+
+void Solarfox::moveRight()
+{
+    if (_moveCoordonnatePlayer.first == -0.1)
+        return;
+    _started = true;
+    _player->y = std::round(_player->y);
+    _moveCoordonnatePlayer.first = 0.1;
+    _moveCoordonnatePlayer.second = 0;
+}
+
+void Solarfox::moveLeft()
+{
+    if (!_started)
+        return;
+    if (_moveCoordonnatePlayer.first == 0.1)
+        return;
+    _started = true;
+    _player->y = std::round(_player->y);
+    _moveCoordonnatePlayer.first = -0.1;
+    _moveCoordonnatePlayer.second = 0;
+}
+
+void Solarfox::movePlayer()
+{
+    _player->x += _moveCoordonnatePlayer.first;
+    _player->y += _moveCoordonnatePlayer.second;
 }
