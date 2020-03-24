@@ -85,6 +85,7 @@ namespace arc
             int _mapHeight;
 
             unsigned int _level;
+            unsigned int _powerups;
 
             bool _started;
 
