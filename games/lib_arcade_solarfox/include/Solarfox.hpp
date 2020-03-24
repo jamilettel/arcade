@@ -115,6 +115,11 @@ namespace arc
             void moveShootsPlayer();
             void moveShootsEnemy();
 
+            void detectAttackEnemies();
+            void detectCounterAttack();
+            void detectFirePowerups();
+            void detectPlayerDeath();
+
         private:
     };
 }
