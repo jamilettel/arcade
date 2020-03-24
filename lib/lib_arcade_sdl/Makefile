@@ -27,6 +27,7 @@ SRC	=\
 		src/List/AList.cpp	\
 		src/Button/RectButton.cpp	\
 		src/Button/AButton.cpp	\
+		src/InputZone.cpp	\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 

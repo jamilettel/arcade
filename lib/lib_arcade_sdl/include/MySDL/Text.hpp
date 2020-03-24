@@ -41,6 +41,8 @@ namespace MySDL {
         void setRotation(double rotation);
         double getRotation() const;
 
+        Vector findCharacterPos(size_t pos);
+
     private:
         void loadTexture();
 

@@ -123,3 +123,12 @@ double Text::getRotation() const
 {
     return (_rotation);
 }
+
+Vector Text::findCharacterPos(size_t pos)
+{
+    int w = 0;
+    int h = 0;
+
+    TTF_SizeText(_font.getFont(_characterSize), _text.substr(0, pos).c_str(), &w, &h);
+    return (Vector(_pos.x + w, _pos.y + h - _characterSize));
+}

@@ -11,6 +11,7 @@
 #include "MySDL/Rectangle.hpp"
 #include "Button/RectButton.hpp"
 #include "List/ButtonList.hpp"
+#include "InputZone.hpp"
 
 #define BUTTON_COLOR MySDL::Button::ButtonColor(SDL_Color{0x0a, 0x0a, 0x0a, 0xff}, \
                                                SDL_Color{0x13, 0x13, 0x13, 0xff}, \
@@ -33,6 +34,9 @@ int main(void)
     MySDL::Button::RectButton button(window, MySDL::Vector(500, 500), MySDL::Vector(260, 50),
                                      font, BUTTON_COLOR, TEXT_COLOR, "OK Boomer",
                                      [] () {std::cout << "Boomer" << std::endl;});
+
+    MySDL::InputZone input(window, MySDL::Vector(20, 700), MySDL::Vector(500, 50),
+                           font, "PlaceHolder");
 
     std::vector<std::string> vector;
     for (int i = 0; i < 20; i++)
@@ -57,12 +61,14 @@ int main(void)
                 return (0);
             button.update(event);
             list.update(event);
+            input.update(event);
         }
         window.draw(sprite);
         window.draw(rect);
         window.draw(text);
         button.draw();
         list.draw();
+        input.draw();
         window.display();
         window.clear(SDL_Color{28, 28, 28, 255});
     }

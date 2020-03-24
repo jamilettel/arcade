@@ -10,7 +10,7 @@
 using namespace MySDL;
 
 Rectangle::Rectangle(const Vector &pos, const Vector &size, const SDL_Color &color):
-    _pos(pos), _size(size), _color(color)
+    _pos(pos), _size(size), _color(color), _outlineThickness(0), _outlineColor(color)
 {
     _rect.x = _pos.x;
     _rect.y = _pos.y;
@@ -19,7 +19,7 @@ Rectangle::Rectangle(const Vector &pos, const Vector &size, const SDL_Color &col
 }
 
 Rectangle::Rectangle(const SDL_Rect &rect, const SDL_Color &color):
-    _rect(rect), _color(color)
+    _rect(rect), _color(color), _outlineThickness(0), _outlineColor(color)
 {
     _pos.x = _rect.x;
     _pos.y = _rect.y;
@@ -72,4 +72,24 @@ const SDL_Color &Rectangle::getColor() const
 void Rectangle::setColor(const SDL_Color &color)
 {
     _color = color;
+}
+
+void Rectangle::setOutlineColor(const SDL_Color &color)
+{
+    _outlineColor = color;
+}
+
+const SDL_Color &Rectangle::getOutlineColor() const
+{
+    return (_outlineColor);
+}
+
+void Rectangle::setOutlineThickness(int thicc)
+{
+    _outlineThickness = thicc;
+}
+
+int Rectangle::getOutlineThickness() const
+{
+    return (_outlineThickness);
 }

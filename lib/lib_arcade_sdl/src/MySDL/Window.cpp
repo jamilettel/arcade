@@ -74,9 +74,27 @@ void Window::clear(SDL_Color color)
 void Window::draw(const Rectangle &rect)
 {
     SDL_Color color = rect.getColor();
+    int thickness = rect.getOutlineThickness();
 
     SDL_SetRenderDrawColor(_renderer, color.r, color.g, color.b, color.a);
     SDL_RenderFillRect(_renderer, &rect.getRect());
+
+    while (thickness) {
+        SDL_Rect outline = rect.getRect();
+
+        outline.x -= thickness;
+        outline.y -= thickness;
+        outline.w += 2 * thickness;
+        outline.h += 2 * thickness;
+        color = rect.getOutlineColor();
+        SDL_SetRenderDrawColor(_renderer, color.r, color.g, color.b, color.a);
+        SDL_RenderDrawRect(_renderer, &outline);
+
+        if (thickness > 0)
+            thickness--;
+        else
+            thickness++;
+    }
 }
 
 void Window::draw(Sprite &sprite)

@@ -34,12 +34,21 @@ namespace MySDL {
         const SDL_Rect &getRect() const;
         const SDL_Color &getColor() const;
 
+        void setOutlineThickness(int thicc);
+        int getOutlineThickness() const;
+
+        void setOutlineColor(const SDL_Color &color);
+        const SDL_Color &getOutlineColor() const;
+
     private:
         Vector _pos;
         Vector _size;
         SDL_Rect _rect;
 
         SDL_Color _color;
+
+        int _outlineThickness;
+        SDL_Color _outlineColor;
     };
 
 }
