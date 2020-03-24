@@ -23,6 +23,9 @@ namespace MySDL {
         Vector();
         Vector(int, int);
 
+        bool operator==(const Vector &lhs) const;
+        bool operator!=(const Vector &lhs) const;
+
         int x;
         int y;
     };

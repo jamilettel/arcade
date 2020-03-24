@@ -19,6 +19,16 @@ Vector::Vector(): x(0), y(0)
 Vector::Vector(int _x, int _y): x(_x), y(_y)
 {}
 
+bool Vector::operator==(const Vector &lhs) const
+{
+    return (x == lhs.x && y == lhs.y);
+}
+
+bool Vector::operator!=(const Vector &lhs) const
+{
+    return !(*this == lhs);
+}
+
 Window::Window(int width, int height, const std::string &title,
                Uint32 windowFlags, Uint32 rendererFlags):
     _window(nullptr), _renderer(nullptr), _currentFrameTime(0)
@@ -73,14 +83,18 @@ void Window::draw(Sprite &sprite)
 {
     SDL_Rect dest = sprite.getRect();
 
-    SDL_RenderCopy(_renderer, sprite.getTexture(), NULL, &dest);
+    if (sprite.getTexture())
+        SDL_RenderCopyEx(_renderer, sprite.getTexture(), NULL, &dest,
+                         sprite.getRotation(), NULL, SDL_FLIP_NONE);
 }
 
-void Window::draw(Text &Text)
+void Window::draw(Text &text)
 {
-    SDL_Rect dest = Text.getRect();
+    SDL_Rect dest = text.getRect();
 
-    SDL_RenderCopy(_renderer, Text.getTexture(), NULL, &dest);
+    if (text.getTexture())
+        SDL_RenderCopyEx(_renderer, text.getTexture(), NULL, &dest,
+                         text.getRotation(), NULL, SDL_FLIP_NONE);
 }
 
 void Window::setFramerateLimit(int limit)

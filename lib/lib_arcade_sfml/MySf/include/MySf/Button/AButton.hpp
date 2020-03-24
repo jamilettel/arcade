@@ -19,7 +19,8 @@ namespace MySf {
         class AButton: public IButton {
         public:
             AButton(sf::RenderWindow &w, sf::Vector2f pos, sf::Vector2f size, sf::Font &f,
-                    const ButtonColor &button, const ButtonColor &text, const std::function<void()> &fct);
+                    const ButtonColor &button, const ButtonColor &text,
+                    const std::function<void()> &fct);
 
             virtual ~AButton() = default;
 

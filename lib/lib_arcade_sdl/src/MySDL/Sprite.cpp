@@ -10,7 +10,7 @@
 
 using namespace MySDL;
 
-Sprite::Sprite(const std::string &filepath, Window &window): _texture(nullptr)
+Sprite::Sprite(const std::string &filepath, Window &window): _texture(nullptr), _rotation(0)
 {
     SDL_Surface *surface = IMG_Load(filepath.c_str());
 
@@ -72,4 +72,14 @@ const SDL_Rect &Sprite::getRect() const
 SDL_Texture *Sprite::getTexture()
 {
     return (_texture);
+}
+
+void Sprite::setRotation(double rotation)
+{
+    _rotation = rotation;
+}
+
+double Sprite::getRotation() const
+{
+    return (_rotation);
 }
