@@ -8,7 +8,7 @@
 #include "Button/RectButton.hpp"
 #include "Color/SmoothShifting.hpp"
 
-using namespace MySf::Button;
+using namespace MySDL::Button;
 
 RectButton::RectButton(MySDL::Window &w,
                        const MySDL::Vector &pos,

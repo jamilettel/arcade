@@ -10,7 +10,7 @@
 
 #include "Color/AColor.hpp"
 
-namespace MySf {
+namespace MySDL {
     namespace Color {
 
         class SmoothShifting: public AColor {

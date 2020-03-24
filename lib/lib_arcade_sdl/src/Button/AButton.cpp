@@ -1,13 +1,13 @@
 /*
 ** EPITECH PROJECT, 2020
-** MySf
+** MySDL
 ** File description:
 ** AButton
 */
 
 #include "Button/AButton.hpp"
 
-using namespace MySf::Button;
+using namespace MySDL::Button;
 
 AButton::AButton(MySDL::Window &w, MySDL::Vector pos, MySDL::Vector size,
                  MySDL::Font &f, const ButtonColor &button,
@@ -47,7 +47,7 @@ const MySDL::Vector &AButton::getSize() const
     return (_size);
 }
 
-const MySf::Color::IColor &AButton::getColor() const
+const MySDL::Color::IColor &AButton::getColor() const
 {
     return (*_buttonColor.get());
 }

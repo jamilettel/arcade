@@ -15,7 +15,7 @@
 #include <functional>
 #include "MySDL/Window.hpp"
 
-namespace MySf {
+namespace MySDL {
 
     namespace Button {
 

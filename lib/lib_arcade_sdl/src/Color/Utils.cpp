@@ -7,7 +7,7 @@
 
 #include "Color/Utils.hpp"
 
-using namespace MySf::Color;
+using namespace MySDL::Color;
 
 Uint8 Utils::addToColor(Uint8 color, int toAdd)
 {

@@ -10,7 +10,7 @@
 
 #include "Color/IColor.hpp"
 
-namespace MySf {
+namespace MySDL {
 
     namespace Color {
 

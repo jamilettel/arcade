@@ -10,7 +10,7 @@
 #include <cmath>
 #include <iostream>
 
-using namespace MySf::Color;
+using namespace MySDL::Color;
 
 SmoothShifting::SmoothShifting(const SDL_Color &color, Uint32 duration):
     AColor(color), _target(color), _current(color),

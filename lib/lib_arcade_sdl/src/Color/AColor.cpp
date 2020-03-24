@@ -7,7 +7,7 @@
 
 #include "Color/AColor.hpp"
 
-using namespace MySf::Color;
+using namespace MySDL::Color;
 
 AColor::AColor(const SDL_Color &color):
     _color(color)

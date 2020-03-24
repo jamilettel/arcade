@@ -13,7 +13,7 @@
 #include <memory>
 #include <iostream>
 
-namespace MySf {
+namespace MySDL {
 
     namespace Button {
 

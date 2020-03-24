@@ -11,7 +11,7 @@
 #include "Button/AButton.hpp"
 #include "MySDL/Rectangle.hpp"
 
-namespace MySf {
+namespace MySDL {
 
     namespace Button {
 

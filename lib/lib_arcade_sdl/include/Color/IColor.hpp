@@ -11,7 +11,7 @@
 // #include <SFML/Graphics.hpp>
 #include <SDL2/SDL.h>
 
-namespace MySf {
+namespace MySDL {
 
     namespace Color {
 
