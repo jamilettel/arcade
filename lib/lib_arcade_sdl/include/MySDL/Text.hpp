@@ -8,8 +8,8 @@
 #ifndef MYSDL_TEXT_HPP_
 #define MYSDL_TEXT_HPP_
 
-#include "MySDL/Font.hpp"
-#include "MySDL/Window.hpp"
+#include "Font.hpp"
+#include "Window.hpp"
 
 namespace MySDL {
 
