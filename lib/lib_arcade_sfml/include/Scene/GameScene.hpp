@@ -75,6 +75,9 @@ namespace arc {
         std::vector<std::string> _howToPlayDesc;
         std::vector<std::string> _howToPlayKeys;
 
+        std::string _username;
+        sf::Text _userText;
+
     };
 
 }

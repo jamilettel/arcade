@@ -14,7 +14,8 @@ const sf::IntRect GameScene::_gameArea(50, 50, 1060, 795);
 GameScene::GameScene(sf::RenderWindow &window, sf::Font &font, SfmlGraphical &lib):
     _lib(lib), _window(window), _font(font),
     _gameStats(_window, _gameStatList, "Stats", _font, 10),
-    _paused(false), _pauseColorTarget(sf::Color(0x202020a0)), _pauseRectColor(sf::Color(0), 500)
+    _paused(false), _pauseColorTarget(sf::Color(0x202020a0)), _pauseRectColor(sf::Color(0), 500),
+    _userText("", _font)
 {
     _gameBackground.setPosition(_gameArea.left, _gameArea.top);
     _gameBackground.setSize(sf::Vector2f(_gameArea.width, _gameArea.height));
@@ -31,6 +32,14 @@ void GameScene::draw()
     _window.draw(_gameBackground);
     _window.draw(_gameTitle);
 
+    if (_username != _lib.getUsername()) {
+        _username = _lib.getUsername();
+        _userText.setString("User: " + _username);
+        _userText.setPosition(_gameArea.left, 10);
+    }
+
+    _window.draw(_userText);
+
     if (_gameMap.has_value()) {
         for (std::shared_ptr<Entity> &entity: _gameMap.value()) {
             sf::Sprite &sprite = _lib.getSprite(entity->spritePath, _cellSize,
@@ -38,6 +47,22 @@ void GameScene::draw()
 
             sprite.setPosition(_gameArea.left + _cellSize.x * entity->x,
                                _gameArea.top + _cellSize.y * entity->y);
+
+            switch (entity->orientation) {
+            case (UP):
+                sprite.setRotation(0);
+                break;
+            case (RIGHT):
+                sprite.setRotation(90);
+                break;
+            case (DOWN):
+                sprite.setRotation(180);
+                break;
+            case (LEFT):
+                sprite.setRotation(270);
+                break;
+            }
+
             _window.draw(sprite);
         }
     }
