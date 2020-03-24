@@ -85,6 +85,7 @@ void Solarfox::restart()
     _loots.clear();
     _scoreString = std::string("0");
     _score = 0;
+    _level = 0;
     this->loadMap(_mapFiles.at(0));
     this->createEnemies();
     this->createPlayer();
@@ -92,7 +93,6 @@ void Solarfox::restart()
 
 void Solarfox::updateGame()
 {
-
     this->updateStats();
 }
 
@@ -161,6 +161,7 @@ void Solarfox::updateStats()
     _gameStats.clear();
 
     _gameStats.emplace_back("Score", getScore());
+    _gameStats.emplace_back("Level", std::to_string(_level));
 }
 
 bool Solarfox::invalidCoordinates(size_t x, size_t y)
