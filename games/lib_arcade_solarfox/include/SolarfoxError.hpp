@@ -13,10 +13,9 @@
 namespace arc {
 
     class SolarfoxError: public ArcadeError {
-    public:
-        SolarfoxError(const std::string &message);
+        public:
+            SolarfoxError(const std::string &message);
     };
-
 }
 
 #endif /* SOLARFOX_ERROR_HPP_ */

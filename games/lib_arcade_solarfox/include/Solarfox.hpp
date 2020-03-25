@@ -20,6 +20,7 @@ namespace arc
 {
     struct Shoot {
         Shoot() = default;
+
         std::shared_ptr<Entity> _shoot;
 
         std::pair<float, float> _origin;
@@ -58,8 +59,25 @@ namespace arc
 
         private:
             bool _gameOver;
+
+            std::string _scoreString;
+            int _score;
+
+            const std::string _title;
+
+            int _mapWidth;
+            int _mapHeight;
+
+            unsigned int _level;
+            unsigned int _powerups;
+
+            bool _started;
+
+            std::vector<std::string> _mapFiles;
+
             std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _controls;
             std::vector<std::pair<std::string, std::string>> _gameControlsFormat;
+            std::vector<std::pair<std::string, std::string>> _gameStats;
 
             std::vector<std::shared_ptr<Entity>> _entities;
             std::vector<std::shared_ptr<Entity>> _loots;
@@ -72,25 +90,8 @@ namespace arc
             std::chrono::system_clock::time_point _startDelay;
             std::chrono::system_clock::time_point _endTime;
 
-            std::vector<std::pair<std::string, std::string>> _gameStats;
-
             std::string _music;
             std::string _sound;
-
-            std::string _scoreString;
-            int _score;
-
-            const std::string _title;
-
-            std::vector<std::string> _mapFiles;
-
-            int _mapWidth;
-            int _mapHeight;
-
-            unsigned int _level;
-            unsigned int _powerups;
-
-            bool _started;
 
         private:
             void initControlFormat();
@@ -122,8 +123,6 @@ namespace arc
             void detectCounterAttack();
             void detectFirePowerups();
             void detectNextLevel();
-
-        private:
     };
 }
 

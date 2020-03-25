@@ -18,9 +18,6 @@ extern "C" IGame *instance_ctor() {
 };
 
 Solarfox::Solarfox() try : _gameOver(false),
-_startTime(std::chrono::system_clock::now()),
-_startDelay(std::chrono::system_clock::now()),
-_endTime(std::chrono::system_clock::now()),
 _scoreString(std::string("0")),
 _score(0),
 _title("Solarfox"),
@@ -28,7 +25,10 @@ _mapWidth(60),
 _mapHeight(30),
 _level(0),
 _powerups(0),
-_started(false)
+_started(false),
+_startTime(std::chrono::system_clock::now()),
+_startDelay(std::chrono::system_clock::now()),
+_endTime(std::chrono::system_clock::now())
 {
     this->initControlFormat();
     this->initControls();
