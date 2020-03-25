@@ -11,7 +11,13 @@ extern "C" arc::IGame *instance_ctor() {
     return (new arc::Nibbler);
 };
 
-arc::Nibbler::Nibbler() : _gameOver(false), _scoreString(std::string("0")), _score(0), _title("Nibbler"), _started(false), _moveCoordonnate(std::pair<float, float>(0, 0)), _startTime(std::chrono::system_clock::now())
+arc::Nibbler::Nibbler() :
+_gameOver(false),
+_started(false),
+_scoreString(std::string("0")),
+_score(0), _title("Nibbler"),
+_moveCoordonnate(std::pair<float, float>(0, 0)),
+_startTime(std::chrono::system_clock::now())
 {
     this->initControls();
     this->initControlFormat();
@@ -103,7 +109,13 @@ void arc::Nibbler::moveSnake()
         body->x = x;
         body->y = y;
         body->orientation = rotate;
-        if (body->orientation != old_rotate)
+        if (body->orientation == LEFT && old_rotate == UP)
+            body->spritePath = "assets/nibbler/SnakeCorner2.png";
+        else if (body->orientation == UP && old_rotate == LEFT)
+            body->spritePath = "assets/nibbler/SnakeCorner.png";
+        else if (body->orientation < old_rotate)
+            body->spritePath = "assets/nibbler/SnakeCorner2.png";
+        else if (body->orientation > old_rotate)
             body->spritePath = "assets/nibbler/SnakeCorner.png";
         else
             body->spritePath = "assets/nibbler/SnakeBody.png";
