@@ -112,7 +112,7 @@ void Solarfox::updateGame()
     this->moveShootsPlayer();
     this->moveShootsEnemy();
     this->detectAttackEnemies();
-    //this->detectCounterAttack();
+    this->detectCounterAttack();
     //this->detectFirePowerups();
     //this->detectPlayerDeath();
     this->updateStats();
@@ -409,12 +409,6 @@ void Solarfox::moveShootsEnemy()
     for (const std::shared_ptr<Shoot> &sh : _shootsEnemies) {
         sh->_shoot->x += sh->_move.first;
         sh->_shoot->y += sh->_move.second;
-        /*
-        if (sh->_shoot->x == _player.first->x && sh->_shoot->y == _player.first->y) {
-            _gameOver = true;
-            return;
-        }
-         */
     }
 }
 
@@ -445,7 +439,15 @@ void Solarfox::detectAttackEnemies()
 
 void Solarfox::detectCounterAttack()
 {
-
+    if (_shootsPlayer.empty())
+        return;
+    _shootsPlayer.erase(std::remove_if(_shootsPlayer.begin(), _shootsPlayer.end(), [this](const std::shared_ptr<Shoot> &elem) {
+        if (elem->_shoot->x > elem->_origin.first + 4 || elem->_shoot->x < elem->_origin.first - 4 || elem->_shoot->y > elem->_origin.second + 4 || elem->_shoot->y < elem->_origin.second - 4) {
+            _entities.erase(std::remove(_entities.begin(), _entities.end(), elem->_shoot), _entities.end());
+            return true;
+        }
+        return false;
+    }), _shootsPlayer.end());
 }
 
 void Solarfox::detectFirePowerups()
