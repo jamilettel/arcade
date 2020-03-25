@@ -202,14 +202,6 @@ SfmlGraphical::Scene SfmlGraphical::getScene() const
     return (_scene);
 }
 
-// void SfmlGraphical::setFont(const std::string &font)
-// {
-//     sf::FloatRect gameTitleBounds;
-
-//     if (!_font.loadFromFile(font))
-//         throw SfmlError("could not load font '" + font + "'");
-// }
-
 Event::Type SfmlGraphical::getEventType() const
 {
     return (_eventType);
@@ -297,14 +289,14 @@ void SfmlGraphical::setMapSize(size_t height, size_t width)
 
 void SfmlGraphical::setSpriteSize(sf::Sprite &sprite, const sf::Vector2f &size)
 {
-    sf::FloatRect rect = sprite.getGlobalBounds();
+    sf::FloatRect rect = sprite.getLocalBounds();
     sf::Vector2f scale;
 
     if (!rect.width || !rect.height || (rect.height == size.x && rect.width == size.y))
         return;
     scale.x = size.x / rect.width;
     scale.y = size.y / rect.height;
-    sprite.scale(scale);
+    sprite.setScale(scale);
 }
 
 void SfmlGraphical::setGameTitle(const std::string &game)
