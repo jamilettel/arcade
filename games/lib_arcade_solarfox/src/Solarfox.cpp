@@ -113,7 +113,7 @@ void Solarfox::updateGame()
     this->moveShootsEnemy();
     this->detectAttackEnemies();
     this->detectCounterAttack();
-    //this->detectFirePowerups();
+    this->detectFirePowerups();
     //this->detectPlayerDeath();
     this->updateStats();
 }
@@ -422,8 +422,8 @@ void Solarfox::detectAttackEnemies()
             return true;
         }
         if (!_shootsPlayer.empty()) {
-            if (elem->_shoot->x == _shootsPlayer.front()->_shoot->x &&
-                elem->_shoot->y == _shootsPlayer.front()->_shoot->y) {
+            if (std::round(elem->_shoot->x) == std::round(_shootsPlayer.front()->_shoot->x) &&
+                std::round(elem->_shoot->y) == std::round(_shootsPlayer.front()->_shoot->y)) {
                 _entities.erase(std::remove(_entities.begin(), _entities.end(),
                                             elem->_shoot), _entities.end());
                 return true;
@@ -452,7 +452,16 @@ void Solarfox::detectCounterAttack()
 
 void Solarfox::detectFirePowerups()
 {
-
+    if (_shootsPlayer.empty())
+        return;
+    _loots.erase(std::remove_if(_loots.begin(), _loots.end(), [this](const std::shared_ptr<Entity> &elem) {
+        if (std::round(elem->x) == std::round(_shootsPlayer.front()->_shoot->x) && std::round(elem->y) == std::round(_shootsPlayer.front()->_shoot->y)) {
+            _entities.erase(std::remove(_entities.begin(), _entities.end(), elem), _entities.end());
+            _powerups++;
+            return true;
+        }
+        return false;
+    }), _loots.end());
 }
 
 void Solarfox::detectPlayerDeath()
