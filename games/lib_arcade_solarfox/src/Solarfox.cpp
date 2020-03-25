@@ -9,6 +9,7 @@
 #include <filesystem>
 #include <fstream>
 #include <cmath>
+#include <random>
 
 using namespace arc;
 
@@ -28,7 +29,6 @@ _level(0),
 _powerups(0),
 _started(false)
 {
-    srand(time(nullptr));
     this->initControlFormat();
     this->initControls();
     this->getMapFiles();
@@ -204,10 +204,13 @@ void Solarfox::createPlayer()
     _player.second = std::pair<float, float>(0, 0);
     size_t x;
     size_t y;
+    std::default_random_engine re(std::chrono::system_clock::now().time_since_epoch().count());
+    std::uniform_int_distribution<int> ranX {1, _mapWidth - 1};
+    std::uniform_int_distribution<int> ranY {1, _mapHeight - 1};
 
     do {
-        x = rand() % _mapWidth - 1;
-        y = rand() % _mapHeight - 1;
+        x = ranX(re);
+        y = ranY(re);
     } while (!invalidCoordinates(x, y));
     _player.first->x = x;
     _player.first->y = y;
@@ -221,8 +224,11 @@ void Solarfox::createPlayer()
 void Solarfox::createEnemies()
 {
     /* HAUT, BAS, GAUCHE, DROITE */
-    std::vector<size_t> height = {0, static_cast<size_t >(_mapHeight - 1), static_cast<size_t >(rand() % _mapHeight), static_cast<size_t >(rand() % _mapHeight)};
-    std::vector<size_t> width = {static_cast<size_t >(rand() % _mapWidth), static_cast<size_t >(rand() % _mapWidth), 0, static_cast<size_t >(_mapWidth - 1)};
+    std::default_random_engine re(std::chrono::system_clock::now().time_since_epoch().count());
+    std::uniform_int_distribution<int> ranX {0, _mapWidth};
+    std::uniform_int_distribution<int> ranY {0, _mapHeight};
+    std::vector<size_t> height = {0, static_cast<size_t >(_mapHeight - 1), static_cast<size_t >(ranY(re)), static_cast<size_t >(ranY(re))};
+    std::vector<size_t> width = {static_cast<size_t >(ranX(re)), static_cast<size_t >(ranX(re)), 0, static_cast<size_t >(_mapWidth - 1)};
     std::vector<Orientation> orientation = {DOWN, UP, RIGHT, LEFT};
     std::vector<std::pair<float, float>> moveCoor = {std::pair<float, float>(MOVE_VALUE, 0), std::pair<float, float>(-MOVE_VALUE, 0), std::pair<float, float>(0, MOVE_VALUE), std::pair<float, float>(0, -MOVE_VALUE)};
 
@@ -370,11 +376,13 @@ void Solarfox::createShootPlayer()
 void Solarfox::createShootEnemy()
 {
     /* HAUT BAS GAUCHE DROITE */
+    std::default_random_engine re(std::chrono::system_clock::now().time_since_epoch().count());
+    std::uniform_int_distribution<int> ran {0, 200};
     int random = 0;
     std::vector<float> moveCorsX = {MOVE_VALUE, -MOVE_VALUE, 0, 0};
     std::vector<float> moveCorsY = {0, 0, MOVE_VALUE, -MOVE_VALUE};
     for (int i = 0; i < 4; i++) {
-        random = rand() % 400;
+        random = ran(re);
         if (random) continue;
         std::shared_ptr<Shoot> newShoot(new Shoot);
         newShoot->_shoot = std::make_shared<Entity>();

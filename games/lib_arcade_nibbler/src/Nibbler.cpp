@@ -13,7 +13,6 @@ extern "C" arc::IGame *instance_ctor() {
 
 arc::Nibbler::Nibbler() : _gameOver(false), _scoreString(std::string("0")), _score(0), _title("Nibbler"), _started(false), _moveCoordonnate(std::pair<float, float>(0, 0)), _startTime(std::chrono::system_clock::now())
 {
-    //srand(time(nullptr));
     this->initControls();
     this->initControlFormat();
     this->initSnakeHead();
