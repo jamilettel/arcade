@@ -88,7 +88,7 @@ namespace arc {
 
         MySDL::Font _font;
 
-        static const std::map<SDL_Scancode, Event::Key> _equivalentKeys;
+        static const std::map<SDL_Keycode, Event::Key> _equivalentKeys;
 
     };
 

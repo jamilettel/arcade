@@ -139,17 +139,17 @@ void InputZone::update(const SDL_Event &event)
         if (event.text.text[0] >= ' ' && event.text.text[0] <= '~')
             addChar(event.text.text[0]);
     } else if (event.type == SDL_KEYDOWN) {
-        if (event.key.keysym.scancode == SDL_SCANCODE_DELETE) {
+        if (event.key.keysym.sym == SDLK_DELETE) {
             _cursorPos++;
             removeChar();
-        } else if (event.key.keysym.scancode == SDL_SCANCODE_BACKSPACE) {
+        } else if (event.key.keysym.sym == SDLK_BACKSPACE) {
             removeChar();
-        } else if (event.key.keysym.scancode == SDL_SCANCODE_RETURN || event.key.keysym.scancode == SDL_SCANCODE_TAB) {
+        } else if (event.key.keysym.sym == SDLK_RETURN || event.key.keysym.sym == SDLK_TAB) {
             _hasFocus = false;
-        } else if (event.key.keysym.scancode == SDL_SCANCODE_LEFT && _cursorPos > 0) {
+        } else if (event.key.keysym.sym == SDLK_LEFT && _cursorPos > 0) {
             _cursorPos--;
             _currentTicks = SDL_GetTicks();
-        } else if (event.key.keysym.scancode == SDL_SCANCODE_RIGHT) {
+        } else if (event.key.keysym.sym == SDLK_RIGHT) {
             _cursorPos++;
             _currentTicks = SDL_GetTicks();
         }
