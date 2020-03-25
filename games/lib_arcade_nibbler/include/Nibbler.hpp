@@ -8,9 +8,12 @@
 #ifndef OOP_ARCADE_2019_NIBBLER_H
 #define OOP_ARCADE_2019_NIBBLER_H
 
-#include "IGame.hpp"
 #include <iostream>
 #include <chrono>
+#include <algorithm>
+#include <memory>
+#include <random>
+#include "IGame.hpp"
 
 #define ROWS_SNAKE 30
 #define COLS_SNAKE 50
@@ -43,18 +46,6 @@ namespace arc {
         [[nodiscard]] const std::string &getTitle() const override;
 
     private:
-        bool _gameOver;
-        std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _controls;
-        std::vector<std::pair<std::string, std::string>> _gameControlsFormat;
-        std::vector<std::shared_ptr<Entity>> _entities;
-        std::vector<std::pair<std::string, std::string>> _gameStats;
-        std::string _music;
-        std::string _sound;
-        std::string _scoreString;
-        int _score;
-        const std::string _title;
-
-    private:
         void initControlFormat();
         void initControls();
         void initSnakeHead();
@@ -78,14 +69,32 @@ namespace arc {
 
         void updateStats();
 
+    private:
+        bool _gameOver;
+        bool _started;
+
+        std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _controls;
+        std::vector<std::pair<std::string, std::string>> _gameControlsFormat;
+
+        std::string _music;
+        std::string _sound;
+
+        std::vector<std::pair<std::string, std::string>> _gameStats;
+        std::string _scoreString;
+        int _score;
+
+        const std::string _title;
+
+        std::vector<std::shared_ptr<Entity>> _entities;
         std::shared_ptr<Entity> _snakeHead;
         std::vector<std::shared_ptr<Entity>> _snake;
         std::vector<std::shared_ptr<Entity>> _fruits;
-        bool _started;
+
         std::pair<float, float> _moveCoordonnate;
+
         std::chrono::system_clock::time_point _startTime;
         std::chrono::system_clock::time_point _endTime;
-    public:
+
     };
 }
 

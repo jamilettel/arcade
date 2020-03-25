@@ -5,17 +5,20 @@
 ** TODO: add description
 */
 
-#include <algorithm>
-#include <memory>
 #include "Nibbler.hpp"
 
 extern "C" arc::IGame *instance_ctor() {
     return (new arc::Nibbler);
 };
 
-arc::Nibbler::Nibbler() : _gameOver(false), _scoreString(std::string("0")), _score(0), _title("Nibbler"), _started(false), _moveCoordonnate(std::pair<float, float>(0, 0)), _startTime(std::chrono::system_clock::now())
+arc::Nibbler::Nibbler() :
+_gameOver(false),
+_started(false),
+_scoreString(std::string("0")),
+_score(0), _title("Nibbler"),
+_moveCoordonnate(std::pair<float, float>(0, 0)),
+_startTime(std::chrono::system_clock::now())
 {
-    srand(time(nullptr));
     this->initControls();
     this->initControlFormat();
     this->initSnakeHead();
@@ -54,6 +57,7 @@ void arc::Nibbler::moveDown()
     _started = true;
     _moveCoordonnate.first = 0;
     _moveCoordonnate.second = 1;
+    _snakeHead->orientation = DOWN;
 }
 
 void arc::Nibbler::moveUp()
@@ -63,6 +67,7 @@ void arc::Nibbler::moveUp()
     _started = true;
     _moveCoordonnate.first = 0;
     _moveCoordonnate.second = -1;
+    _snakeHead->orientation = UP;
 }
 
 void arc::Nibbler::moveRight()
@@ -72,6 +77,7 @@ void arc::Nibbler::moveRight()
     _started = true;
     _moveCoordonnate.first = 1;
     _moveCoordonnate.second = 0;
+    _snakeHead->orientation = RIGHT;
 }
 
 void arc::Nibbler::moveLeft()
@@ -83,24 +89,42 @@ void arc::Nibbler::moveLeft()
     _started = true;
     _moveCoordonnate.first = -1;
     _moveCoordonnate.second = 0;
+    _snakeHead->orientation = LEFT;
 }
 
 void arc::Nibbler::moveSnake()
 {
     float x = _snakeHead->x;
     float y = _snakeHead->y;
+    Orientation rotate;
 
     _snakeHead->x += _moveCoordonnate.first;
     _snakeHead->y += _moveCoordonnate.second;
-    for_each(_snake.begin(), _snake.end(), [&x, &y](std::shared_ptr<Entity> &body)
+    rotate = _snakeHead->orientation;
+    for_each(_snake.begin(), _snake.end(), [&x, &y, &rotate](std::shared_ptr<Entity> &body)
     {
         float old_x = body->x;
         float old_y = body->y;
+        Orientation old_rotate = body->orientation;
         body->x = x;
         body->y = y;
+        body->orientation = rotate;
+        if (body->orientation == LEFT && old_rotate == UP)
+            body->spritePath = "assets/nibbler/SnakeCorner2.png";
+        else if (body->orientation == UP && old_rotate == LEFT)
+            body->spritePath = "assets/nibbler/SnakeCorner.png";
+        else if (body->orientation < old_rotate)
+            body->spritePath = "assets/nibbler/SnakeCorner2.png";
+        else if (body->orientation > old_rotate)
+            body->spritePath = "assets/nibbler/SnakeCorner.png";
+        else
+            body->spritePath = "assets/nibbler/SnakeBody.png";
         x = old_x;
         y = old_y;
+        rotate = old_rotate;
     });
+    if (_snake.back()->orientation == rotate)
+        _snake.back()->spritePath = "assets/nibbler/SnakeTail.png";
 }
 
 bool arc::Nibbler::collisionSnake()
@@ -145,7 +169,7 @@ void arc::Nibbler::initSnakeHead()
 {
     _snakeHead = std::make_shared<Entity>();
     _snakeHead->spritePath = std::string("assets/nibbler/SnakeHead.png");
-    _snakeHead->orientation = LEFT;
+    _snakeHead->orientation = RIGHT;
     _snakeHead->backgroundColor = {242, 255, 0, 1};
     _snakeHead->x = (COLS_SNAKE + 1) / 2;
     _snakeHead->y = (ROWS_SNAKE + 1) / 2;
@@ -163,14 +187,16 @@ void arc::Nibbler::addSnakeBody()
 {
     std::shared_ptr<Entity> newBody(new Entity);
     std::pair<float, float> validCoordBody;
-    newBody->spritePath = std::string("assets/nibbler/SnakeBody.png");
-    newBody->orientation = UP;
+    newBody->spritePath = std::string("assets/nibbler/SnakeTail.png");
+    newBody->orientation = RIGHT;
     newBody->backgroundColor = {69, 245, 66, 1};
 
     if (_snake.empty())
         validCoordBody = findCoordSnakeBody(_snakeHead->x, _snakeHead->y);
-    else
+    else {
         validCoordBody = findCoordSnakeBody(_snake.back()->x, _snake.back()->y);
+        _snake.back()->spritePath = "assets/nibbler/SnakeBody.png";
+    }
 
     if (validCoordBody.first == -2 && validCoordBody.second == -2) {
         _gameOver = true;
@@ -215,12 +241,16 @@ std::pair<float, float> arc::Nibbler::findCoordSnakeBody(float x, float y)
 void arc::Nibbler::generateNewFruit()
 {
     std::shared_ptr<Entity> newFruit(new Entity);
+    std::default_random_engine re(std::chrono::system_clock::now().time_since_epoch().count());
+    std::uniform_int_distribution<int> ranX {0, COLS_SNAKE - 1};
+    std::uniform_int_distribution<int> ranY {0, ROWS_SNAKE - 1};
     newFruit->spritePath = std::string("assets/nibbler/Fruit.png");
     newFruit->orientation = UP;
     newFruit->backgroundColor = {255, 51, 40, 1};
+
     do {
-        newFruit->x = rand() % COLS_SNAKE;
-        newFruit->y = rand() % ROWS_SNAKE;
+        newFruit->x = ranX(re);
+        newFruit->y = ranY(re);
     } while (!invalidCoordonate(newFruit->x, newFruit->y));
     _entities.emplace_back(newFruit);
     _fruits.emplace_back(newFruit);
@@ -234,6 +264,9 @@ void arc::Nibbler::popFruit(std::shared_ptr<Entity> &fruit)
 
 void arc::Nibbler::eatFruit()
 {
+    std::default_random_engine re(std::chrono::system_clock::now().time_since_epoch().count());
+    std::uniform_int_distribution<int> ranX {0, COLS_SNAKE - 1};
+    std::uniform_int_distribution<int> ranY {0, ROWS_SNAKE - 1};
     float newX = 0;
     float newY = 0;
     for (auto &fruit : _fruits) {
@@ -243,8 +276,8 @@ void arc::Nibbler::eatFruit()
             if (_gameOver)
                 return;
             do {
-                newX = rand() % COLS_SNAKE;
-                newY = rand() % ROWS_SNAKE;
+                newX = ranX(re);
+                newY = ranY(re);
             } while (!invalidCoordonate(newX, newY));
             fruit->x = newX;
             fruit->y = newY;

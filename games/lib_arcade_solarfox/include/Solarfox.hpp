@@ -54,6 +54,8 @@ namespace arc
 
             void moveEnemies();
 
+            void updateScore();
+
         private:
             bool _gameOver;
             std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> _controls;
@@ -67,6 +69,7 @@ namespace arc
             std::vector<std::shared_ptr<Shoot>> _shootsEnemies;
 
             std::chrono::system_clock::time_point _startTime;
+            std::chrono::system_clock::time_point _startDelay;
             std::chrono::system_clock::time_point _endTime;
 
             std::vector<std::pair<std::string, std::string>> _gameStats;
@@ -118,6 +121,7 @@ namespace arc
             void detectAttackEnemies();
             void detectCounterAttack();
             void detectFirePowerups();
+            void detectNextLevel();
 
         private:
     };

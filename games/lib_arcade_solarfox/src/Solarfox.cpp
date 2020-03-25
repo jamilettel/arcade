@@ -9,6 +9,7 @@
 #include <filesystem>
 #include <fstream>
 #include <cmath>
+#include <random>
 
 using namespace arc;
 
@@ -18,6 +19,7 @@ extern "C" IGame *instance_ctor() {
 
 Solarfox::Solarfox() try : _gameOver(false),
 _startTime(std::chrono::system_clock::now()),
+_startDelay(std::chrono::system_clock::now()),
 _endTime(std::chrono::system_clock::now()),
 _scoreString(std::string("0")),
 _score(0),
@@ -28,11 +30,10 @@ _level(0),
 _powerups(0),
 _started(false)
 {
-    srand(time(nullptr));
     this->initControlFormat();
     this->initControls();
     this->getMapFiles();
-    this->loadMap(_mapFiles.at(0));
+    this->loadMap(_mapFiles.at(_level));
     this->createEnemies();
     this->createPlayer();
 } catch (const ArcadeError &e) {
@@ -114,6 +115,8 @@ void Solarfox::updateGame()
     this->detectAttackEnemies();
     this->detectCounterAttack();
     this->detectFirePowerups();
+    this->detectNextLevel();
+    this->updateScore();
     this->updateStats();
 }
 
@@ -175,6 +178,7 @@ void Solarfox::loadMap(const std::string &filepath)
         _loots.emplace_back(newEntity);
         _entities.emplace_back(newEntity);
     }
+    _powerups = _loots.size();
 }
 
 void Solarfox::updateStats()
@@ -204,10 +208,13 @@ void Solarfox::createPlayer()
     _player.second = std::pair<float, float>(0, 0);
     size_t x;
     size_t y;
+    std::default_random_engine re(std::chrono::system_clock::now().time_since_epoch().count());
+    std::uniform_int_distribution<int> ranX {1, _mapWidth - 1};
+    std::uniform_int_distribution<int> ranY {1, _mapHeight - 1};
 
     do {
-        x = rand() % _mapWidth;
-        y = rand() % _mapHeight;
+        x = ranX(re);
+        y = ranY(re);
     } while (!invalidCoordinates(x, y));
     _player.first->x = x;
     _player.first->y = y;
@@ -221,8 +228,11 @@ void Solarfox::createPlayer()
 void Solarfox::createEnemies()
 {
     /* HAUT, BAS, GAUCHE, DROITE */
-    std::vector<size_t> height = {0, static_cast<size_t >(_mapHeight - 1), static_cast<size_t >(rand() % _mapHeight), static_cast<size_t >(rand() % _mapHeight)};
-    std::vector<size_t> width = {static_cast<size_t >(rand() % _mapWidth), static_cast<size_t >(rand() % _mapWidth), 0, static_cast<size_t >(_mapWidth - 1)};
+    std::default_random_engine re(std::chrono::system_clock::now().time_since_epoch().count());
+    std::uniform_int_distribution<int> ranX {0, _mapWidth};
+    std::uniform_int_distribution<int> ranY {0, _mapHeight};
+    std::vector<size_t> height = {0, static_cast<size_t >(_mapHeight - 1), static_cast<size_t >(ranY(re)), static_cast<size_t >(ranY(re))};
+    std::vector<size_t> width = {static_cast<size_t >(ranX(re)), static_cast<size_t >(ranX(re)), 0, static_cast<size_t >(_mapWidth - 1)};
     std::vector<Orientation> orientation = {DOWN, UP, RIGHT, LEFT};
     std::vector<std::pair<float, float>> moveCoor = {std::pair<float, float>(MOVE_VALUE, 0), std::pair<float, float>(-MOVE_VALUE, 0), std::pair<float, float>(0, MOVE_VALUE), std::pair<float, float>(0, -MOVE_VALUE)};
 
@@ -266,10 +276,10 @@ bool Solarfox::moveDelay()
 {
     _endTime = std::chrono::system_clock::now();
     int elapsed_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>
-        (_endTime - _startTime).count();
+        (_endTime - _startDelay).count();
 
     if (elapsed_milliseconds > MOVE_DELAY) {
-        _startTime = std::chrono::system_clock::now();
+        _startDelay = std::chrono::system_clock::now();
         return true;
     }
     return false;
@@ -303,6 +313,7 @@ void Solarfox::moveDown()
     _player.first->x = std::round(_player.first->x);
     _player.second.first = 0;
     _player.second.second = MOVE_VALUE;
+    _player.first->orientation = DOWN;
 }
 
 void Solarfox::moveUp()
@@ -313,6 +324,7 @@ void Solarfox::moveUp()
     _player.first->x = std::round(_player.first->x);
     _player.second.first = 0;
     _player.second.second = -MOVE_VALUE;
+    _player.first->orientation = UP;
 }
 
 void Solarfox::moveRight()
@@ -323,6 +335,7 @@ void Solarfox::moveRight()
     _player.first->y = std::round(_player.first->y);
     _player.second.first = MOVE_VALUE;
     _player.second.second = 0;
+    _player.first->orientation = RIGHT;
 }
 
 void Solarfox::moveLeft()
@@ -333,6 +346,7 @@ void Solarfox::moveLeft()
     _player.first->y = std::round(_player.first->y);
     _player.second.first = -MOVE_VALUE;
     _player.second.second = 0;
+    _player.first->orientation = LEFT;
 }
 
 void Solarfox::movePlayer()
@@ -345,7 +359,7 @@ void Solarfox::movePlayer()
 
 void Solarfox::createShootPlayer()
 {
-    if (!_shootsPlayer.empty())
+    if (!_shootsPlayer.empty() || !_started)
         return;
     std::shared_ptr<Shoot> newShoot(new Shoot);
     newShoot->_shoot = std::make_shared<Entity>();
@@ -366,11 +380,13 @@ void Solarfox::createShootPlayer()
 void Solarfox::createShootEnemy()
 {
     /* HAUT BAS GAUCHE DROITE */
+    std::default_random_engine re(std::chrono::system_clock::now().time_since_epoch().count());
+    std::uniform_int_distribution<int> ran {0, 200};
     int random = 0;
     std::vector<float> moveCorsX = {MOVE_VALUE, -MOVE_VALUE, 0, 0};
     std::vector<float> moveCorsY = {0, 0, MOVE_VALUE, -MOVE_VALUE};
     for (int i = 0; i < 4; i++) {
-        random = rand() % 400;
+        random = ran(re);
         if (random) continue;
         std::shared_ptr<Shoot> newShoot(new Shoot);
         newShoot->_shoot = std::make_shared<Entity>();
@@ -394,12 +410,6 @@ void Solarfox::moveShootsPlayer()
     for (const std::shared_ptr<Shoot> &sh : _shootsPlayer) {
         sh->_shoot->x += sh->_move.first;
         sh->_shoot->y += sh->_move.second;
-        /*
-        if (sh->_shoot->x > sh->_origin.first + 4 || sh->_shoot->x < sh->_origin.first - 4 || sh->_shoot->y > sh->_origin.second + 4 || sh->_shoot->y < sh->_origin.second - 4) {
-            _entities.erase(std::remove(_entities.begin(), _entities.end(), sh->_shoot));
-            _shootsPlayer.erase(std::remove(_shootsPlayer.begin(), _shootsPlayer.end(), sh));
-        }
-         */
     }
 }
 
@@ -456,11 +466,51 @@ void Solarfox::detectFirePowerups()
     _loots.erase(std::remove_if(_loots.begin(), _loots.end(), [this](const std::shared_ptr<Entity> &elem) {
         if (std::round(elem->x) == std::round(_shootsPlayer.front()->_shoot->x) && std::round(elem->y) == std::round(_shootsPlayer.front()->_shoot->y)) {
             _entities.erase(std::remove(_entities.begin(), _entities.end(), elem), _entities.end());
-            _powerups++;
+            _powerups--;
+            _score++;
             return true;
         }
         return false;
     }), _loots.end());
+}
+
+void Solarfox::detectNextLevel()
+{
+    if (!_loots.empty())
+        return;
+    _started = false;
+    if (_level + 1 >= _mapFiles.size()) {
+        _gameOver = true;
+        return;;
+    }
+    _level++;
+    _player.second = {0, 0};
+    _shootsPlayer.clear();
+    _shootsEnemies.clear();
+    _enemies.clear();
+    _entities.clear();
+    try {
+        this->loadMap(_mapFiles.at(_level));
+        this->createEnemies();
+        _entities.emplace_back(_player.first);
+    } catch (ArcadeError &e) {
+        _gameOver = true;
+    }
+}
+
+void Solarfox::updateScore()
+{
+    if (_gameOver || !_started)
+        return;
+    _endTime = std::chrono::system_clock::now();
+    int elapsed_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>
+        (_endTime - _startTime).count();
+
+    if (elapsed_milliseconds < 1000)
+        return;
+
+    _startTime = std::chrono::system_clock::now();
+    _score--;
 }
 
 bool Shoot::operator==(const Shoot &rhs) const {
