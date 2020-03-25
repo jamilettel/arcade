@@ -114,7 +114,6 @@ void Solarfox::updateGame()
     this->detectAttackEnemies();
     this->detectCounterAttack();
     this->detectFirePowerups();
-    //this->detectPlayerDeath();
     this->updateStats();
 }
 
@@ -462,11 +461,6 @@ void Solarfox::detectFirePowerups()
         }
         return false;
     }), _loots.end());
-}
-
-void Solarfox::detectPlayerDeath()
-{
-
 }
 
 bool Shoot::operator==(const Shoot &rhs) const {

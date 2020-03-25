@@ -118,7 +118,6 @@ namespace arc
             void detectAttackEnemies();
             void detectCounterAttack();
             void detectFirePowerups();
-            void detectPlayerDeath();
 
         private:
     };
