@@ -8,8 +8,8 @@
 #include "SDLGraphical.hpp"
 #include "SDLError.hpp"
 #include "Scene/MainMenuScene.hpp"
-// #include "Scene/GameScene.hpp"
-// #include "Scene/GameOverScene.hpp"
+#include "Scene/GameScene.hpp"
+#include "Scene/GameOverScene.hpp"
 
 using namespace arc;
 
@@ -90,8 +90,8 @@ SDLGraphical::SDLGraphical():
 {
     _window.setFramerateLimit(60);
     _scenes[MAIN_MENU] = std::make_unique<MainMenuScene>(_window, _font, *this);
-    // _scenes[GAME] = std::make_unique<GameScene>(_window, _font, *this);
-    // _scenes[END_GAME] = std::make_unique<GameOverScene>(_window, _font, *this);
+    _scenes[GAME] = std::make_unique<GameScene>(_window, _font, *this);
+    _scenes[END_GAME] = std::make_unique<GameOverScene>(_window, _font, *this);
 }
 
 void SDLGraphical::display()
@@ -207,7 +207,7 @@ Event::Type SDLGraphical::getEventType() const
 void SDLGraphical::setScores(const std::vector<std::pair<std::string,std::string>> &scores)
 {
     static_cast<MainMenuScene *>(_scenes.at(MAIN_MENU).get())->setScores(scores);
-    // static_cast<GameOverScene *>(_scenes.at(END_GAME).get())->setScores(scores);
+    static_cast<GameOverScene *>(_scenes.at(END_GAME).get())->setScores(scores);
 }
 
 void SDLGraphical::setFunctionPlay(const std::function<void()> &function)
@@ -217,19 +217,19 @@ void SDLGraphical::setFunctionPlay(const std::function<void()> &function)
 
 void SDLGraphical::setFunctionRestart(const std::function<void()> &function)
 {
-    // static_cast<GameScene *>(_scenes.at(GAME).get())->setFunctionRestart(function);
-    // static_cast<GameOverScene *>(_scenes.at(END_GAME).get())->setFunctionRestart(function);
+    static_cast<GameScene *>(_scenes.at(GAME).get())->setFunctionRestart(function);
+    static_cast<GameOverScene *>(_scenes.at(END_GAME).get())->setFunctionRestart(function);
 }
 
 void SDLGraphical::setFunctionMenu(const std::function<void()> &function)
 {
-    // static_cast<GameScene *>(_scenes.at(GAME).get())->setFunctionMenu(function);
-    // static_cast<GameOverScene *>(_scenes.at(END_GAME).get())->setFunctionMenu(function);
+    static_cast<GameScene *>(_scenes.at(GAME).get())->setFunctionMenu(function);
+    static_cast<GameOverScene *>(_scenes.at(END_GAME).get())->setFunctionMenu(function);
 }
 
 void SDLGraphical::setFunctionTogglePause(const std::function<void()> &fct)
 {
-    // static_cast<GameScene *>(_scenes.at(GAME).get())->setFunctionTogglePause(fct);
+    static_cast<GameScene *>(_scenes.at(GAME).get())->setFunctionTogglePause(fct);
 }
 
 const std::string &SDLGraphical::getUsername()
@@ -245,19 +245,19 @@ void SDLGraphical::setUsername(const std::string &name)
 void SDLGraphical::setHowToPlay(const std::vector<std::pair<std::string,std::string>> &info)
 {
     static_cast<MainMenuScene *>(_scenes.at(MAIN_MENU).get())->setHowToPlay(info);
-    // static_cast<GameScene *>(_scenes.at(GAME).get())->setHowToPlay(info);
+    static_cast<GameScene *>(_scenes.at(GAME).get())->setHowToPlay(info);
 }
 
 void SDLGraphical::setGameStats(const std::vector<std::pair<std::string, std::string>> &info)
 {
-    // static_cast<GameScene *>(_scenes.at(GAME).get())->setGameStats(info);
-    // static_cast<GameOverScene *>(_scenes.at(END_GAME).get())->setCurrentStats(
-    //     static_cast<GameScene *>(_scenes.at(GAME).get())->getGameStats());
+    static_cast<GameScene *>(_scenes.at(GAME).get())->setGameStats(info);
+    static_cast<GameOverScene *>(_scenes.at(END_GAME).get())->setCurrentStats(
+        static_cast<GameScene *>(_scenes.at(GAME).get())->getGameStats());
 }
 
 void SDLGraphical::updateGameInfo(const std::vector<std::shared_ptr<Entity>> &gameMap)
 {
-    // static_cast<GameScene *>(_scenes.at(GAME).get())->updateGameInfo(gameMap);
+    static_cast<GameScene *>(_scenes.at(GAME).get())->updateGameInfo(gameMap);
 }
 
 void SDLGraphical::setListGames(const std::vector<std::string> &games,
@@ -276,12 +276,12 @@ void SDLGraphical::setListLibraries(const std::vector<std::string> &libraries,
 
 void SDLGraphical::setControls(const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &controls)
 {
-    // static_cast<GameScene *>(_scenes.at(GAME).get())->setControls(controls);
+    static_cast<GameScene *>(_scenes.at(GAME).get())->setControls(controls);
 }
 
 void SDLGraphical::setMapSize(size_t height, size_t width)
 {
-    // static_cast<GameScene *>(_scenes.at(GAME).get())->setMapSize(height, width);
+    static_cast<GameScene *>(_scenes.at(GAME).get())->setMapSize(height, width);
 }
 
 void SDLGraphical::setSpriteSize(MySDL::Sprite &sprite, const MySDL::Vector &size)
@@ -291,10 +291,10 @@ void SDLGraphical::setSpriteSize(MySDL::Sprite &sprite, const MySDL::Vector &siz
 
 void SDLGraphical::setGameTitle(const std::string &game)
 {
-    // static_cast<GameScene *>(_scenes.at(GAME).get())->setGameTitle(game);
+    static_cast<GameScene *>(_scenes.at(GAME).get())->setGameTitle(game);
 }
 
 void SDLGraphical::setGamePause(bool pause)
 {
-    // static_cast<GameScene *>(_scenes.at(GAME).get())->setPause(pause);
+    static_cast<GameScene *>(_scenes.at(GAME).get())->setPause(pause);
 }

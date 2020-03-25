@@ -9,26 +9,30 @@
 
 using namespace arc;
 
-GameOverScene::GameOverScene(sf::RenderWindow &window,
-                             sf::Font &font,
-                             SfmlGraphical &lib):
-    _lib(lib), _window(window), _font(font), _gameOver("GAME OVER", _font),
+GameOverScene::GameOverScene(MySDL::Window &window,
+                             MySDL::Font &font,
+                             SDLGraphical &lib):
+    _lib(lib), _window(window), _font(font), _gameOver(_font, "GAME OVER", 128, _window),
     _highScores(_window, _usernames, "Username", _font),
     _currentStats(_window, std::vector<std::string>(), "Current Stats", _font, 9)
 {
-    _highScores.addColumn<MySf::BasicList>(_window, _scores, "Scores", _font);
-    _highScores.setPos(sf::Vector2f(50, 185));
-    _highScores.setSize(sf::Vector2f(530, 0));
-    _gameOver.setCharacterSize(128);
-    _gameOver.setPosition(400, 20);
+    _highScores.addColumn<MySDL::BasicList>(_window, _scores, "Scores", _font);
+    _highScores.setPos({50, 185});
+    _highScores.setSize({530, 0});
+    _gameOver.setPosition({400, 20});
 
-    _currentStats.setPos(sf::Vector2f(1120, 135));
-    _currentStats.setSize(sf::Vector2f(470, 0));
+    _currentStats.setPos({1120, 135});
+    _currentStats.setSize({470, 0});
 }
 
-void GameOverScene::update(const sf::Event &event)
+void GameOverScene::update(const SDL_Event &event)
 {
     _highScores.update(event);
+    _currentStats.update(event);
+    if (_restart.has_value())
+        _restart->update(event);
+    if (_menu.has_value())
+        _menu->update(event);
 }
 
 void GameOverScene::draw()
@@ -48,7 +52,7 @@ void GameOverScene::setFunctionMenu(const std::function<void ()> &function)
         _menu->setFunc(function);
         return;
     }
-    _menu.emplace(_window, sf::Vector2f(1230, 785), sf::Vector2f(260, 60), _font,
+    _menu.emplace(_window, MySDL::Vector{1230, 785}, MySDL::Vector{260, 60}, _font,
                   BUTTON_COLOR, TEXT_COLOR, "Main Menu", function);
 }
 
@@ -58,7 +62,7 @@ void GameOverScene::setFunctionRestart(const std::function<void ()> &function)
         _restart->setFunc(function);
         return;
     }
-    _restart.emplace(_window, sf::Vector2f(1230, 715), sf::Vector2f(260, 60), _font,
+    _restart.emplace(_window, MySDL::Vector{1230, 715}, MySDL::Vector{260, 60}, _font,
                      BUTTON_COLOR, TEXT_COLOR, "Restart", function);
 }
 

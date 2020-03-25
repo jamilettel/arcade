@@ -9,21 +9,21 @@
 #define SFML_GAMEOVERSCENE_HPP_
 
 #include "Scene/IScene.hpp"
-#include "SfmlGraphical.hpp"
-#include "MySf/List/BasicList.hpp"
-#include "MySf/Button/RectButton.hpp"
+#include "SDLGraphical.hpp"
+#include "List/BasicList.hpp"
+#include "Button/RectButton.hpp"
 
 namespace arc {
 
     class GameOverScene: public IScene {
     public:
 
-        GameOverScene(sf::RenderWindow &window,
-                      sf::Font &font,
-                      SfmlGraphical &lib);
+        GameOverScene(MySDL::Window &window,
+                      MySDL::Font &font,
+                      SDLGraphical &lib);
 
         void draw();
-        void update(const sf::Event &event);
+        void update(const SDL_Event &event);
 
         void setFunctionMenu(const std::function<void()> &function);
         void setFunctionRestart(const std::function<void()> &function);
@@ -33,20 +33,20 @@ namespace arc {
 
     private:
 
-        SfmlGraphical &_lib;
-        sf::RenderWindow &_window;
-        sf::Font &_font;
+        SDLGraphical &_lib;
+        MySDL::Window &_window;
+        MySDL::Font &_font;
 
-        sf::Text _gameOver;
+        MySDL::Text _gameOver;
 
-        std::optional<MySf::Button::RectButton> _restart;
-        std::optional<MySf::Button::RectButton> _menu;
+        std::optional<MySDL::Button::RectButton> _restart;
+        std::optional<MySDL::Button::RectButton> _menu;
 
         std::vector<std::string> _usernames;
         std::vector<std::string> _scores;
-        MySf::BasicList _highScores;
+        MySDL::BasicList _highScores;
 
-        MySf::BasicList _currentStats;
+        MySDL::BasicList _currentStats;
 
     };
 

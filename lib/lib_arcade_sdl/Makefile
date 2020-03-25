@@ -25,7 +25,7 @@ SRC	=\
 		src/SDLGraphical.cpp	\
 		src/Button/RectButton.cpp	\
 		src/Button/AButton.cpp	\
-#		src/Scene/GameScene.cpp	\
+		src/Scene/GameScene.cpp	\
 		src/Scene/GameOverScene.cpp	\
 
 OBJ	=	$(SRC:%.cpp=%.o)

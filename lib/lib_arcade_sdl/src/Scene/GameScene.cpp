@@ -9,22 +9,26 @@
 
 using namespace arc;
 
-const sf::IntRect GameScene::_gameArea(50, 50, 1060, 795);
+const SDL_Rect GameScene::_gameArea{50, 50, 1060, 795};
 
-GameScene::GameScene(sf::RenderWindow &window, sf::Font &font, SfmlGraphical &lib):
+GameScene::GameScene(MySDL::Window &window, MySDL::Font &font, SDLGraphical &lib):
     _lib(lib), _window(window), _font(font),
+    _gameBackground(_gameArea, {0x10, 0x10, 0x10, 0xff}),
+    _gameTitle(_font, "", 64, window),
+    _cellHeight(0), _cellWidth(0),
     _gameStats(_window, _gameStatList, "Stats", _font, 10),
-    _paused(false), _pauseColorTarget(sf::Color(0x202020a0)), _pauseRectColor(sf::Color(0), 500),
-    _userText("", _font)
+    _paused(false),
+    _pauseRect({0,0}, _window.getSize()),
+    _pauseColorTarget{0x20, 0x20, 0x20, 0xa0},
+    _pauseRectColor(SDL_Color{0, 0, 0, 0}, 500),
+    _userText(_font, "", 32, _window)
 {
-    _gameBackground.setPosition(_gameArea.left, _gameArea.top);
-    _gameBackground.setSize(sf::Vector2f(_gameArea.width, _gameArea.height));
-    _gameBackground.setFillColor(sf::Color(0x101010ff));
+    _gameBackground.setPosition({_gameArea.x, _gameArea.y});
+    _gameBackground.setSize({_gameArea.w, _gameArea.h});
+    _gameBackground.setColor({0x10, 0x10, 0x10, 0xff});
 
-    sf::Vector2u screenSize = _window.getSize();
-    _pauseRect.setSize(sf::Vector2f(screenSize.x, screenSize.y));
-    _pauseRectColor.setColor(sf::Color(_pauseColorTarget.r, _pauseColorTarget.g,
-                                       _pauseColorTarget.b, 0));
+    _pauseRectColor.setColor({_pauseColorTarget.r, _pauseColorTarget.g,
+                              _pauseColorTarget.b, 0});
 }
 
 void GameScene::draw()
@@ -35,18 +39,22 @@ void GameScene::draw()
     if (_username != _lib.getUsername()) {
         _username = _lib.getUsername();
         _userText.setString("User: " + _username);
-        _userText.setPosition(_gameArea.left, 10);
+        _userText.setPosition({_gameArea.x, 10});
     }
 
     _window.draw(_userText);
 
     if (_gameMap.has_value()) {
+        MySDL::Vector cellSize;
+        cellSize.x = _cellWidth;
+        cellSize.y = _cellHeight;
+
         for (std::shared_ptr<Entity> &entity: _gameMap.value()) {
-            sf::Sprite &sprite = _lib.getSprite(entity->spritePath, _cellSize,
+            MySDL::Sprite &sprite = _lib.getSprite(entity->spritePath, cellSize,
                                                 entity->backgroundColor);
 
-            sprite.setPosition(_gameArea.left + _cellSize.x * entity->x,
-                               _gameArea.top + _cellSize.y * entity->y);
+            sprite.setPosition({static_cast<int>(_gameArea.x + _cellWidth * entity->x),
+                                static_cast<int>(_gameArea.y + _cellHeight * entity->y)});
 
             switch (entity->orientation) {
             case (UP):
@@ -69,7 +77,7 @@ void GameScene::draw()
     _gameStats.draw();
     if (_pause.has_value())
         _pause->draw();
-    _pauseRect.setFillColor(_pauseRectColor.getColor());
+    _pauseRect.setColor(_pauseRectColor.getColor());
     _window.draw(_pauseRect);
     if (_paused)
         drawPaused();
@@ -87,7 +95,7 @@ void GameScene::drawPaused()
         _howToPlay->draw();
 }
 
-void GameScene::update(const sf::Event &e)
+void GameScene::update(const SDL_Event &e)
 {
     std::pair<Event::Type, Event::Key> event;
 
@@ -96,30 +104,35 @@ void GameScene::update(const sf::Event &e)
     if (_controlsMap.has_value() && _controlsMap->count(event))
         _controlsMap->at(event)();
     _gameStats.update(e);
+    if (_pause.has_value())
+        _pause->update(e);
     if (_paused) {
         if (_howToPlay.has_value())
             _howToPlay->update(e);
+        if (_resume.has_value())
+            _resume->update(e);
+        if (_menu.has_value())
+            _menu->update(e);
+        if (_restart.has_value())
+            _restart->update(e);
     }
 }
 
 void GameScene::setMapSize(size_t height, size_t width)
 {
-    _cellSize.x = static_cast<float>(_gameArea.width) / static_cast<float>(width);
-    _cellSize.y = static_cast<float>(_gameArea.height) / static_cast<float>(height);
+    _cellWidth = static_cast<float>(_gameArea.w) / static_cast<float>(width);
+    _cellHeight = static_cast<float>(_gameArea.h) / static_cast<float>(height);
 }
 
 void GameScene::setGameTitle(const std::string &title)
 {
-    sf::FloatRect gameTitleBounds;
+    SDL_Rect gameTitleBounds;
 
-    _gameTitle.setFont(_font);
     _gameTitle.setString(title);
-    _gameTitle.setCharacterSize(64);
-    gameTitleBounds = _gameTitle.getGlobalBounds();
-    _gameTitle.setPosition((_gameArea.left + _gameArea.width)
-                           + (_window.getSize().x - _gameArea.left - _gameArea.width) / 2
-                           - gameTitleBounds.width / 2,
-                           _gameArea.top);
+    gameTitleBounds = _gameTitle.getRect();
+    _gameTitle.setPosition({(_gameArea.x + _gameArea.w)
+                            + (_window.getSize().x - _gameArea.x - _gameArea.w) / 2
+                            - gameTitleBounds.w / 2, _gameArea.y});
 }
 
 void GameScene::updateGameInfo(const std::vector<std::shared_ptr<Entity> > &gameMap)
@@ -144,9 +157,9 @@ void GameScene::setHowToPlay(const std::vector<std::pair<std::string,std::string
                   });
     if (!_howToPlay.has_value()) {
         _howToPlay.emplace(_window, _howToPlayDesc, "Controls", _font, 10);
-        _howToPlay->addColumn<MySf::BasicList>(_window, _howToPlayKeys, "Keys", _font, 10);
-        _howToPlay->setPos(sf::Vector2f(500, 175));
-        _howToPlay->setSize(sf::Vector2f(500, 0));
+        _howToPlay->addColumn<MySDL::BasicList>(_window, _howToPlayKeys, "Keys", _font, 10);
+        _howToPlay->setPos({500, 175});
+        _howToPlay->setSize({500, 0});
     }
     _howToPlay->setList(_howToPlayDesc);
     _howToPlay->getColumn(1).setList(_howToPlayKeys);
@@ -161,21 +174,21 @@ void GameScene::setGameStats(const std::vector<std::pair<std::string, std::strin
                                    _gameStatList.emplace_back(pair.first + ": " + pair.second);
                                });
     _gameStats.setList(_gameStatList);
-    _gameStats.setPos(sf::Vector2f(_gameArea.left + _gameArea.width + 10, 135));
-    _gameStats.setSize(sf::Vector2f(_window.getSize().x - (_gameArea.left + _gameArea.width + 20), 0));
+    _gameStats.setPos({_gameArea.x + _gameArea.w + 10, 135});
+    _gameStats.setSize({_window.getSize().x - (_gameArea.x + _gameArea.w + 20), 0});
 }
 
 void GameScene::setFunctionTogglePause(const std::function<void()> &function)
 {
-    _pause.emplace(_window, sf::Vector2f(1230, 785), sf::Vector2f(250, 60), _font,
+    _pause.emplace(_window, MySDL::Vector{1230, 785}, MySDL::Vector{250, 60}, _font,
                    BUTTON_COLOR, TEXT_COLOR, "Pause", function);
-    _resume.emplace(_window, sf::Vector2f(125, 220), sf::Vector2f(250, 60), _font,
+    _resume.emplace(_window, MySDL::Vector{125, 220}, MySDL::Vector{250, 60}, _font,
                     BUTTON_COLOR, TEXT_COLOR, "Resume", function);
 }
 
 void GameScene::setFunctionMenu(const std::function<void()> &function)
 {
-    _menu.emplace(_window, sf::Vector2f(125, 360), sf::Vector2f(250, 60), _font,
+    _menu.emplace(_window, MySDL::Vector{125, 360}, MySDL::Vector{250, 60}, _font,
                   BUTTON_COLOR, TEXT_COLOR, "Main Menu", function);
 }
 
@@ -186,13 +199,13 @@ void GameScene::setPause(bool status)
     if (status)
         _pauseRectColor.setColor(_pauseColorTarget);
     else
-        _pauseRectColor.setColor(sf::Color(_pauseColorTarget.r, _pauseColorTarget.g,
-                                           _pauseColorTarget.b, 0));
+        _pauseRectColor.setColor({_pauseColorTarget.r, _pauseColorTarget.g,
+                                  _pauseColorTarget.b, 0});
 }
 
 void GameScene::setFunctionRestart(const std::function<void()> &function)
 {
-    _restart.emplace(_window, sf::Vector2f(125, 290), sf::Vector2f(250, 60), _font,
+    _restart.emplace(_window, MySDL::Vector{125, 290}, MySDL::Vector{250, 60}, _font,
                      BUTTON_COLOR, TEXT_COLOR, "Restart", function);
 }
 

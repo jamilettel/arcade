@@ -30,20 +30,19 @@ bool Vector::operator!=(const Vector &lhs) const
 }
 
 Window::Window(int width, int height, const std::string &title,
-               Uint32 windowFlags, Uint32):
+               Uint32 windowFlags, Uint32 rendererFlags):
     _window(nullptr), _renderer(nullptr), _currentFrameTime(0), _open(true)
 {
     if (SDL_Init(SDL_INIT_EVERYTHING)<0 || IMG_Init(IMG_INIT_PNG)!=IMG_INIT_PNG)
         throw arc::SDLError("Could not initialize library");
-    // _window = SDL_CreateWindow(title.c_str(),
-    //                            SDL_WINDOWPOS_UNDEFINED,
-    //                            SDL_WINDOWPOS_UNDEFINED,
-    //                            width, height, windowFlags);
-    // _renderer = SDL_CreateRenderer(_window, 0, rendererFlags);
-    SDL_CreateWindowAndRenderer(width, height, windowFlags, &_window, &_renderer);
+    _window = SDL_CreateWindow(title.c_str(),
+                               SDL_WINDOWPOS_UNDEFINED,
+                               SDL_WINDOWPOS_UNDEFINED,
+                               width, height, windowFlags);
+    _renderer = SDL_CreateRenderer(_window, 0, rendererFlags);
     if (!_window || !_renderer)
         throw arc::SDLError("Could not create window and renderer");
-    SDL_SetWindowTitle(_window, title.c_str());
+    SDL_SetRenderDrawBlendMode(_renderer, SDL_BLENDMODE_BLEND);
 }
 
 Window::~Window()
@@ -137,6 +136,14 @@ bool Window::isOpen() const
 SDL_Renderer* Window::getRenderer()
 {
     return (_renderer);
+}
+
+Vector Window::getSize() const
+{
+    Vector size;
+
+    SDL_GetWindowSize(_window, &size.x, &size.y);
+    return (size);
 }
 
 bool operator==(const SDL_Color &lhs, const SDL_Color &rhs)

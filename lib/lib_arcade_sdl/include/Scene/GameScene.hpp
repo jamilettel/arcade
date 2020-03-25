@@ -9,20 +9,20 @@
 #define GAMESCENE_SCENE_HPP_
 
 #include "Scene/IScene.hpp"
-#include "MySf/Button/RectButton.hpp"
+#include "Button/RectButton.hpp"
 #include "Utils.hpp"
-#include "SfmlGraphical.hpp"
-#include "MySf/List/BasicList.hpp"
+#include "SDLGraphical.hpp"
+#include "List/BasicList.hpp"
 
 namespace arc {
 
     class GameScene: public IScene {
     public:
-        GameScene(sf::RenderWindow &window, sf::Font &font, SfmlGraphical &lib);
+        GameScene(MySDL::Window &window, MySDL::Font &font, SDLGraphical &lib);
 
         void draw() override;
         void drawPaused();
-        void update(const sf::Event &event) override;
+        void update(const SDL_Event &event) override;
 
         void setMapSize(size_t height, size_t width);
 
@@ -44,39 +44,40 @@ namespace arc {
 
     private:
 
-        SfmlGraphical &_lib;
-        sf::RenderWindow &_window;
-        sf::Font &_font;
+        SDLGraphical &_lib;
+        MySDL::Window &_window;
+        MySDL::Font &_font;
 
-        static const sf::IntRect _gameArea;
-        sf::RectangleShape _gameBackground;
-        sf::Text _gameTitle;
+        static const SDL_Rect _gameArea;
+        MySDL::Rectangle _gameBackground;
+        MySDL::Text _gameTitle;
 
-        std::optional<MySf::Button::RectButton> _pause;
-        std::optional<MySf::Button::RectButton> _resume;
-        std::optional<MySf::Button::RectButton> _menu;
-        std::optional<MySf::Button::RectButton> _restart;
+        std::optional<MySDL::Button::RectButton> _pause;
+        std::optional<MySDL::Button::RectButton> _resume;
+        std::optional<MySDL::Button::RectButton> _menu;
+        std::optional<MySDL::Button::RectButton> _restart;
         std::optional<std::vector<std::shared_ptr<Entity>>> _gameMap;
 
-        sf::Vector2f _cellSize;
+        float _cellHeight;
+        float _cellWidth;
 
         std::optional<const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>>> _controlsMap;
 
         std::vector<std::string> _gameStatList;
-        MySf::BasicList _gameStats;
+        MySDL::BasicList _gameStats;
 
         bool _paused;
 
-        sf::RectangleShape _pauseRect;
-        sf::Color _pauseColorTarget;
-        MySf::Color::SmoothShifting _pauseRectColor;
+        MySDL::Rectangle _pauseRect;
+        SDL_Color _pauseColorTarget;
+        MySDL::Color::SmoothShifting _pauseRectColor;
 
-        std::optional<MySf::BasicList> _howToPlay;
+        std::optional<MySDL::BasicList> _howToPlay;
         std::vector<std::string> _howToPlayDesc;
         std::vector<std::string> _howToPlayKeys;
 
         std::string _username;
-        sf::Text _userText;
+        MySDL::Text _userText;
 
     };
 
