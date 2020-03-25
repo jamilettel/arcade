@@ -30,18 +30,20 @@ bool Vector::operator!=(const Vector &lhs) const
 }
 
 Window::Window(int width, int height, const std::string &title,
-               Uint32 windowFlags, Uint32 rendererFlags):
-    _window(nullptr), _renderer(nullptr), _currentFrameTime(0)
+               Uint32 windowFlags, Uint32):
+    _window(nullptr), _renderer(nullptr), _currentFrameTime(0), _open(true)
 {
-    if (SDL_Init(SDL_INIT_EVERYTHING)<0 || IMG_Init(IMG_INIT_PNG)!=IMG_INIT_PNG || TTF_Init()<0)
+    if (SDL_Init(SDL_INIT_EVERYTHING)<0 || IMG_Init(IMG_INIT_PNG)!=IMG_INIT_PNG)
         throw arc::SDLError("Could not initialize library");
-    _window = SDL_CreateWindow(title.c_str(),
-                               SDL_WINDOWPOS_UNDEFINED,
-                               SDL_WINDOWPOS_UNDEFINED,
-                               width, height, windowFlags);
-    _renderer = SDL_CreateRenderer(_window, 0, rendererFlags);
+    // _window = SDL_CreateWindow(title.c_str(),
+    //                            SDL_WINDOWPOS_UNDEFINED,
+    //                            SDL_WINDOWPOS_UNDEFINED,
+    //                            width, height, windowFlags);
+    // _renderer = SDL_CreateRenderer(_window, 0, rendererFlags);
+    SDL_CreateWindowAndRenderer(width, height, windowFlags, &_window, &_renderer);
     if (!_window || !_renderer)
         throw arc::SDLError("Could not create window and renderer");
+    SDL_SetWindowTitle(_window, title.c_str());
 }
 
 Window::~Window()
@@ -49,9 +51,8 @@ Window::~Window()
     if (_window && _renderer) {
         SDL_DestroyRenderer(_renderer);
         SDL_DestroyWindow(_window);
-        SDL_Quit();
         IMG_Quit();
-        TTF_Quit();
+        SDL_Quit();
     }
 }
 
@@ -121,6 +122,16 @@ void Window::setFramerateLimit(int limit)
         _desiredFrameTime = 0;
     else
         _desiredFrameTime = 1000 / limit;
+}
+
+void Window::close()
+{
+    _open = false;
+}
+
+bool Window::isOpen() const
+{
+    return (_open);
 }
 
 SDL_Renderer* Window::getRenderer()

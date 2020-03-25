@@ -9,29 +9,29 @@
 #define SFML_GRAPHICAL_HPP_
 
 #include "Scene/IScene.hpp"
-#include "MySf/InputZone.hpp"
+#include "InputZone.hpp"
 #include "IGraphical.hpp"
-#include <SFML/Graphics.hpp>
-#include "MySf/Button/RectButton.hpp"
-#include <SFML/Audio.hpp>
+#include "Button/RectButton.hpp"
+#include "MySDL/Sprite.hpp"
+#include "MySDL/Text.hpp"
 
-#define BUTTON_COLOR MySf::Button::ButtonColor(sf::Color(0x0a0a0aff),\
-                                               sf::Color(0x131313ff),\
-                                               sf::Color(0x5f5f5fff),\
-                                               sf::Color(0x343434ff))
+#define BUTTON_COLOR MySDL::Button::ButtonColor(SDL_Color{0x0a, 0x0a, 0x0a, 0xff}, \
+                                                SDL_Color{0x13, 0x13, 0x13, 0xff}, \
+                                                SDL_Color{0x5f, 0x5f, 0x5f, 0xff}, \
+                                                SDL_Color{0x34, 0x34, 0x34, 0xff})
 
-#define TEXT_COLOR MySf::Button::ButtonColor(sf::Color::White,\
-                                             sf::Color::White,\
-                                             sf::Color::White,\
-                                             sf::Color(0x777777ff))
+#define TEXT_COLOR MySDL::Button::ButtonColor(SDL_Color{0xff, 0xff, 0xff, 0xff}, \
+                                              SDL_Color{0xff, 0xff, 0xff, 0xff}, \
+                                              SDL_Color{0xff, 0xff, 0xff, 0xff}, \
+                                              SDL_Color{0x77, 0x77, 0x77, 0xff})
 
 namespace arc {
 
-    class SfmlGraphical: public IGraphical {
+    class SDLGraphical: public IGraphical {
     public:
 
-        SfmlGraphical();
-        ~SfmlGraphical() = default;
+        SDLGraphical();
+        ~SDLGraphical() = default;
 
         void display() override;
         Event::Type getEventType() const override;
@@ -64,7 +64,7 @@ namespace arc {
         void setMapSize(size_t height, size_t width) override;
         void setGameTitle(const std::string &game) override;
 
-        sf::Sprite &getSprite(const std::string &sprite, const sf::Vector2f &size,
+        MySDL::Sprite &getSprite(const std::string &sprite, const MySDL::Vector &size,
                               const Color &color);
 
         void setGamePause(bool pause) override;
@@ -73,23 +73,22 @@ namespace arc {
         void checkEvents();
         void loadSprite(const std::string &spritePath, const Color &color);
 
-        static void setSpriteSize(sf::Sprite &sprite, const sf::Vector2f &size);
+        static void setSpriteSize(MySDL::Sprite &sprite, const MySDL::Vector &size);
 
-        sf::RenderWindow _window;
-        sf::Event _event;
+        MySDL::Window _window;
+        SDL_Event _event;
         Event::Type _eventType;
         Event::Key _keyPressed;
         Scene _scene;
 
         std::map<Scene, std::unique_ptr<IScene>> _scenes;
 
-        std::map<std::string, sf::Sprite> _sprites;
-        std::map<std::string, sf:: Texture> _textures;
+        std::map<std::string, MySDL::Sprite> _sprites;
         std::map<char, std::pair<std::string, Color>> _spriteMap;
 
-        sf::Font _font;
+        MySDL::Font _font;
 
-        static const std::map<sf::Keyboard::Key, Event::Key> _equivalentKeys;
+        static const std::map<SDL_Scancode, Event::Key> _equivalentKeys;
 
     };
 

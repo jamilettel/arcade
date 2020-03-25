@@ -63,7 +63,6 @@ namespace arc {
         bool endGame();
 
         std::unique_ptr<IGraphical> _graphical;
-        std::unique_ptr<IGraphical> _oldGraphical;
         std::unique_ptr<IGame> _game;
         std::unique_ptr<IGame> _oldGame;
 
@@ -85,6 +84,8 @@ namespace arc {
         std::vector<std::pair<std::string, std::string>> _bestScoresGame;
 
         std::string _username;
+
+        bool _changeLib;
 
     };
 

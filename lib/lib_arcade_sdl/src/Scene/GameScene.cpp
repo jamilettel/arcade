@@ -45,11 +45,8 @@ void GameScene::draw()
             sf::Sprite &sprite = _lib.getSprite(entity->spritePath, _cellSize,
                                                 entity->backgroundColor);
 
-            sprite.setPosition(_gameArea.left + _cellSize.x * (entity->x + 0.5),
-                               _gameArea.top + _cellSize.y * (entity->y + 0.5));
-
-            sprite.setOrigin(sprite.getLocalBounds().width / 2,
-                             sprite.getLocalBounds().height / 2);
+            sprite.setPosition(_gameArea.left + _cellSize.x * entity->x,
+                               _gameArea.top + _cellSize.y * entity->y);
 
             switch (entity->orientation) {
             case (UP):

@@ -50,12 +50,17 @@ namespace MySDL {
 
         SDL_Renderer *getRenderer();
 
+        bool isOpen() const;
+        void close();
+
     private:
         SDL_Window *_window;
         SDL_Renderer *_renderer;
 
         int _desiredFrameTime;
         size_t _currentFrameTime;
+
+        bool _open;
 
     };
 

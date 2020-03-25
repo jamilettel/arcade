@@ -30,6 +30,8 @@ namespace MySDL {
         int getStyle();
 
     private:
+        static int _instances;
+
         void loadFont(int ptsize);
 
         std::map<int, TTF_Font *> _fonts; // font size cannot be changed after creation

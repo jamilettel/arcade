@@ -10,7 +10,16 @@
 
 using namespace MySDL;
 
-Sprite::Sprite(const std::string &filepath, Window &window): _texture(nullptr), _rotation(0)
+Sprite::Sprite(): _texture(nullptr), _rect{0, 0, 0, 0}, _rotation(0), _color{0, 0, 0, 0}
+{}
+
+Sprite::Sprite(const std::string &filepath, Window &window):
+    _texture(nullptr), _rect{0, 0, 0, 0}, _rotation(0), _color{0, 0, 0, 0}
+{
+    loadFile(filepath, window);
+}
+
+void Sprite::loadFile(const std::string &filepath, Window &window)
 {
     SDL_Surface *surface = IMG_Load(filepath.c_str());
 
@@ -18,8 +27,6 @@ Sprite::Sprite(const std::string &filepath, Window &window): _texture(nullptr), 
         throw arc::SDLError("Could not load sprite '" + filepath + "'");
     _texture = SDL_CreateTextureFromSurface(window.getRenderer(), surface);
     SDL_GetClipRect(surface, &_rect);
-    _pos.x = _rect.x;
-    _pos.y = _rect.y;
     _size.x = _rect.w;
     _size.y = _rect.h;
     SDL_FreeSurface(surface);
@@ -82,4 +89,14 @@ void Sprite::setRotation(double rotation)
 double Sprite::getRotation() const
 {
     return (_rotation);
+}
+
+const SDL_Color &Sprite::getColor() const
+{
+    return (_color);
+}
+
+void Sprite::setColor(const SDL_Color &color)
+{
+    _color = color;
 }

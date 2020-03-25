@@ -19,6 +19,8 @@ namespace MySDL {
 
     class Sprite {
     public:
+        Sprite();
+
         Sprite(const std::string &filepath, Window &window);
         ~Sprite();
 
@@ -38,6 +40,11 @@ namespace MySDL {
         void setRotation(double rotation);
         double getRotation() const;
 
+        void loadFile(const std::string &filepath, Window &window);
+
+        void setColor(const SDL_Color &color);
+        const SDL_Color &getColor() const;
+
     protected:
     private:
         SDL_Texture *_texture;
@@ -47,6 +54,8 @@ namespace MySDL {
         SDL_Rect _rect;
 
         double _rotation;
+
+        SDL_Color _color; // color is used when texture is nullptr
     };
 
 }

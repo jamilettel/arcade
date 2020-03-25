@@ -5,18 +5,15 @@
 ## Makefile
 ##
 
-#NAME	=	../lib_arcade_sdl.so
-NAME	=	tmp
-
-SRC_TEST	=	\
-
-MAIN	=	src/main.cpp
+NAME	=	../lib_arcade_sdl.so
 
 SRC	=\
 		src/SDLError.cpp	\
 		src/Color/Utils.cpp	\
 		src/Color/SmoothShifting.cpp	\
 		src/Color/AColor.cpp	\
+		src/InputZone.cpp	\
+		src/Scene/MainMenuScene.cpp	\
 		src/MySDL/Text.cpp	\
 		src/MySDL/Font.cpp	\
 		src/MySDL/Rectangle.cpp	\
@@ -25,39 +22,32 @@ SRC	=\
 		src/List/BasicList.cpp	\
 		src/List/ButtonList.cpp	\
 		src/List/AList.cpp	\
+		src/SDLGraphical.cpp	\
 		src/Button/RectButton.cpp	\
 		src/Button/AButton.cpp	\
-		src/InputZone.cpp	\
+#		src/Scene/GameScene.cpp	\
+		src/Scene/GameOverScene.cpp	\
 
 OBJ	=	$(SRC:%.cpp=%.o)
 
-OBJ_MAIN	=	$(MAIN:%.cpp=%.o)
-
-OBJ_TEST	=	$(SRC_TEST:%.cpp=%.o)
-
-CXXFLAGS	=	-W -Wall -Wextra -Wshadow	-Iinclude -I./../../include -std=c++17 -fPIC
+CXXFLAGS	=	-W -Wall -Wextra -Wshadow	\
+				-Iinclude -I./../../include -std=c++17 -fPIC
 
 RM	=	@rm -f
 
 CXX	=	g++
 
-LDFLAGS	=	-ldl -lstdc++fs -l SDL2 -l SDL2_image -l SDL2_ttf
-
-TEST_LDFLAGS	=	-lcriterion --coverage
-
-COV_TMP	=	$(SRC:%.cpp=%.gcda) $(SRC:%.cpp=%.gcno) $(SRC_TEST:%.cpp=%.gcda) $(SRC_TEST:%.cpp=%.gcno)
-
-TEST_NAME	=	unit_tests
+LDFLAGS	=	-ldl -lstdc++fs -l SDL2 -l SDL2_image -l SDL2_ttf -shared
 
 all: $(NAME)
 
 $(NAME): $(OBJ) $(OBJ_MAIN)
-		$(CXX) -o $(NAME) $(OBJ) $(OBJ_MAIN) $(LDFLAGS)
+		$(CXX) -o $(NAME) $(OBJ) $(LDFLAGS)
 
 clean_coverage:
-		$(RM) $(COV_TMP)
+				$(RM)
 
-clean: clean_coverage
+clean:
 		$(RM) $(OBJ) $(OBJ_TEST) $(OBJ_MAIN)
 
 fclean: clean
@@ -65,13 +55,9 @@ fclean: clean
 
 re: fclean all
 
-tests_run: CXXFLAGS+= -fprofile-arcs -ftest-coverage -Icore/tests/include
-tests_run: $(OBJ) $(OBJ_TEST)
-			$(CXX) -o $(TEST_NAME) $(OBJ) $(OBJ_TEST) $(TEST_LDFLAGS) $(LDFLAGS)
-			./$(TEST_NAME)
-			gcovr --exclude tests
+tests_run:
 
 debug: CXXFLAGS += -g
 debug: all
 
-.PHONY : clean fclean re tests_run clean_coverage debug
+.PHONY : clean fclean re debug

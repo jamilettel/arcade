@@ -11,8 +11,15 @@
 
 using namespace MySDL;
 
+int Font::_instances = 0;
+
 Font::Font(const std::string &filepath, int ptsize): _style(0), _filepath(filepath)
 {
+    if (!_instances) {
+        if (TTF_Init() < 0)
+            throw arc::SDLError("Could not int fonts");
+    }
+    _instances++;
     loadFont(ptsize);
 }
 
@@ -23,6 +30,9 @@ Font::~Font()
                       if (pair.second)
                           TTF_CloseFont(pair.second);
                   });
+    _instances--;
+    if (!_instances)
+        TTF_Quit();
 }
 
 TTF_Font *Font::getFont(int ptsize)

@@ -16,7 +16,7 @@ using namespace arc;
 
 Core::Core(const std::string &graphicalLib):
     _graphical(nullptr), _game(nullptr), _quitGame(false), _isPaused(false),
-    _scene(IGraphical::Scene::MAIN_MENU)
+    _scene(IGraphical::Scene::MAIN_MENU), _changeLib(false)
 {
     initGeneralControl();
     refreshLibrarieLists();
@@ -67,13 +67,15 @@ std::vector<std::pair<std::string, std::string>> Core::getControls() const
 
 void Core::loadGraphicalLibrary(const std::string &libPath)
 {
-    if (libPath == _currentGraphicalLib)
-        return;
     if (!_graphicalLoaders.count(libPath))
         throw CoreError("Graphical libraries should be located in ./lib");
+    if (libPath != _currentGraphicalLib)
+        _currentGraphicalLib = libPath;
+
+    _graphical.reset();
     std::unique_ptr<IGraphical> newLib(_graphicalLoaders[libPath]->getInstance());
+    _changeLib = false;
     _graphical.swap(newLib);
-    _oldGraphical.swap(newLib);
     _currentGraphicalLib = libPath;
     _graphical->setScene(_scene);
     setGraphicalLibFunctions();
@@ -172,11 +174,13 @@ void Core::setCurrentGame(const std::string &game)
 
 void Core::setCurrentLib(const std::string &lib)
 {
-    try {
-        loadGraphicalLibrary(lib);
-    } catch (ArcadeError &e) {
-        std::cerr << e.what() << std::endl;
-    }
+    // try {
+    _changeLib = true;
+    _currentGraphicalLib = lib;
+        // loadGraphicalLibrary(lib);
+    // } catch (ArcadeError &e) {
+    //     std::cerr << e.what() << std::endl;
+    // }
 }
 
 void Core::startGame()
@@ -213,8 +217,8 @@ const std::vector<std::string> &Core::getGraphicalList() const
 void Core::run()
 {
     do {
-        if (_oldGraphical != nullptr)
-            _oldGraphical.reset();
+        if (_changeLib)
+            loadGraphicalLibrary(_currentGraphicalLib);
         _graphical->display();
         if (_scene == IGraphical::GAME && _game != nullptr) {
             if (endGame())
