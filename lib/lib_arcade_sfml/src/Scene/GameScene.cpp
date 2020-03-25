@@ -48,6 +48,9 @@ void GameScene::draw()
             sprite.setPosition(_gameArea.left + _cellSize.x * entity->x,
                                _gameArea.top + _cellSize.y * entity->y);
 
+            sprite.setOrigin(sprite.getLocalBounds().width / 2,
+                             sprite.getLocalBounds().height / 2);
+
             switch (entity->orientation) {
             case (UP):
                 sprite.setRotation(0);
