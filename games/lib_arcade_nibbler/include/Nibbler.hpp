@@ -8,9 +8,12 @@
 #ifndef OOP_ARCADE_2019_NIBBLER_H
 #define OOP_ARCADE_2019_NIBBLER_H
 
-#include "IGame.hpp"
 #include <iostream>
 #include <chrono>
+#include <algorithm>
+#include <memory>
+#include <random>
+#include "IGame.hpp"
 
 #define ROWS_SNAKE 30
 #define COLS_SNAKE 50

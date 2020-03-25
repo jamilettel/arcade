@@ -206,8 +206,8 @@ void Solarfox::createPlayer()
     size_t y;
 
     do {
-        x = rand() % _mapWidth;
-        y = rand() % _mapHeight;
+        x = rand() % _mapWidth - 1;
+        y = rand() % _mapHeight - 1;
     } while (!invalidCoordinates(x, y));
     _player.first->x = x;
     _player.first->y = y;
@@ -279,15 +279,19 @@ void Solarfox::initControls()
 {
     _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::DOWN)] = [this](){
         Solarfox::moveDown();
+        _player.first->orientation = DOWN;
     };
     _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::UP)] = [this](){
         Solarfox::moveUp();
+        _player.first->orientation = UP;
     };
     _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::RIGHT)] = [this](){
         Solarfox::moveRight();
+        _player.first->orientation = RIGHT;
     };
     _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::LEFT)] = [this](){
         Solarfox::moveLeft();
+        _player.first->orientation = LEFT;
     };
     _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::S)] = [this](){
         Solarfox::createShootPlayer();
@@ -345,7 +349,7 @@ void Solarfox::movePlayer()
 
 void Solarfox::createShootPlayer()
 {
-    if (!_shootsPlayer.empty())
+    if (!_shootsPlayer.empty() || !_started)
         return;
     std::shared_ptr<Shoot> newShoot(new Shoot);
     newShoot->_shoot = std::make_shared<Entity>();
@@ -457,6 +461,7 @@ void Solarfox::detectFirePowerups()
         if (std::round(elem->x) == std::round(_shootsPlayer.front()->_shoot->x) && std::round(elem->y) == std::round(_shootsPlayer.front()->_shoot->y)) {
             _entities.erase(std::remove(_entities.begin(), _entities.end(), elem), _entities.end());
             _powerups++;
+            _score++;
             return true;
         }
         return false;
