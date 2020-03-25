@@ -19,6 +19,7 @@ extern "C" IGame *instance_ctor() {
 
 Solarfox::Solarfox() try : _gameOver(false),
 _startTime(std::chrono::system_clock::now()),
+_startDelay(std::chrono::system_clock::now()),
 _endTime(std::chrono::system_clock::now()),
 _scoreString(std::string("0")),
 _score(0),
@@ -32,7 +33,7 @@ _started(false)
     this->initControlFormat();
     this->initControls();
     this->getMapFiles();
-    this->loadMap(_mapFiles.at(0));
+    this->loadMap(_mapFiles.at(_level));
     this->createEnemies();
     this->createPlayer();
 } catch (const ArcadeError &e) {
@@ -114,6 +115,8 @@ void Solarfox::updateGame()
     this->detectAttackEnemies();
     this->detectCounterAttack();
     this->detectFirePowerups();
+    this->detectNextLevel();
+    this->updateScore();
     this->updateStats();
 }
 
@@ -175,6 +178,7 @@ void Solarfox::loadMap(const std::string &filepath)
         _loots.emplace_back(newEntity);
         _entities.emplace_back(newEntity);
     }
+    _powerups = _loots.size();
 }
 
 void Solarfox::updateStats()
@@ -272,10 +276,10 @@ bool Solarfox::moveDelay()
 {
     _endTime = std::chrono::system_clock::now();
     int elapsed_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>
-        (_endTime - _startTime).count();
+        (_endTime - _startDelay).count();
 
     if (elapsed_milliseconds > MOVE_DELAY) {
-        _startTime = std::chrono::system_clock::now();
+        _startDelay = std::chrono::system_clock::now();
         return true;
     }
     return false;
@@ -285,19 +289,15 @@ void Solarfox::initControls()
 {
     _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::DOWN)] = [this](){
         Solarfox::moveDown();
-        _player.first->orientation = DOWN;
     };
     _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::UP)] = [this](){
         Solarfox::moveUp();
-        _player.first->orientation = UP;
     };
     _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::RIGHT)] = [this](){
         Solarfox::moveRight();
-        _player.first->orientation = RIGHT;
     };
     _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::LEFT)] = [this](){
         Solarfox::moveLeft();
-        _player.first->orientation = LEFT;
     };
     _controls[std::pair<Event::Type, Event::Key>(Event::KEY_PRESSED, Event::S)] = [this](){
         Solarfox::createShootPlayer();
@@ -313,6 +313,7 @@ void Solarfox::moveDown()
     _player.first->x = std::round(_player.first->x);
     _player.second.first = 0;
     _player.second.second = MOVE_VALUE;
+    _player.first->orientation = DOWN;
 }
 
 void Solarfox::moveUp()
@@ -323,6 +324,7 @@ void Solarfox::moveUp()
     _player.first->x = std::round(_player.first->x);
     _player.second.first = 0;
     _player.second.second = -MOVE_VALUE;
+    _player.first->orientation = UP;
 }
 
 void Solarfox::moveRight()
@@ -333,6 +335,7 @@ void Solarfox::moveRight()
     _player.first->y = std::round(_player.first->y);
     _player.second.first = MOVE_VALUE;
     _player.second.second = 0;
+    _player.first->orientation = RIGHT;
 }
 
 void Solarfox::moveLeft()
@@ -343,6 +346,7 @@ void Solarfox::moveLeft()
     _player.first->y = std::round(_player.first->y);
     _player.second.first = -MOVE_VALUE;
     _player.second.second = 0;
+    _player.first->orientation = LEFT;
 }
 
 void Solarfox::movePlayer()
@@ -406,12 +410,6 @@ void Solarfox::moveShootsPlayer()
     for (const std::shared_ptr<Shoot> &sh : _shootsPlayer) {
         sh->_shoot->x += sh->_move.first;
         sh->_shoot->y += sh->_move.second;
-        /*
-        if (sh->_shoot->x > sh->_origin.first + 4 || sh->_shoot->x < sh->_origin.first - 4 || sh->_shoot->y > sh->_origin.second + 4 || sh->_shoot->y < sh->_origin.second - 4) {
-            _entities.erase(std::remove(_entities.begin(), _entities.end(), sh->_shoot));
-            _shootsPlayer.erase(std::remove(_shootsPlayer.begin(), _shootsPlayer.end(), sh));
-        }
-         */
     }
 }
 
@@ -468,12 +466,51 @@ void Solarfox::detectFirePowerups()
     _loots.erase(std::remove_if(_loots.begin(), _loots.end(), [this](const std::shared_ptr<Entity> &elem) {
         if (std::round(elem->x) == std::round(_shootsPlayer.front()->_shoot->x) && std::round(elem->y) == std::round(_shootsPlayer.front()->_shoot->y)) {
             _entities.erase(std::remove(_entities.begin(), _entities.end(), elem), _entities.end());
-            _powerups++;
+            _powerups--;
             _score++;
             return true;
         }
         return false;
     }), _loots.end());
+}
+
+void Solarfox::detectNextLevel()
+{
+    if (!_loots.empty())
+        return;
+    _started = false;
+    if (_level + 1 >= _mapFiles.size()) {
+        _gameOver = true;
+        return;;
+    }
+    _level++;
+    _player.second = {0, 0};
+    _shootsPlayer.clear();
+    _shootsEnemies.clear();
+    _enemies.clear();
+    _entities.clear();
+    try {
+        this->loadMap(_mapFiles.at(_level));
+        this->createEnemies();
+        _entities.emplace_back(_player.first);
+    } catch (ArcadeError &e) {
+        _gameOver = true;
+    }
+}
+
+void Solarfox::updateScore()
+{
+    if (_gameOver || !_started)
+        return;
+    _endTime = std::chrono::system_clock::now();
+    int elapsed_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>
+        (_endTime - _startTime).count();
+
+    if (elapsed_milliseconds < 1000)
+        return;
+
+    _startTime = std::chrono::system_clock::now();
+    _score--;
 }
 
 bool Shoot::operator==(const Shoot &rhs) const {
