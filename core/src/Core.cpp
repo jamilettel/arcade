@@ -1,4 +1,4 @@
-/*
+ /*
 ** EPITECH PROJECT, 2020
 ** Arcade
 ** File description:
@@ -254,6 +254,7 @@ void Core::initGeneralControl()
             if (_game != nullptr)
                 _game->restart();
             _graphical->setGamePause(false);
+            _graphical->setScene(IGraphical::GAME);
             _isPaused = false;
         };
     _generalControls[std::pair(Event::KEY_PRESSED, QUIT_KEY)] = // quit
