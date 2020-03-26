@@ -1,22 +1,47 @@
 /*!
-  \page add_game_page How to add a game
+  \page add_game_page How to add a game Library
 
-  \section add_game How to add a game
-  This page will explain how to add a game library in our Arcade program.\n
+  This page will explain how to add a game library in our Arcade program.
 
-  \subsection step1 Location
-  First, you must put your game lib at the root of the games folder and its name
-   must follow this convention : lib_arcade_GAMENAME.so\n
+  We'll look at how to create a new game library.
 
-  \subsection step2 Entry Point Creation
-  Each game must have an entry point. This entry point is used by the core to
-  load the game in the program.
-  ~~~~~~~~~~~~~{.cpp}
-  # GAME_CLASS_NAME class
+  \section add_game_library How to add a game library
 
-  extern "C" IGame *instance_ctor() {
-      return (new GAME_CLASS_NAME);
+  \subsection adding_game_library Adding an existing game to the Arcade
+  Adding a game library to the arcade is pretty simple.\n You add the dynamic
+  library to the games/ directory in the repository's root.\n The game library
+  should be named "lib_arcade_LIBNAME.so".
+
+  You can choose your game while the Arcade is launched.\n
+  Note that only valid libraries will be shown in the lists.
+
+  \subsection creating_new_game_library Creating a new game library
+
+  \subsubsection class_constructor_entry_point_game Entry point
+
+  The Arcade uses dlopen and dlsym to access the classes. For the library to instantiate the class you
+  wish to implement, you should add an extern "C" function as follows:
+
+  ~~~~{.cpp}
+  class LIBRARY_CLASS_NAME;
+
+  extern "C" arc::IGame *instance_ctor() {
+      return (new LIBRARY_CLASS_NAME);
   };
-  ~~~~~~~~~~~~~
-  \subsection step3 Class implementation
+  ~~~~
+
+  Where LIBRARY_CLASS_NAME is the name of your game library.
+
+  If this function is not found in the shared library, your game library will
+  not be loaded by the Arcade.
+
+  \subsubsection implementing_class_game Implementing a new game library
+
+  It is possible for you to create a new game library. To do this, you must create a child class
+  and implement all the methods from the arc::IGame interface class.\n
+  You can use the arc::ArcadeError for your exceptions as they are catched by
+  the core of the Arcade.
+
+  You must compile the child class implementation into a shared library and add it as described
+  \ref adding_game_library "here".
 */
