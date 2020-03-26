@@ -104,6 +104,12 @@ void Window::draw(Sprite &sprite)
     if (sprite.getTexture())
         SDL_RenderCopyEx(_renderer, sprite.getTexture(), NULL, &dest,
                          sprite.getRotation(), NULL, SDL_FLIP_NONE);
+    else {
+        const SDL_Color &color = sprite.getColor();
+
+        SDL_SetRenderDrawColor(_renderer, color.r, color.g, color.b, color.a);
+        SDL_RenderFillRect(_renderer, &dest);
+    }
 }
 
 void Window::draw(Text &text)
