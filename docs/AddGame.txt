@@ -1,6 +1,22 @@
 /*!
-  \page threading How to add a game
-  In details this describe cases:
-  \li case 1
-  \li case 2
+  \page add_game_page How to add a game
+
+  \section add_game How to add a game
+  This page will explain how to add a game library in our Arcade program.\n
+
+  \subsection step1 Location
+  First, you must put your game lib at the root of the games folder and its name
+   must follow this convention : lib_arcade_GAMENAME.so\n
+
+  \subsection step2 Entry Point Creation
+  Each game must have an entry point. This entry point is used by the core to
+  load the game in the program.
+  ~~~~~~~~~~~~~{.cpp}
+  # GAME_CLASS_NAME class
+
+  extern "C" IGame *instance_ctor() {
+      return (new GAME_CLASS_NAME);
+  };
+  ~~~~~~~~~~~~~
+  \subsection step3 Class implementation
 */
