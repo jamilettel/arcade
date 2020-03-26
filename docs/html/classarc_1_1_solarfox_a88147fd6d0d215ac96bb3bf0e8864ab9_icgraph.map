@@ -1,3 +1,3 @@
 <map id="arc::Solarfox::updateScore" name="arc::Solarfox::updateScore">
-<area shape="rect" id="node2" href="$classarc_1_1_solarfox.html#a6b24e70fe5b90d1f33fb638b7053e4d1" title="arc::Solarfox::updateGame" alt="" coords="247,5,443,32"/>
+<area shape="rect" id="node2" href="$classarc_1_1_solarfox.html#a6b24e70fe5b90d1f33fb638b7053e4d1" title="updateGame function should be call in a loop. It&#39;s used to advance the game and update all logic..." alt="" coords="247,5,443,32"/>
 </map>
