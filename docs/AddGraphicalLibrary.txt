@@ -1,0 +1,55 @@
+/*!
+  \page add_lib_page How to add a graphical library
+
+  This page will explain how to add a graphical library in our Arcade program.
+
+  We'll look at how to add an existing game library to the Arcade and how to create a
+  new graphical library.
+
+  \section add_graphical_library How to add a graphical library
+
+  \subsection adding_graphical_library Adding an existing library to the Arcade
+
+  Adding a graphical library to the arcade is pretty simple. You add the dynamic library to the lib/
+  directory in the repository's root. The game library should be named "lib_arcade_LIBNAME.so".
+
+  You can launch the Arcade with your library like so:
+
+  ~~~~~{.sh}
+  ./arcade lib/lib_arcade_LIBNAME.so
+  ~~~~~
+
+  You can also change the currently library while the Arcade is launched. To do so, you can choose
+  the library in the library list in the main menu.
+  Note that only valid libraries will be shown in the lists.
+
+  \subsection creating_new_graphical_library Creating a new graphical library
+
+  \subsubsection class_constructor_entry_point Entry point
+
+  The Arcade uses dlopen and dlsym to access the classes. For the library to instantiate the class you
+  wish to implement, you should add an extern "C" function as follows:
+
+  ~~~~{.cpp}
+  class LIBRARY_CLASS_NAME;
+
+  extern "C" arc::IGraphical *instance_ctor() {
+      return (new LIBRARY_CLASS_NAME);
+  };
+  ~~~~
+
+  Where LIBRARY_CLASS_NAME is the name of your graphical library.
+
+  If this function is not found in the shared library, your graphical library will not be loaded by
+  the Arcade.
+
+  \subsubsection implementing_class Implementing a new graphical library
+
+  It is possible for you to create a new graphical library. To do this, you must create a child class
+  and implement all the methods from the arc::IGraphical interface class. You can use the
+  arc::ArcadeError for your exceptions as they are catched by the core of the Arcade.
+
+  You must compile the child class implementation into a shared library and add it as described
+  \ref adding_graphical_library "here".
+
+*/
