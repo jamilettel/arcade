@@ -1,11 +1,7 @@
 var searchData=
 [
-  ['ibutton_2ehpp',['IButton.hpp',['../_i_button_8hpp.html',1,'']]],
-  ['icolor_2ehpp',['IColor.hpp',['../_i_color_8hpp.html',1,'']]],
-  ['igame_2ehpp',['IGame.hpp',['../_i_game_8hpp.html',1,'']]],
-  ['igraphical_2ehpp',['IGraphical.hpp',['../_i_graphical_8hpp.html',1,'']]],
-  ['ilist_2ehpp',['IList.hpp',['../_i_list_8hpp.html',1,'']]],
-  ['inputzone_2ecpp',['InputZone.cpp',['../_input_zone_8cpp.html',1,'']]],
-  ['inputzone_2ehpp',['InputZone.hpp',['../_input_zone_8hpp.html',1,'']]],
-  ['iscene_2ehpp',['IScene.hpp',['../lib__arcade__ncurses_2include_2_i_scene_8hpp.html',1,'(Global Namespace)'],['../lib__arcade__sfml_2include_2_scene_2_i_scene_8hpp.html',1,'(Global Namespace)']]]
+  ['gameoverscene_2ecpp',['GameOverScene.cpp',['../lib__arcade__sdl_2src_2_scene_2_game_over_scene_8cpp.html',1,'(Global Namespace)'],['../lib__arcade__sfml_2src_2_scene_2_game_over_scene_8cpp.html',1,'(Global Namespace)']]],
+  ['gameoverscene_2ehpp',['GameOverScene.hpp',['../lib__arcade__sdl_2include_2_scene_2_game_over_scene_8hpp.html',1,'(Global Namespace)'],['../lib__arcade__sfml_2include_2_scene_2_game_over_scene_8hpp.html',1,'(Global Namespace)']]],
+  ['gamescene_2ecpp',['GameScene.cpp',['../lib__arcade__sdl_2src_2_scene_2_game_scene_8cpp.html',1,'(Global Namespace)'],['../lib__arcade__sfml_2src_2_scene_2_game_scene_8cpp.html',1,'(Global Namespace)']]],
+  ['gamescene_2ehpp',['GameScene.hpp',['../lib__arcade__sdl_2include_2_scene_2_game_scene_8hpp.html',1,'(Global Namespace)'],['../lib__arcade__sfml_2include_2_scene_2_game_scene_8hpp.html',1,'(Global Namespace)']]]
 ];

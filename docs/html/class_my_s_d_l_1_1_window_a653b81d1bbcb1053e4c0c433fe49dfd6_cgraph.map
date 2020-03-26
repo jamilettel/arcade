@@ -1,0 +1,6 @@
+<map id="MySDL::Window::draw" name="MySDL::Window::draw">
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_rectangle.html#a8b665fdba439065aad14dfbf46ea6109" title="MySDL::Rectangle::getColor" alt="" coords="225,5,427,32"/>
+<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_rectangle.html#a683c80485177ab11c10148d2ddd659b3" title="MySDL::Rectangle::getOutline\lThickness" alt="" coords="219,57,433,98"/>
+<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_rectangle.html#a64f55d82bd1ae808b0d08ce854abee8d" title="MySDL::Rectangle::getRect" alt="" coords="229,123,423,149"/>
+<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_rectangle.html#ac6fdd407391eaa2a10d06a8d45e7296e" title="MySDL::Rectangle::getOutline\lColor" alt="" coords="219,174,433,215"/>
+</map>

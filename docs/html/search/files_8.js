@@ -1,15 +1,6 @@
 var searchData=
 [
-  ['ncursesend_2ecpp',['NcursesEnd.cpp',['../_ncurses_end_8cpp.html',1,'']]],
-  ['ncursesend_2ehpp',['NcursesEnd.hpp',['../_ncurses_end_8hpp.html',1,'']]],
-  ['ncurseserror_2ecpp',['NcursesError.cpp',['../_ncurses_error_8cpp.html',1,'']]],
-  ['ncurseserror_2ehpp',['NcursesError.hpp',['../_ncurses_error_8hpp.html',1,'']]],
-  ['ncursesgame_2ecpp',['NcursesGame.cpp',['../_ncurses_game_8cpp.html',1,'']]],
-  ['ncursesgame_2ehpp',['NcursesGame.hpp',['../_ncurses_game_8hpp.html',1,'']]],
-  ['ncursesgraphical_2ecpp',['NcursesGraphical.cpp',['../_ncurses_graphical_8cpp.html',1,'']]],
-  ['ncursesgraphical_2ehpp',['NcursesGraphical.hpp',['../_ncurses_graphical_8hpp.html',1,'']]],
-  ['ncursesmainmenu_2ecpp',['NcursesMainMenu.cpp',['../_ncurses_main_menu_8cpp.html',1,'']]],
-  ['ncursesmainmenu_2ehpp',['NcursesMainMenu.hpp',['../_ncurses_main_menu_8hpp.html',1,'']]],
-  ['nibbler_2ecpp',['Nibbler.cpp',['../_nibbler_8cpp.html',1,'']]],
-  ['nibbler_2ehpp',['Nibbler.hpp',['../_nibbler_8hpp.html',1,'']]]
+  ['main_2ecpp',['main.cpp',['../core_2src_2main_8cpp.html',1,'(Global Namespace)'],['../lib_2lib__arcade__sdl_2src_2main_8cpp.html',1,'(Global Namespace)']]],
+  ['mainmenuscene_2ecpp',['MainMenuScene.cpp',['../lib__arcade__sdl_2src_2_scene_2_main_menu_scene_8cpp.html',1,'(Global Namespace)'],['../lib__arcade__sfml_2src_2_scene_2_main_menu_scene_8cpp.html',1,'(Global Namespace)']]],
+  ['mainmenuscene_2ehpp',['MainMenuScene.hpp',['../lib__arcade__sdl_2include_2_scene_2_main_menu_scene_8hpp.html',1,'(Global Namespace)'],['../lib__arcade__sfml_2include_2_scene_2_main_menu_scene_8hpp.html',1,'(Global Namespace)']]]
 ];

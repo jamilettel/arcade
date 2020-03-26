@@ -5,6 +5,15 @@
 ** Utils
 */
 
+/**
+ * \file        Utils.hpp
+ * \author      Benjamin Bourgeois - Jamil Ettel
+ * \version     2.0
+ * \date        March 8 2020
+ * \brief       Define some structure and enumeration
+ * \details     This file defines some structures and enumeration used by the game and the graphics
+ */
+
 #ifndef UTILS_HPP_
 #define UTILS_HPP_
 
@@ -58,11 +67,17 @@ namespace arc {
         }
     };
 
+    /**
+     * \enum Orientation
+     * \brief Entitie orientation
+     *
+     * This enum is used by Entitie to indicate the orientation of its sprite
+     */
     enum Orientation {
-        UP,
-        RIGHT,
-        DOWN,
-        LEFT,
+        UP, /*!< Orientation by default. All images must UP by default */
+        RIGHT, /*!< 90° RIGHT */
+        DOWN, /*!< 180° RIGHT */
+        LEFT, /*!< 90° LEFT */
     };
 
     enum EntityType {

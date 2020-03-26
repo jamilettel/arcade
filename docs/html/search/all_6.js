@@ -15,5 +15,9 @@ var searchData=
   ['f6',['F6',['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5a4accd55e07f2bab4ea6ceb32f94653b3',1,'arc::Event']]],
   ['f7',['F7',['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5ae61596fc3bd09ab2681bcdde68404c05',1,'arc::Event']]],
   ['f8',['F8',['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5a15d57315d82957be657d2c2e57c9d4f8',1,'arc::Event']]],
-  ['f9',['F9',['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5a7e275ca12c7f5504eb189073c5798756',1,'arc::Event']]]
+  ['f9',['F9',['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5a7e275ca12c7f5504eb189073c5798756',1,'arc::Event']]],
+  ['findcharacterpos',['findCharacterPos',['../class_my_s_d_l_1_1_text.html#aa2ee6d437f0468d783037998543f9eed',1,'MySDL::Text']]],
+  ['font',['Font',['../class_my_s_d_l_1_1_font.html',1,'MySDL::Font'],['../class_my_s_d_l_1_1_font.html#a9ba25724c582ae4d6354a7e870ba03d6',1,'MySDL::Font::Font(const std::string &amp;filepath, int ptsize=32)'],['../class_my_s_d_l_1_1_font.html#a3fa59140ca054948b1a0c9c3f49691ef',1,'MySDL::Font::Font(const Font &amp;rhs)=delete']]],
+  ['font_2ecpp',['Font.cpp',['../_font_8cpp.html',1,'']]],
+  ['font_2ehpp',['Font.hpp',['../_font_8hpp.html',1,'']]]
 ];

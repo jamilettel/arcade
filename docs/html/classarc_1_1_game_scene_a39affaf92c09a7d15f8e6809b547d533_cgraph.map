@@ -1,5 +1,8 @@
 <map id="arc::GameScene::GameScene" name="arc::GameScene::GameScene">
-<area shape="rect" id="node2" href="$class_my_sf_1_1_color_1_1_smooth_shifting.html#a9558364e7942b12aaec95aa4a7e911a0" title="MySf::Color::SmoothShifting\l::setColor" alt="" coords="268,5,472,47"/>
-<area shape="rect" id="node3" href="$class_my_sf_1_1_color_1_1_smooth_shifting.html#a47f9691852d525bee499999b4b56796e" title="MySf::Color::SmoothShifting\l::getColor" alt="" coords="520,5,724,47"/>
-<area shape="rect" id="node4" href="$class_my_sf_1_1_color_1_1_utils.html#a29e3fd78740382bbad82e1f0478cf184" title="MySf::Color::Utils\l::addToColor" alt="" coords="772,5,907,47"/>
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_rectangle.html#ac9054b1bec24b427eebd7368023e5604" title="MySDL::Rectangle::setPosition" alt="" coords="268,5,487,32"/>
+<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_rectangle.html#ad2ca2341aaded255127c3750a8266fac" title="MySDL::Rectangle::setSize" alt="" coords="281,56,474,83"/>
+<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_window.html#aa2db8f4790c323045dc9743118f3d31d" title="MySDL::Window::getSize" alt="" coords="287,107,468,133"/>
+<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_color_1_1_smooth_shifting.html#a11bfefeca10a2fd3eb99ef76e7f5b5b8" title="MySDL::Color::SmoothShifting\l::setColor" alt="" coords="269,158,485,199"/>
+<area shape="rect" id="node6" href="$class_my_s_d_l_1_1_color_1_1_smooth_shifting.html#a0f62559d7e218547b73ee1b511cb35e6" title="MySDL::Color::SmoothShifting\l::getColor" alt="" coords="535,158,751,199"/>
+<area shape="rect" id="node7" href="$class_my_s_d_l_1_1_color_1_1_utils.html#a8017fce82fab8bcf5de5e9c896e2db28" title="MySDL::Color::Utils\l::addToColor" alt="" coords="799,158,945,199"/>
 </map>

@@ -1,0 +1,9 @@
+<map id="MySDL::BasicList" name="MySDL::BasicList">
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_a_list.html" title="MySDL::AList" alt="" coords="344,109,451,136"/>
+<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_i_list.html" title="MySDL::IList" alt="" coords="5,5,107,32"/>
+<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_window.html" title="MySDL::Window" alt="" coords="131,5,258,32"/>
+<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_text.html" title="MySDL::Text" alt="" coords="283,5,384,32"/>
+<area shape="rect" id="node6" href="$class_my_s_d_l_1_1_font.html" title="MySDL::Font" alt="" coords="409,5,511,32"/>
+<area shape="rect" id="node7" href="$struct_my_s_d_l_1_1_vector.html" title="MySDL::Vector" alt="" coords="536,5,651,32"/>
+<area shape="rect" id="node8" href="$struct_my_s_d_l_1_1_button_1_1_button_color.html" title="MySDL::Button::ButtonColor" alt="" coords="708,109,911,136"/>
+</map>

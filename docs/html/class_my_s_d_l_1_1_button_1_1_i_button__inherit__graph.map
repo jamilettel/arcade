@@ -1,0 +1,4 @@
+<map id="MySDL::Button::IButton" name="MySDL::Button::IButton">
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_button_1_1_a_button.html" title="MySDL::Button::AButton" alt="" coords="15,80,192,107"/>
+<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_button_1_1_rect_button.html" title="MySDL::Button::RectButton" alt="" coords="5,155,201,181"/>
+</map>

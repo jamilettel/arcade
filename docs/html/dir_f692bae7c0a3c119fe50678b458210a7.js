@@ -1,4 +1,5 @@
 var dir_f692bae7c0a3c119fe50678b458210a7 =
 [
-    [ "main.cpp", "games_2lib__arcade__solarfox_2src_2main_8cpp.html", "games_2lib__arcade__solarfox_2src_2main_8cpp" ]
+    [ "Solarfox.cpp", "_solarfox_8cpp.html", "_solarfox_8cpp" ],
+    [ "SolarfoxError.cpp", "_solarfox_error_8cpp.html", null ]
 ];

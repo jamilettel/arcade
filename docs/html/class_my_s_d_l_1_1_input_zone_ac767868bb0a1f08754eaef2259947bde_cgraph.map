@@ -1,0 +1,19 @@
+<map id="MySDL::InputZone::draw" name="MySDL::InputZone::draw">
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_rectangle.html#a64f55d82bd1ae808b0d08ce854abee8d" title="MySDL::Rectangle::getRect" alt="" coords="246,5,441,32"/>
+<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_color_1_1_smooth_shifting.html#a11bfefeca10a2fd3eb99ef76e7f5b5b8" title="MySDL::Color::SmoothShifting\l::setColor" alt="" coords="235,57,451,98"/>
+<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_color_1_1_smooth_shifting.html#a0f62559d7e218547b73ee1b511cb35e6" title="MySDL::Color::SmoothShifting\l::getColor" alt="" coords="501,86,717,127"/>
+<area shape="rect" id="node6" href="$class_my_s_d_l_1_1_rectangle.html#a077421fb8fd365ac02b9a6b18f8c34d2" title="MySDL::Rectangle::setColor" alt="" coords="243,173,443,200"/>
+<area shape="rect" id="node7" href="$class_my_s_d_l_1_1_rectangle.html#ae423f865d3daa93759f2a15d7abfaf56" title="MySDL::Rectangle::setOutline\lColor" alt="" coords="237,225,450,266"/>
+<area shape="rect" id="node8" href="$class_my_s_d_l_1_1_window.html#ab17c4ab4132435adeb2a84882c4ee648" title="MySDL::Window::draw" alt="" coords="261,291,426,317"/>
+<area shape="rect" id="node12" href="$class_my_s_d_l_1_1_text.html#a6589aa4c9a27f5482caf78cf4fe7dba7" title="MySDL::Text::setString" alt="" coords="260,341,427,368"/>
+<area shape="rect" id="node13" href="$class_my_s_d_l_1_1_text.html#a4bd4a75690a6c79b5866d31d25584f90" title="MySDL::Text::setColor" alt="" coords="262,392,425,419"/>
+<area shape="rect" id="node14" href="$class_my_s_d_l_1_1_text.html#aa2ee6d437f0468d783037998543f9eed" title="MySDL::Text::findCharacterPos" alt="" coords="234,443,453,469"/>
+<area shape="rect" id="node16" href="$class_my_s_d_l_1_1_rectangle.html#ac9054b1bec24b427eebd7368023e5604" title="MySDL::Rectangle::setPosition" alt="" coords="234,493,453,520"/>
+<area shape="rect" id="node17" href="$class_my_s_d_l_1_1_text.html#aaa23c319e8d8ea55ae78ba6b568d2474" title="MySDL::Text::getRect" alt="" coords="264,544,423,571"/>
+<area shape="rect" id="node18" href="$class_my_s_d_l_1_1_text.html#aaaa1e9d976aeafba931ae343ed946d87" title="MySDL::Text::getCharacterSize" alt="" coords="233,595,453,621"/>
+<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_color_1_1_utils.html#a8017fce82fab8bcf5de5e9c896e2db28" title="MySDL::Color::Utils\l::addToColor" alt="" coords="765,86,912,127"/>
+<area shape="rect" id="node9" href="$class_my_s_d_l_1_1_sprite.html#a615403d75c20ce50b04ad80f56c31367" title="MySDL::Sprite::getRect" alt="" coords="525,240,694,267"/>
+<area shape="rect" id="node10" href="$class_my_s_d_l_1_1_sprite.html#a29f151e6c329a4b55e8e99e00d2730b4" title="MySDL::Sprite::getTexture" alt="" coords="515,291,704,317"/>
+<area shape="rect" id="node11" href="$class_my_s_d_l_1_1_sprite.html#a869c0b847f53cfb46cfb30d5b27f600f" title="MySDL::Sprite::getRotation" alt="" coords="512,341,707,368"/>
+<area shape="rect" id="node15" href="$class_my_s_d_l_1_1_font.html#a50502165c7ca38997bfa4d46a8d079e8" title="MySDL::Font::getFont" alt="" coords="530,443,689,469"/>
+</map>

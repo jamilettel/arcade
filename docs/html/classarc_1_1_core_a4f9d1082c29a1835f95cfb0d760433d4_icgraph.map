@@ -1,3 +1,5 @@
 <map id="arc::Core::loadGraphicalLibrary" name="arc::Core::loadGraphicalLibrary">
-<area shape="rect" id="node2" href="$classarc_1_1_core.html#a54d1e43290e34a55dfcd062ad4bb6618" title="arc::Core::Core" alt="" coords="232,13,351,39"/>
+<area shape="rect" id="node2" href="$classarc_1_1_core.html#a54d1e43290e34a55dfcd062ad4bb6618" title="arc::Core::Core" alt="" coords="232,5,351,32"/>
+<area shape="rect" id="node3" href="$classarc_1_1_core.html#adcc93b561dfefacfe2bcbd60604ea7a6" title="arc::Core::run" alt="" coords="237,56,346,83"/>
+<area shape="rect" id="node4" href="$core_2src_2main_8cpp.html#a0c99d968a34e803d378692bde2e3f18f" title="main" alt="" coords="399,56,453,83"/>
 </map>

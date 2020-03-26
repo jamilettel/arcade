@@ -1,6 +1,6 @@
 <map id="core/include/Core.hpp" name="core/include/Core.hpp">
 <area shape="rect" id="node3" href="$_i_graphical_8hpp.html" title="IGraphical.hpp" alt="" coords="293,80,409,107"/>
-<area shape="rect" id="node9" href="$_i_game_8hpp.html" title="IGame.hpp" alt="" coords="175,80,269,107"/>
+<area shape="rect" id="node9" href="$_i_game_8hpp.html" title="Define the IGame interface. " alt="" coords="175,80,269,107"/>
 <area shape="rect" id="node10" href="$_d_l_loader_8hpp.html" title="DLLoader.hpp" alt="" coords="615,80,725,107"/>
 <area shape="rect" id="node8" href="$include_2_utils_8hpp.html" title="Utils.hpp" alt="" coords="222,155,302,181"/>
 <area shape="rect" id="node12" href="$_core_error_8hpp.html" title="CoreError.hpp" alt="" coords="615,155,725,181"/>

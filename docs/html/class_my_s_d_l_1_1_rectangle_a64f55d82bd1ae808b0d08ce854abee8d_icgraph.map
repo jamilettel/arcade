@@ -1,0 +1,10 @@
+<map id="MySDL::Rectangle::getRect" name="MySDL::Rectangle::getRect">
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_input_zone.html#ac767868bb0a1f08754eaef2259947bde" title="MySDL::InputZone::draw" alt="" coords="251,53,431,79"/>
+<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_basic_list.html#ad2fc44bdfb24fa27925626cb70b15205" title="MySDL::BasicList::update" alt="" coords="248,143,433,170"/>
+<area shape="rect" id="node9" href="$class_my_s_d_l_1_1_window.html#a653b81d1bbcb1053e4c0c433fe49dfd6" title="MySDL::Window::draw" alt="" coords="258,194,423,221"/>
+<area shape="rect" id="node3" href="$classarc_1_1_main_menu_scene.html#ab12f8f4b33a270da7b99bfa146509f79" title="arc::MainMenuScene\l::draw" alt="" coords="495,5,649,47"/>
+<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_button_list.html#a15348afe7f5f420a3cf3076a37f7cd33" title="MySDL::ButtonList::\lupdate" alt="" coords="498,71,646,112"/>
+<area shape="rect" id="node6" href="$classarc_1_1_game_over_scene.html#ae46c8635d42e0833952b8537de715fab" title="arc::GameOverScene\l::update" alt="" coords="493,136,651,177"/>
+<area shape="rect" id="node7" href="$classarc_1_1_game_scene.html#a104a5898c820105422883e9d2bed6f03" title="arc::GameScene::update" alt="" coords="481,202,663,229"/>
+<area shape="rect" id="node8" href="$classarc_1_1_main_menu_scene.html#a8ef931a2e3414da19afe89db094da5bd" title="arc::MainMenuScene\l::update" alt="" coords="495,253,649,295"/>
+</map>

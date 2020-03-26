@@ -1,7 +1,7 @@
 var classarc_1_1_nibbler =
 [
     [ "Nibbler", "classarc_1_1_nibbler.html#afd631c2925f7b63e7c6672e244265c42", null ],
-    [ "~Nibbler", "classarc_1_1_nibbler.html#a846208db2d40786b9b33903486d48bd2", null ],
+    [ "~Nibbler", "classarc_1_1_nibbler.html#a9683cefe1d57163fe1391db833fee78a", null ],
     [ "getControls", "classarc_1_1_nibbler.html#a488fb372209eddf7e480f7f7c79c6084", null ],
     [ "getEntities", "classarc_1_1_nibbler.html#a51d060cf6fe4abd765295429c27bc382", null ],
     [ "getGameControls", "classarc_1_1_nibbler.html#a9e9c2b5d4d6d5d696c99afd948fba97e", null ],

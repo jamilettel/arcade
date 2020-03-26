@@ -1,3 +1,3 @@
 <map id="arc::MainMenuScene::getUsername" name="arc::MainMenuScene::getUsername">
-<area shape="rect" id="node2" href="$class_my_sf_1_1_input_zone.html#a15d21d6b17a8ac3f16b17ad91e792106" title="MySf::InputZone::getAnsi\lInput" alt="" coords="208,5,393,47"/>
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_input_zone.html#a15d21d6b17a8ac3f16b17ad91e792106" title="MySDL::InputZone::getAnsi\lInput" alt="" coords="208,5,405,47"/>
 </map>

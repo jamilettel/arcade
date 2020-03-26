@@ -1,0 +1,8 @@
+<map id="MySDL::Button::AButton::manageState" name="MySDL::Button::AButton::manageState">
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_button_1_1_a_button.html#afc4b207d21dba6667b5ce24819ec0564" title="MySDL::Button::AButton\l::manageCurrentColor" alt="" coords="231,64,408,105"/>
+<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_button_1_1_rect_button.html#ac4b93a11a3251b2c8f8fc5727724baa3" title="MySDL::Button::RectButton\l::draw" alt="" coords="456,64,652,105"/>
+<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_basic_list.html#aaed502df5a5579a3ebf8d945074da5bb" title="MySDL::BasicList::draw" alt="" coords="700,71,872,98"/>
+<area shape="rect" id="node5" href="$classarc_1_1_game_over_scene.html#a8b36341ac248b389da1429d92be381cd" title="arc::GameOverScene\l::draw" alt="" coords="925,5,1083,47"/>
+<area shape="rect" id="node6" href="$classarc_1_1_game_scene.html#a153a91652690799750f744263e12840a" title="arc::GameScene::draw" alt="" coords="920,71,1088,98"/>
+<area shape="rect" id="node7" href="$classarc_1_1_main_menu_scene.html#ab12f8f4b33a270da7b99bfa146509f79" title="arc::MainMenuScene\l::draw" alt="" coords="927,123,1081,164"/>
+</map>

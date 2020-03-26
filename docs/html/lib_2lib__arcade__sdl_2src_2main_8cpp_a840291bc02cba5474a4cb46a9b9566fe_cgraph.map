@@ -1,0 +1,14 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_basic_list.html#afbd88b3b1b7ec47186d0611ff92f3596" title="MySDL::BasicList::setPos" alt="" coords="126,5,309,32"/>
+<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_text.html#a57383ad42325611f29c33b55f61ac53c" title="MySDL::Text::setPosition" alt="" coords="127,56,308,83"/>
+<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_text.html#a4bd4a75690a6c79b5866d31d25584f90" title="MySDL::Text::setColor" alt="" coords="136,107,299,133"/>
+<area shape="rect" id="node6" href="$class_my_s_d_l_1_1_sprite.html#ab63a68605a9df3e2ec15772fd67acf76" title="MySDL::Sprite::setPosition" alt="" coords="121,157,313,184"/>
+<area shape="rect" id="node7" href="$class_my_s_d_l_1_1_window.html#a78015e01ead9d3cfe2752ee902d156fe" title="MySDL::Window::setFramerate\lLimit" alt="" coords="108,209,327,250"/>
+<area shape="rect" id="node8" href="$class_my_s_d_l_1_1_window.html#ab17c4ab4132435adeb2a84882c4ee648" title="MySDL::Window::draw" alt="" coords="135,275,300,301"/>
+<area shape="rect" id="node12" href="$class_my_s_d_l_1_1_window.html#afadfafa5a0b9472554759004aafb327e" title="MySDL::Window::display" alt="" coords="127,325,307,352"/>
+<area shape="rect" id="node13" href="$class_my_s_d_l_1_1_window.html#a657e932e0076a79cf11a7e8d1c55d9c5" title="MySDL::Window::clear" alt="" coords="135,376,300,403"/>
+<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_a_list.html#a1fa76d8d449b5f454cb9970a41fe7e8f" title="MySDL::AList::setPos" alt="" coords="393,5,551,32"/>
+<area shape="rect" id="node9" href="$class_my_s_d_l_1_1_sprite.html#a615403d75c20ce50b04ad80f56c31367" title="MySDL::Sprite::getRect" alt="" coords="387,224,557,251"/>
+<area shape="rect" id="node10" href="$class_my_s_d_l_1_1_sprite.html#a29f151e6c329a4b55e8e99e00d2730b4" title="MySDL::Sprite::getTexture" alt="" coords="377,275,567,301"/>
+<area shape="rect" id="node11" href="$class_my_s_d_l_1_1_sprite.html#a869c0b847f53cfb46cfb30d5b27f600f" title="MySDL::Sprite::getRotation" alt="" coords="375,325,569,352"/>
+</map>

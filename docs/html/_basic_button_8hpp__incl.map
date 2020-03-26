@@ -1,7 +1,7 @@
 <map id="lib/lib_arcade_sfml/MySf/include/MySf/Button/BasicButton.hpp" name="lib/lib_arcade_sfml/MySf/include/MySf/Button/BasicButton.hpp">
-<area shape="rect" id="node2" href="$_a_button_8hpp.html" title="MySf/Button/AButton.hpp" alt="" coords="128,109,313,136"/>
-<area shape="rect" id="node9" href="$_smooth_shifting_8hpp.html" title="MySf/Color/SmoothShifting.hpp" alt="" coords="389,109,613,136"/>
-<area shape="rect" id="node3" href="$_i_button_8hpp.html" title="MySf/Button/IButton.hpp" alt="" coords="5,184,185,211"/>
-<area shape="rect" id="node5" href="$_i_color_8hpp.html" title="MySf/Color/IColor.hpp" alt="" coords="204,259,365,285"/>
-<area shape="rect" id="node10" href="$_a_color_8hpp.html" title="MySf/Color/AColor.hpp" alt="" coords="417,184,584,211"/>
+<area shape="rect" id="node2" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_button_2_a_button_8hpp.html" title="MySf/Button/AButton.hpp" alt="" coords="128,109,313,136"/>
+<area shape="rect" id="node9" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_color_2_smooth_shifting_8hpp.html" title="MySf/Color/SmoothShifting.hpp" alt="" coords="389,109,613,136"/>
+<area shape="rect" id="node3" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_button_2_i_button_8hpp.html" title="MySf/Button/IButton.hpp" alt="" coords="5,184,185,211"/>
+<area shape="rect" id="node5" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_color_2_i_color_8hpp.html" title="MySf/Color/IColor.hpp" alt="" coords="204,259,365,285"/>
+<area shape="rect" id="node10" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_color_2_a_color_8hpp.html" title="MySf/Color/AColor.hpp" alt="" coords="417,184,584,211"/>
 </map>

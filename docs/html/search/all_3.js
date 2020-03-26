@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['c',['c',['../struct_my_sf_1_1_button_1_1_button_color.html#afc1390079127269cab2bf9c5c56e3514',1,'MySf::Button::ButtonColor::c()'],['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5a9048c63a2002e79f0c93ed633706f243',1,'arc::Event::C()']]],
+  ['c',['c',['../struct_my_s_d_l_1_1_button_1_1_button_color.html#a66886868f454ce69ccf8f540df233e9d',1,'MySDL::Button::ButtonColor::c()'],['../struct_my_sf_1_1_button_1_1_button_color.html#afc1390079127269cab2bf9c5c56e3514',1,'MySf::Button::ButtonColor::c()'],['../namespacearc_1_1_event.html#aceaacfd1cbd37ca2b1b57e31068c30e5a9048c63a2002e79f0c93ed633706f243',1,'arc::Event::C()']]],
   ['c_5fdialect',['C_DIALECT',['../_c_make_c_compiler_id_8c.html#a07f8e5783674099cd7f5110e22a78cdb',1,'CMakeCCompilerId.c']]],
   ['checkevents',['checkEvents',['../classarc_1_1_ncurses_graphical.html#a94b56ff9e3c6a14e7f33b4062f637a39',1,'arc::NcursesGraphical']]],
+  ['clear',['clear',['../class_my_s_d_l_1_1_window.html#a657e932e0076a79cf11a7e8d1c55d9c5',1,'MySDL::Window']]],
+  ['close',['close',['../class_my_s_d_l_1_1_window.html#a35055c04498121d39741bfcd5082705b',1,'MySDL::Window']]],
   ['cmakeccompilerid_2ec',['CMakeCCompilerId.c',['../_c_make_c_compiler_id_8c.html',1,'']]],
   ['cmakecxxcompilerid_2ecpp',['CMakeCXXCompilerId.cpp',['../_c_make_c_x_x_compiler_id_8cpp.html',1,'']]],
   ['color',['Color',['../structarc_1_1_color.html',1,'arc']]],

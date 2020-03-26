@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['main',['main',['../_c_make_c_compiler_id_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCXXCompilerId.cpp'],['../core_2src_2main_8cpp.html#a0c99d968a34e803d378692bde2e3f18f',1,'main(int ac, char **av):&#160;main.cpp'],['../games_2lib__arcade__solarfox_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.cpp'],['../lib_2lib__arcade__libcaca_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.cpp']]],
-  ['mainmenuscene',['MainMenuScene',['../classarc_1_1_main_menu_scene.html#ab2ac1ec77de0cddcf1debdb06d3d1506',1,'arc::MainMenuScene']]],
-  ['managecurrentcolor',['manageCurrentColor',['../class_my_sf_1_1_button_1_1_a_button.html#aec7a711aef2bdaf9d0efe19bf9e03627',1,'MySf::Button::AButton::manageCurrentColor()'],['../class_my_sf_1_1_button_1_1_i_button.html#a72f95d83a1ad21998580ed1ce89046c1',1,'MySf::Button::IButton::manageCurrentColor()']]],
-  ['managestate',['manageState',['../class_my_sf_1_1_button_1_1_a_button.html#af374bdbc23788c4ea777176fd884e6d7',1,'MySf::Button::AButton::manageState()'],['../class_my_sf_1_1_button_1_1_i_button.html#a55c1dec8b864d06c6d3fe0b878ce1737',1,'MySf::Button::IButton::manageState()']]]
+  ['loadfile',['loadFile',['../class_my_s_d_l_1_1_sprite.html#a5f56e74ec1ed676e00ab24555e30b43d',1,'MySDL::Sprite']]],
+  ['loadgamelibrary',['loadGameLibrary',['../classarc_1_1_core.html#aaf86e0be7cad4b241111cd6ecd32093a',1,'arc::Core']]],
+  ['loadgraphicallibrary',['loadGraphicalLibrary',['../classarc_1_1_core.html#a4f9d1082c29a1835f95cfb0d760433d4',1,'arc::Core']]]
 ];

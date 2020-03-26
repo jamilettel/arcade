@@ -1,12 +1,7 @@
 <map id="MySf::Button::AButton::setActivation" name="MySf::Button::AButton::setActivation">
-<area shape="rect" id="node2" href="$class_my_sf_1_1_basic_list.html#a47d697be9868f833d78c2cbfa32b3e34" title="MySf::BasicList::setList\lPosition" alt="" coords="219,57,389,98"/>
-<area shape="rect" id="node3" href="$class_my_sf_1_1_basic_list.html#a5654ebef086e195836a4e75b100d3404" title="MySf::BasicList::scroll" alt="" coords="437,64,600,91"/>
-<area shape="rect" id="node4" href="$class_my_sf_1_1_basic_list.html#ab4c5d8b5e93d74e742581c57d851dbf9" title="MySf::BasicList::BasicList" alt="" coords="648,13,835,40"/>
-<area shape="rect" id="node5" href="$class_my_sf_1_1_basic_list.html#a31413ad9e388e82406c519f19399e481" title="MySf::BasicList::update" alt="" coords="655,64,828,91"/>
-<area shape="rect" id="node8" href="$class_my_sf_1_1_basic_list.html#a0161298e161766c1d658559c7cd36658" title="MySf::BasicList::setList" alt="" coords="656,152,827,179"/>
-<area shape="rect" id="node6" href="$classarc_1_1_game_scene.html#a971f37711b202899ef464e859b5af878" title="arc::GameScene::update" alt="" coords="906,5,1087,32"/>
-<area shape="rect" id="node7" href="$classarc_1_1_main_menu_scene.html#aa1f17c5e933d807e11cc055362503ef6" title="arc::MainMenuScene\l::update" alt="" coords="919,57,1074,98"/>
-<area shape="rect" id="node9" href="$classarc_1_1_game_scene.html#a1164c254b7a6449e5c4a03aca26607c5" title="arc::GameScene::setGameStats" alt="" coords="883,123,1111,149"/>
-<area shape="rect" id="node10" href="$classarc_1_1_main_menu_scene.html#adb1981846801e80409d7c1a1ee5017e1" title="arc::MainMenuScene\l::setHowToPlay" alt="" coords="919,174,1074,215"/>
-<area shape="rect" id="node11" href="$classarc_1_1_main_menu_scene.html#a8a8c85287ee70320958aefc98097f4ee" title="arc::MainMenuScene\l::setScores" alt="" coords="919,239,1074,281"/>
+<area shape="rect" id="node2" href="$class_my_sf_1_1_basic_list.html#a47d697be9868f833d78c2cbfa32b3e34" title="MySf::BasicList::setList\lPosition" alt="" coords="219,49,389,90"/>
+<area shape="rect" id="node3" href="$class_my_sf_1_1_basic_list.html#a5654ebef086e195836a4e75b100d3404" title="MySf::BasicList::scroll" alt="" coords="437,56,600,83"/>
+<area shape="rect" id="node4" href="$class_my_sf_1_1_basic_list.html#ab4c5d8b5e93d74e742581c57d851dbf9" title="MySf::BasicList::BasicList" alt="" coords="648,5,835,32"/>
+<area shape="rect" id="node5" href="$class_my_sf_1_1_basic_list.html#a31413ad9e388e82406c519f19399e481" title="MySf::BasicList::update" alt="" coords="655,56,828,83"/>
+<area shape="rect" id="node6" href="$class_my_sf_1_1_basic_list.html#a0161298e161766c1d658559c7cd36658" title="MySf::BasicList::setList" alt="" coords="656,107,827,133"/>
 </map>

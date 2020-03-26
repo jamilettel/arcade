@@ -1,7 +1,9 @@
 <map id="include/IGame.hpp" name="include/IGame.hpp">
 <area shape="rect" id="node2" href="$_core_8hpp.html" title="core/include/Core.hpp" alt="" coords="145,87,307,114"/>
 <area shape="rect" id="node5" href="$_nibbler_8hpp.html" title="games/lib_arcade_nibbler\l/include/Nibbler.hpp" alt="" coords="331,80,521,121"/>
+<area shape="rect" id="node7" href="$_solarfox_8hpp.html" title="games/lib_arcade_solarfox\l/include/Solarfox.hpp" alt="" coords="545,80,742,121"/>
 <area shape="rect" id="node3" href="$_core_8cpp.html" title="core/src/Core.cpp" alt="" coords="5,177,140,203"/>
 <area shape="rect" id="node4" href="$core_2src_2main_8cpp.html" title="core/src/main.cpp" alt="" coords="164,177,301,203"/>
 <area shape="rect" id="node6" href="$_nibbler_8cpp.html" title="games/lib_arcade_nibbler\l/src/Nibbler.cpp" alt="" coords="331,169,521,211"/>
+<area shape="rect" id="node8" href="$_solarfox_8cpp.html" title="games/lib_arcade_solarfox\l/src/Solarfox.cpp" alt="" coords="545,169,742,211"/>
 </map>

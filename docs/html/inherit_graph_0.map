@@ -1,8 +1,10 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$classarc_1_1_arcade_error.html" title="arc::ArcadeError" alt="" coords="140,81,267,108"/>
-<area shape="rect" id="node7" href="$class_my_sf_1_1_error.html" title="MySf::Error" alt="" coords="157,132,250,159"/>
+<area shape="rect" id="node2" href="$classarc_1_1_arcade_error.html" title="arc::ArcadeError" alt="" coords="140,132,267,159"/>
+<area shape="rect" id="node9" href="$class_my_sf_1_1_error.html" title="MySf::Error" alt="" coords="157,183,250,209"/>
 <area shape="rect" id="node3" href="$classarc_1_1_core_error.html" title="arc::CoreError" alt="" coords="331,5,441,32"/>
 <area shape="rect" id="node4" href="$classarc_1_1_d_l_loader_error.html" title="arc::DLLoaderError" alt="" coords="315,56,457,83"/>
 <area shape="rect" id="node5" href="$classarc_1_1_ncurses_error.html" title="arc::NcursesError" alt="" coords="319,107,453,133"/>
-<area shape="rect" id="node6" href="$classarc_1_1_sfml_error.html" title="arc::SfmlError" alt="" coords="331,157,441,184"/>
+<area shape="rect" id="node6" href="$classarc_1_1_s_d_l_error.html" title="arc::SDLError" alt="" coords="333,157,439,184"/>
+<area shape="rect" id="node7" href="$classarc_1_1_sfml_error.html" title="arc::SfmlError" alt="" coords="331,208,441,235"/>
+<area shape="rect" id="node8" href="$classarc_1_1_solarfox_error.html" title="arc::SolarfoxError" alt="" coords="319,259,453,285"/>
 </map>

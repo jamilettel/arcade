@@ -95,6 +95,9 @@ $(document).ready(function(){initNavTree('classarc_1_1_i_game.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>This interface is the link between a game and the core. All games must derived from this interface and implement all methods.  
+ <a href="classarc_1_1_i_game.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_i_game_8hpp_source.html">IGame.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for arc::IGame:</div>
@@ -102,16 +105,20 @@ Inheritance diagram for arc::IGame:</div>
 <div class="center"><img src="classarc_1_1_i_game__inherit__graph.png" border="0" usemap="#arc_1_1_i_game_inherit__map" alt="Inheritance graph"/></div>
 <map name="arc_1_1_i_game_inherit__map" id="arc_1_1_i_game_inherit__map">
 <area shape="rect" id="node2" href="classarc_1_1_nibbler.html" title="arc::Nibbler" alt="" coords="5,80,103,107"/>
+<area shape="rect" id="node3" href="classarc_1_1_solarfox.html" title="arc::Solarfox" alt="" coords="127,80,231,107"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a35b0c983ceff303b26a5d15a5b66963b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_i_game.html#a35b0c983ceff303b26a5d15a5b66963b">~IGame</a> ()=default</td></tr>
+<tr class="memdesc:a35b0c983ceff303b26a5d15a5b66963b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a35b0c983ceff303b26a5d15a5b66963b">More...</a><br /></td></tr>
 <tr class="separator:a35b0c983ceff303b26a5d15a5b66963b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abae4411fe26b067590441527f348c8a2"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_i_game.html#abae4411fe26b067590441527f348c8a2">getMapHeight</a> () const =0</td></tr>
+<tr class="memdesc:abae4411fe26b067590441527f348c8a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the height of the map.  <a href="#abae4411fe26b067590441527f348c8a2">More...</a><br /></td></tr>
 <tr class="separator:abae4411fe26b067590441527f348c8a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40a8ec7ac320ed3f3efa02c0a71bb455"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_i_game.html#a40a8ec7ac320ed3f3efa02c0a71bb455">getMapWidth</a> () const =0</td></tr>
+<tr class="memdesc:a40a8ec7ac320ed3f3efa02c0a71bb455"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the width of the map.  <a href="#a40a8ec7ac320ed3f3efa02c0a71bb455">More...</a><br /></td></tr>
 <tr class="separator:a40a8ec7ac320ed3f3efa02c0a71bb455"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a205b25aecd0815a74acad18698acfc"><td class="memItemLeft" align="right" valign="top">virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_i_game.html#a5a205b25aecd0815a74acad18698acfc">getMusic</a> () const =0</td></tr>
 <tr class="separator:a5a205b25aecd0815a74acad18698acfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,17 +135,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9d0b99e48f85204a011aa30d664b94ae"><td class="memItemLeft" align="right" valign="top">virtual const std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_i_game.html#a9d0b99e48f85204a011aa30d664b94ae">getGameStats</a> () const =0</td></tr>
 <tr class="separator:a9d0b99e48f85204a011aa30d664b94ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b332c630c0b2d7d43dbf6bdbe64a221"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_i_game.html#a1b332c630c0b2d7d43dbf6bdbe64a221">restart</a> ()=0</td></tr>
+<tr class="memdesc:a1b332c630c0b2d7d43dbf6bdbe64a221"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this function to restart the entire game. The game must reset himself.  <a href="#a1b332c630c0b2d7d43dbf6bdbe64a221">More...</a><br /></td></tr>
 <tr class="separator:a1b332c630c0b2d7d43dbf6bdbe64a221"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab83fdb6bc841c064b54af406c7d79e52"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_i_game.html#ab83fdb6bc841c064b54af406c7d79e52">updateGame</a> ()=0</td></tr>
 <tr class="separator:ab83fdb6bc841c064b54af406c7d79e52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa526918ee2c06594c63d8ce3d090fc27"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_i_game.html#aa526918ee2c06594c63d8ce3d090fc27">isGameOver</a> () const =0</td></tr>
+<tr class="memdesc:aa526918ee2c06594c63d8ce3d090fc27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the game is over.  <a href="#aa526918ee2c06594c63d8ce3d090fc27">More...</a><br /></td></tr>
 <tr class="separator:aa526918ee2c06594c63d8ce3d090fc27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b13c40c45812eede80f0be2da1110d6"><td class="memItemLeft" align="right" valign="top">virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_i_game.html#a1b13c40c45812eede80f0be2da1110d6">getTitle</a> () const =0</td></tr>
+<tr class="memdesc:a1b13c40c45812eede80f0be2da1110d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the name of the game.  <a href="#a1b13c40c45812eede80f0be2da1110d6">More...</a><br /></td></tr>
 <tr class="separator:a1b13c40c45812eede80f0be2da1110d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_i_game_8hpp_source.html#l00019">19</a> of file <a class="el" href="_i_game_8hpp_source.html">IGame.hpp</a>.</p>
+<div class="textblock"><p>This interface is the link between a game and the core. All games must derived from this interface and implement all methods. </p>
+
+<p class="definition">Definition at line <a class="el" href="_i_game_8hpp_source.html#l00031">31</a> of file <a class="el" href="_i_game_8hpp_source.html">IGame.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a35b0c983ceff303b26a5d15a5b66963b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a35b0c983ceff303b26a5d15a5b66963b">&#9670;&nbsp;</a></span>~IGame()</h2>
@@ -162,6 +173,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Destructor. </p>
 
 </div>
 </div>
@@ -189,7 +202,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classarc_1_1_nibbler.html#a488fb372209eddf7e480f7f7c79c6084">arc::Nibbler</a>.</p>
+<p>Implemented in <a class="el" href="classarc_1_1_solarfox.html#a3cfc5d8574035bf393d0cd1fab3e4173">arc::Solarfox</a>, and <a class="el" href="classarc_1_1_nibbler.html#a488fb372209eddf7e480f7f7c79c6084">arc::Nibbler</a>.</p>
 
 </div>
 </div>
@@ -216,7 +229,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classarc_1_1_nibbler.html#a51d060cf6fe4abd765295429c27bc382">arc::Nibbler</a>.</p>
+<p>Implemented in <a class="el" href="classarc_1_1_solarfox.html#a24d9e7928ee10938a6f8ac6735d1faf4">arc::Solarfox</a>, and <a class="el" href="classarc_1_1_nibbler.html#a51d060cf6fe4abd765295429c27bc382">arc::Nibbler</a>.</p>
 
 </div>
 </div>
@@ -243,7 +256,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classarc_1_1_nibbler.html#a9e9c2b5d4d6d5d696c99afd948fba97e">arc::Nibbler</a>.</p>
+<p>Implemented in <a class="el" href="classarc_1_1_solarfox.html#a78a2683274f380e5412bca158cbd67e5">arc::Solarfox</a>, and <a class="el" href="classarc_1_1_nibbler.html#a9e9c2b5d4d6d5d696c99afd948fba97e">arc::Nibbler</a>.</p>
 
 </div>
 </div>
@@ -270,7 +283,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classarc_1_1_nibbler.html#a67ce4dfbb9bab8c4baa686ba21442705">arc::Nibbler</a>.</p>
+<p>Implemented in <a class="el" href="classarc_1_1_solarfox.html#a6f34e8f0cc5e2623551448c548d34328">arc::Solarfox</a>, and <a class="el" href="classarc_1_1_nibbler.html#a67ce4dfbb9bab8c4baa686ba21442705">arc::Nibbler</a>.</p>
 
 </div>
 </div>
@@ -297,7 +310,10 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classarc_1_1_nibbler.html#af7c27ee16634c821c2819124e25dc16c">arc::Nibbler</a>.</p>
+<p>Getter for the height of the map. </p>
+<dl class="section return"><dt>Returns</dt><dd>Height of the map </dd></dl>
+
+<p>Implemented in <a class="el" href="classarc_1_1_solarfox.html#a29d768efeb66b4e6414bd75f488fa4a0">arc::Solarfox</a>, and <a class="el" href="classarc_1_1_nibbler.html#af7c27ee16634c821c2819124e25dc16c">arc::Nibbler</a>.</p>
 
 </div>
 </div>
@@ -324,7 +340,10 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classarc_1_1_nibbler.html#a7d071c096d652d7f4eb651139bfc87b7">arc::Nibbler</a>.</p>
+<p>Getter for the width of the map. </p>
+<dl class="section return"><dt>Returns</dt><dd>Width of the map </dd></dl>
+
+<p>Implemented in <a class="el" href="classarc_1_1_solarfox.html#aff99958a14a0feeef72cdc8adc1b9170">arc::Solarfox</a>, and <a class="el" href="classarc_1_1_nibbler.html#a7d071c096d652d7f4eb651139bfc87b7">arc::Nibbler</a>.</p>
 
 </div>
 </div>
@@ -351,7 +370,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classarc_1_1_nibbler.html#a73101c3ecad6a764dc578ecce4098d59">arc::Nibbler</a>.</p>
+<p>Implemented in <a class="el" href="classarc_1_1_solarfox.html#a30bfe3efad18b240c688f02d0ba2cd48">arc::Solarfox</a>, and <a class="el" href="classarc_1_1_nibbler.html#a73101c3ecad6a764dc578ecce4098d59">arc::Nibbler</a>.</p>
 
 </div>
 </div>
@@ -378,7 +397,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classarc_1_1_nibbler.html#a7392c818448402eca3226303fafcf971">arc::Nibbler</a>.</p>
+<p>Implemented in <a class="el" href="classarc_1_1_solarfox.html#aa3c1b5956439755d0a08c6f4be336244">arc::Solarfox</a>, and <a class="el" href="classarc_1_1_nibbler.html#a7392c818448402eca3226303fafcf971">arc::Nibbler</a>.</p>
 
 </div>
 </div>
@@ -405,7 +424,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classarc_1_1_nibbler.html#ae282bbf5c6833a554ba6a2a2db4a715c">arc::Nibbler</a>.</p>
+<p>Implemented in <a class="el" href="classarc_1_1_solarfox.html#a89ba2e60825eefefd1cc83ac4ce24e94">arc::Solarfox</a>, and <a class="el" href="classarc_1_1_nibbler.html#ae282bbf5c6833a554ba6a2a2db4a715c">arc::Nibbler</a>.</p>
 
 </div>
 </div>
@@ -432,7 +451,10 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classarc_1_1_nibbler.html#aa018b62c5abdabf87caed7dac6f26a6a">arc::Nibbler</a>.</p>
+<p>Get the name of the game. </p>
+<dl class="section return"><dt>Returns</dt><dd>Name of the game </dd></dl>
+
+<p>Implemented in <a class="el" href="classarc_1_1_solarfox.html#a6558fa73203036adabfc85e4fe32efde">arc::Solarfox</a>, and <a class="el" href="classarc_1_1_nibbler.html#aa018b62c5abdabf87caed7dac6f26a6a">arc::Nibbler</a>.</p>
 
 </div>
 </div>
@@ -459,7 +481,10 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classarc_1_1_nibbler.html#a826b4af6821f3b1c80257d8cd744cbbf">arc::Nibbler</a>.</p>
+<p>Check if the game is over. </p>
+<dl class="section return"><dt>Returns</dt><dd>bool which indicate if the game is over </dd></dl>
+
+<p>Implemented in <a class="el" href="classarc_1_1_solarfox.html#a0e8c0d463bb111784d925f4d96365379">arc::Solarfox</a>, and <a class="el" href="classarc_1_1_nibbler.html#a826b4af6821f3b1c80257d8cd744cbbf">arc::Nibbler</a>.</p>
 
 </div>
 </div>
@@ -486,7 +511,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classarc_1_1_nibbler.html#a7c4b902687516cb3d9ae5d93eb5eb826">arc::Nibbler</a>.</p>
+<p>Call this function to restart the entire game. The game must reset himself. </p>
+
+<p>Implemented in <a class="el" href="classarc_1_1_solarfox.html#a30e2ca0f9e0035bd710b1faac565489d">arc::Solarfox</a>, and <a class="el" href="classarc_1_1_nibbler.html#a7c4b902687516cb3d9ae5d93eb5eb826">arc::Nibbler</a>.</p>
 
 </div>
 </div>
@@ -513,7 +540,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classarc_1_1_nibbler.html#aeb89fc108044be3f1c59525679b103bc">arc::Nibbler</a>.</p>
+<p>Implemented in <a class="el" href="classarc_1_1_solarfox.html#a6b24e70fe5b90d1f33fb638b7053e4d1">arc::Solarfox</a>, and <a class="el" href="classarc_1_1_nibbler.html#aeb89fc108044be3f1c59525679b103bc">arc::Nibbler</a>.</p>
 
 </div>
 </div>

@@ -1,0 +1,5 @@
+<map id="MySDL::BasicList::setSize" name="MySDL::BasicList::setSize">
+<area shape="rect" id="node2" href="$classarc_1_1_game_over_scene.html#a8ff5146ce71e8e7a77748755625bc62a" title="arc::GameOverScene\l::GameOverScene" alt="" coords="240,5,399,47"/>
+<area shape="rect" id="node3" href="$classarc_1_1_main_menu_scene.html#adb1981846801e80409d7c1a1ee5017e1" title="arc::MainMenuScene\l::setHowToPlay" alt="" coords="242,71,397,112"/>
+<area shape="rect" id="node4" href="$classarc_1_1_main_menu_scene.html#a8a8c85287ee70320958aefc98097f4ee" title="arc::MainMenuScene\l::setScores" alt="" coords="242,136,397,177"/>
+</map>

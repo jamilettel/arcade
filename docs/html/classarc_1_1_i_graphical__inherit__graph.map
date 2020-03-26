@@ -1,4 +1,5 @@
 <map id="arc::IGraphical" name="arc::IGraphical">
 <area shape="rect" id="node2" href="$classarc_1_1_ncurses_graphical.html" title="arc::NcursesGraphical" alt="" coords="5,80,169,107"/>
-<area shape="rect" id="node3" href="$classarc_1_1_sfml_graphical.html" title="arc::SfmlGraphical" alt="" coords="193,80,336,107"/>
+<area shape="rect" id="node3" href="$classarc_1_1_s_d_l_graphical.html" title="arc::SDLGraphical" alt="" coords="193,80,331,107"/>
+<area shape="rect" id="node4" href="$classarc_1_1_sfml_graphical.html" title="arc::SfmlGraphical" alt="" coords="355,80,497,107"/>
 </map>

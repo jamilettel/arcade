@@ -101,11 +101,12 @@ Inheritance diagram for arc::IScene:</div>
 <div class="dyncontent">
 <div class="center"><img src="classarc_1_1_i_scene__inherit__graph.png" border="0" usemap="#arc_1_1_i_scene_inherit__map" alt="Inheritance graph"/></div>
 <map name="arc_1_1_i_scene_inherit__map" id="arc_1_1_i_scene_inherit__map">
-<area shape="rect" id="node2" href="classarc_1_1_game_scene.html" title="arc::GameScene" alt="" coords="167,5,295,32"/>
-<area shape="rect" id="node3" href="classarc_1_1_main_menu_scene.html" title="arc::MainMenuScene" alt="" coords="153,56,308,83"/>
-<area shape="rect" id="node4" href="classarc_1_1_ncurses_end.html" title="arc::NcursesEnd" alt="" coords="167,107,294,133"/>
-<area shape="rect" id="node5" href="classarc_1_1_ncurses_game.html" title="arc::NcursesGame" alt="" coords="160,157,301,184"/>
-<area shape="rect" id="node6" href="classarc_1_1_ncurses_main_menu.html" title="arc::NcursesMainMenu" alt="" coords="147,208,315,235"/>
+<area shape="rect" id="node2" href="classarc_1_1_game_over_scene.html" title="arc::GameOverScene" alt="" coords="151,5,310,32"/>
+<area shape="rect" id="node3" href="classarc_1_1_game_scene.html" title="arc::GameScene" alt="" coords="167,56,295,83"/>
+<area shape="rect" id="node4" href="classarc_1_1_main_menu_scene.html" title="arc::MainMenuScene" alt="" coords="153,107,308,133"/>
+<area shape="rect" id="node5" href="classarc_1_1_ncurses_end.html" title="arc::NcursesEnd" alt="" coords="167,157,294,184"/>
+<area shape="rect" id="node6" href="classarc_1_1_ncurses_game.html" title="arc::NcursesGame" alt="" coords="160,208,301,235"/>
+<area shape="rect" id="node7" href="classarc_1_1_ncurses_main_menu.html" title="arc::NcursesMainMenu" alt="" coords="147,259,315,285"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -123,6 +124,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2a8839ffd26d8c0d3752ce33915e081d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3aa70db2a370f8417d2043c2c785757"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_i_scene.html#ac3aa70db2a370f8417d2043c2c785757">draw</a> ()=0</td></tr>
 <tr class="separator:ac3aa70db2a370f8417d2043c2c785757"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae21ec71f25f476bc046e707741bb4f8f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_i_scene.html#ae21ec71f25f476bc046e707741bb4f8f">update</a> (const SDL_Event &amp;event)=0</td></tr>
+<tr class="separator:ae21ec71f25f476bc046e707741bb4f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a8839ffd26d8c0d3752ce33915e081d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_i_scene.html#a2a8839ffd26d8c0d3752ce33915e081d">~IScene</a> ()=default</td></tr>
+<tr class="separator:a2a8839ffd26d8c0d3752ce33915e081d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3aa70db2a370f8417d2043c2c785757"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_i_scene.html#ac3aa70db2a370f8417d2043c2c785757">draw</a> ()=0</td></tr>
+<tr class="separator:ac3aa70db2a370f8417d2043c2c785757"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a254d4a526cc558f368d2844a06375531"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_i_scene.html#a254d4a526cc558f368d2844a06375531">update</a> (const sf::Event &amp;event)=0</td></tr>
 <tr class="separator:a254d4a526cc558f368d2844a06375531"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -131,7 +138,7 @@ Public Member Functions</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="lib__arcade__ncurses_2include_2_i_scene_8hpp_source.html#l00013">13</a> of file <a class="el" href="lib__arcade__ncurses_2include_2_i_scene_8hpp_source.html">IScene.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2a8839ffd26d8c0d3752ce33915e081d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a8839ffd26d8c0d3752ce33915e081d">&#9670;&nbsp;</a></span>~IScene() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a8839ffd26d8c0d3752ce33915e081d">&#9670;&nbsp;</a></span>~IScene() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -156,7 +163,32 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a2a8839ffd26d8c0d3752ce33915e081d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a8839ffd26d8c0d3752ce33915e081d">&#9670;&nbsp;</a></span>~IScene() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a8839ffd26d8c0d3752ce33915e081d">&#9670;&nbsp;</a></span>~IScene() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual arc::IScene::~IScene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2a8839ffd26d8c0d3752ce33915e081d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a8839ffd26d8c0d3752ce33915e081d">&#9670;&nbsp;</a></span>~IScene() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -209,7 +241,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="ac3aa70db2a370f8417d2043c2c785757"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3aa70db2a370f8417d2043c2c785757">&#9670;&nbsp;</a></span>draw()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3aa70db2a370f8417d2043c2c785757">&#9670;&nbsp;</a></span>draw() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -231,7 +263,34 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classarc_1_1_main_menu_scene.html#ab12f8f4b33a270da7b99bfa146509f79">arc::MainMenuScene</a>, and <a class="el" href="classarc_1_1_game_scene.html#a153a91652690799750f744263e12840a">arc::GameScene</a>.</p>
+<p>Implemented in <a class="el" href="classarc_1_1_main_menu_scene.html#ab12f8f4b33a270da7b99bfa146509f79">arc::MainMenuScene</a>, <a class="el" href="classarc_1_1_main_menu_scene.html#a6efb970b20e3a4b649bcbc41d1a19f6e">arc::MainMenuScene</a>, <a class="el" href="classarc_1_1_game_over_scene.html#a8b36341ac248b389da1429d92be381cd">arc::GameOverScene</a>, <a class="el" href="classarc_1_1_game_over_scene.html#a20cc1a6aa7965b323c0cb23090b6bd52">arc::GameOverScene</a>, <a class="el" href="classarc_1_1_game_scene.html#a153a91652690799750f744263e12840a">arc::GameScene</a>, and <a class="el" href="classarc_1_1_game_scene.html#af22b24290733b6701e70f897934f3894">arc::GameScene</a>.</p>
+
+</div>
+</div>
+<a id="ac3aa70db2a370f8417d2043c2c785757"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3aa70db2a370f8417d2043c2c785757">&#9670;&nbsp;</a></span>draw() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void arc::IScene::draw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classarc_1_1_main_menu_scene.html#ab12f8f4b33a270da7b99bfa146509f79">arc::MainMenuScene</a>, <a class="el" href="classarc_1_1_main_menu_scene.html#a6efb970b20e3a4b649bcbc41d1a19f6e">arc::MainMenuScene</a>, <a class="el" href="classarc_1_1_game_over_scene.html#a8b36341ac248b389da1429d92be381cd">arc::GameOverScene</a>, <a class="el" href="classarc_1_1_game_over_scene.html#a20cc1a6aa7965b323c0cb23090b6bd52">arc::GameOverScene</a>, <a class="el" href="classarc_1_1_game_scene.html#a153a91652690799750f744263e12840a">arc::GameScene</a>, and <a class="el" href="classarc_1_1_game_scene.html#af22b24290733b6701e70f897934f3894">arc::GameScene</a>.</p>
 
 </div>
 </div>
@@ -263,7 +322,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a9dc428778c404752b0bdb54a2f7d8d5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dc428778c404752b0bdb54a2f7d8d5d">&#9670;&nbsp;</a></span>update() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dc428778c404752b0bdb54a2f7d8d5d">&#9670;&nbsp;</a></span>update() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -289,8 +348,36 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ae21ec71f25f476bc046e707741bb4f8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae21ec71f25f476bc046e707741bb4f8f">&#9670;&nbsp;</a></span>update() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void arc::IScene::update </td>
+          <td>(</td>
+          <td class="paramtype">const SDL_Event &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classarc_1_1_main_menu_scene.html#a8ef931a2e3414da19afe89db094da5bd">arc::MainMenuScene</a>, <a class="el" href="classarc_1_1_game_over_scene.html#ae46c8635d42e0833952b8537de715fab">arc::GameOverScene</a>, and <a class="el" href="classarc_1_1_game_scene.html#a104a5898c820105422883e9d2bed6f03">arc::GameScene</a>.</p>
+
+</div>
+</div>
 <a id="a254d4a526cc558f368d2844a06375531"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a254d4a526cc558f368d2844a06375531">&#9670;&nbsp;</a></span>update() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a254d4a526cc558f368d2844a06375531">&#9670;&nbsp;</a></span>update() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,7 +400,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classarc_1_1_main_menu_scene.html#aa1f17c5e933d807e11cc055362503ef6">arc::MainMenuScene</a>, and <a class="el" href="classarc_1_1_game_scene.html#a971f37711b202899ef464e859b5af878">arc::GameScene</a>.</p>
+<p>Implemented in <a class="el" href="classarc_1_1_main_menu_scene.html#aa1f17c5e933d807e11cc055362503ef6">arc::MainMenuScene</a>, <a class="el" href="classarc_1_1_game_over_scene.html#a056ca21e67cc780ec26f57d54afd5d5a">arc::GameOverScene</a>, and <a class="el" href="classarc_1_1_game_scene.html#a971f37711b202899ef464e859b5af878">arc::GameScene</a>.</p>
 
 </div>
 </div>

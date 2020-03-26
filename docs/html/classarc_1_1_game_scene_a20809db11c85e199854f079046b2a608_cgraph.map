@@ -1,5 +1,5 @@
 <map id="arc::GameScene::setPause" name="arc::GameScene::setPause">
-<area shape="rect" id="node2" href="$class_my_sf_1_1_color_1_1_smooth_shifting.html#a9558364e7942b12aaec95aa4a7e911a0" title="MySf::Color::SmoothShifting\l::setColor" alt="" coords="248,5,452,47"/>
-<area shape="rect" id="node3" href="$class_my_sf_1_1_color_1_1_smooth_shifting.html#a47f9691852d525bee499999b4b56796e" title="MySf::Color::SmoothShifting\l::getColor" alt="" coords="500,5,704,47"/>
-<area shape="rect" id="node4" href="$class_my_sf_1_1_color_1_1_utils.html#a29e3fd78740382bbad82e1f0478cf184" title="MySf::Color::Utils\l::addToColor" alt="" coords="752,5,887,47"/>
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_color_1_1_smooth_shifting.html#a11bfefeca10a2fd3eb99ef76e7f5b5b8" title="MySDL::Color::SmoothShifting\l::setColor" alt="" coords="248,5,464,47"/>
+<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_color_1_1_smooth_shifting.html#a0f62559d7e218547b73ee1b511cb35e6" title="MySDL::Color::SmoothShifting\l::getColor" alt="" coords="512,5,728,47"/>
+<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_color_1_1_utils.html#a8017fce82fab8bcf5de5e9c896e2db28" title="MySDL::Color::Utils\l::addToColor" alt="" coords="776,5,923,47"/>
 </map>

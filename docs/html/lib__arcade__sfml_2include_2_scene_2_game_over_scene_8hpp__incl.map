@@ -1,0 +1,14 @@
+<map id="lib/lib_arcade_sfml/include/Scene/GameOverScene.hpp" name="lib/lib_arcade_sfml/include/Scene/GameOverScene.hpp">
+<area shape="rect" id="node3" href="$_sfml_graphical_8hpp.html" title="SfmlGraphical.hpp" alt="" coords="618,169,761,196"/>
+<area shape="rect" id="node18" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_list_2_basic_list_8hpp.html" title="MySf/List/BasicList.hpp" alt="" coords="1337,95,1508,121"/>
+<area shape="rect" id="node21" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_button_2_rect_button_8hpp.html" title="MySf/Button/RectButton.hpp" alt="" coords="1519,169,1723,196"/>
+<area shape="rect" id="node4" href="$lib__arcade__sfml_2include_2_scene_2_i_scene_8hpp.html" title="Scene/IScene.hpp" alt="" coords="439,393,575,420"/>
+<area shape="rect" id="node9" href="$_i_graphical_8hpp.html" title="IGraphical.hpp" alt="" coords="1063,244,1179,271"/>
+<area shape="rect" id="node14" href="$include_2_utils_8hpp.html" title="Utils.hpp" alt="" coords="1024,319,1104,345"/>
+<area shape="rect" id="node19" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_list_2_a_list_8hpp.html" title="MySf/List/AList.hpp" alt="" coords="1350,169,1495,196"/>
+<area shape="rect" id="node26" href="$lib_2lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_error_8hpp.html" title="MySf/Error.hpp" alt="" coords="1210,169,1326,196"/>
+<area shape="rect" id="node20" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_list_2_i_list_8hpp.html" title="MySf/List/IList.hpp" alt="" coords="1255,393,1395,420"/>
+<area shape="rect" id="node22" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_button_2_a_button_8hpp.html" title="MySf/Button/AButton.hpp" alt="" coords="1499,244,1685,271"/>
+<area shape="rect" id="node23" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_button_2_i_button_8hpp.html" title="MySf/Button/IButton.hpp" alt="" coords="1573,319,1753,345"/>
+<area shape="rect" id="node24" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_color_2_i_color_8hpp.html" title="MySf/Color/IColor.hpp" alt="" coords="1582,393,1743,420"/>
+</map>

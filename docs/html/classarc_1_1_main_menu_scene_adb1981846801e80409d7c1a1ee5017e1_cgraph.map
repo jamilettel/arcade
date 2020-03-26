@@ -1,12 +1,12 @@
 <map id="arc::MainMenuScene::setHowToPlay" name="arc::MainMenuScene::setHowToPlay">
-<area shape="rect" id="node2" href="$class_my_sf_1_1_basic_list.html#a0d093acd3cdd9f853ebcfc4983f886bc" title="MySf::BasicList::setPos" alt="" coords="222,5,393,32"/>
-<area shape="rect" id="node4" href="$class_my_sf_1_1_basic_list.html#a52b177cac886e4049971dccc162a9cbe" title="MySf::BasicList::setSize" alt="" coords="220,56,395,83"/>
-<area shape="rect" id="node6" href="$class_my_sf_1_1_basic_list.html#ab18707639768f4c312601059ba8f7094" title="MySf::BasicList::getColumn" alt="" coords="208,107,407,133"/>
-<area shape="rect" id="node7" href="$class_my_sf_1_1_basic_list.html#a0161298e161766c1d658559c7cd36658" title="MySf::BasicList::setList" alt="" coords="222,157,393,184"/>
-<area shape="rect" id="node3" href="$class_my_sf_1_1_a_list.html#a206b377aa647dffc7b24d62650a14159" title="MySf::AList::setPos" alt="" coords="463,5,609,32"/>
-<area shape="rect" id="node5" href="$class_my_sf_1_1_a_list.html#a3d76ab8fb9252a114bad04bccb80cc47" title="MySf::AList::setSize" alt="" coords="461,56,611,83"/>
-<area shape="rect" id="node8" href="$class_my_sf_1_1_a_list.html#af58386ccda43cc9c0e0c8016854bcbc1" title="MySf::AList::setList" alt="" coords="463,107,609,133"/>
-<area shape="rect" id="node9" href="$class_my_sf_1_1_basic_list.html#a5654ebef086e195836a4e75b100d3404" title="MySf::BasicList::scroll" alt="" coords="455,157,617,184"/>
-<area shape="rect" id="node10" href="$class_my_sf_1_1_basic_list.html#a47d697be9868f833d78c2cbfa32b3e34" title="MySf::BasicList::setList\lPosition" alt="" coords="665,150,836,191"/>
-<area shape="rect" id="node11" href="$class_my_sf_1_1_button_1_1_a_button.html#a90fb4a98f62a1114eaa121dc0e3ccaf1" title="MySf::Button::AButton\l::setActivation" alt="" coords="884,150,1049,191"/>
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_basic_list.html#afbd88b3b1b7ec47186d0611ff92f3596" title="MySDL::BasicList::setPos" alt="" coords="222,5,405,32"/>
+<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_basic_list.html#a76357dd1cc2ca6afd9e7330f5a8283ee" title="MySDL::BasicList::setSize" alt="" coords="220,56,407,83"/>
+<area shape="rect" id="node6" href="$class_my_s_d_l_1_1_basic_list.html#ab18707639768f4c312601059ba8f7094" title="MySDL::BasicList::getColumn" alt="" coords="208,107,419,133"/>
+<area shape="rect" id="node7" href="$class_my_s_d_l_1_1_basic_list.html#a0161298e161766c1d658559c7cd36658" title="MySDL::BasicList::setList" alt="" coords="222,157,405,184"/>
+<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_a_list.html#a1fa76d8d449b5f454cb9970a41fe7e8f" title="MySDL::AList::setPos" alt="" coords="475,5,633,32"/>
+<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_a_list.html#a90e1c0baa5cc76041c449dffbdadc3ce" title="MySDL::AList::setSize" alt="" coords="473,56,635,83"/>
+<area shape="rect" id="node8" href="$class_my_s_d_l_1_1_a_list.html#af58386ccda43cc9c0e0c8016854bcbc1" title="MySDL::AList::setList" alt="" coords="475,107,633,133"/>
+<area shape="rect" id="node9" href="$class_my_s_d_l_1_1_basic_list.html#a5654ebef086e195836a4e75b100d3404" title="MySDL::BasicList::scroll" alt="" coords="467,157,641,184"/>
+<area shape="rect" id="node10" href="$class_my_s_d_l_1_1_basic_list.html#a47d697be9868f833d78c2cbfa32b3e34" title="MySDL::BasicList::setList\lPosition" alt="" coords="689,150,872,191"/>
+<area shape="rect" id="node11" href="$class_my_s_d_l_1_1_button_1_1_a_button.html#adb67ef80972bc619a0f19e04c30a68dc" title="MySDL::Button::AButton\l::setActivation" alt="" coords="920,150,1097,191"/>
 </map>

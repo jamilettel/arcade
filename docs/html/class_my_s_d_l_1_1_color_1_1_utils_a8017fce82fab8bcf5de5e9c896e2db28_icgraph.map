@@ -1,0 +1,12 @@
+<map id="MySDL::Color::Utils::addToColor" name="MySDL::Color::Utils::addToColor">
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_color_1_1_smooth_shifting.html#a0f62559d7e218547b73ee1b511cb35e6" title="MySDL::Color::SmoothShifting\l::getColor" alt="" coords="200,275,416,316"/>
+<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_color_1_1_smooth_shifting.html#a11bfefeca10a2fd3eb99ef76e7f5b5b8" title="MySDL::Color::SmoothShifting\l::setColor" alt="" coords="464,195,680,236"/>
+<area shape="rect" id="node7" href="$class_my_s_d_l_1_1_input_zone.html#ac767868bb0a1f08754eaef2259947bde" title="MySDL::InputZone::draw" alt="" coords="761,303,941,330"/>
+<area shape="rect" id="node11" href="$classarc_1_1_game_scene.html#a153a91652690799750f744263e12840a" title="arc::GameScene::draw" alt="" coords="488,333,656,359"/>
+<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_input_zone.html#a6261e96c7c4015a6d1b83101d324a183" title="MySDL::InputZone::setText\lColor" alt="" coords="753,5,948,47"/>
+<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_input_zone.html#abab62fb913dd3d11c7fe29fff1d817f1" title="MySDL::InputZone::setBackground\lColor" alt="" coords="728,71,973,112"/>
+<area shape="rect" id="node6" href="$class_my_s_d_l_1_1_input_zone.html#ac1ced90b9a8e4399cfbffa2ca5141837" title="MySDL::InputZone::setPlace\lHolderColor" alt="" coords="749,136,952,177"/>
+<area shape="rect" id="node9" href="$classarc_1_1_game_scene.html#a20809db11c85e199854f079046b2a608" title="arc::GameScene::setPause" alt="" coords="753,202,948,229"/>
+<area shape="rect" id="node10" href="$classarc_1_1_game_scene.html#a39affaf92c09a7d15f8e6809b547d533" title="arc::GameScene::GameScene" alt="" coords="743,253,958,279"/>
+<area shape="rect" id="node8" href="$classarc_1_1_main_menu_scene.html#ab12f8f4b33a270da7b99bfa146509f79" title="arc::MainMenuScene\l::draw" alt="" coords="1021,296,1176,337"/>
+</map>

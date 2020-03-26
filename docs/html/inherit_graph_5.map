@@ -1,4 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classarc_1_1_i_game.html" title="arc::IGame" alt="" coords="5,5,99,32"/>
-<area shape="rect" id="node2" href="$classarc_1_1_nibbler.html" title="arc::Nibbler" alt="" coords="147,5,244,32"/>
+<area shape="rect" id="node1" href="$classarc_1_1_i_game.html" title="This interface is the link between a game and the core. All games must derived from this interface an..." alt="" coords="5,31,99,57"/>
+<area shape="rect" id="node2" href="$classarc_1_1_nibbler.html" title="arc::Nibbler" alt="" coords="150,5,247,32"/>
+<area shape="rect" id="node3" href="$classarc_1_1_solarfox.html" title="arc::Solarfox" alt="" coords="147,56,251,83"/>
 </map>

@@ -94,6 +94,9 @@ $(document).ready(function(){initNavTree('_i_game_8hpp.html','');});
 <div class="title">IGame.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Define the IGame interface.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="include_2_utils_8hpp_source.html">Utils.hpp</a>&quot;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
@@ -114,9 +117,11 @@ This graph shows which files directly or indirectly include this file:</div>
 <map name="include_2_i_game_8hppdep" id="include_2_i_game_8hppdep">
 <area shape="rect" id="node2" href="_core_8hpp.html" title="core/include/Core.hpp" alt="" coords="145,87,307,114"/>
 <area shape="rect" id="node5" href="_nibbler_8hpp.html" title="games/lib_arcade_nibbler\l/include/Nibbler.hpp" alt="" coords="331,80,521,121"/>
+<area shape="rect" id="node7" href="_solarfox_8hpp.html" title="games/lib_arcade_solarfox\l/include/Solarfox.hpp" alt="" coords="545,80,742,121"/>
 <area shape="rect" id="node3" href="_core_8cpp.html" title="core/src/Core.cpp" alt="" coords="5,177,140,203"/>
 <area shape="rect" id="node4" href="core_2src_2main_8cpp.html" title="core/src/main.cpp" alt="" coords="164,177,301,203"/>
 <area shape="rect" id="node6" href="_nibbler_8cpp.html" title="games/lib_arcade_nibbler\l/src/Nibbler.cpp" alt="" coords="331,169,521,211"/>
+<area shape="rect" id="node8" href="_solarfox_8cpp.html" title="games/lib_arcade_solarfox\l/src/Solarfox.cpp" alt="" coords="545,169,742,211"/>
 </map>
 </div>
 </div>
@@ -125,6 +130,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classarc_1_1_i_game.html">arc::IGame</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This interface is the link between a game and the core. All games must derived from this interface and implement all methods.  <a href="classarc_1_1_i_game.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -132,7 +138,15 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacearc"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacearc.html">arc</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Define the IGame interface. </p>
+<dl class="section author"><dt>Author</dt><dd>Benjamin Bourgeois - Jamil Ettel </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>2.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>March 8 2020</dd></dl>
+<p>This interface is used by the core to interact with all games. Core will not call method which are not in IGame </p>
+
+<p class="definition">Definition in file <a class="el" href="_i_game_8hpp_source.html">IGame.hpp</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

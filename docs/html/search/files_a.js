@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['sfmlerror_2ecpp',['SfmlError.cpp',['../_sfml_error_8cpp.html',1,'']]],
-  ['sfmlerror_2ehpp',['SfmlError.hpp',['../_sfml_error_8hpp.html',1,'']]],
-  ['sfmlgraphical_2ecpp',['SfmlGraphical.cpp',['../_sfml_graphical_8cpp.html',1,'']]],
-  ['sfmlgraphical_2ehpp',['SfmlGraphical.hpp',['../_sfml_graphical_8hpp.html',1,'']]],
-  ['smoothshifting_2ecpp',['SmoothShifting.cpp',['../_smooth_shifting_8cpp.html',1,'']]],
-  ['smoothshifting_2ehpp',['SmoothShifting.hpp',['../_smooth_shifting_8hpp.html',1,'']]]
+  ['rectangle_2ecpp',['Rectangle.cpp',['../_rectangle_8cpp.html',1,'']]],
+  ['rectangle_2ehpp',['Rectangle.hpp',['../_rectangle_8hpp.html',1,'']]],
+  ['rectbutton_2ecpp',['RectButton.cpp',['../lib__arcade__sdl_2src_2_button_2_rect_button_8cpp.html',1,'(Global Namespace)'],['../lib__arcade__sfml_2_my_sf_2src_2_button_2_rect_button_8cpp.html',1,'(Global Namespace)']]],
+  ['rectbutton_2ehpp',['RectButton.hpp',['../lib__arcade__sdl_2include_2_button_2_rect_button_8hpp.html',1,'(Global Namespace)'],['../lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_button_2_rect_button_8hpp.html',1,'(Global Namespace)']]]
 ];

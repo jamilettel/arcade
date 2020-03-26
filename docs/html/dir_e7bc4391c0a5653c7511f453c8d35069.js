@@ -6,7 +6,7 @@ var dir_e7bc4391c0a5653c7511f453c8d35069 =
     [ "Error.hpp", "lib_2lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_error_8hpp.html", [
       [ "Error", "class_my_sf_1_1_error.html", "class_my_sf_1_1_error" ]
     ] ],
-    [ "InputZone.hpp", "_input_zone_8hpp.html", [
+    [ "InputZone.hpp", "lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_input_zone_8hpp.html", [
       [ "InputZone", "class_my_sf_1_1_input_zone.html", "class_my_sf_1_1_input_zone" ]
     ] ]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['what',['what',['../classarc_1_1_arcade_error.html#aff17875b3725b57e657899b33829e17d',1,'arc::ArcadeError::what()'],['../class_my_sf_1_1_error.html#a94f60633baf3f7cbd175c05a2d5bec86',1,'MySf::Error::what()']]]
+  ['text',['Text',['../class_my_s_d_l_1_1_text.html#ae227edc665e04a2a0ddf08eea5dc8ad6',1,'MySDL::Text::Text(Font &amp;font, const std::string &amp;text, int ptsize, Window &amp;window)'],['../class_my_s_d_l_1_1_text.html#ada8ef052c5e90a97b9cd2cde5f921ba8',1,'MySDL::Text::Text(const Text &amp;rhs)=delete']]]
 ];

@@ -1,11 +1,26 @@
 <map id="arc::GameScene::draw" name="arc::GameScene::draw">
-<area shape="rect" id="node2" href="$classarc_1_1_sfml_graphical.html#a5ab3923748982861444da9624872176c" title="arc::SfmlGraphical\l::getSprite" alt="" coords="257,5,400,47"/>
-<area shape="rect" id="node3" href="$class_my_sf_1_1_basic_list.html#aaed502df5a5579a3ebf8d945074da5bb" title="MySf::BasicList::draw" alt="" coords="249,71,409,98"/>
-<area shape="rect" id="node8" href="$class_my_sf_1_1_color_1_1_smooth_shifting.html#a47f9691852d525bee499999b4b56796e" title="MySf::Color::SmoothShifting\l::getColor" alt="" coords="227,123,431,164"/>
-<area shape="rect" id="node10" href="$classarc_1_1_game_scene.html#abf2c39d0b85bb80b80ebb8163095f1c1" title="arc::GameScene::drawPaused" alt="" coords="221,189,436,215"/>
-<area shape="rect" id="node4" href="$class_my_sf_1_1_basic_list.html#a2a4c133f49f01be04d1d54eb866c9735" title="MySf::BasicList::drawElement" alt="" coords="484,13,699,39"/>
-<area shape="rect" id="node5" href="$class_my_sf_1_1_button_1_1_rect_button.html#ac4b93a11a3251b2c8f8fc5727724baa3" title="MySf::Button::RectButton\l::draw" alt="" coords="499,64,683,105"/>
-<area shape="rect" id="node6" href="$class_my_sf_1_1_button_1_1_a_button.html#aec7a711aef2bdaf9d0efe19bf9e03627" title="MySf::Button::AButton\l::manageCurrentColor" alt="" coords="747,64,912,105"/>
-<area shape="rect" id="node7" href="$class_my_sf_1_1_button_1_1_a_button.html#af374bdbc23788c4ea777176fd884e6d7" title="MySf::Button::AButton\l::manageState" alt="" coords="960,64,1125,105"/>
-<area shape="rect" id="node9" href="$class_my_sf_1_1_color_1_1_utils.html#a29e3fd78740382bbad82e1f0478cf184" title="MySf::Color::Utils\l::addToColor" alt="" coords="524,129,659,171"/>
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_window.html#ab17c4ab4132435adeb2a84882c4ee648" title="MySDL::Window::draw" alt="" coords="787,115,953,141"/>
+<area shape="rect" id="node6" href="$classarc_1_1_s_d_l_graphical.html#aff19df2e92264111ce8c948ac634a1f1" title="arc::SDLGraphical::\lgetUsername" alt="" coords="257,74,402,115"/>
+<area shape="rect" id="node7" href="$class_my_s_d_l_1_1_text.html#a6589aa4c9a27f5482caf78cf4fe7dba7" title="MySDL::Text::setString" alt="" coords="787,165,953,192"/>
+<area shape="rect" id="node8" href="$class_my_s_d_l_1_1_text.html#a57383ad42325611f29c33b55f61ac53c" title="MySDL::Text::setPosition" alt="" coords="779,216,961,243"/>
+<area shape="rect" id="node9" href="$classarc_1_1_s_d_l_graphical.html#a595f22032e72e01675b37d374f9b5c74" title="arc::SDLGraphical::\lgetSprite" alt="" coords="257,267,402,309"/>
+<area shape="rect" id="node10" href="$class_my_s_d_l_1_1_sprite.html#ab63a68605a9df3e2ec15772fd67acf76" title="MySDL::Sprite::setPosition" alt="" coords="233,333,425,360"/>
+<area shape="rect" id="node11" href="$class_my_s_d_l_1_1_sprite.html#aaa03a3165a852a5c2c1fd8be7cc1cdc6" title="MySDL::Sprite::setRotation" alt="" coords="232,384,427,411"/>
+<area shape="rect" id="node12" href="$class_my_s_d_l_1_1_basic_list.html#aaed502df5a5579a3ebf8d945074da5bb" title="MySDL::BasicList::draw" alt="" coords="243,435,415,461"/>
+<area shape="rect" id="node15" href="$class_my_s_d_l_1_1_rectangle.html#a077421fb8fd365ac02b9a6b18f8c34d2" title="MySDL::Rectangle::setColor" alt="" coords="770,587,970,613"/>
+<area shape="rect" id="node23" href="$class_my_s_d_l_1_1_color_1_1_smooth_shifting.html#a0f62559d7e218547b73ee1b511cb35e6" title="MySDL::Color::SmoothShifting\l::getColor" alt="" coords="221,537,437,578"/>
+<area shape="rect" id="node25" href="$classarc_1_1_game_scene.html#abf2c39d0b85bb80b80ebb8163095f1c1" title="arc::GameScene::drawPaused" alt="" coords="222,603,437,629"/>
+<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_sprite.html#a615403d75c20ce50b04ad80f56c31367" title="MySDL::Sprite::getRect" alt="" coords="1041,64,1210,91"/>
+<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_sprite.html#a29f151e6c329a4b55e8e99e00d2730b4" title="MySDL::Sprite::getTexture" alt="" coords="1031,115,1220,141"/>
+<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_sprite.html#a869c0b847f53cfb46cfb30d5b27f600f" title="MySDL::Sprite::getRotation" alt="" coords="1028,165,1223,192"/>
+<area shape="rect" id="node13" href="$class_my_s_d_l_1_1_basic_list.html#a9e439529f1b12c99aca50c5ac6d00693" title="MySDL::BasicList::drawElement" alt="" coords="485,267,712,293"/>
+<area shape="rect" id="node14" href="$class_my_s_d_l_1_1_rectangle.html#ac9054b1bec24b427eebd7368023e5604" title="MySDL::Rectangle::setPosition" alt="" coords="761,267,979,293"/>
+<area shape="rect" id="node17" href="$class_my_s_d_l_1_1_button_1_1_rect_button.html#ac4b93a11a3251b2c8f8fc5727724baa3" title="MySDL::Button::RectButton\l::draw" alt="" coords="501,369,697,410"/>
+<area shape="rect" id="node16" href="$class_my_s_d_l_1_1_text.html#aaa23c319e8d8ea55ae78ba6b568d2474" title="MySDL::Text::getRect" alt="" coords="791,317,949,344"/>
+<area shape="rect" id="node18" href="$class_my_s_d_l_1_1_text.html#aaaa1e9d976aeafba931ae343ed946d87" title="MySDL::Text::getCharacterSize" alt="" coords="760,368,980,395"/>
+<area shape="rect" id="node19" href="$class_my_s_d_l_1_1_button_1_1_a_button.html#afc4b207d21dba6667b5ce24819ec0564" title="MySDL::Button::AButton\l::manageCurrentColor" alt="" coords="781,419,959,461"/>
+<area shape="rect" id="node21" href="$class_my_s_d_l_1_1_rectangle.html#ad2ca2341aaded255127c3750a8266fac" title="MySDL::Rectangle::setSize" alt="" coords="773,485,967,512"/>
+<area shape="rect" id="node22" href="$class_my_s_d_l_1_1_text.html#a4bd4a75690a6c79b5866d31d25584f90" title="MySDL::Text::setColor" alt="" coords="789,536,951,563"/>
+<area shape="rect" id="node20" href="$class_my_s_d_l_1_1_button_1_1_a_button.html#aced3fdf0e36e20991c065bd9de1fcead" title="MySDL::Button::AButton\l::manageState" alt="" coords="1037,419,1214,461"/>
+<area shape="rect" id="node24" href="$class_my_s_d_l_1_1_color_1_1_utils.html#a8017fce82fab8bcf5de5e9c896e2db28" title="MySDL::Color::Utils\l::addToColor" alt="" coords="525,537,672,578"/>
 </map>

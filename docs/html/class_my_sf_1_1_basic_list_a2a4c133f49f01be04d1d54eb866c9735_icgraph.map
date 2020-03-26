@@ -1,5 +1,3 @@
 <map id="MySf::BasicList::drawElement" name="MySf::BasicList::drawElement">
-<area shape="rect" id="node2" href="$class_my_sf_1_1_basic_list.html#aaed502df5a5579a3ebf8d945074da5bb" title="MySf::BasicList::draw" alt="" coords="268,35,428,61"/>
-<area shape="rect" id="node3" href="$classarc_1_1_game_scene.html#a153a91652690799750f744263e12840a" title="arc::GameScene::draw" alt="" coords="476,5,644,32"/>
-<area shape="rect" id="node4" href="$classarc_1_1_main_menu_scene.html#ab12f8f4b33a270da7b99bfa146509f79" title="arc::MainMenuScene\l::draw" alt="" coords="483,57,637,98"/>
+<area shape="rect" id="node2" href="$class_my_sf_1_1_basic_list.html#aaed502df5a5579a3ebf8d945074da5bb" title="MySf::BasicList::draw" alt="" coords="268,5,428,32"/>
 </map>
