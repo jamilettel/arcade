@@ -56,7 +56,7 @@ namespace arc {
 
         /**
          *  \brief Getter for the sound
-         *  \return path of the sound file
+         *  \return path of the sound file, or empty string if no sound should be played at the moment
          */
         virtual const std::string &getSound() const = 0;
 
@@ -68,7 +68,7 @@ namespace arc {
 
         /**
          *  \brief Getter for the controls of the game.
-         *  A control is a pair of Event::Type (like KEY_PRESSED) and the Event::Key (like B) associate with a function to call when the event comes.
+         *  A control is a pair of Event::Type (e.g. KEY_PRESSED) and the Event::Key (e.g. B) associated with a function to call when the event comes.
          */
         virtual const std::map<std::pair<Event::Type, Event::Key>, std::function<void ()>> &getControls() const = 0;
 
@@ -80,7 +80,7 @@ namespace arc {
 
         /**
          *  \brief Getter for the game controls indication.
-         *  \return all the controls indication (Exemple : first is MOVE DOWN, second is : KEY_DOWN).
+         *  \return all the controls indication (e.g. first is MOVE DOWN, second is : KEY_DOWN).
          */
         virtual const std::vector<std::pair<std::string, std::string>> &getGameControls() const = 0;
 
@@ -96,7 +96,8 @@ namespace arc {
         virtual void restart() = 0;
 
         /**
-         *  \brief updateGame function should be call in a loop. It's used to advance the game and update all logic.
+         *  \brief updateGame function should be called in a loop. It's used to advance the game and update all logic.
+         *  \brief The game must manage time on it's own.
          */
         virtual void updateGame() = 0;
 
