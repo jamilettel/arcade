@@ -1,4 +1,5 @@
 <map id="MySDL::Text::findCharacterPos" name="MySDL::Text::findCharacterPos">
-<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_input_zone.html#ac767868bb0a1f08754eaef2259947bde" title="MySDL::InputZone::draw" alt="" coords="272,13,452,39"/>
-<area shape="rect" id="node3" href="$classarc_1_1_main_menu_scene.html#ab12f8f4b33a270da7b99bfa146509f79" title="arc::MainMenuScene\l::draw" alt="" coords="500,5,655,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="440,13,660,39"/>
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_input_zone.html#ac767868bb0a1f08754eaef2259947bde" title=" " alt="" coords="211,13,392,39"/>
+<area shape="rect" id="node3" href="$classarc_1_1_main_menu_scene.html#ab12f8f4b33a270da7b99bfa146509f79" title=" " alt="" coords="5,5,163,47"/>
 </map>

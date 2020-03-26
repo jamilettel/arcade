@@ -1,13 +1,25 @@
 <map id="lib/lib_arcade_sdl/include/SDLGraphical.hpp" name="lib/lib_arcade_sdl/include/SDLGraphical.hpp">
-<area shape="rect" id="node2" href="$lib__arcade__sdl_2include_2_scene_2_i_scene_8hpp.html" title="Scene/IScene.hpp" alt="" coords="1163,95,1299,121"/>
-<area shape="rect" id="node8" href="$lib__arcade__sdl_2include_2_input_zone_8hpp.html" title="InputZone.hpp" alt="" coords="721,95,837,121"/>
-<area shape="rect" id="node11" href="$_text_8hpp.html" title="MySDL/Text.hpp" alt="" coords="717,169,842,196"/>
-<area shape="rect" id="node16" href="$_i_graphical_8hpp.html" title="IGraphical.hpp" alt="" coords="233,169,349,196"/>
-<area shape="rect" id="node20" href="$lib__arcade__sdl_2include_2_button_2_rect_button_8hpp.html" title="Button/RectButton.hpp" alt="" coords="914,95,1082,121"/>
-<area shape="rect" id="node22" href="$_sprite_8hpp.html" title="MySDL/Sprite.hpp" alt="" coords="1327,169,1463,196"/>
-<area shape="rect" id="node3" href="$_window_8hpp.html" title="MySDL/Window.hpp" alt="" coords="923,244,1073,271"/>
-<area shape="rect" id="node9" href="$lib__arcade__sdl_2include_2_color_2_smooth_shifting_8hpp.html" title="Color/SmoothShifting.hpp" alt="" coords="453,169,641,196"/>
-<area shape="rect" id="node14" href="$_rectangle_8hpp.html" title="MySDL/Rectangle.hpp" alt="" coords="917,169,1079,196"/>
-<area shape="rect" id="node12" href="$_font_8hpp.html" title="Font.hpp" alt="" coords="729,244,808,271"/>
-<area shape="rect" id="node19" href="$include_2_utils_8hpp.html" title="Utils.hpp" alt="" coords="143,244,223,271"/>
+<area shape="rect" id="node1" title=" " alt="" coords="842,5,1034,47"/>
+<area shape="rect" id="node2" href="$lib__arcade__sdl_2include_2_scene_2_i_scene_8hpp.html" title=" " alt="" coords="1166,95,1302,121"/>
+<area shape="rect" id="node8" href="$lib__arcade__sdl_2include_2_input_zone_8hpp.html" title=" " alt="" coords="723,95,839,121"/>
+<area shape="rect" id="node11" href="$_text_8hpp.html" title=" " alt="" coords="717,169,844,196"/>
+<area shape="rect" id="node16" href="$_i_graphical_8hpp.html" title="Graphical interface." alt="" coords="233,169,349,196"/>
+<area shape="rect" id="node20" href="$lib__arcade__sdl_2include_2_button_2_rect_button_8hpp.html" title=" " alt="" coords="917,95,1085,121"/>
+<area shape="rect" id="node22" href="$_sprite_8hpp.html" title=" " alt="" coords="1331,169,1468,196"/>
+<area shape="rect" id="node3" href="$_window_8hpp.html" title=" " alt="" coords="925,244,1076,271"/>
+<area shape="rect" id="node4" title=" " alt="" coords="1198,319,1294,345"/>
+<area shape="rect" id="node5" title=" " alt="" coords="966,319,1105,345"/>
+<area shape="rect" id="node6" title=" " alt="" coords="797,319,914,345"/>
+<area shape="rect" id="node7" title=" " alt="" coords="682,319,741,345"/>
+<area shape="rect" id="node9" href="$lib__arcade__sdl_2include_2_color_2_smooth_shifting_8hpp.html" title=" " alt="" coords="453,169,641,196"/>
+<area shape="rect" id="node14" href="$_rectangle_8hpp.html" title=" " alt="" coords="919,169,1082,196"/>
+<area shape="rect" id="node15" title=" " alt="" coords="410,244,487,271"/>
+<area shape="rect" id="node10" title=" " alt="" coords="511,244,642,271"/>
+<area shape="rect" id="node12" href="$_font_8hpp.html" title=" " alt="" coords="729,244,808,271"/>
+<area shape="rect" id="node13" title=" " alt="" coords="361,319,411,345"/>
+<area shape="rect" id="node17" title=" " alt="" coords="5,244,68,271"/>
+<area shape="rect" id="node18" title=" " alt="" coords="248,244,335,271"/>
+<area shape="rect" id="node19" href="$include_2_utils_8hpp.html" title=" " alt="" coords="143,244,223,271"/>
+<area shape="rect" id="node21" title=" " alt="" coords="1106,169,1255,196"/>
+<area shape="rect" id="node23" title=" " alt="" coords="1327,244,1471,271"/>
 </map>

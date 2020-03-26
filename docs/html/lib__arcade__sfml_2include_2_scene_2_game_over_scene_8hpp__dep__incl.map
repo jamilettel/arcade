@@ -1,6 +1,7 @@
 <map id="lib/lib_arcade_sfml/include/Scene/GameOverScene.hpp" name="lib/lib_arcade_sfml/include/Scene/GameOverScene.hpp">
-<area shape="rect" id="node2" href="$lib__arcade__sdl_2src_2_scene_2_game_over_scene_8cpp.html" title="lib/lib_arcade_sdl\l/src/Scene/GameOverScene.cpp" alt="" coords="5,95,233,136"/>
-<area shape="rect" id="node3" href="$_s_d_l_graphical_8cpp.html" title="lib/lib_arcade_sdl\l/src/SDLGraphical.cpp" alt="" coords="258,95,421,136"/>
-<area shape="rect" id="node4" href="$lib__arcade__sfml_2src_2_scene_2_game_over_scene_8cpp.html" title="lib/lib_arcade_sfml\l/src/Scene/GameOverScene.cpp" alt="" coords="445,95,673,136"/>
-<area shape="rect" id="node5" href="$_sfml_graphical_8cpp.html" title="lib/lib_arcade_sfml\l/src/SfmlGraphical.cpp" alt="" coords="698,95,866,136"/>
+<area shape="rect" id="node1" title=" " alt="" coords="320,5,577,47"/>
+<area shape="rect" id="node2" href="$lib__arcade__sdl_2src_2_scene_2_game_over_scene_8cpp.html" title=" " alt="" coords="5,95,233,136"/>
+<area shape="rect" id="node3" href="$_s_d_l_graphical_8cpp.html" title=" " alt="" coords="258,95,421,136"/>
+<area shape="rect" id="node4" href="$lib__arcade__sfml_2src_2_scene_2_game_over_scene_8cpp.html" title=" " alt="" coords="445,95,673,136"/>
+<area shape="rect" id="node5" href="$_sfml_graphical_8cpp.html" title=" " alt="" coords="698,95,866,136"/>
 </map>

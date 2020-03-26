@@ -1,4 +1,10 @@
 <map id="lib/lib_arcade_sdl/include/Button/RectButton.hpp" name="lib/lib_arcade_sdl/include/Button/RectButton.hpp">
-<area shape="rect" id="node3" href="$_rectangle_8hpp.html" title="MySDL/Rectangle.hpp" alt="" coords="189,95,352,121"/>
-<area shape="rect" id="node4" href="$_window_8hpp.html" title="MySDL/Window.hpp" alt="" coords="196,169,345,196"/>
+<area shape="rect" id="node1" title=" " alt="" coords="69,5,291,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="16,95,165,121"/>
+<area shape="rect" id="node3" href="$_rectangle_8hpp.html" title=" " alt="" coords="189,95,352,121"/>
+<area shape="rect" id="node4" href="$_window_8hpp.html" title=" " alt="" coords="195,169,346,196"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,244,101,271"/>
+<area shape="rect" id="node6" title=" " alt="" coords="125,244,264,271"/>
+<area shape="rect" id="node7" title=" " alt="" coords="288,244,405,271"/>
+<area shape="rect" id="node8" title=" " alt="" coords="429,244,488,271"/>
 </map>

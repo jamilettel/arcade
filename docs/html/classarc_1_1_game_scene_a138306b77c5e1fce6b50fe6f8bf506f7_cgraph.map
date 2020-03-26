@@ -1,6 +1,7 @@
 <map id="arc::GameScene::setGameTitle" name="arc::GameScene::setGameTitle">
-<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_text.html#a6589aa4c9a27f5482caf78cf4fe7dba7" title="MySDL::Text::setString" alt="" coords="285,5,451,32"/>
-<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_text.html#aaa23c319e8d8ea55ae78ba6b568d2474" title="MySDL::Text::getRect" alt="" coords="289,56,447,83"/>
-<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_text.html#a57383ad42325611f29c33b55f61ac53c" title="MySDL::Text::setPosition" alt="" coords="277,107,459,133"/>
-<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_window.html#aa2db8f4790c323045dc9743118f3d31d" title="MySDL::Window::getSize" alt="" coords="277,157,459,184"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,81,229,108"/>
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_text.html#a6589aa4c9a27f5482caf78cf4fe7dba7" title=" " alt="" coords="285,5,453,32"/>
+<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_text.html#aaa23c319e8d8ea55ae78ba6b568d2474" title=" " alt="" coords="289,56,448,83"/>
+<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_text.html#a57383ad42325611f29c33b55f61ac53c" title=" " alt="" coords="277,107,460,133"/>
+<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_window.html#aa2db8f4790c323045dc9743118f3d31d" title=" " alt="" coords="277,157,460,184"/>
 </map>

@@ -1,10 +1,11 @@
 <map id="arc::GameScene::update" name="arc::GameScene::update">
-<area shape="rect" id="node2" href="$classarc_1_1_s_d_l_graphical.html#a1f6efcb95be3a40d21ef875a8bb5f982" title="arc::SDLGraphical::\lgetEventType" alt="" coords="255,5,400,47"/>
-<area shape="rect" id="node3" href="$classarc_1_1_s_d_l_graphical.html#a0cedf16fd80d47fc29e847645843d2d5" title="arc::SDLGraphical::\lgetKeyPressed" alt="" coords="255,71,400,112"/>
-<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_basic_list.html#ad2fc44bdfb24fa27925626cb70b15205" title="MySDL::BasicList::update" alt="" coords="235,137,420,163"/>
-<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_rectangle.html#a64f55d82bd1ae808b0d08ce854abee8d" title="MySDL::Rectangle::getRect" alt="" coords="468,86,663,113"/>
-<area shape="rect" id="node6" href="$class_my_s_d_l_1_1_basic_list.html#a5654ebef086e195836a4e75b100d3404" title="MySDL::BasicList::scroll" alt="" coords="478,137,653,163"/>
-<area shape="rect" id="node9" href="$class_my_s_d_l_1_1_button_1_1_a_button.html#a79854450aa2e0089e1e9cb569eabfdf2" title="MySDL::Button::AButton\l::update" alt="" coords="477,188,654,229"/>
-<area shape="rect" id="node7" href="$class_my_s_d_l_1_1_basic_list.html#a47d697be9868f833d78c2cbfa32b3e34" title="MySDL::BasicList::setList\lPosition" alt="" coords="711,129,893,171"/>
-<area shape="rect" id="node8" href="$class_my_s_d_l_1_1_button_1_1_a_button.html#adb67ef80972bc619a0f19e04c30a68dc" title="MySDL::Button::AButton\l::setActivation" alt="" coords="941,129,1119,171"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,78,187,105"/>
+<area shape="rect" id="node2" href="$classarc_1_1_s_d_l_graphical.html#a1f6efcb95be3a40d21ef875a8bb5f982" title="This function must return the event type. It is called once per frame." alt="" coords="255,5,401,47"/>
+<area shape="rect" id="node3" href="$classarc_1_1_s_d_l_graphical.html#a0cedf16fd80d47fc29e847645843d2d5" title="This function must returns the key pressed, if any. It is also called once per frame." alt="" coords="255,71,401,112"/>
+<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_basic_list.html#ad2fc44bdfb24fa27925626cb70b15205" title=" " alt="" coords="235,137,421,163"/>
+<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_rectangle.html#a64f55d82bd1ae808b0d08ce854abee8d" title=" " alt="" coords="469,86,665,113"/>
+<area shape="rect" id="node6" href="$class_my_s_d_l_1_1_basic_list.html#a5654ebef086e195836a4e75b100d3404" title=" " alt="" coords="479,137,655,163"/>
+<area shape="rect" id="node9" href="$class_my_s_d_l_1_1_button_1_1_a_button.html#a79854450aa2e0089e1e9cb569eabfdf2" title=" " alt="" coords="478,188,657,229"/>
+<area shape="rect" id="node7" href="$class_my_s_d_l_1_1_basic_list.html#a47d697be9868f833d78c2cbfa32b3e34" title=" " alt="" coords="713,129,897,171"/>
+<area shape="rect" id="node8" href="$class_my_s_d_l_1_1_button_1_1_a_button.html#adb67ef80972bc619a0f19e04c30a68dc" title=" " alt="" coords="945,129,1124,171"/>
 </map>

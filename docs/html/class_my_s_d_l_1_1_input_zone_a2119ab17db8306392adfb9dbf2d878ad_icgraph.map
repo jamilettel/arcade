@@ -1,3 +1,4 @@
 <map id="MySDL::InputZone::update" name="MySDL::InputZone::update">
-<area shape="rect" id="node2" href="$classarc_1_1_main_menu_scene.html#a8ef931a2e3414da19afe89db094da5bd" title="arc::MainMenuScene\l::update" alt="" coords="247,5,401,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="211,13,405,39"/>
+<area shape="rect" id="node2" href="$classarc_1_1_main_menu_scene.html#a8ef931a2e3414da19afe89db094da5bd" title=" " alt="" coords="5,5,163,47"/>
 </map>

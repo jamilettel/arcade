@@ -1,4 +1,5 @@
 <map id="MySDL::BasicList::getColumn" name="MySDL::BasicList::getColumn">
-<area shape="rect" id="node2" href="$classarc_1_1_main_menu_scene.html#adb1981846801e80409d7c1a1ee5017e1" title="arc::MainMenuScene\l::setHowToPlay" alt="" coords="264,5,419,47"/>
-<area shape="rect" id="node3" href="$classarc_1_1_main_menu_scene.html#a8a8c85287ee70320958aefc98097f4ee" title="arc::MainMenuScene\l::setScores" alt="" coords="264,71,419,112"/>
+<area shape="rect" id="node1" title=" " alt="" coords="211,46,423,73"/>
+<area shape="rect" id="node2" href="$classarc_1_1_main_menu_scene.html#adb1981846801e80409d7c1a1ee5017e1" title=" " alt="" coords="5,5,163,47"/>
+<area shape="rect" id="node3" href="$classarc_1_1_main_menu_scene.html#a8a8c85287ee70320958aefc98097f4ee" title=" " alt="" coords="5,71,163,112"/>
 </map>

@@ -1,4 +1,5 @@
 <map id="arc::SDLGraphical::display" name="arc::SDLGraphical::display">
-<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_window.html#afadfafa5a0b9472554759004aafb327e" title="MySDL::Window::display" alt="" coords="199,5,379,32"/>
-<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_window.html#a657e932e0076a79cf11a7e8d1c55d9c5" title="MySDL::Window::clear" alt="" coords="206,56,371,83"/>
+<area shape="rect" id="node1" title="This function must display the current scene. It is used in the game loop." alt="" coords="5,23,151,65"/>
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_window.html#afadfafa5a0b9472554759004aafb327e" title=" " alt="" coords="199,5,380,32"/>
+<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_window.html#a657e932e0076a79cf11a7e8d1c55d9c5" title=" " alt="" coords="206,56,373,83"/>
 </map>

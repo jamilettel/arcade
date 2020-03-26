@@ -1,5 +1,6 @@
 <map id="MySf::BasicList::update" name="MySf::BasicList::update">
-<area shape="rect" id="node2" href="$class_my_sf_1_1_basic_list.html#a5654ebef086e195836a4e75b100d3404" title="MySf::BasicList::scroll" alt="" coords="227,13,389,39"/>
-<area shape="rect" id="node3" href="$class_my_sf_1_1_basic_list.html#a47d697be9868f833d78c2cbfa32b3e34" title="MySf::BasicList::setList\lPosition" alt="" coords="437,5,608,47"/>
-<area shape="rect" id="node4" href="$class_my_sf_1_1_button_1_1_a_button.html#a90fb4a98f62a1114eaa121dc0e3ccaf1" title="MySf::Button::AButton\l::setActivation" alt="" coords="656,5,821,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,13,180,39"/>
+<area shape="rect" id="node2" href="$class_my_sf_1_1_basic_list.html#a5654ebef086e195836a4e75b100d3404" title=" " alt="" coords="228,13,392,39"/>
+<area shape="rect" id="node3" href="$class_my_sf_1_1_basic_list.html#a47d697be9868f833d78c2cbfa32b3e34" title=" " alt="" coords="440,5,612,47"/>
+<area shape="rect" id="node4" href="$class_my_sf_1_1_button_1_1_a_button.html#a90fb4a98f62a1114eaa121dc0e3ccaf1" title=" " alt="" coords="660,5,827,47"/>
 </map>

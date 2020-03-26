@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['button_5fcolor',['BUTTON_COLOR',['../_s_d_l_graphical_8hpp.html#ae2ace4cb15e6e591e2cbd8dc9529a96d',1,'BUTTON_COLOR():&#160;SDLGraphical.hpp'],['../lib_2lib__arcade__sdl_2src_2main_8cpp.html#ae2ace4cb15e6e591e2cbd8dc9529a96d',1,'BUTTON_COLOR():&#160;main.cpp'],['../_sfml_graphical_8hpp.html#ae2ace4cb15e6e591e2cbd8dc9529a96d',1,'BUTTON_COLOR():&#160;SfmlGraphical.hpp']]]
+  ['cols_5fsnake',['COLS_SNAKE',['../_nibbler_8hpp.html#a43725a120a54eb975bd03f627dc7d5a4',1,'Nibbler.hpp']]],
+  ['constructor',['CONSTRUCTOR',['../_d_l_loader_8hpp.html#a5facd426173a400e33c57d48617b3a66',1,'DLLoader.hpp']]]
 ];

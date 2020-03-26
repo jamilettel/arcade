@@ -1,6 +1,9 @@
 <map id="lib/lib_arcade_sfml/MySf/src/InputZone.cpp" name="lib/lib_arcade_sfml/MySf/src/InputZone.cpp">
-<area shape="rect" id="node2" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_input_zone_8hpp.html" title="MySf/InputZone.hpp" alt="" coords="191,95,343,121"/>
-<area shape="rect" id="node3" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_color_2_smooth_shifting_8hpp.html" title="MySf/Color/SmoothShifting.hpp" alt="" coords="5,169,229,196"/>
-<area shape="rect" id="node4" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_color_2_a_color_8hpp.html" title="MySf/Color/AColor.hpp" alt="" coords="49,244,215,271"/>
-<area shape="rect" id="node5" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_color_2_i_color_8hpp.html" title="MySf/Color/IColor.hpp" alt="" coords="59,319,221,345"/>
+<area shape="rect" id="node1" title=" " alt="" coords="179,5,358,47"/>
+<area shape="rect" id="node2" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_input_zone_8hpp.html" title=" " alt="" coords="192,95,345,121"/>
+<area shape="rect" id="node3" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_color_2_smooth_shifting_8hpp.html" title=" " alt="" coords="5,169,231,196"/>
+<area shape="rect" id="node6" title=" " alt="" coords="127,393,274,420"/>
+<area shape="rect" id="node7" title=" " alt="" coords="306,169,383,196"/>
+<area shape="rect" id="node4" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_color_2_a_color_8hpp.html" title=" " alt="" coords="49,244,216,271"/>
+<area shape="rect" id="node5" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_color_2_i_color_8hpp.html" title=" " alt="" coords="61,319,223,345"/>
 </map>

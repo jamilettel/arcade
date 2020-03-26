@@ -1,13 +1,14 @@
 <map id="MySDL::Button::AButton::setActivation" name="MySDL::Button::AButton::setActivation">
-<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_basic_list.html#a47d697be9868f833d78c2cbfa32b3e34" title="MySDL::BasicList::setList\lPosition" alt="" coords="231,224,413,265"/>
-<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_basic_list.html#a5654ebef086e195836a4e75b100d3404" title="MySDL::BasicList::scroll" alt="" coords="461,231,636,258"/>
-<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_basic_list.html#ad2fc44bdfb24fa27925626cb70b15205" title="MySDL::BasicList::update" alt="" coords="684,137,869,163"/>
-<area shape="rect" id="node9" href="$class_my_s_d_l_1_1_basic_list.html#a0161298e161766c1d658559c7cd36658" title="MySDL::BasicList::setList" alt="" coords="685,293,868,319"/>
-<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_button_list.html#a15348afe7f5f420a3cf3076a37f7cd33" title="MySDL::ButtonList::\lupdate" alt="" coords="934,5,1082,47"/>
-<area shape="rect" id="node6" href="$classarc_1_1_game_over_scene.html#ae46c8635d42e0833952b8537de715fab" title="arc::GameOverScene\l::update" alt="" coords="929,71,1087,112"/>
-<area shape="rect" id="node7" href="$classarc_1_1_game_scene.html#a104a5898c820105422883e9d2bed6f03" title="arc::GameScene::update" alt="" coords="917,137,1099,163"/>
-<area shape="rect" id="node8" href="$classarc_1_1_main_menu_scene.html#a8ef931a2e3414da19afe89db094da5bd" title="arc::MainMenuScene\l::update" alt="" coords="931,188,1085,229"/>
-<area shape="rect" id="node10" href="$classarc_1_1_game_over_scene.html#af2143396b343449d7888f2f70edc0975" title="arc::GameOverScene\l::setCurrentStats" alt="" coords="929,253,1087,295"/>
-<area shape="rect" id="node11" href="$classarc_1_1_main_menu_scene.html#adb1981846801e80409d7c1a1ee5017e1" title="arc::MainMenuScene\l::setHowToPlay" alt="" coords="931,319,1085,360"/>
-<area shape="rect" id="node12" href="$classarc_1_1_main_menu_scene.html#a8a8c85287ee70320958aefc98097f4ee" title="arc::MainMenuScene\l::setScores" alt="" coords="931,384,1085,425"/>
+<area shape="rect" id="node1" title=" " alt="" coords="925,224,1104,265"/>
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_basic_list.html#a47d697be9868f833d78c2cbfa32b3e34" title=" " alt="" coords="693,224,877,265"/>
+<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_basic_list.html#a5654ebef086e195836a4e75b100d3404" title=" " alt="" coords="469,231,645,258"/>
+<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_basic_list.html#ad2fc44bdfb24fa27925626cb70b15205" title=" " alt="" coords="235,137,421,163"/>
+<area shape="rect" id="node9" href="$class_my_s_d_l_1_1_basic_list.html#a0161298e161766c1d658559c7cd36658" title=" " alt="" coords="236,293,420,319"/>
+<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_button_list.html#a15348afe7f5f420a3cf3076a37f7cd33" title=" " alt="" coords="21,5,171,47"/>
+<area shape="rect" id="node6" href="$classarc_1_1_game_over_scene.html#ae46c8635d42e0833952b8537de715fab" title=" " alt="" coords="17,71,175,112"/>
+<area shape="rect" id="node7" href="$classarc_1_1_game_scene.html#a104a5898c820105422883e9d2bed6f03" title=" " alt="" coords="5,137,187,163"/>
+<area shape="rect" id="node8" href="$classarc_1_1_main_menu_scene.html#a8ef931a2e3414da19afe89db094da5bd" title=" " alt="" coords="17,188,175,229"/>
+<area shape="rect" id="node10" href="$classarc_1_1_game_over_scene.html#af2143396b343449d7888f2f70edc0975" title=" " alt="" coords="17,253,175,295"/>
+<area shape="rect" id="node11" href="$classarc_1_1_main_menu_scene.html#adb1981846801e80409d7c1a1ee5017e1" title=" " alt="" coords="17,319,175,360"/>
+<area shape="rect" id="node12" href="$classarc_1_1_main_menu_scene.html#a8a8c85287ee70320958aefc98097f4ee" title=" " alt="" coords="17,384,175,425"/>
 </map>

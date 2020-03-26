@@ -1,3 +1,4 @@
 <map id="arc::Solarfox" name="arc::Solarfox">
+<area shape="rect" id="node1" title=" " alt="" coords="5,80,109,107"/>
 <area shape="rect" id="node2" href="$classarc_1_1_i_game.html" title="This interface is the link between a game and the core. All games must derived from this interface an..." alt="" coords="11,5,104,32"/>
 </map>

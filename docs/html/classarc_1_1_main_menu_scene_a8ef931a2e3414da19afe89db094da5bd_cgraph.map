@@ -1,9 +1,10 @@
 <map id="arc::MainMenuScene::update" name="arc::MainMenuScene::update">
-<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_input_zone.html#a2119ab17db8306392adfb9dbf2d878ad" title="MySDL::InputZone::update" alt="" coords="208,5,401,32"/>
-<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_basic_list.html#ad2fc44bdfb24fa27925626cb70b15205" title="MySDL::BasicList::update" alt="" coords="212,56,397,83"/>
-<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_rectangle.html#a64f55d82bd1ae808b0d08ce854abee8d" title="MySDL::Rectangle::getRect" alt="" coords="449,5,644,32"/>
-<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_basic_list.html#a5654ebef086e195836a4e75b100d3404" title="MySDL::BasicList::scroll" alt="" coords="459,56,634,83"/>
-<area shape="rect" id="node8" href="$class_my_s_d_l_1_1_button_1_1_a_button.html#a79854450aa2e0089e1e9cb569eabfdf2" title="MySDL::Button::AButton\l::update" alt="" coords="458,107,635,149"/>
-<area shape="rect" id="node6" href="$class_my_s_d_l_1_1_basic_list.html#a47d697be9868f833d78c2cbfa32b3e34" title="MySDL::BasicList::setList\lPosition" alt="" coords="692,49,875,90"/>
-<area shape="rect" id="node7" href="$class_my_s_d_l_1_1_button_1_1_a_button.html#adb67ef80972bc619a0f19e04c30a68dc" title="MySDL::Button::AButton\l::setActivation" alt="" coords="923,49,1100,90"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,23,163,65"/>
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_input_zone.html#a2119ab17db8306392adfb9dbf2d878ad" title=" " alt="" coords="211,5,405,32"/>
+<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_basic_list.html#ad2fc44bdfb24fa27925626cb70b15205" title=" " alt="" coords="215,56,401,83"/>
+<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_rectangle.html#a64f55d82bd1ae808b0d08ce854abee8d" title=" " alt="" coords="453,5,649,32"/>
+<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_basic_list.html#a5654ebef086e195836a4e75b100d3404" title=" " alt="" coords="463,56,639,83"/>
+<area shape="rect" id="node8" href="$class_my_s_d_l_1_1_button_1_1_a_button.html#a79854450aa2e0089e1e9cb569eabfdf2" title=" " alt="" coords="462,107,641,149"/>
+<area shape="rect" id="node6" href="$class_my_s_d_l_1_1_basic_list.html#a47d697be9868f833d78c2cbfa32b3e34" title=" " alt="" coords="697,49,881,90"/>
+<area shape="rect" id="node7" href="$class_my_s_d_l_1_1_button_1_1_a_button.html#adb67ef80972bc619a0f19e04c30a68dc" title=" " alt="" coords="929,49,1108,90"/>
 </map>

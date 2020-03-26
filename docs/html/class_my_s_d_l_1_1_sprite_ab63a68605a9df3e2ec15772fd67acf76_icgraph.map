@@ -1,4 +1,5 @@
 <map id="MySDL::Sprite::setPosition" name="MySDL::Sprite::setPosition">
-<area shape="rect" id="node2" href="$lib_2lib__arcade__sdl_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="302,5,357,32"/>
-<area shape="rect" id="node3" href="$classarc_1_1_game_scene.html#a153a91652690799750f744263e12840a" title="arc::GameScene::draw" alt="" coords="245,56,413,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="221,31,415,57"/>
+<area shape="rect" id="node2" href="$lib_2lib__arcade__sdl_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="62,5,117,32"/>
+<area shape="rect" id="node3" href="$classarc_1_1_game_scene.html#a153a91652690799750f744263e12840a" title=" " alt="" coords="5,56,173,83"/>
 </map>

@@ -1,8 +1,13 @@
 <map id="lib/lib_arcade_sfml/MySf/src/Button/RectButton.cpp" name="lib/lib_arcade_sfml/MySf/src/Button/RectButton.cpp">
-<area shape="rect" id="node2" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_button_2_rect_button_8hpp.html" title="MySf/Button/RectButton.hpp" alt="" coords="120,95,324,121"/>
-<area shape="rect" id="node10" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_color_2_smooth_shifting_8hpp.html" title="MySf/Color/SmoothShifting.hpp" alt="" coords="349,95,573,121"/>
-<area shape="rect" id="node3" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_button_2_a_button_8hpp.html" title="MySf/Button/AButton.hpp" alt="" coords="148,169,333,196"/>
-<area shape="rect" id="node4" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_button_2_i_button_8hpp.html" title="MySf/Button/IButton.hpp" alt="" coords="5,244,185,271"/>
-<area shape="rect" id="node6" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_color_2_i_color_8hpp.html" title="MySf/Color/IColor.hpp" alt="" coords="204,319,365,345"/>
-<area shape="rect" id="node11" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_color_2_a_color_8hpp.html" title="MySf/Color/AColor.hpp" alt="" coords="367,169,533,196"/>
+<area shape="rect" id="node1" title=" " alt="" coords="227,5,458,47"/>
+<area shape="rect" id="node2" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_button_2_rect_button_8hpp.html" title=" " alt="" coords="120,95,325,121"/>
+<area shape="rect" id="node10" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_color_2_smooth_shifting_8hpp.html" title=" " alt="" coords="350,95,575,121"/>
+<area shape="rect" id="node3" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_button_2_a_button_8hpp.html" title=" " alt="" coords="148,169,335,196"/>
+<area shape="rect" id="node4" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_button_2_i_button_8hpp.html" title=" " alt="" coords="5,244,187,271"/>
+<area shape="rect" id="node8" title=" " alt="" coords="211,244,288,271"/>
+<area shape="rect" id="node9" title=" " alt="" coords="312,244,392,271"/>
+<area shape="rect" id="node5" title=" " alt="" coords="97,393,244,420"/>
+<area shape="rect" id="node6" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_color_2_i_color_8hpp.html" title=" " alt="" coords="205,319,368,345"/>
+<area shape="rect" id="node7" title=" " alt="" coords="94,319,181,345"/>
+<area shape="rect" id="node11" href="$lib__arcade__sfml_2_my_sf_2include_2_my_sf_2_color_2_a_color_8hpp.html" title=" " alt="" coords="369,169,535,196"/>
 </map>

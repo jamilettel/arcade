@@ -1,5 +1,6 @@
 <map id="MySDL::Window::draw" name="MySDL::Window::draw">
-<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_text.html#aaa23c319e8d8ea55ae78ba6b568d2474" title="MySDL::Text::getRect" alt="" coords="231,5,390,32"/>
-<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_text.html#ad31e48ff5f2a71b349fb6909b0742acc" title="MySDL::Text::getTexture" alt="" coords="221,56,400,83"/>
-<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_text.html#ae4dd9f47ba28278a7fb6dbe9f4b7e440" title="MySDL::Text::getRotation" alt="" coords="219,107,403,133"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,172,83"/>
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_text.html#aaa23c319e8d8ea55ae78ba6b568d2474" title=" " alt="" coords="233,5,392,32"/>
+<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_text.html#ad31e48ff5f2a71b349fb6909b0742acc" title=" " alt="" coords="223,56,402,83"/>
+<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_text.html#ae4dd9f47ba28278a7fb6dbe9f4b7e440" title=" " alt="" coords="220,107,405,133"/>
 </map>

@@ -1,7 +1,8 @@
 <map id="main" name="main">
-<area shape="rect" id="node2" href="$classarc_1_1_core.html#adcc93b561dfefacfe2bcbd60604ea7a6" title="arc::Core::run" alt="" coords="169,13,278,39"/>
-<area shape="rect" id="node5" href="$classarc_1_1_arcade_error.html#a868eff2fb85abcff0635a66cbaa18de0" title="arc::ArcadeError::getComponent" alt="" coords="108,63,339,90"/>
-<area shape="rect" id="node6" href="$classarc_1_1_arcade_error.html#aff17875b3725b57e657899b33829e17d" title="arc::ArcadeError::what" alt="" coords="140,114,307,141"/>
-<area shape="rect" id="node3" href="$classarc_1_1_core.html#a4f9d1082c29a1835f95cfb0d760433d4" title="arc::Core::loadGraphical\lLibrary" alt="" coords="387,5,565,47"/>
-<area shape="rect" id="node4" href="$classarc_1_1_core.html#ab931690dbde1bbd3ddecc699628d690c" title="arc::Core::getControls" alt="" coords="613,13,776,39"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,63,60,90"/>
+<area shape="rect" id="node2" href="$classarc_1_1_core.html#adcc93b561dfefacfe2bcbd60604ea7a6" title=" " alt="" coords="169,13,278,39"/>
+<area shape="rect" id="node5" href="$classarc_1_1_arcade_error.html#a868eff2fb85abcff0635a66cbaa18de0" title=" " alt="" coords="108,63,339,90"/>
+<area shape="rect" id="node6" href="$classarc_1_1_arcade_error.html#aff17875b3725b57e657899b33829e17d" title=" " alt="" coords="140,114,307,141"/>
+<area shape="rect" id="node3" href="$classarc_1_1_core.html#a4f9d1082c29a1835f95cfb0d760433d4" title=" " alt="" coords="387,5,565,47"/>
+<area shape="rect" id="node4" href="$classarc_1_1_core.html#ab931690dbde1bbd3ddecc699628d690c" title=" " alt="" coords="613,13,776,39"/>
 </map>

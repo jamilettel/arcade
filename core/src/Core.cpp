@@ -174,13 +174,8 @@ void Core::setCurrentGame(const std::string &game)
 
 void Core::setCurrentLib(const std::string &lib)
 {
-    // try {
     _changeLib = true;
     _currentGraphicalLib = lib;
-        // loadGraphicalLibrary(lib);
-    // } catch (ArcadeError &e) {
-    //     std::cerr << e.what() << std::endl;
-    // }
 }
 
 void Core::startGame()
@@ -255,11 +250,12 @@ void Core::initGeneralControl()
 {
     _generalControls[std::pair(Event::KEY_PRESSED, RESTART_KEY)] = // restart
         [this](){
-            if (_game != nullptr)
+            if (_game != nullptr && _scene != IGraphical::MAIN_MENU) {
                 _game->restart();
-            _graphical->setGamePause(false);
-            _graphical->setScene(IGraphical::GAME);
-            _isPaused = false;
+                _graphical->setGamePause(false);
+                _graphical->setScene(IGraphical::GAME);
+                _isPaused = false;
+            }
         };
     _generalControls[std::pair(Event::KEY_PRESSED, QUIT_KEY)] = // quit
         [this](){
@@ -323,7 +319,7 @@ void Core::initGeneralControl()
                 return;
             _isPaused = !_isPaused;
             _graphical->setGamePause(_isPaused);
-    };
+        };
 }
 
 void Core::getBestScoresGame()

@@ -1,5 +1,6 @@
 <map id="MySf::InputZone::setPlaceHolderColor" name="MySf::InputZone::setPlaceHolderColor">
-<area shape="rect" id="node2" href="$class_my_sf_1_1_color_1_1_smooth_shifting.html#a9558364e7942b12aaec95aa4a7e911a0" title="MySf::Color::SmoothShifting\l::setColor" alt="" coords="244,5,448,47"/>
-<area shape="rect" id="node3" href="$class_my_sf_1_1_color_1_1_smooth_shifting.html#a47f9691852d525bee499999b4b56796e" title="MySf::Color::SmoothShifting\l::getColor" alt="" coords="496,5,700,47"/>
-<area shape="rect" id="node4" href="$class_my_sf_1_1_color_1_1_utils.html#a29e3fd78740382bbad82e1f0478cf184" title="MySf::Color::Utils\l::addToColor" alt="" coords="748,5,883,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,197,47"/>
+<area shape="rect" id="node2" href="$class_my_sf_1_1_color_1_1_smooth_shifting.html#a9558364e7942b12aaec95aa4a7e911a0" title=" " alt="" coords="245,5,451,47"/>
+<area shape="rect" id="node3" href="$class_my_sf_1_1_color_1_1_smooth_shifting.html#a47f9691852d525bee499999b4b56796e" title=" " alt="" coords="499,5,704,47"/>
+<area shape="rect" id="node4" href="$class_my_sf_1_1_color_1_1_utils.html#a29e3fd78740382bbad82e1f0478cf184" title=" " alt="" coords="752,5,887,47"/>
 </map>

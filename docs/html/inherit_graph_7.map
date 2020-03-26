@@ -1,9 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classarc_1_1_i_scene.html" title="arc::IScene" alt="" coords="5,132,99,159"/>
-<area shape="rect" id="node2" href="$classarc_1_1_game_over_scene.html" title="arc::GameOverScene" alt="" coords="151,5,310,32"/>
-<area shape="rect" id="node3" href="$classarc_1_1_game_scene.html" title="arc::GameScene" alt="" coords="167,56,295,83"/>
-<area shape="rect" id="node4" href="$classarc_1_1_main_menu_scene.html" title="arc::MainMenuScene" alt="" coords="153,107,308,133"/>
-<area shape="rect" id="node5" href="$classarc_1_1_ncurses_end.html" title="arc::NcursesEnd" alt="" coords="167,157,294,184"/>
-<area shape="rect" id="node6" href="$classarc_1_1_ncurses_game.html" title="arc::NcursesGame" alt="" coords="160,208,301,235"/>
-<area shape="rect" id="node7" href="$classarc_1_1_ncurses_main_menu.html" title="arc::NcursesMainMenu" alt="" coords="147,259,315,285"/>
+<area shape="rect" id="node1" href="$classarc_1_1_i_scene.html" title=" " alt="" coords="5,132,99,159"/>
+<area shape="rect" id="node2" href="$classarc_1_1_game_over_scene.html" title=" " alt="" coords="153,5,311,32"/>
+<area shape="rect" id="node3" href="$classarc_1_1_game_scene.html" title=" " alt="" coords="168,56,296,83"/>
+<area shape="rect" id="node4" href="$classarc_1_1_main_menu_scene.html" title=" " alt="" coords="153,107,311,133"/>
+<area shape="rect" id="node5" href="$classarc_1_1_ncurses_end.html" title=" " alt="" coords="169,157,295,184"/>
+<area shape="rect" id="node6" href="$classarc_1_1_ncurses_game.html" title=" " alt="" coords="161,208,303,235"/>
+<area shape="rect" id="node7" href="$classarc_1_1_ncurses_main_menu.html" title=" " alt="" coords="147,259,317,285"/>
 </map>
