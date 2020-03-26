@@ -1,8 +1,0 @@
-<map id="MySDL::Button::AButton::manageCurrentColor" name="MySDL::Button::AButton::manageCurrentColor">
-<area shape="rect" id="node1" title=" " alt="" coords="688,64,867,105"/>
-<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_button_1_1_rect_button.html#ac4b93a11a3251b2c8f8fc5727724baa3" title=" " alt="" coords="443,64,640,105"/>
-<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_basic_list.html#aaed502df5a5579a3ebf8d945074da5bb" title=" " alt="" coords="221,71,395,98"/>
-<area shape="rect" id="node4" href="$classarc_1_1_game_over_scene.html#a8b36341ac248b389da1429d92be381cd" title=" " alt="" coords="10,5,169,47"/>
-<area shape="rect" id="node5" href="$classarc_1_1_game_scene.html#a153a91652690799750f744263e12840a" title=" " alt="" coords="5,71,173,98"/>
-<area shape="rect" id="node6" href="$classarc_1_1_main_menu_scene.html#ab12f8f4b33a270da7b99bfa146509f79" title=" " alt="" coords="11,123,168,164"/>
-</map>

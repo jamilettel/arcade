@@ -1,7 +1,0 @@
-<map id="arc::MainMenuScene::MainMenuScene" name="arc::MainMenuScene::MainMenuScene">
-<area shape="rect" id="node1" title=" " alt="" coords="5,74,163,115"/>
-<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_window.html#a35055c04498121d39741bfcd5082705b" title=" " alt="" coords="237,5,405,32"/>
-<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_text.html#a57383ad42325611f29c33b55f61ac53c" title=" " alt="" coords="229,56,412,83"/>
-<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_text.html#a57f27fb9772590f80ed580461ac07640" title=" " alt="" coords="211,107,431,133"/>
-<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_basic_list.html#aeac5c2d2c602fddee912b4af361f2169" title=" " alt="" coords="213,157,428,184"/>
-</map>

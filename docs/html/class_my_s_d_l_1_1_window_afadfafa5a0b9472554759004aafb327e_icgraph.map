@@ -1,5 +1,0 @@
-<map id="MySDL::Window::display" name="MySDL::Window::display">
-<area shape="rect" id="node1" title=" " alt="" coords="199,35,380,61"/>
-<area shape="rect" id="node2" href="$lib_2lib__arcade__sdl_2src_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="51,5,105,32"/>
-<area shape="rect" id="node3" href="$classarc_1_1_s_d_l_graphical.html#ad8b2d477a2d76fb602366d5fb0b954fe" title="This function must display the current scene. It is used in the game loop." alt="" coords="5,57,151,98"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="arc::NcursesGraphical::getScene" name="arc::NcursesGraphical::getScene">
-<area shape="rect" id="node1" title="Returns the current scene." alt="" coords="217,71,381,112"/>
-<area shape="rect" id="node2" href="$classarc_1_1_ncurses_graphical.html#a6bfbee298fff06f9d0603c29c6733113" title="This function must display the current scene. It is used in the game loop." alt="" coords="5,5,169,47"/>
-<area shape="rect" id="node3" href="$classarc_1_1_ncurses_graphical.html#a0fc8cda0a1501eb337dfb5926ab2e0cf" title="This function sets the list of scores. First element of the pair is the username, the second is the s..." alt="" coords="5,71,169,112"/>
-<area shape="rect" id="node4" href="$classarc_1_1_ncurses_graphical.html#a8a1abb31121823f71abe574874b551b5" title=" " alt="" coords="5,136,169,177"/>
-</map>

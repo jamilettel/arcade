@@ -1,5 +1,0 @@
-<map id="arc::NcursesMainMenu::update" name="arc::NcursesMainMenu::update">
-<area shape="rect" id="node1" title=" " alt="" coords="5,39,176,80"/>
-<area shape="rect" id="node2" href="$classarc_1_1_ncurses_graphical.html#aff4600a1afadc7f43eece328a04b003c" title="This function must return the event type. It is called once per frame." alt="" coords="224,5,388,47"/>
-<area shape="rect" id="node3" href="$classarc_1_1_ncurses_graphical.html#a1aa76fbb3f98089971439b14c6353388" title="This function must returns the key pressed, if any. It is also called once per frame." alt="" coords="224,71,388,112"/>
-</map>

@@ -1,0 +1,6 @@
+/*!
+  \page threading How to add a game
+  In details this describe cases:
+  \li case 1
+  \li case 2
+*/

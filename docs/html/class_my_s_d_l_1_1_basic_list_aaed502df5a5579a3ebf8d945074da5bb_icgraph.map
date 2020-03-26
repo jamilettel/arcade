@@ -1,6 +1,0 @@
-<map id="MySDL::BasicList::draw" name="MySDL::BasicList::draw">
-<area shape="rect" id="node1" title=" " alt="" coords="221,71,395,98"/>
-<area shape="rect" id="node2" href="$classarc_1_1_game_over_scene.html#a8b36341ac248b389da1429d92be381cd" title=" " alt="" coords="10,5,169,47"/>
-<area shape="rect" id="node3" href="$classarc_1_1_game_scene.html#a153a91652690799750f744263e12840a" title=" " alt="" coords="5,71,173,98"/>
-<area shape="rect" id="node4" href="$classarc_1_1_main_menu_scene.html#ab12f8f4b33a270da7b99bfa146509f79" title=" " alt="" coords="11,123,168,164"/>
-</map>
