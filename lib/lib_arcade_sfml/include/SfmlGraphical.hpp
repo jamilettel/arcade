@@ -75,7 +75,7 @@ namespace arc {
 
         static void setSpriteSize(sf::Sprite &sprite, const sf::Vector2f &size);
 
-        sf::RenderWindow _window;
+        sf::RenderWindow *_window;
         sf::Event _event;
         Event::Type _eventType;
         Event::Key _keyPressed;

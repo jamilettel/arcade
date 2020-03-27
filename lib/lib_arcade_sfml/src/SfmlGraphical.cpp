@@ -84,28 +84,31 @@ const std::map<sf::Keyboard::Key, Event::Key> SfmlGraphical::_equivalentKeys = {
 };
 
 SfmlGraphical::SfmlGraphical():
-    _window(sf::VideoMode(1600, 900, 32), "Arcade", sf::Style::Close),
+    _window(new sf::RenderWindow(sf::VideoMode(1600, 900, 32), "Arcade", sf::Style::Close)),
     _eventType(Event::NO_EVENT),
     _keyPressed(Event::NONE), _scene(MAIN_MENU)
 {
-    _window.setFramerateLimit(60);
+    _window->setFramerateLimit(60);
     if (!_font.loadFromFile("assets/font.ttf"))
         throw SfmlError("could not load font: \"assets/font.ttf\"");
-    _scenes[MAIN_MENU] = std::make_unique<MainMenuScene>(_window, _font, *this);
-    _scenes[GAME] = std::make_unique<GameScene>(_window, _font, *this);
-    _scenes[END_GAME] = std::make_unique<GameOverScene>(_window, _font, *this);
+    _scenes[MAIN_MENU] = std::make_unique<MainMenuScene>(*_window, _font, *this);
+    _scenes[GAME] = std::make_unique<GameScene>(*_window, _font, *this);
+    _scenes[END_GAME] = std::make_unique<GameOverScene>(*_window, _font, *this);
 }
 
 SfmlGraphical::~SfmlGraphical()
-{}
+{
+    if (_window->isOpen())
+        _window->close();
+}
 
 void SfmlGraphical::display()
 {
     checkEvents();
     if (_scenes.count(_scene))
         _scenes.at(_scene)->draw();
-    _window.display();
-    _window.clear(sf::Color(0x1c1c1cff));
+    _window->display();
+    _window->clear(sf::Color(0x1c1c1cff));
 }
 
 void SfmlGraphical::loadSprite(const std::string &spritePath, const Color &color)
@@ -146,14 +149,15 @@ void SfmlGraphical::checkEvents()
     _eventType = Event::NO_EVENT;
     _keyPressed = Event::NONE;
 
-    if (!_window.isOpen()) {
+    if (!_window->isOpen()) {
         _eventType = Event::QUIT;
         return;
     }
-    while (_window.pollEvent(_event)) {
+    while (_window->pollEvent(_event)) {
         if (_event.type == sf::Event::Closed) {
-            _window.close();
+            _window->close();
             _eventType = Event::QUIT;
+            return;
         } else if (_event.type == sf::Event::KeyPressed ||
                    _event.type == sf::Event::KeyReleased) {
             if (_event.type == sf::Event::KeyPressed)
