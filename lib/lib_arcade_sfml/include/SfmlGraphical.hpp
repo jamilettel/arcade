@@ -31,7 +31,7 @@ namespace arc {
     public:
 
         SfmlGraphical();
-        ~SfmlGraphical() = default;
+        ~SfmlGraphical();
 
         void display() override;
         Event::Type getEventType() const override;

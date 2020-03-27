@@ -10,7 +10,6 @@
 using namespace MySf;
 
 const float BasicList::_buttonHeight = 30;
-// sf::Vector2f BasicList::_elementSize(0, 50);
 
 sf::Color BasicList::defaultColor(0x131313ff);
 sf::Color BasicList::defaultAltColor(0x0a0a0aff);
@@ -88,11 +87,11 @@ void BasicList::scroll(int to)
 
 void BasicList::setListPosition(int pos)
 {
-    if (_position >= static_cast<int>(_list.size()) - _nbDisplayed)
+    if (pos >= static_cast<int>(_list.size()) - _nbDisplayed)
         _buttonDown.setActivation(false);
     else
         _buttonDown.setActivation(true);
-    if (_position <= 0)
+    if (pos <= 0)
         _buttonUp.setActivation(false);
     else
         _buttonUp.setActivation(true);

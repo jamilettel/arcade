@@ -84,17 +84,20 @@ const std::map<sf::Keyboard::Key, Event::Key> SfmlGraphical::_equivalentKeys = {
 };
 
 SfmlGraphical::SfmlGraphical():
-    _window(sf::VideoMode(1600, 900), "Arcade", sf::Style::Close),
+    _window(sf::VideoMode(1600, 900, 32), "Arcade", sf::Style::Close),
     _eventType(Event::NO_EVENT),
     _keyPressed(Event::NONE), _scene(MAIN_MENU)
 {
+    _window.setFramerateLimit(60);
     if (!_font.loadFromFile("assets/font.ttf"))
         throw SfmlError("could not load font: \"assets/font.ttf\"");
-    _window.setFramerateLimit(60);
     _scenes[MAIN_MENU] = std::make_unique<MainMenuScene>(_window, _font, *this);
     _scenes[GAME] = std::make_unique<GameScene>(_window, _font, *this);
     _scenes[END_GAME] = std::make_unique<GameOverScene>(_window, _font, *this);
 }
+
+SfmlGraphical::~SfmlGraphical()
+{}
 
 void SfmlGraphical::display()
 {

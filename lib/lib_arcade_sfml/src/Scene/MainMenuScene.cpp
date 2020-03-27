@@ -56,6 +56,10 @@ void MainMenuScene::draw()
 
 void MainMenuScene::update(const sf::Event &event)
 {
+    if (_gamesList != nullptr)
+        _gamesList->update(event);
+    if (_graphicalList != nullptr)
+        _graphicalList->update(event);
     _usernameInputZone.update(event);
     _howToPlayList.update(event);
     _scoresList.update(event);

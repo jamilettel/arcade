@@ -50,7 +50,7 @@ void ButtonList::setList(const std::vector<std::string> &list, int chosen)
     sf::Vector2f size(_size.x, 50);
     int i = 0;
 
-    _list = list;
+    BasicList::setList(list);
     _listButtons.clear();
     _listButtons.reserve(list.size());
     std::for_each(list.begin(), list.end(),
