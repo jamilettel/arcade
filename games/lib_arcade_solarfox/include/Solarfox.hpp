@@ -12,7 +12,7 @@
 #include "IGame.hpp"
 #include "SolarfoxError.hpp"
 
-#define DIR_MAPS "games/lib_arcade_solarfox/maps/"
+#define DIR_MAPS "assets/solarfox/maps/"
 #define MOVE_DELAY 15
 #define MOVE_VALUE 0.15
 
