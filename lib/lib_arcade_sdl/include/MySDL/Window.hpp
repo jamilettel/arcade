@@ -21,13 +21,13 @@ namespace MySDL {
 
     struct Vector {
         Vector();
-        Vector(int, int);
+        Vector(float, float);
 
         bool operator==(const Vector &lhs) const;
         bool operator!=(const Vector &lhs) const;
 
-        int x;
-        int y;
+        float x;
+        float y;
     };
 
     class Window {

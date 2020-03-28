@@ -16,7 +16,7 @@ using namespace MySDL;
 Vector::Vector(): x(0), y(0)
 {}
 
-Vector::Vector(int _x, int _y): x(_x), y(_y)
+Vector::Vector(float _x, float _y): x(_x), y(_y)
 {}
 
 bool Vector::operator==(const Vector &lhs) const
@@ -77,10 +77,10 @@ void Window::draw(const Rectangle &rect)
     int thickness = rect.getOutlineThickness();
 
     SDL_SetRenderDrawColor(_renderer, color.r, color.g, color.b, color.a);
-    SDL_RenderFillRect(_renderer, &rect.getRect());
+    SDL_RenderFillRectF(_renderer, &rect.getRect());
 
     while (thickness) {
-        SDL_Rect outline = rect.getRect();
+        SDL_FRect outline = rect.getRect();
 
         outline.x -= thickness;
         outline.y -= thickness;
@@ -88,7 +88,7 @@ void Window::draw(const Rectangle &rect)
         outline.h += 2 * thickness;
         color = rect.getOutlineColor();
         SDL_SetRenderDrawColor(_renderer, color.r, color.g, color.b, color.a);
-        SDL_RenderDrawRect(_renderer, &outline);
+        SDL_RenderDrawRectF(_renderer, &outline);
 
         if (thickness > 0)
             thickness--;
@@ -99,26 +99,26 @@ void Window::draw(const Rectangle &rect)
 
 void Window::draw(Sprite &sprite)
 {
-    SDL_Rect dest = sprite.getRect();
+    SDL_FRect dest = sprite.getRect();
 
     if (sprite.getTexture())
-        SDL_RenderCopyEx(_renderer, sprite.getTexture(), NULL, &dest,
-                         sprite.getRotation(), NULL, SDL_FLIP_NONE);
+        SDL_RenderCopyExF(_renderer, sprite.getTexture(), NULL, &dest,
+                          sprite.getRotation(), NULL, SDL_FLIP_NONE);
     else {
         const SDL_Color &color = sprite.getColor();
 
         SDL_SetRenderDrawColor(_renderer, color.r, color.g, color.b, color.a);
-        SDL_RenderFillRect(_renderer, &dest);
+        SDL_RenderFillRectF(_renderer, &dest);
     }
 }
 
 void Window::draw(Text &text)
 {
-    SDL_Rect dest = text.getRect();
+    SDL_FRect dest = text.getRect();
 
     if (text.getTexture())
-        SDL_RenderCopyEx(_renderer, text.getTexture(), NULL, &dest,
-                         text.getRotation(), NULL, SDL_FLIP_NONE);
+        SDL_RenderCopyExF(_renderer, text.getTexture(), NULL, &dest,
+                          text.getRotation(), NULL, SDL_FLIP_NONE);
 }
 
 void Window::setFramerateLimit(int limit)
@@ -147,8 +147,11 @@ SDL_Renderer* Window::getRenderer()
 Vector Window::getSize() const
 {
     Vector size;
+    int x = 0, y = 0;
 
-    SDL_GetWindowSize(_window, &size.x, &size.y);
+    SDL_GetWindowSize(_window, &x, &y);
+    size.x = x;
+    size.y = y;
     return (size);
 }
 

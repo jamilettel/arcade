@@ -29,7 +29,7 @@ namespace MySDL {
 
         const Vector &getPosition() const;
         const Vector &getSize() const;
-        const SDL_Rect &getRect() const;
+        const SDL_FRect &getRect() const;
 
         const SDL_Color &getColor() const;
 
@@ -53,7 +53,7 @@ namespace MySDL {
 
         Vector _pos;
         Vector _size;
-        SDL_Rect _rect;
+        SDL_FRect _rect;
 
         int _characterSize;
         SDL_Color _color;

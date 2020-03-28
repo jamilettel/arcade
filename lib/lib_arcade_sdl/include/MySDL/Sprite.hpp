@@ -31,11 +31,11 @@ namespace MySDL {
 
         void setPosition(const Vector &pos);
         void setSize(const Vector &size);
-        void setRect(const SDL_Rect &rect);
+        void setRect(const SDL_FRect &rect);
 
         const Vector &getPosition() const;
         const Vector &getSize() const;
-        const SDL_Rect &getRect() const;
+        const SDL_FRect &getRect() const;
 
         void setRotation(double rotation);
         double getRotation() const;
@@ -45,13 +45,12 @@ namespace MySDL {
         void setColor(const SDL_Color &color);
         const SDL_Color &getColor() const;
 
-    protected:
     private:
         SDL_Texture *_texture;
 
         Vector _pos;
         Vector _size;
-        SDL_Rect _rect;
+        SDL_FRect _rect;
 
         double _rotation;
 

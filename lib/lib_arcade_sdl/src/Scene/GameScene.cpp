@@ -9,7 +9,7 @@
 
 using namespace arc;
 
-const SDL_Rect GameScene::_gameArea{50, 50, 1060, 795};
+const SDL_FRect GameScene::_gameArea{50, 50, 1060, 795};
 
 GameScene::GameScene(MySDL::Window &window, MySDL::Font &font, SDLGraphical &lib):
     _lib(lib), _window(window), _font(font),
@@ -53,8 +53,8 @@ void GameScene::draw()
             MySDL::Sprite &sprite = _lib.getSprite(entity->spritePath, cellSize,
                                                 entity->backgroundColor);
 
-            sprite.setPosition({static_cast<int>(_gameArea.x + _cellWidth * entity->x),
-                                static_cast<int>(_gameArea.y + _cellHeight * entity->y)});
+            sprite.setPosition({_gameArea.x + _cellWidth * entity->x,
+                                _gameArea.y + _cellHeight * entity->y});
 
             switch (entity->orientation) {
             case (UP):
@@ -126,7 +126,7 @@ void GameScene::setMapSize(size_t height, size_t width)
 
 void GameScene::setGameTitle(const std::string &title)
 {
-    SDL_Rect gameTitleBounds;
+    SDL_FRect gameTitleBounds;
 
     _gameTitle.setString(title);
     gameTitleBounds = _gameTitle.getRect();

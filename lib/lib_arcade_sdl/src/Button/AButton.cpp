@@ -77,7 +77,10 @@ MySDL::Text &AButton::getText()
 void AButton::manageState()
 {
     MySDL::Vector pos;
-    SDL_GetMouseState(&pos.x, &pos.y);
+    int x = 0, y = 0;
+    SDL_GetMouseState(&x, &y);
+    pos.x = x;
+    pos.y = y;
     bool hovering = false;
 
     if (!_updateState) {

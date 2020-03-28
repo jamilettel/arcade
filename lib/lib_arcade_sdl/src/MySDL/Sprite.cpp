@@ -22,11 +22,14 @@ Sprite::Sprite(const std::string &filepath, Window &window):
 void Sprite::loadFile(const std::string &filepath, Window &window)
 {
     SDL_Surface *surface = IMG_Load(filepath.c_str());
+    SDL_Rect surfaceSize;
 
     if (!surface)
         throw arc::SDLError("Could not load sprite '" + filepath + "'");
     _texture = SDL_CreateTextureFromSurface(window.getRenderer(), surface);
-    SDL_GetClipRect(surface, &_rect);
+    SDL_GetClipRect(surface, &surfaceSize);
+    _rect.h = surfaceSize.h;
+    _rect.w = surfaceSize.w;
     _size.x = _rect.w;
     _size.y = _rect.h;
     SDL_FreeSurface(surface);
@@ -52,7 +55,7 @@ void Sprite::setSize(const Vector &size)
     _rect.h = size.y;
 }
 
-void Sprite::setRect(const SDL_Rect &rect)
+void Sprite::setRect(const SDL_FRect &rect)
 {
     _rect = rect;
     _pos.x = _rect.x;
@@ -71,7 +74,7 @@ const Vector &Sprite::getSize() const
     return (_size);
 }
 
-const SDL_Rect &Sprite::getRect() const
+const SDL_FRect &Sprite::getRect() const
 {
     return (_rect);
 }

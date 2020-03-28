@@ -16,7 +16,7 @@ namespace MySDL {
     public:
         Rectangle(const Vector &pos, const Vector &size,
                   const SDL_Color &color = {255, 255, 255, 255});
-        Rectangle(const SDL_Rect &rect,
+        Rectangle(const SDL_FRect &rect,
                   const SDL_Color &color = {255, 255, 255, 255});
 
         ~Rectangle() = default;
@@ -26,12 +26,12 @@ namespace MySDL {
 
         void setPosition(const Vector &pos);
         void setSize(const Vector &size);
-        void setRect(const SDL_Rect &rect);
+        void setRect(const SDL_FRect &rect);
         void setColor(const SDL_Color &color);
 
         const Vector &getPosition() const;
         const Vector &getSize() const;
-        const SDL_Rect &getRect() const;
+        const SDL_FRect &getRect() const;
         const SDL_Color &getColor() const;
 
         void setOutlineThickness(int thicc);
@@ -43,7 +43,7 @@ namespace MySDL {
     private:
         Vector _pos;
         Vector _size;
-        SDL_Rect _rect;
+        SDL_FRect _rect;
 
         SDL_Color _color;
 

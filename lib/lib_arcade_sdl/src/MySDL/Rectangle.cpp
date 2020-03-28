@@ -18,7 +18,7 @@ Rectangle::Rectangle(const Vector &pos, const Vector &size, const SDL_Color &col
     _rect.h = _size.y;
 }
 
-Rectangle::Rectangle(const SDL_Rect &rect, const SDL_Color &color):
+Rectangle::Rectangle(const SDL_FRect &rect, const SDL_Color &color):
     _rect(rect), _color(color), _outlineThickness(0), _outlineColor(color)
 {
     _pos.x = _rect.x;
@@ -40,7 +40,7 @@ void Rectangle::setSize(const Vector &size)
     _rect.h = size.y;
 }
 
-void Rectangle::setRect(const SDL_Rect &rect)
+void Rectangle::setRect(const SDL_FRect &rect)
 {
     _rect = rect;
     _pos.x = _rect.x;
@@ -59,7 +59,7 @@ const Vector &Rectangle::getSize() const
     return (_size);
 }
 
-const SDL_Rect &Rectangle::getRect() const
+const SDL_FRect &Rectangle::getRect() const
 {
     return (_rect);
 }

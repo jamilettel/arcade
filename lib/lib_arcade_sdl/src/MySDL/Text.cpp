@@ -87,7 +87,7 @@ const Vector &Text::getSize() const
     return (_size);
 }
 
-const SDL_Rect &Text::getRect() const
+const SDL_FRect &Text::getRect() const
 {
     return (_rect);
 }

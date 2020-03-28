@@ -48,7 +48,7 @@ namespace arc {
         MySDL::Window &_window;
         MySDL::Font &_font;
 
-        static const SDL_Rect _gameArea;
+        static const SDL_FRect _gameArea;
         MySDL::Rectangle _gameBackground;
         MySDL::Text _gameTitle;
 

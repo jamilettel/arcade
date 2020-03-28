@@ -33,8 +33,8 @@ BasicList::BasicList(MySDL::Window &window,
                      MySDL::Font &font,
                      int nbDisplayed):
     AList(window, font, list, title), _elementSize(0, 50),
-    _nbDisplayed(nbDisplayed), _position(0), _frame(SDL_Rect{0, 0, 0, 0}),
-    _elementBackground(SDL_Rect{0, 0, 0, 0}), _elementText(_font, "", 32, _window),
+    _nbDisplayed(nbDisplayed), _position(0), _frame(SDL_FRect{0, 0, 0, 0}),
+    _elementBackground(SDL_FRect{0, 0, 0, 0}), _elementText(_font, "", 32, _window),
     _frameColor(defaultFrameColor), _textColor(defaultTextColor),
     _normalColor(defaultColor), _altColor(defaultAltColor),
     _buttonColor(defaultButtonColor), _buttonTextColor(defaultTextButtonColor),
@@ -55,7 +55,7 @@ BasicList::BasicList(MySDL::Window &window,
                 ">",
                 [this] () {scroll(1);})
 {
-    SDL_Rect rect;
+    SDL_FRect rect;
     setDrawableObjects();
     scroll(0);
 
@@ -117,7 +117,7 @@ void BasicList::drawElement(size_t element, const Vector &pos)
     _window.draw(_elementBackground);
 
     _elementText.setString(_list[element]);
-    SDL_Rect rect = _elementText.getRect();
+    SDL_FRect rect = _elementText.getRect();
     // size_t size = _elementText.getCharacterSize();
 
     _elementText.setPosition(Vector(pos.x + _size.x/2 - rect.w / 2,
@@ -159,8 +159,11 @@ void BasicList::update(const SDL_Event &event)
 {
     if (event.type == SDL_MOUSEWHEEL) {
         Vector mousePos;
-        SDL_Rect frameRect = _frame.getRect();
-        SDL_GetMouseState(&mousePos.x, &mousePos.y);
+        int x = 0, y = 0;
+        SDL_FRect frameRect = _frame.getRect();
+        SDL_GetMouseState(&x, &y);
+        mousePos.x = x;
+        mousePos.y = y;
 
         if (mousePos.x >= frameRect.x && mousePos.x < frameRect.x + frameRect.w &&
             mousePos.y >= frameRect.y && mousePos.y < frameRect.y + frameRect.h)
@@ -184,7 +187,7 @@ void BasicList::setDrawableObjects()
 
     _title.setCharacterSize(size);
     _title.setColor(_textColor);
-    SDL_Rect textBounds = _title.getRect();
+    SDL_FRect textBounds = _title.getRect();
     Vector wantedPosition(_pos.x + _elementSize.x/2 - textBounds.w / 2,
                           _pos.y + _elementSize.y/2 - size / 2.5);
     _title.setPosition(wantedPosition);

@@ -161,9 +161,12 @@ void InputZone::update(const SDL_Event &event)
 
 void InputZone::draw()
 {
-    SDL_Rect globalBounds = _rs.getRect();
+    SDL_FRect globalBounds = _rs.getRect();
     Vector mousePos;
-    SDL_GetMouseState(&mousePos.x, &mousePos.y);
+    int x = 0, y = 0;
+    SDL_GetMouseState(&x, &y);
+    mousePos.x = x;
+    mousePos.y = y;
 
     if (_mouseButtonPressed) {
         if (mousePos.x >= globalBounds.x && mousePos.x < globalBounds.x + globalBounds.w &&

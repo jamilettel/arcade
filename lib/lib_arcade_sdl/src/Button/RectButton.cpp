@@ -27,7 +27,7 @@ RectButton::RectButton(MySDL::Window &w,
 
 void RectButton::draw()
 {
-    SDL_Rect textBounds = _t.getRect();
+    SDL_FRect textBounds = _t.getRect();
     size_t size = _t.getCharacterSize();
     MySDL::Vector wantedPosition(_pos.x + _size.x/2 - textBounds.w / 2,
                                  _pos.y + _size.y/2 - size / 2.5);
