@@ -95,6 +95,10 @@ namespace arc {
         std::chrono::system_clock::time_point _startTime;
         std::chrono::system_clock::time_point _endTime;
 
+        Orientation _nextMove;
+
+        std::string _lastBodySpritePath;
+
     };
 }
 

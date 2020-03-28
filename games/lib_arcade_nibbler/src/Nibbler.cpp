@@ -17,7 +17,8 @@ _started(false),
 _scoreString(std::string("0")),
 _score(0), _title("Nibbler"),
 _moveCoordonnate(std::pair<float, float>(0, 0)),
-_startTime(std::chrono::system_clock::now())
+_startTime(std::chrono::system_clock::now()),
+_nextMove(RIGHT)
 {
     this->initControls();
     this->initControlFormat();
@@ -55,9 +56,7 @@ void arc::Nibbler::moveDown()
     if (_moveCoordonnate.second == -1)
         return;
     _started = true;
-    _moveCoordonnate.first = 0;
-    _moveCoordonnate.second = 1;
-    _snakeHead->orientation = DOWN;
+    _nextMove = DOWN;
 }
 
 void arc::Nibbler::moveUp()
@@ -65,9 +64,7 @@ void arc::Nibbler::moveUp()
     if (_moveCoordonnate.second == 1)
         return;
     _started = true;
-    _moveCoordonnate.first = 0;
-    _moveCoordonnate.second = -1;
-    _snakeHead->orientation = UP;
+    _nextMove = UP;
 }
 
 void arc::Nibbler::moveRight()
@@ -75,9 +72,7 @@ void arc::Nibbler::moveRight()
     if (_moveCoordonnate.first == -1)
         return;
     _started = true;
-    _moveCoordonnate.first = 1;
-    _moveCoordonnate.second = 0;
-    _snakeHead->orientation = RIGHT;
+    _nextMove = RIGHT;
 }
 
 void arc::Nibbler::moveLeft()
@@ -86,10 +81,7 @@ void arc::Nibbler::moveLeft()
         return;
     if (_moveCoordonnate.first == 1)
         return;
-    _started = true;
-    _moveCoordonnate.first = -1;
-    _moveCoordonnate.second = 0;
-    _snakeHead->orientation = LEFT;
+    _nextMove = LEFT;
 }
 
 void arc::Nibbler::moveSnake()
@@ -98,33 +90,58 @@ void arc::Nibbler::moveSnake()
     float y = _snakeHead->y;
     Orientation rotate;
 
+    switch (_nextMove) {
+    case (UP):
+        _moveCoordonnate.first = 0;
+        _moveCoordonnate.second = -1;
+        _snakeHead->orientation = UP;
+        break;
+    case (RIGHT):
+        _moveCoordonnate.first = 1;
+        _moveCoordonnate.second = 0;
+        _snakeHead->orientation = RIGHT;
+        break;
+    case (DOWN):
+        _moveCoordonnate.first = 0;
+        _moveCoordonnate.second = 1;
+        _snakeHead->orientation = DOWN;
+        break;
+    case (LEFT):
+        _moveCoordonnate.first = -1;
+        _moveCoordonnate.second = 0;
+        _snakeHead->orientation = LEFT;
+        break;
+    }
+
     _snakeHead->x += _moveCoordonnate.first;
     _snakeHead->y += _moveCoordonnate.second;
     rotate = _snakeHead->orientation;
-    for_each(_snake.begin(), _snake.end(), [&x, &y, &rotate](std::shared_ptr<Entity> &body)
-    {
-        float old_x = body->x;
-        float old_y = body->y;
-        Orientation old_rotate = body->orientation;
-        body->x = x;
-        body->y = y;
-        body->orientation = rotate;
-        if (body->orientation == LEFT && old_rotate == UP)
-            body->spritePath = "assets/nibbler/SnakeCorner2.png";
-        else if (body->orientation == UP && old_rotate == LEFT)
-            body->spritePath = "assets/nibbler/SnakeCorner.png";
-        else if (body->orientation < old_rotate)
-            body->spritePath = "assets/nibbler/SnakeCorner2.png";
-        else if (body->orientation > old_rotate)
-            body->spritePath = "assets/nibbler/SnakeCorner.png";
-        else
-            body->spritePath = "assets/nibbler/SnakeBody.png";
-        x = old_x;
-        y = old_y;
-        rotate = old_rotate;
-    });
-    if (_snake.back()->orientation == rotate)
-        _snake.back()->spritePath = "assets/nibbler/SnakeTail.png";
+    for_each(_snake.begin(), _snake.end(),
+             [&x, &y, &rotate](std::shared_ptr<Entity> &body) {
+                 float old_x = body->x;
+                 float old_y = body->y;
+                 Orientation old_rotate = body->orientation;
+                 body->x = x;
+                 body->y = y;
+                 body->orientation = rotate;
+                 if (body->orientation == LEFT && old_rotate == UP)
+                     body->spritePath = "assets/nibbler/SnakeCorner2.png";
+                 else if (body->orientation == UP && old_rotate == LEFT)
+                     body->spritePath = "assets/nibbler/SnakeCorner.png";
+                 else if (body->orientation < old_rotate)
+                     body->spritePath = "assets/nibbler/SnakeCorner2.png";
+                 else if (body->orientation > old_rotate)
+                     body->spritePath = "assets/nibbler/SnakeCorner.png";
+                 else
+                     body->spritePath = "assets/nibbler/SnakeBody.png";
+                 x = old_x;
+                 y = old_y;
+                 rotate = old_rotate;
+             });
+    if (_snake.size() > 1) {
+        _lastBodySpritePath = _snake[_snake.size() - 2]->spritePath;
+        _snake[_snake.size() - 2]->spritePath = "assets/nibbler/SnakeTail.png";
+    }
 }
 
 bool arc::Nibbler::collisionSnake()
@@ -170,7 +187,7 @@ void arc::Nibbler::initSnakeHead()
     _snakeHead = std::make_shared<Entity>();
     _snakeHead->spritePath = std::string("assets/nibbler/SnakeHead.png");
     _snakeHead->orientation = RIGHT;
-    _snakeHead->backgroundColor = {242, 255, 0, 1};
+    _snakeHead->backgroundColor = {242, 255, 0, 255};
     _snakeHead->x = (COLS_SNAKE + 1) / 2;
     _snakeHead->y = (ROWS_SNAKE + 1) / 2;
     _entities.emplace_back(_snakeHead);
@@ -181,21 +198,28 @@ void arc::Nibbler::initSnakeBody()
     this->addSnakeBody();
     this->addSnakeBody();
     this->addSnakeBody();
+    this->addSnakeBody();
 }
 
 void arc::Nibbler::addSnakeBody()
 {
     std::shared_ptr<Entity> newBody(new Entity);
     std::pair<float, float> validCoordBody;
-    newBody->spritePath = std::string("assets/nibbler/SnakeTail.png");
+    newBody->spritePath = "assets/nibbler/SnakeTail.png";
     newBody->orientation = RIGHT;
-    newBody->backgroundColor = {69, 245, 66, 1};
+    newBody->backgroundColor = {69, 245, 66, 255};
 
     if (_snake.empty())
         validCoordBody = findCoordSnakeBody(_snakeHead->x, _snakeHead->y);
     else {
         validCoordBody = findCoordSnakeBody(_snake.back()->x, _snake.back()->y);
-        _snake.back()->spritePath = "assets/nibbler/SnakeBody.png";
+        if (_snake.size() > 1) {
+            if (_lastBodySpritePath != "")
+                _snake[_snake.size() - 2]->spritePath = _lastBodySpritePath;
+            else
+            _snake[_snake.size() - 2]->spritePath = "assets/nibbler/SnakeBody.png";
+            _snake.back()->spritePath = "assets/nibbler/SnakeTail.png";
+        }
     }
 
     if (validCoordBody.first == -2 && validCoordBody.second == -2) {
@@ -205,7 +229,8 @@ void arc::Nibbler::addSnakeBody()
     newBody->x = validCoordBody.first;
     newBody->y = validCoordBody.second;
 
-    _entities.emplace_back(newBody);
+    if (_snake.size())
+        _entities.emplace_back(_snake.back());
     _snake.emplace_back(newBody);
 }
 
@@ -246,7 +271,7 @@ void arc::Nibbler::generateNewFruit()
     std::uniform_int_distribution<int> ranY {0, ROWS_SNAKE - 1};
     newFruit->spritePath = std::string("assets/nibbler/Fruit.png");
     newFruit->orientation = UP;
-    newFruit->backgroundColor = {255, 51, 40, 1};
+    newFruit->backgroundColor = {255, 51, 40, 255};
 
     do {
         newFruit->x = ranX(re);
