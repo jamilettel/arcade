@@ -178,7 +178,6 @@ void BasicList::setDrawableObjects()
 
     _title.setCharacterSize(size);
     _title.setFillColor(_textColor);
-    _title.setStyle(sf::Text::Bold);
     sf::FloatRect textBounds = _title.getGlobalBounds();
     sf::Vector2f wantedPosition(_pos.x + _elementSize.x/2 - textBounds.width / 2,
                                 _pos.y + _elementSize.y/2 - size / 2.5);

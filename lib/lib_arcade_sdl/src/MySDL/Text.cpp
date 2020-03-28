@@ -69,7 +69,7 @@ void Text::setPosition(const Vector &pos)
 void Text::setCharacterSize(int size)
 {
     _characterSize = size;
-    _loadTexture = true;
+    loadTexture();
 }
 
 int Text::getCharacterSize() const

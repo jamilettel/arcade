@@ -118,7 +118,6 @@ void BasicList::drawElement(size_t element, const Vector &pos)
 
     _elementText.setString(_list[element]);
     SDL_FRect rect = _elementText.getRect();
-    // size_t size = _elementText.getCharacterSize();
 
     _elementText.setPosition(Vector(pos.x + _size.x/2 - rect.w / 2,
                                     pos.y + 25.0f - rect.h / 2.0f));
