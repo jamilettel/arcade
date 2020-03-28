@@ -35,6 +35,15 @@ MainMenuScene::MainMenuScene(MySDL::Window &window,
     _title.setCharacterSize(128);
     _howToPlayList.addColumn<MySDL::BasicList>(window, _howToPlayKey, "Key", _font, 5);
     _scoresList.addColumn<MySDL::BasicList>(window, _scoreValues, "Score", _font, 5);
+    _playButton = std::make_unique<MySDL::Button::RectButton>(
+        _window,
+        MySDL::Vector(125, 220),
+        MySDL::Vector(250, 60),
+        _font,
+        BUTTON_COLOR,
+        TEXT_COLOR,
+        "Play",
+        [] () {});
 }
 
 void MainMenuScene::draw()
@@ -69,15 +78,7 @@ void MainMenuScene::update(const SDL_Event &event)
 
 void MainMenuScene::setFunctionPlay(const std::function<void ()> &function)
 {
-    _playButton = std::make_unique<MySDL::Button::RectButton>(
-        _window,
-        MySDL::Vector(125, 220),
-        MySDL::Vector(250, 60),
-        _font,
-        BUTTON_COLOR,
-        TEXT_COLOR,
-        "Play",
-        function);
+    _playButton->setFunc(function);
     _playButton->setActivation(false);
 }
 

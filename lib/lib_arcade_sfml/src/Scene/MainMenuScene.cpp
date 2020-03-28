@@ -35,6 +35,15 @@ MainMenuScene::MainMenuScene(sf::RenderWindow &window,
     _title.setCharacterSize(128);
     _howToPlayList.addColumn<MySf::BasicList>(window, _howToPlayKey, "Key", _font, 5);
     _scoresList.addColumn<MySf::BasicList>(window, _scoreValues, "Score", _font, 5);
+    _playButton = std::make_unique<MySf::Button::RectButton>(
+        _window,
+        sf::Vector2f(125, 220),
+        sf::Vector2f(250, 60),
+        _font,
+        BUTTON_COLOR,
+        TEXT_COLOR,
+        "Play",
+        [] () {});
 }
 
 void MainMenuScene::draw()
@@ -67,15 +76,7 @@ void MainMenuScene::update(const sf::Event &event)
 
 void MainMenuScene::setFunctionPlay(const std::function<void ()> &function)
 {
-    _playButton = std::make_unique<MySf::Button::RectButton>(
-        _window,
-        sf::Vector2f(125, 220),
-        sf::Vector2f(250, 60),
-        _font,
-        BUTTON_COLOR,
-        TEXT_COLOR,
-        "Play",
-        function);
+    _playButton->setFunc(function);
     _playButton->setActivation(false);
 }
 
