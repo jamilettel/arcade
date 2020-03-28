@@ -378,7 +378,7 @@ void arc::Nibbler::updateStats()
     _gameStats.clear();
 
     _gameStats.emplace_back("Score", getScore());
-    _gameStats.emplace_back("Size of the snake", std::to_string(_snake.size() + 1));
+    _gameStats.emplace_back("Size of the snake", std::to_string(_snake.size()));
     _gameStats.emplace_back("Fruits on the map", std::to_string(_fruits.size()));
 }
 
