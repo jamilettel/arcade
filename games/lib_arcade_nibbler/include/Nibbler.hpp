@@ -16,7 +16,7 @@
 #include "IGame.hpp"
 
 #define ROWS_SNAKE 30
-#define COLS_SNAKE 50
+#define COLS_SNAKE 40
 #define MOVE_DELAY 150
 
 namespace arc {
