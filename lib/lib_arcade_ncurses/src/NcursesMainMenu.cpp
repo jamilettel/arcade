@@ -11,7 +11,8 @@
 
 using namespace arc;
 
-NcursesMainMenu::NcursesMainMenu(NcursesGraphical &mainLib) : _lib(mainLib), _activeMenu(1), _controls(_lib.getHowToPlay())
+NcursesMainMenu::NcursesMainMenu(NcursesGraphical &mainLib) :
+    _lib(mainLib), _activeMenu(1), _controls(_lib.getHowToPlay())
 {
     _termColor = has_colors();
     if (supportColor()) {
@@ -219,12 +220,13 @@ void NcursesMainMenu::displayInfo()
         wattron(_windows["InfoBox"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
     }
 
-    for (const std::pair<std::string, std::string> &control : *_controls) {
-        mvwprintw(_windows["InfoBox"], i, 2, control.first.c_str());
-        mvwprintw(_windows["InfoBox"], i, control.first.length() + 3, ":");
-        mvwprintw(_windows["InfoBox"], i, control.first.length() + 5, control.second.c_str());
-        i++;
-    }
+    if (_controls.has_value())
+        for (const std::pair<std::string, std::string> &control : *_controls) {
+            mvwprintw(_windows["InfoBox"], i, 2, control.first.c_str());
+            mvwprintw(_windows["InfoBox"], i, control.first.length() + 3, ":");
+            mvwprintw(_windows["InfoBox"], i, control.first.length() + 5, control.second.c_str());
+            i++;
+        }
     wattroff(_windows["InfoBox"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
 }
 
