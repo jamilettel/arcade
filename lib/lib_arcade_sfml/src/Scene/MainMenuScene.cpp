@@ -44,6 +44,7 @@ MainMenuScene::MainMenuScene(sf::RenderWindow &window,
         TEXT_COLOR,
         "Play",
         [] () {});
+    _playButton->setActivation(false);
 }
 
 void MainMenuScene::draw()
@@ -77,7 +78,6 @@ void MainMenuScene::update(const sf::Event &event)
 void MainMenuScene::setFunctionPlay(const std::function<void ()> &function)
 {
     _playButton->setFunc(function);
-    _playButton->setActivation(false);
 }
 
 void MainMenuScene::setListLibraries(const std::vector<std::string> &libraries,
