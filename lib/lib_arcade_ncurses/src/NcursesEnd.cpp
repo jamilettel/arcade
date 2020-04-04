@@ -106,11 +106,12 @@ void NcursesEnd::displayScoreUsername()
     mvwprintw(_windows["UserInfos"], 0, 0, "Your session");
     mvwprintw(_windows["UserInfos"], 2, 2, "Username : ");
     i = 3;
-    for (const std::pair<std::string, std::string> &stat : *_gameStats) {
-        mvwprintw(_windows["UserInfos"], i, 2, stat.first.c_str());
-        mvwprintw(_windows["UserInfos"], i, 2 + stat.first.length(), " : ");
-        i++;
-    }
+    if (_gameStats.has_value())
+        for (const std::pair<std::string, std::string> &stat : *_gameStats) {
+            mvwprintw(_windows["UserInfos"], i, 2, stat.first.c_str());
+            mvwprintw(_windows["UserInfos"], i, 2 + stat.first.length(), " : ");
+            i++;
+        }
     wattroff(_windows["UserInfos"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({250, 233, 77, 1}), _lib.getColor({7, 29, 27, 1}))));
 
     if (supportColor()) {
@@ -121,10 +122,11 @@ void NcursesEnd::displayScoreUsername()
     }
     mvwprintw(_windows["UserInfos"], 2, 13, (_lib.getUsername().empty() ? "Unknown" : _lib.getUsername().c_str()));
     i = 3;
-    for (const std::pair<std::string, std::string> &stat : *_gameStats) {
-        mvwprintw(_windows["UserInfos"], i, 5 + stat.first.length(), stat.second.c_str());
-        i++;
-    }
+    if (_gameStats.has_value())
+        for (const std::pair<std::string, std::string> &stat : *_gameStats) {
+            mvwprintw(_windows["UserInfos"], i, 5 + stat.first.length(), stat.second.c_str());
+            i++;
+        }
     wattroff(_windows["UserInfos"], COLOR_PAIR(_lib.getPairColor(_lib.getColor({234, 234, 234, 1}), _lib.getColor({7, 29, 27, 1}))));
 }
 
