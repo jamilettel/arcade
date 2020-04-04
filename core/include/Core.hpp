@@ -9,6 +9,8 @@
 #define CORE_HPP_
 
 #include <string>
+#include <chrono>
+#include <thread>
 #include "IGraphical.hpp"
 #include "IGame.hpp"
 #include "DLLoader.hpp"
@@ -16,6 +18,8 @@
 #define GAME_DIR "games/"
 
 #define GRAPHICAL_DIR "lib/"
+
+#define LOOP_DELAY 16
 
 #define RESTART_KEY Event::R
 #define QUIT_KEY Event::ESCAPE
@@ -62,6 +66,8 @@ namespace arc {
 
         bool endGame();
 
+        void coreClock();
+
         std::unique_ptr<IGraphical> _graphical;
         std::unique_ptr<IGame> _game;
         std::unique_ptr<IGame> _oldGame;
@@ -86,6 +92,9 @@ namespace arc {
         std::string _username;
 
         bool _changeLib;
+
+        std::chrono::system_clock::time_point _startTime;
+        std::chrono::system_clock::time_point _endTime;
 
     };
 

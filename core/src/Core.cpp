@@ -16,7 +16,8 @@ using namespace arc;
 
 Core::Core(const std::string &graphicalLib):
     _graphical(nullptr), _game(nullptr), _quitGame(false), _isPaused(false),
-    _scene(IGraphical::Scene::MAIN_MENU), _changeLib(false)
+    _scene(IGraphical::Scene::MAIN_MENU), _changeLib(false),
+    _startTime(std::chrono::system_clock::now())
 {
     initGeneralControl();
     refreshLibrarieLists();
@@ -212,6 +213,7 @@ const std::vector<std::string> &Core::getGraphicalList() const
 void Core::run()
 {
     do {
+        this->coreClock();
         if (_changeLib)
             loadGraphicalLibrary(_currentGraphicalLib);
         _graphical->display();
@@ -378,3 +380,15 @@ void Core::saveBestScore()
         fileScores << (score.first.empty() ? "Unknown" : score.first) << " " << score.second << std::endl;
     fileScores.close();
 }
+
+ void Core::coreClock()
+ {
+     _endTime = std::chrono::system_clock::now();
+     int elapsed_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>
+         (_endTime - _startTime).count();
+
+     if (elapsed_milliseconds < LOOP_DELAY)
+         std::this_thread::sleep_for(std::chrono::milliseconds(LOOP_DELAY - elapsed_milliseconds));
+
+     _startTime = std::chrono::system_clock::now();
+ }
