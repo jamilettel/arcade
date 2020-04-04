@@ -1,0 +1,4 @@
+<map id="arc::SDLGraphical::getUsername" name="arc::SDLGraphical::getUsername">
+<area shape="rect" id="node1" title="Should return the username entered by the player in the main menu scene." alt="" coords="221,5,367,47"/>
+<area shape="rect" id="node2" href="$classarc_1_1_game_scene.html#a153a91652690799750f744263e12840a" title=" " alt="" coords="5,13,173,39"/>
+</map>

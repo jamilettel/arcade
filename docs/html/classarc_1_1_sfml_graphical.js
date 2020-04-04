@@ -1,0 +1,27 @@
+var classarc_1_1_sfml_graphical =
+[
+    [ "SfmlGraphical", "classarc_1_1_sfml_graphical.html#a8770d1fc7f26c3118efdd5cd790cb806", null ],
+    [ "~SfmlGraphical", "classarc_1_1_sfml_graphical.html#ab016c3491d70bf1deac8f1184936c16a", null ],
+    [ "display", "classarc_1_1_sfml_graphical.html#a17392ee688843de89061786d28ba69fe", null ],
+    [ "getEventType", "classarc_1_1_sfml_graphical.html#a4c3ca5d1b3c29e03919aebd678035f61", null ],
+    [ "getKeyPressed", "classarc_1_1_sfml_graphical.html#a325227aa3127a7827696b3993b9168c2", null ],
+    [ "getScene", "classarc_1_1_sfml_graphical.html#aa52a17ca0c331137c6e2d73bcdef7b95", null ],
+    [ "getSprite", "classarc_1_1_sfml_graphical.html#a5ab3923748982861444da9624872176c", null ],
+    [ "getUsername", "classarc_1_1_sfml_graphical.html#a96948809c9aa5c9610b12f680a86a76b", null ],
+    [ "setControls", "classarc_1_1_sfml_graphical.html#a0e32352891af044e6682c61de6241b68", null ],
+    [ "setFunctionMenu", "classarc_1_1_sfml_graphical.html#a5ffd6e346463eb907f2eab1f3f76fd56", null ],
+    [ "setFunctionPlay", "classarc_1_1_sfml_graphical.html#a19a61379fe91f21bd99fea10fdc5d2c4", null ],
+    [ "setFunctionRestart", "classarc_1_1_sfml_graphical.html#aa3eefdb0c4bb6e134e91d54c7fe1e085", null ],
+    [ "setFunctionTogglePause", "classarc_1_1_sfml_graphical.html#af0e00c83e6c55b92d8868d7a7cf6ad33", null ],
+    [ "setGamePause", "classarc_1_1_sfml_graphical.html#afc8fff48c4bfb80131cbd116f079f592", null ],
+    [ "setGameStats", "classarc_1_1_sfml_graphical.html#a8c05cb425d426fdb814c53c9e0513b31", null ],
+    [ "setGameTitle", "classarc_1_1_sfml_graphical.html#a16954de83d104655f5c49649adbd89ee", null ],
+    [ "setHowToPlay", "classarc_1_1_sfml_graphical.html#aa4504ef8aa017feb18e6926c59c68131", null ],
+    [ "setListGames", "classarc_1_1_sfml_graphical.html#a77b068b1ba1cc56311b6db624439bfd9", null ],
+    [ "setListLibraries", "classarc_1_1_sfml_graphical.html#a7a101d2c76052df32968f48e02760aeb", null ],
+    [ "setMapSize", "classarc_1_1_sfml_graphical.html#a1320025c047fba898a1e14b39ad99430", null ],
+    [ "setScene", "classarc_1_1_sfml_graphical.html#ae88b7a6dca46240337c7a0cc790cb3c9", null ],
+    [ "setScores", "classarc_1_1_sfml_graphical.html#a0c85de96edb49a31a88e51b7949ed2e5", null ],
+    [ "setUsername", "classarc_1_1_sfml_graphical.html#aa7b51b64bba540d2fe97a5b8e02d68ff", null ],
+    [ "updateGameInfo", "classarc_1_1_sfml_graphical.html#a4e21c2e04e640e882ff859a5e3bb10b9", null ]
+];

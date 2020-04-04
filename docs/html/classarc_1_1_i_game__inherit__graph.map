@@ -1,0 +1,5 @@
+<map id="arc::IGame" name="arc::IGame">
+<area shape="rect" id="node1" title="This interface is the link between a game and the core. All games must derived from this interface an..." alt="" coords="70,5,163,32"/>
+<area shape="rect" id="node2" href="$classarc_1_1_nibbler.html" title=" " alt="" coords="5,80,103,107"/>
+<area shape="rect" id="node3" href="$classarc_1_1_solarfox.html" title=" " alt="" coords="127,80,231,107"/>
+</map>

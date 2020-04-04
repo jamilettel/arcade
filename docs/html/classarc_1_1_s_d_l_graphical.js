@@ -1,0 +1,27 @@
+var classarc_1_1_s_d_l_graphical =
+[
+    [ "SDLGraphical", "classarc_1_1_s_d_l_graphical.html#a0a8f2c7ef32f6f4ec5bec17443d59c63", null ],
+    [ "~SDLGraphical", "classarc_1_1_s_d_l_graphical.html#a980bdfd6b7eeb85c883e65f07b9aa058", null ],
+    [ "display", "classarc_1_1_s_d_l_graphical.html#ad8b2d477a2d76fb602366d5fb0b954fe", null ],
+    [ "getEventType", "classarc_1_1_s_d_l_graphical.html#a1f6efcb95be3a40d21ef875a8bb5f982", null ],
+    [ "getKeyPressed", "classarc_1_1_s_d_l_graphical.html#a0cedf16fd80d47fc29e847645843d2d5", null ],
+    [ "getScene", "classarc_1_1_s_d_l_graphical.html#a8dc1dcdeaf765b4b16ab0db601f69aff", null ],
+    [ "getSprite", "classarc_1_1_s_d_l_graphical.html#a595f22032e72e01675b37d374f9b5c74", null ],
+    [ "getUsername", "classarc_1_1_s_d_l_graphical.html#aff19df2e92264111ce8c948ac634a1f1", null ],
+    [ "setControls", "classarc_1_1_s_d_l_graphical.html#a8ff8b01b1d774a03f1acfe3fab1d04d5", null ],
+    [ "setFunctionMenu", "classarc_1_1_s_d_l_graphical.html#a7ab935dfd1c0e0cdaaec9c431e0d01ba", null ],
+    [ "setFunctionPlay", "classarc_1_1_s_d_l_graphical.html#afec9c916ade8f1c8f22946f30478f4f4", null ],
+    [ "setFunctionRestart", "classarc_1_1_s_d_l_graphical.html#a8c45c6a580cf3fdb491328c1e3525e66", null ],
+    [ "setFunctionTogglePause", "classarc_1_1_s_d_l_graphical.html#a02489f9acaa946937c4766d7d2dbd57e", null ],
+    [ "setGamePause", "classarc_1_1_s_d_l_graphical.html#a57dd7e57eebd130483a0cb40410065de", null ],
+    [ "setGameStats", "classarc_1_1_s_d_l_graphical.html#a4e8dcf83676d40bfee6348545f24d7db", null ],
+    [ "setGameTitle", "classarc_1_1_s_d_l_graphical.html#a7d91be5801c2a0b343e2809b125f97ab", null ],
+    [ "setHowToPlay", "classarc_1_1_s_d_l_graphical.html#a284ed85fe20b37c6030e725588469d0f", null ],
+    [ "setListGames", "classarc_1_1_s_d_l_graphical.html#ab0ce58fc4fb62ae0f8bd19035f9c3a7d", null ],
+    [ "setListLibraries", "classarc_1_1_s_d_l_graphical.html#a34a6e2e9d158002ddc3899c646742f4d", null ],
+    [ "setMapSize", "classarc_1_1_s_d_l_graphical.html#a63e63a050c6eb56756113404b6b29b1c", null ],
+    [ "setScene", "classarc_1_1_s_d_l_graphical.html#acfefca45d1776a6274313c9b4505d48d", null ],
+    [ "setScores", "classarc_1_1_s_d_l_graphical.html#a75e9e08506dfcb025bba4f0341a6c91a", null ],
+    [ "setUsername", "classarc_1_1_s_d_l_graphical.html#a12ce2399b50f93392fb6f6e165ece571", null ],
+    [ "updateGameInfo", "classarc_1_1_s_d_l_graphical.html#adc3cb548ae45d3f9f1ac4e1566664a56", null ]
+];

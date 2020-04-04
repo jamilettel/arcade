@@ -1,0 +1,4 @@
+<map id="arc::NcursesGraphical::setScores" name="arc::NcursesGraphical::setScores">
+<area shape="rect" id="node1" title="This function sets the list of scores. First element of the pair is the username, the second is the s..." alt="" coords="5,5,169,47"/>
+<area shape="rect" id="node2" href="$classarc_1_1_ncurses_graphical.html#a624d18732f5e1520b3ead1a188e2c614" title="Returns the current scene." alt="" coords="217,5,381,47"/>
+</map>

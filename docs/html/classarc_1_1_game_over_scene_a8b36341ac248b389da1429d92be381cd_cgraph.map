@@ -1,0 +1,21 @@
+<map id="arc::GameOverScene::draw" name="arc::GameOverScene::draw">
+<area shape="rect" id="node1" title=" " alt="" coords="5,314,164,355"/>
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_basic_list.html#aaed502df5a5579a3ebf8d945074da5bb" title=" " alt="" coords="212,376,385,403"/>
+<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_window.html#ab17c4ab4132435adeb2a84882c4ee648" title=" " alt="" coords="735,81,902,108"/>
+<area shape="rect" id="node8" href="$class_my_s_d_l_1_1_basic_list.html#a9e439529f1b12c99aca50c5ac6d00693" title=" " alt="" coords="433,405,660,432"/>
+<area shape="rect" id="node9" href="$class_my_s_d_l_1_1_rectangle.html#ac9054b1bec24b427eebd7368023e5604" title=" " alt="" coords="709,503,929,529"/>
+<area shape="rect" id="node10" href="$class_my_s_d_l_1_1_rectangle.html#a077421fb8fd365ac02b9a6b18f8c34d2" title=" " alt="" coords="717,553,920,580"/>
+<area shape="rect" id="node14" href="$class_my_s_d_l_1_1_button_1_1_rect_button.html#ac4b93a11a3251b2c8f8fc5727724baa3" title=" " alt="" coords="447,339,646,381"/>
+<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_sprite.html#a06e66f434baa451d3a3bf971515e96af" title=" " alt="" coords="991,5,1161,32"/>
+<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_sprite.html#a29f151e6c329a4b55e8e99e00d2730b4" title=" " alt="" coords="981,56,1171,83"/>
+<area shape="rect" id="node6" href="$class_my_s_d_l_1_1_sprite.html#a869c0b847f53cfb46cfb30d5b27f600f" title=" " alt="" coords="977,107,1175,133"/>
+<area shape="rect" id="node7" href="$class_my_s_d_l_1_1_sprite.html#a0dabd05b78967dba5a2b779c8af91cdd" title=" " alt="" coords="988,157,1164,184"/>
+<area shape="rect" id="node11" href="$class_my_s_d_l_1_1_text.html#a6589aa4c9a27f5482caf78cf4fe7dba7" title=" " alt="" coords="735,452,903,479"/>
+<area shape="rect" id="node12" href="$class_my_s_d_l_1_1_text.html#a12ec5646949f10434e008fc4c79535a8" title=" " alt="" coords="739,351,899,377"/>
+<area shape="rect" id="node13" href="$class_my_s_d_l_1_1_text.html#a57383ad42325611f29c33b55f61ac53c" title=" " alt="" coords="727,401,910,428"/>
+<area shape="rect" id="node15" href="$class_my_s_d_l_1_1_text.html#aaaa1e9d976aeafba931ae343ed946d87" title=" " alt="" coords="708,233,929,260"/>
+<area shape="rect" id="node16" href="$class_my_s_d_l_1_1_button_1_1_a_button.html#afc4b207d21dba6667b5ce24819ec0564" title=" " alt="" coords="729,285,908,326"/>
+<area shape="rect" id="node18" href="$class_my_s_d_l_1_1_rectangle.html#ad2ca2341aaded255127c3750a8266fac" title=" " alt="" coords="721,132,916,159"/>
+<area shape="rect" id="node19" href="$class_my_s_d_l_1_1_text.html#a4bd4a75690a6c79b5866d31d25584f90" title=" " alt="" coords="737,183,901,209"/>
+<area shape="rect" id="node17" href="$class_my_s_d_l_1_1_button_1_1_a_button.html#aced3fdf0e36e20991c065bd9de1fcead" title=" " alt="" coords="987,285,1165,326"/>
+</map>

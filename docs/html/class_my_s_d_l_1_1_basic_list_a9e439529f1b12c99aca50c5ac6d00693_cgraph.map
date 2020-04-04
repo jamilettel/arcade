@@ -1,0 +1,13 @@
+<map id="MySDL::BasicList::drawElement" name="MySDL::BasicList::drawElement">
+<area shape="rect" id="node1" title=" " alt="" coords="5,132,232,159"/>
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_rectangle.html#ac9054b1bec24b427eebd7368023e5604" title=" " alt="" coords="280,5,500,32"/>
+<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_rectangle.html#a077421fb8fd365ac02b9a6b18f8c34d2" title=" " alt="" coords="289,56,491,83"/>
+<area shape="rect" id="node4" href="$class_my_s_d_l_1_1_window.html#ab17c4ab4132435adeb2a84882c4ee648" title=" " alt="" coords="307,107,473,133"/>
+<area shape="rect" id="node9" href="$class_my_s_d_l_1_1_text.html#a6589aa4c9a27f5482caf78cf4fe7dba7" title=" " alt="" coords="306,157,474,184"/>
+<area shape="rect" id="node10" href="$class_my_s_d_l_1_1_text.html#a12ec5646949f10434e008fc4c79535a8" title=" " alt="" coords="310,208,470,235"/>
+<area shape="rect" id="node11" href="$class_my_s_d_l_1_1_text.html#a57383ad42325611f29c33b55f61ac53c" title=" " alt="" coords="299,259,481,285"/>
+<area shape="rect" id="node5" href="$class_my_s_d_l_1_1_sprite.html#a06e66f434baa451d3a3bf971515e96af" title=" " alt="" coords="561,31,732,57"/>
+<area shape="rect" id="node6" href="$class_my_s_d_l_1_1_sprite.html#a29f151e6c329a4b55e8e99e00d2730b4" title=" " alt="" coords="551,81,742,108"/>
+<area shape="rect" id="node7" href="$class_my_s_d_l_1_1_sprite.html#a869c0b847f53cfb46cfb30d5b27f600f" title=" " alt="" coords="548,132,745,159"/>
+<area shape="rect" id="node8" href="$class_my_s_d_l_1_1_sprite.html#a0dabd05b78967dba5a2b779c8af91cdd" title=" " alt="" coords="559,183,735,209"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="MySDL::Button::AButton::update" name="MySDL::Button::AButton::update">
+<area shape="rect" id="node1" title=" " alt="" coords="469,100,648,141"/>
+<area shape="rect" id="node2" href="$class_my_s_d_l_1_1_basic_list.html#ad2fc44bdfb24fa27925626cb70b15205" title=" " alt="" coords="235,107,421,134"/>
+<area shape="rect" id="node3" href="$class_my_s_d_l_1_1_button_list.html#a15348afe7f5f420a3cf3076a37f7cd33" title=" " alt="" coords="21,5,171,47"/>
+<area shape="rect" id="node4" href="$classarc_1_1_game_over_scene.html#ae46c8635d42e0833952b8537de715fab" title=" " alt="" coords="17,71,175,112"/>
+<area shape="rect" id="node5" href="$classarc_1_1_game_scene.html#a104a5898c820105422883e9d2bed6f03" title=" " alt="" coords="5,137,187,163"/>
+<area shape="rect" id="node6" href="$classarc_1_1_main_menu_scene.html#a8ef931a2e3414da19afe89db094da5bd" title=" " alt="" coords="17,188,175,229"/>
+</map>
