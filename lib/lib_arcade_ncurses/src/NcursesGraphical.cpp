@@ -103,9 +103,16 @@ NcursesGraphical::~NcursesGraphical()
 
 void NcursesGraphical::display()
 {
+    int key_pressed;
     if (LINES < 50 || COLS < 150) {
         erase();
-        mvprintw((LINES / 2), (COLS / 2) - (21 / 2), "window size too small");
+        mvprintw((LINES / 2), (COLS / 2) - (21 / 2), "Window size too small\n");
+        mvprintw((LINES / 2 + 1), (COLS / 2) - (38 / 2), "Enlarge your window or press ESCAPE to Quit\n");
+        key_pressed = getch();
+        if (_equivalentKeys.count(key_pressed)) {
+            _keyPressed = _equivalentKeys.at(key_pressed);
+            _eventType = Event::Type::KEY_PRESSED;
+        }
         refresh();
     } else {
         checkEvents();
